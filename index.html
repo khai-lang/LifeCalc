@@ -32,14 +32,13 @@
             margin: 0;
             padding-left: 20px;
             font-size: 1.5em;
-            text-align: left; /* 타이틀을 왼쪽으로 정렬 */
+            text-align: left;
         }
 
-        /* 네비게이션 바 스타일 */
         nav {
             display: flex;
             justify-content: center;
-            padding: 1em;
+            align-items: center;
             background-color: #333;
         }
 
@@ -53,6 +52,30 @@
         nav a:hover {
             background-color: #ddd;
             color: black;
+        }
+
+        /* 모바일 환경에서 메뉴 네비게이션 바 */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                justify-content: flex-start;
+                background-color: #333;
+            }
+
+            nav a {
+                display: block;
+                padding: 10px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header h1 {
+                padding-left: 10px;
+                width: 100%;
+            }
         }
 
         main {
@@ -159,29 +182,10 @@
             margin-top: 20px;
         }
 
-        /* 모바일 환경에서의 레이아웃 조정 */
+        /* 모바일 환경에서 입력 창 화면에 맞게 조정 */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav a {
-                display: block;
-                padding: 10px;
-            }
-
             input {
-                width: 100%; /* 입력 창을 화면에 맞게 조정 */
-            }
-
-            .ad-space {
-                display: none;
-            }
-
-            main {
-                margin-top: 120px;
+                width: 100%;
             }
 
             .section {
@@ -195,13 +199,17 @@
             label, input, button {
                 font-size: 1.2em;
             }
+
+            .ad-space {
+                display: none;
+            }
+
+            main {
+                margin-top: 120px;
+            }
         }
 
         @media (max-width: 480px) {
-            header h1 {
-                padding-left: 10px;
-            }
-
             main {
                 margin-top: 120px;
                 padding: 0 10px;
@@ -225,16 +233,14 @@
 
 <header>
     <h1>만나이 계산기</h1>
+    <nav>
+        <a href="#calculator">만나이 계산기</a>
+        <a href="#definition">만나이 정의</a>
+        <a href="#difference">한국식 나이와 차이</a>
+        <a href="#example">계산 예시</a>
+        <a href="#law">법률 상 나이 규정</a>
+    </nav>
 </header>
-
-<!-- 네비게이션 바 -->
-<nav>
-    <a href="#calculator">만나이 계산기</a>
-    <a href="#definition">만나이 정의</a>
-    <a href="#difference">한국식 나이와 차이</a>
-    <a href="#example">계산 예시</a>
-    <a href="#law">법률 상 나이 규정</a>
-</nav>
 
 <!-- 사이드 광고 공간 -->
 <div class="ad-space ad-space-left">광고 공간</div>
@@ -254,23 +260,23 @@
         <div id="result" class="result"></div>
     </div>
 
-    <div id="definition" class="section" style="display: none;">
-        <h2>1. 만나이의 정의</h2>
+    <div id="definition" class="section">
+        <h2>만나이의 정의</h2>
         <p>만나이는 국제적으로 널리 사용되는 나이 계산 방식으로, 태어난 날을 기준으로 나이를 계산합니다. 이 방식은 한국식 나이 계산법과는 다르게 태어난 해를 기준으로 1살을 더하지 않으며, 생일이 지나야만 나이가 한 살 더해집니다. 이 때문에 보다 정확한 나이 계산이 가능합니다.</p>
         <p>예를 들어, 생일이 지나지 않았다면 아직 그 전 해의 나이로 유지되며, 생일이 지나야 새로운 나이를 적용할 수 있습니다.</p>
         <button onclick="showSection('calculator')" class="home-button">만나이 계산기로</button>
     </div>
 
-    <div id="difference" class="section" style="display: none;">
-        <h2>2. 한국식 나이와 만나이 차이</h2>
+    <div id="difference" class="section">
+        <h2>한국식 나이와 만나이 차이</h2>
         <p>한국식 나이는 태어난 해를 1살로 시작하고, 그 해가 지나면 자동으로 한 살이 더해집니다. 예를 들어, 12월에 태어난 아기도 그 해가 바뀌면 한국식으로는 2살이 됩니다.</p>
         <p>반면, 만나이는 태어난 날을 기준으로 0살부터 시작하고, 생일이 지나야 1살이 더해지기 때문에 생일이 지나기 전까지는 이전 나이를 유지합니다. 이는 특히 법적인 나이를 기준으로 중요한 차이를 만듭니다.</p>
         <p>이러한 차이점은 각 나라의 나이 계산 방식의 역사적 배경에 따라 다르며, 2023년 6월부터 한국에서도 만나이를 법적 나이로 채택하였습니다.</p>
         <button onclick="showSection('calculator')" class="home-button">만나이 계산기로</button>
     </div>
 
-    <div id="example" class="section" style="display: none;">
-        <h2>3. 만나이 계산 예시</h2>
+    <div id="example" class="section">
+        <h2>계산 예시</h2>
         <p>만나이 계산 예시는 다음과 같습니다. 예를 들어, 1990년 5월 10일에 태어난 사람이 있다고 가정해 봅시다:</p>
         <ul>
             <li>기준일이 2024년 10월 20일이라면, 생일이 이미 지났으므로 만나이는 34세입니다.</li>
@@ -280,8 +286,8 @@
         <button onclick="showSection('calculator')" class="home-button">만나이 계산기로</button>
     </div>
 
-    <div id="law" class="section" style="display: none;">
-        <h2>4. 한국 법률 상 나이 규정</h2>
+    <div id="law" class="section">
+        <h2>법률 상 나이 규정</h2>
         <p>한국 법률에서는 나이에 따라 권리와 의무가 부여됩니다. 예를 들어:</p>
         <ul>
             <li><strong>성인 연령:</strong> 만나이 19세가 되는 해부터 성인으로 간주되어 법적 권리와 의무가 부여됩니다. 성인은 투표권, 음주 및 흡연 권리 등을 갖게 됩니다.</li>
@@ -321,16 +327,7 @@
         document.getElementById('result').innerHTML = '';
     }
 
-    function showSection(sectionId) {
-        var sections = document.querySelectorAll('.section');
-        sections.forEach(function(section) {
-            section.style.display = 'none';
-        });
-        document.getElementById(sectionId).style.display = 'block';
-    }
-
     window.onload = function() {
-        showSection('calculator');
         document.getElementById('refdate').value = new Date().toISOString().split('T')[0]; // 기준일을 현재 날짜로 설정
     };
 </script>
