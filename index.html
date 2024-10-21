@@ -31,9 +31,8 @@
             background-color: #45a049;
             display: flex;
             justify-content: space-around;
-            flex-wrap: wrap;
             padding: 10px;
-            overflow: auto; /* 메뉴가 너무 길면 스크롤이 생기도록 함 */
+            flex-wrap: wrap;
         }
 
         nav button {
@@ -159,13 +158,14 @@
         /* 모바일 환경에서의 레이아웃 조정 */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                padding: 5px;
-                text-align: center;
+                flex-direction: row; /* 메뉴를 가로로 배치 */
+                overflow-x: auto; /* 메뉴가 가로로 스크롤되도록 설정 */
+                white-space: nowrap; /* 버튼들이 한 줄에 나열되도록 설정 */
             }
 
             nav button {
-                margin: 5px 0;
+                flex-shrink: 0; /* 버튼 크기가 줄어들지 않도록 설정 */
+                margin: 0 5px;
                 font-size: 1em;
             }
 
