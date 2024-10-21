@@ -55,15 +55,16 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            margin-top: 160px;
+            margin-top: 200px; /* 헤더 메뉴와의 간격을 더 넓게 조정 */
             padding: 0 20px;
             position: relative;
         }
 
+        /* 사이드 광고 공간 넓이를 더 넓게 조정 */
         .ad-space {
             position: fixed;
             top: 160px;
-            width: 160px;
+            width: 220px; /* 사이드바 너비 조정 */
             height: 600px;
             background-color: #ddd;
             text-align: center;
@@ -261,7 +262,7 @@
 
     <div id="difference" class="section" style="display: none;">
         <h2>2. 한국식 나이와 만나이 차이</h2>
-        <p>한국식 나이는 태어난 해를 1살로 시작하여, 해가 바뀔 때마다 자동으로 한 살이 더해집니다. 예를 들어, 12월에 태어난 아기도 그 해가 바뀌면 한국식으로는 2살이 됩니다.</p>
+        <p>한국식 나이는 태어난 해를 1살로 시작하고, 그 해가 지나면 자동으로 한 살이 더해집니다. 예를 들어, 12월에 태어난 아기도 그 해가 바뀌면 한국식으로는 2살이 됩니다.</p>
         <p>반면, 만나이는 태어난 날을 기준으로 0살부터 시작하고, 생일이 지나야 1살이 더해지기 때문에 생일이 지나기 전까지는 이전 나이를 유지합니다. 이는 특히 법적인 나이를 기준으로 중요한 차이를 만듭니다.</p>
         <p>이러한 차이점은 각 나라의 나이 계산 방식의 역사적 배경에 따라 다르며, 2023년 6월부터 한국에서도 만나이를 법적 나이로 채택하였습니다.</p>
         <button onclick="showSection('home')" class="home-button">홈으로 가기</button>
