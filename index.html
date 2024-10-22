@@ -190,6 +190,18 @@
                 -moz-appearance: none;
                 appearance: none;
                 width: 100%;
+                padding: 10px;
+                font-size: 1.2em;
+            }
+
+            input[type="date"]::-webkit-inner-spin-button,
+            input[type="date"]::-webkit-clear-button {
+                display: none;
+            }
+
+            input[type="date"]:focus {
+                outline: none;
+                border: 2px solid #ff6010; /* 포커스 시 테두리 색상 */
             }
 
             input {
@@ -208,28 +220,6 @@
                 font-size: 1.2em;
             }
         }
-        /* 모바일 환경에서 직접 입력만 가능하게 설정 */
-@media (max-width: 768px) {
-    input[type="date"] {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        width: 100%;
-        padding: 10px;
-        font-size: 1.2em;
-    }
-
-    input[type="date"]::-webkit-inner-spin-button,
-    input[type="date"]::-webkit-clear-button {
-        display: none;
-    }
-
-    input[type="date"]:focus {
-        outline: none;
-        border: 2px solid #ff6010; /* 포커스 시 테두리 색상 */
-    }
-}
-
 
         @media (max-width: 480px) {
             input {
