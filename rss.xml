@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+   <channel>
+      <title>Calculator Website</title>
+      <link>https://calculator.khaistory.com</link>
+      <description>This is the RSS feed for the Calculator website.</description>
+      <lastBuildDate>Tue, 22 Oct 2024 10:00:00 +0000</lastBuildDate>
+      <language>en-us</language>
+
+      <item>
+         <title>First Post</title>
+         <link>https://calculator.khaistory.com/first-post</link>
+         <description>Description of your first post.</description>
+         <pubDate>Tue, 22 Oct 2024 09:00:00 +0000</pubDate>
+         <guid>https://calculator.khaistory.com/first-post</guid>
+      </item>
+
+      <!-- 추가 게시물 여기에 추가 -->
+   </channel>
+</rss>
