@@ -235,6 +235,47 @@
     </style>
 </head>
 <body>        
+.ad-top {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.ad-left,
+.ad-right {
+    position: fixed;
+    top: 160px;
+    width: 160px;
+    height: auto;
+    background-color: #f4f4f4;
+}
+
+.ad-left {
+    left: 10px;
+}
+
+.ad-right {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .ad-left,
+    .ad-right {
+        display: none;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0 180px;
+    max-width: 1200px;
+    background-color: #f4f4f4;
+    font-size: 1.2em;
+}
+
       
 <header>
     <h1>만나이 계산기</h1>
