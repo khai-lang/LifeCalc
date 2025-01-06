@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="ko">    
 <head>
-    <meta name="google-site-verification" content="-swY_QQyhCiKA7pre7N8pMadBafMSOH4RhvJYIsMUgM" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
-     crossorigin="anonymous"></script>
-    <meta name="naver-site-verification" content="6633d1c8c8a00c5d38d070d46bc2c9e8d0cce9d3" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>만나이 계산기</title>
-    <meta name="description" content="생년월일을 입력하여 만나이를 손쉽게 계산할 수 있는 웹사이트입니다. 간단하고 정확한 나이 계산기를 지금 사용해보세요.">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            font-size: 1.2em;
         }
+
+        /* 광고 레이아웃 */
         .ad-side {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      width: 160px;
-      background-color: #f1f1f1;
-      overflow: hidden;
-      z-index: 1000;
-    }
-    .ad-left {
-      left: 0;
-    }
-    .ad-right {
-      right: 0;
-    }
-    .ad-top, .ad-bottom {
-      text-align: center;
-      margin: 10px 0;
-    }
-    .content {
-      margin: 0 170px; /* 양사이드 광고 공간 확보 */
-    }
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 160px;
+            background-color: #f1f1f1;
+            overflow: hidden;
+            z-index: 1000;
+        }
+        .ad-left {
+            left: 0;
+        }
+        .ad-right {
+            right: 0;
+        }
+        .ad-top {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .ad-bottom {
+            text-align: center;
+            margin: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            z-index: 1000;
+        }
+
+        .content {
+            margin: 0 180px; /* 양쪽 광고 공간 확보 */
+            padding: 20px;
+        }
         header {
             background-color: #004d80;
             color: white;
@@ -256,38 +264,33 @@
     </style>
 </head>
 <body>        
-<!-- 상단 광고 -->
-  <div class="ad-top">
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
+ <!-- 상단 광고 -->
+    <div class="ad-top">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-3758454239921831"
+            data-ad-slot="6897487089"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
 
-  <!-- 양사이드 광고 -->
-  <div class="ad-side ad-left">
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-  <div class="ad-side ad-right">
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
-  <!-- 페이지 콘텐츠 -->
-  <div class="content">
-    <h1>Age Calculator</h1>
-    <!-- 기존 콘텐츠 -->
-  </div>
-
-  <!-- 하단 광고 -->
-  <div class="ad-bottom">
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
+    <!-- 양쪽 사이드 광고 -->
+    <div class="ad-side ad-left">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-3758454239921831"
+            data-ad-slot="1234567890"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    <div class="ad-side ad-right">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-3758454239921831"
+            data-ad-slot="0987654321"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  
 body {
     font-family: Arial, sans-serif;
     margin: 0 auto;
@@ -296,8 +299,7 @@ body {
     background-color: #f4f4f4;
     font-size: 1.2em;
 }
-
-      
+     
 <header>
     <h1>만나이 계산기</h1>
     <div class="hamburger" onclick="toggleMenu()">
@@ -314,18 +316,6 @@ body {
     </nav>
 </header>
     
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
-     crossorigin="anonymous"></script>
-<!-- 수동광고(상단) -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3758454239921831"
-     data-ad-slot="6897487089"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>    
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
     
 <main>
     <div id="calculator" class="section active">
