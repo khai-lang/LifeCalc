@@ -40,7 +40,16 @@
       margin: 0 170px; /* 양사이드 광고 공간 확보 */
     }
 
-  
+    @media (max-width: 768px) {
+    .ad-side {
+        display: none; /* 모바일 환경에서 양사이드 광고 숨김 */
+    }
+
+    .content {
+        margin: 0; /* 광고 공간이 없어지므로 기본 마진 제거 */
+    }
+}
+
         header {
             background-color: #004d80;
             color: white;
