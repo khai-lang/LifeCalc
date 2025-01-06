@@ -17,7 +17,28 @@
             padding: 0;
             font-size: 1.2em;
         }
-
+        .ad-side {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 160px;
+      background-color: #f1f1f1;
+      overflow: hidden;
+      z-index: 1000;
+    }
+    .ad-left {
+      left: 0;
+    }
+    .ad-right {
+      right: 0;
+    }
+    .ad-top, .ad-bottom {
+      text-align: center;
+      margin: 10px 0;
+    }
+    .content {
+      margin: 0 170px; /* 양사이드 광고 공간 확보 */
+    }
         header {
             background-color: #004d80;
             color: white;
