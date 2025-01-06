@@ -256,37 +256,37 @@
     </style>
 </head>
 <body>        
-.ad-top {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    text-align: center;
-    background-color: #f4f4f4;
-}
+<!-- 상단 광고 -->
+  <div class="ad-top">
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
-.ad-left,
-.ad-right {
-    position: fixed;
-    top: 160px;
-    width: 160px;
-    height: auto;
-    background-color: #f4f4f4;
-}
+  <!-- 양사이드 광고 -->
+  <div class="ad-side ad-left">
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  <div class="ad-side ad-right">
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
-.ad-left {
-    left: 10px;
-}
+  <!-- 페이지 콘텐츠 -->
+  <div class="content">
+    <h1>Age Calculator</h1>
+    <!-- 기존 콘텐츠 -->
+  </div>
 
-.ad-right {
-    right: 10px;
-}
-
-@media (max-width: 768px) {
-    .ad-left,
-    .ad-right {
-        display: none;
-    }
-}
+  <!-- 하단 광고 -->
+  <div class="ad-bottom">
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
 body {
     font-family: Arial, sans-serif;
