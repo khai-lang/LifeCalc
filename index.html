@@ -11,6 +11,24 @@
     <meta name="description" content="생년월일을 입력하여 만나이를 손쉽게 계산할 수 있는 웹사이트입니다. 간단하고 정확한 나이 계산기를 지금 사용해보세요.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
+        window.onload = function() {
+    document.getElementById('refdate').value = new Date().toISOString().split('T')[0]; // 기준일을 현재 날짜로 설정
+    
+    // 생년월일 입력용 Flatpickr 설정
+    flatpickr("#birthdate", {
+        dateFormat: "Y-m-d",
+        locale: "ko",
+        disableMobile: true // 모바일에서도 Flatpickr 강제 사용
+    });
+
+    // 기준일 입력용 Flatpickr 설정
+    flatpickr("#refdate", {
+        dateFormat: "Y-m-d",
+        locale: "ko",
+        disableMobile: true // 모바일에서도 Flatpickr 강제 사용
+    });
+};
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
