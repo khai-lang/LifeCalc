@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>만나이 계산기</title>
     <meta name="description" content="생년월일을 입력하여 만나이를 손쉽게 계산할 수 있는 웹사이트입니다. 간단하고 정확한 나이 계산기를 지금 사용해보세요.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -217,44 +218,6 @@
             margin-top: 20px;
         }
 
-        /* 모바일 환경에서 직접 입력만 가능하게 설정 */
-        @media (max-width: 768px) {
-            input[type="date"] {
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-                width: 100%;
-                padding: 10px;
-                font-size: 1.2em;
-            }
-
-            input[type="date"]::-webkit-inner-spin-button,
-            input[type="date"]::-webkit-clear-button {
-                display: none;
-            }
-
-            input[type="date"]:focus {
-                outline: none;
-                border: 2px solid #ff6010; /* 포커스 시 테두리 색상 */
-            }
-
-            input {
-                width: 100%;
-            }
-
-            .section {
-                padding: 20px;
-            }
-
-            h2 {
-                font-size: 1.5em;
-            }
-
-            label, input, button {
-                font-size: 1.2em;
-            }
-        }
-
         @media (max-width: 480px) {
             input {
                 width: 100%;
@@ -392,6 +355,7 @@
     <p>&copy; 2024 만나이 계산기 | 모든 권리 보유</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     function calculateAge() {
         const birthdate = new Date(document.getElementById('birthdate').value);
@@ -435,8 +399,14 @@
 
     window.onload = function() {
         document.getElementById('refdate').value = new Date().toISOString().split('T')[0]; // 기준일을 현재 날짜로 설정
+        flatpickr("#birthdate", {
+            dateFormat: "Y-m-d",
+            locale: "ko"
+        });
+        flatpickr("#refdate", {
+            dateFormat: "Y-m-d",
+            locale: "ko"
+        });
     };
 </script>
 
-</body>
-</html>
