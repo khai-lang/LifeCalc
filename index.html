@@ -304,7 +304,7 @@
         <input type="date" id="birthdate" name="birthdate">
         <br><br>
         <label for="refdate">기준일:</label>
-        <input type="date" id="refdate" name="refdate">
+        <input type="text" id="refdate" placeholder="YYYY-MM-DD">
         <br><br>
         <button onclick="calculateAge()">만나이 계산하기</button>
         <button onclick="resetCalculator()">초기화</button>
@@ -380,6 +380,23 @@
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
+     window.onload = function () {
+            // 기준일 기본값을 오늘 날짜로 설정 (YYYY-MM-DD 형식으로)
+            document.getElementById('refdate').value = new Date().toISOString().split('T')[0];
+
+            // 모바일 환경 감지
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (!isMobile) {
+                // PC 환경에서만 Flatpickr 활성화
+                flatpickr("#birthdate", {
+                    dateFormat: "Y-m-d",
+                    locale: "ko",
+                    enableInput: true
+                });
+            }
+        };
+    
     function calculateAge() {
         const birthdate = new Date(document.getElementById('birthdate').value);
         const refdate = new Date(document.getElementById('refdate').value);
