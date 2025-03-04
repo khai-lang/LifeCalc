@@ -7,35 +7,17 @@
     <meta name="naver-site-verification" content="6633d1c8c8a00c5d38d070d46bc2c9e8d0cce9d3" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>만나이 계산기 - 정확한 만나이 변환 (출생일 기준)</title>
-    <meta name="description" content="생년월일을 입력하면 만나이를 자동으로 계산해주는 간편한 웹사이트입니다. 한국식 나이와 만나이 차이를 확인하세요!">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title>만나이 계산기</title>
+    <meta name="description" content="생년월일을 입력하여 만나이를 손쉽게 계산할 수 있는 웹사이트입니다. 간단하고 정확한 나이 계산기를 지금 사용해보세요.">
     <style>
-        window.onload = function() {
-    document.getElementById('refdate').value = new Date().toISOString().split('T')[0]; // 기준일을 현재 날짜로 설정
-    
-    // 생년월일 입력용 Flatpickr 설정
-    flatpickr("#birthdate", {
-        dateFormat: "Y-m-d",
-        locale: "ko",        
-    });
-
-    // 기준일 입력용 Flatpickr 설정
-    flatpickr("#refdate", {
-        dateFormat: "Y-m-d",
-        locale: "ko",        
-    });
-};
-
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        font-size: 1.2em;
-   }
-   .ad-side {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            font-size: 1.2em;
+        }
+        .ad-side {
       position: fixed;
       top: 0;
       bottom: 0;
@@ -54,20 +36,8 @@
       text-align: center;
       margin: 10px 0;
     }
-    .ad-top {
-    margin-bottom: 20px; /* 광고와 본문 사이 간격 추가 */
-    text-align: center;
-    }
-
     .content {
       margin: 0 170px; /* 양사이드 광고 공간 확보 */
-      padding: 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;   
     }
 
     @media (max-width: 768px) {
@@ -75,32 +45,23 @@
         display: none; /* 모바일 환경에서 양사이드 광고 숨김 */
     }
 
-     .ad-mobile {
-        display: block; /* 모바일에서는 본문 광고 활성화 */
-        text-align: center;
-        margin: 20px 0;
-    }
-        
     .content {
         margin: 0; /* 광고 공간이 없어지므로 기본 마진 제거 */
     }
 }
 
         header {
-             header {
-             background-color: #004d80;
-             color: white;
-             padding: 1em;
-             max-width: 1200px;
-             width: 100%;
-             margin: 0 auto;
-             position: relative; /* 기존 fixed 제거 */
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             margin-bottom: 10px; /* 광고와의 간격 조정 */
-}
-
+            background-color: #004d80;
+            color: white;
+            padding: 1em;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
         header h1 {
             margin: 0;
@@ -184,7 +145,7 @@
             }
         }
 
-        main{
+        main {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -256,6 +217,44 @@
             margin-top: 20px;
         }
 
+        /* 모바일 환경에서 직접 입력만 가능하게 설정 */
+        @media (max-width: 768px) {
+            input[type="date"] {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                width: 100%;
+                padding: 10px;
+                font-size: 1.2em;
+            }
+
+            input[type="date"]::-webkit-inner-spin-button,
+            input[type="date"]::-webkit-clear-button {
+                display: none;
+            }
+
+            input[type="date"]:focus {
+                outline: none;
+                border: 2px solid #ff6010; /* 포커스 시 테두리 색상 */
+            }
+
+            input {
+                width: 100%;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            label, input, button {
+                font-size: 1.2em;
+            }
+        }
+
         @media (max-width: 480px) {
             input {
                 width: 100%;
@@ -296,19 +295,6 @@
     </div>
   
 <header>
-    <!-- 헤더 아래 광고 -->
-    <div class="ad-top">
-        <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3758454239921831"
-         data-ad-slot="1234567890"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-        <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-
     <h1>만나이 계산기</h1>
     <div class="hamburger" onclick="toggleMenu()">
         <div></div>
@@ -326,55 +312,17 @@
     
     
 <main>
-    <div class="ad-mobile">
-    <ins class="adsbygoogle"
-         style="display:block;"
-         data-ad-client="ca-pub-3758454239921831"
-         data-ad-slot="1357924680"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-
     <div id="calculator" class="section active">
         <h2>만나이 계산하기</h2>
         <label for="birthdate">생년월일:</label>
         <input type="date" id="birthdate" name="birthdate">
         <br><br>
         <label for="refdate">기준일:</label>
-        <input type="text" id="refdate" placeholder="YYYY-MM-DD">
+        <input type="date" id="refdate" name="refdate">
         <br><br>
         <button onclick="calculateAge()">만나이 계산하기</button>
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-client="ca-pub-3758454239921831"
-             data-ad-slot="1234567890"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
         <button onclick="resetCalculator()">초기화</button>
-        <div id="result"></div>
-        <button onclick="shareResult()">결과 공유하기</button>
-        <script>
-            function shareResult() {
-                const url = window.location.href;
-                navigator.clipboard.writeText(url);
-                alert("링크가 복사되었습니다. 친구들에게 공유해 보세요!");
-           } 
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-client="ca-pub-3758454239921831"
-             data-ad-slot="0987654321"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-
+        <div id="result" class="result"></div>
     </div>
 
     <div id="definition" class="section">
@@ -444,55 +392,23 @@
     <p>&copy; 2024 만나이 계산기 | 모든 권리 보유</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-     window.onload = function () {
-    // 기준일 기본값을 오늘 날짜로 설정 (YYYY-MM-DD 형식)
-    document.getElementById('refdate').value = new Date().toISOString().split('T')[0];
+    function calculateAge() {
+        const birthdate = new Date(document.getElementById('birthdate').value);
+        const refdate = new Date(document.getElementById('refdate').value);
+        if (!birthdate || !refdate) {
+            document.getElementById('result').innerHTML = '생년월일과 기준일을 모두 입력해주세요.';
+            return;
+        }
+        let age = refdate.getFullYear() - birthdate.getFullYear();
+        const monthDiff = refdate.getMonth() - birthdate.getMonth();
 
-    // 모바일 환경 감지
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (monthDiff < 0 || (monthDiff === 0 && refdate.getDate() < birthdate.getDate())) {
+            age--;
+        }
 
-    if (!isMobile) {
-        // PC 환경에서만 Flatpickr 활성화
-        flatpickr("#birthdate", {
-            dateFormat: "Y-m-d",
-            locale: "ko",
-            enableInput: true
-        });
-    } else {
-        // 모바일에서는 type="number"로 변경
-        document.getElementById("birthdate").type = "number";
-        document.getElementById("birthdate").placeholder = "YYYYMMDD";
+        document.getElementById('result').innerHTML = `기준일 기준 만나이는 ${age}세입니다.`;
     }
-};
-
-function calculateAge() {
-    let birthdateInput = document.getElementById('birthdate').value;
-    let refdate = new Date(document.getElementById('refdate').value);
-
-    // 모바일에서 숫자로 입력받은 경우 변환 (YYYYMMDD → YYYY-MM-DD)
-    if (/^\d{8}$/.test(birthdateInput)) {
-        let formattedDate = `${birthdateInput.slice(0, 4)}-${birthdateInput.slice(4, 6)}-${birthdateInput.slice(6, 8)}`;
-        birthdateInput = formattedDate;
-    }
-
-    let birthdate = new Date(birthdateInput);
-    
-    if (!birthdate || !refdate) {
-        document.getElementById('result').innerHTML = '생년월일과 기준일을 모두 입력해주세요.';
-        return;
-    }
-
-    let age = refdate.getFullYear() - birthdate.getFullYear();
-    let monthDiff = refdate.getMonth() - birthdate.getMonth();
-
-    if (monthDiff < 0 || (monthDiff === 0 && refdate.getDate() < birthdate.getDate())) {
-        age--;
-    }
-
-    document.getElementById('result').innerHTML = `기준일 기준 만나이는 ${age}세입니다.`;
-}
 
     function resetCalculator() {
         document.getElementById('birthdate').value = '';
@@ -519,14 +435,8 @@ function calculateAge() {
 
     window.onload = function() {
         document.getElementById('refdate').value = new Date().toISOString().split('T')[0]; // 기준일을 현재 날짜로 설정
-        flatpickr("#birthdate", {
-            dateFormat: "Y-m-d",
-            locale: "ko"
-        });
-        flatpickr("#refdate", {
-            dateFormat: "Y-m-d",
-            locale: "ko"
-        });
     };
 </script>
 
+</body>
+</html>
