@@ -54,6 +54,11 @@
       text-align: center;
       margin: 10px 0;
     }
+    .ad-top {
+    margin-bottom: 20px; /* 광고와 본문 사이 간격 추가 */
+    text-align: center;
+    }
+
     .content {
       margin: 0 170px; /* 양사이드 광고 공간 확보 */
       padding: 20px;
@@ -82,20 +87,20 @@
 }
 
         header {
+             header {
              background-color: #004d80;
              color: white;
              padding: 1em;
-             max-width: 1200px; /* 본문과 동일한 크기로 맞춤 */
+             max-width: 1200px;
              width: 100%;
-             margin: 0 auto; /* 가운데 정렬 */
-             position: fixed;
-             left: 0;
-             right: 0;
-             z-index: 1000;
+             margin: 0 auto;
+             position: relative; /* 기존 fixed 제거 */
              display: flex;
              justify-content: space-between;
              align-items: center;
-        }
+             margin-bottom: 10px; /* 광고와의 간격 조정 */
+}
+
 
         header h1 {
             margin: 0;
@@ -291,6 +296,19 @@
     </div>
   
 <header>
+    <!-- 헤더 아래 광고 -->
+    <div class="ad-top">
+        <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3758454239921831"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+        <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
     <h1>만나이 계산기</h1>
     <div class="hamburger" onclick="toggleMenu()">
         <div></div>
