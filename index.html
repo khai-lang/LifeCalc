@@ -357,7 +357,14 @@
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
         <button onclick="resetCalculator()">초기화</button>
-        <div id="result" class="result"></div>
+        <div id="result"></div>
+        <button onclick="shareResult()">결과 공유하기</button>
+        <script>
+            function shareResult() {
+                const url = window.location.href;
+                navigator.clipboard.writeText(url);
+                alert("링크가 복사되었습니다. 친구들에게 공유해 보세요!");
+           } 
         <ins class="adsbygoogle"
              style="display:block; text-align:center;"
              data-ad-client="ca-pub-3758454239921831"
