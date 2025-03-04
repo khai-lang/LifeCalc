@@ -75,17 +75,19 @@
 }
 
         header {
-            background-color: #004d80;
-            color: white;
-            padding: 1em;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            max-width: 1200px; /* 본문 크기와 동일하게 설정 */
-            margin: 0 auto; /* 가운데 정렬 */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+             background-color: #004d80;
+             color: white;
+             padding: 1em;
+             max-width: 1200px; /* 본문과 동일한 크기로 맞춤 */
+             width: 100%;
+             margin: 0 auto; /* 가운데 정렬 */
+             position: fixed;
+             left: 0;
+             right: 0;
+             z-index: 1000;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
         }
 
         header h1 {
@@ -382,38 +384,52 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
      window.onload = function () {
-            // 기준일 기본값을 오늘 날짜로 설정 (YYYY-MM-DD 형식으로)
-            document.getElementById('refdate').value = new Date().toISOString().split('T')[0];
+    // 기준일 기본값을 오늘 날짜로 설정 (YYYY-MM-DD 형식)
+    document.getElementById('refdate').value = new Date().toISOString().split('T')[0];
 
-            // 모바일 환경 감지
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    // 모바일 환경 감지
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-            if (!isMobile) {
-                // PC 환경에서만 Flatpickr 활성화
-                flatpickr("#birthdate", {
-                    dateFormat: "Y-m-d",
-                    locale: "ko",
-                    enableInput: true
-                });
-            }
-        };
-    
-    function calculateAge() {
-        const birthdate = new Date(document.getElementById('birthdate').value);
-        const refdate = new Date(document.getElementById('refdate').value);
-        if (!birthdate || !refdate) {
-            document.getElementById('result').innerHTML = '생년월일과 기준일을 모두 입력해주세요.';
-            return;
-        }
-        let age = refdate.getFullYear() - birthdate.getFullYear();
-        const monthDiff = refdate.getMonth() - birthdate.getMonth();
-
-        if (monthDiff < 0 || (monthDiff === 0 && refdate.getDate() < birthdate.getDate())) {
-            age--;
-        }
-
-        document.getElementById('result').innerHTML = `기준일 기준 만나이는 ${age}세입니다.`;
+    if (!isMobile) {
+        // PC 환경에서만 Flatpickr 활성화
+        flatpickr("#birthdate", {
+            dateFormat: "Y-m-d",
+            locale: "ko",
+            enableInput: true
+        });
+    } else {
+        // 모바일에서는 type="number"로 변경
+        document.getElementById("birthdate").type = "number";
+        document.getElementById("birthdate").placeholder = "YYYYMMDD";
     }
+};
+
+function calculateAge() {
+    let birthdateInput = document.getElementById('birthdate').value;
+    let refdate = new Date(document.getElementById('refdate').value);
+
+    // 모바일에서 숫자로 입력받은 경우 변환 (YYYYMMDD → YYYY-MM-DD)
+    if (/^\d{8}$/.test(birthdateInput)) {
+        let formattedDate = `${birthdateInput.slice(0, 4)}-${birthdateInput.slice(4, 6)}-${birthdateInput.slice(6, 8)}`;
+        birthdateInput = formattedDate;
+    }
+
+    let birthdate = new Date(birthdateInput);
+    
+    if (!birthdate || !refdate) {
+        document.getElementById('result').innerHTML = '생년월일과 기준일을 모두 입력해주세요.';
+        return;
+    }
+
+    let age = refdate.getFullYear() - birthdate.getFullYear();
+    let monthDiff = refdate.getMonth() - birthdate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && refdate.getDate() < birthdate.getDate())) {
+        age--;
+    }
+
+    document.getElementById('result').innerHTML = `기준일 기준 만나이는 ${age}세입니다.`;
+}
 
     function resetCalculator() {
         document.getElementById('birthdate').value = '';
