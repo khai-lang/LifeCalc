@@ -413,6 +413,64 @@
     <p>이 외에도 다양한 법적 제한이 만나이를 기준으로 적용됩니다.</p>
         </p>
     </div>
+    <div id="mentalage" class="section">
+  <h2>나의 정신연령 테스트</h2>
+  <form id="mentalAgeForm" onsubmit="return calcMentalAge();">
+    <p>Q1. 주말에 주로 하는 일은?</p>
+    <label><input type="radio" name="q1" value="1"> 집에서 쉰다</label><br>
+    <label><input type="radio" name="q1" value="2"> 친구와 논다</label><br>
+    <label><input type="radio" name="q1" value="3"> 새로운 취미를 한다</label><br><br>
+
+    <p>Q2. 좋아하는 음식은?</p>
+    <label><input type="radio" name="q2" value="1"> 햄버거/피자</label><br>
+    <label><input type="radio" name="q2" value="2"> 한식/집밥</label><br>
+    <label><input type="radio" name="q2" value="3"> 건강식/샐러드</label><br><br>
+
+    <p>Q3. 새로운 일을 시작할 때 나는?</p>
+    <label><input type="radio" name="q3" value="1"> 바로 도전한다</label><br>
+    <label><input type="radio" name="q3" value="2"> 고민하다가 해본다</label><br>
+    <label><input type="radio" name="q3" value="3"> 신중하게 계획부터 세운다</label><br><br>
+
+    <p>Q4. 친구와의 약속이 취소되면?</p>
+    <label><input type="radio" name="q4" value="1"> 아쉽지만 금방 잊는다</label><br>
+    <label><input type="radio" name="q4" value="2"> 혼자만의 시간을 즐긴다</label><br>
+    <label><input type="radio" name="q4" value="3"> 미리 계획한 일이 틀어져서 속상하다</label><br><br>
+
+    <p>Q5. 가장 끌리는 여행지는?</p>
+    <label><input type="radio" name="q5" value="1"> 놀이공원, 테마파크</label><br>
+    <label><input type="radio" name="q5" value="2"> 유명 관광지, 도시</label><br>
+    <label><input type="radio" name="q5" value="3"> 자연, 휴양지</label><br><br>
+
+    <p>Q6. 아침에 일어나면 가장 먼저 하는 일은?</p>
+    <label><input type="radio" name="q6" value="1"> 휴대폰 확인</label><br>
+    <label><input type="radio" name="q6" value="2"> 물 마시기/세수하기</label><br>
+    <label><input type="radio" name="q6" value="3"> 스트레칭/운동</label><br><br>
+
+    <p>Q7. 스트레스를 받을 때 나는?</p>
+    <label><input type="radio" name="q7" value="1"> 먹거나 잔다</label><br>
+    <label><input type="radio" name="q7" value="2"> 친구에게 털어놓는다</label><br>
+    <label><input type="radio" name="q7" value="3"> 혼자 조용히 생각한다</label><br><br>
+
+    <p>Q8. 영화나 드라마를 볼 때 선호하는 장르는?</p>
+    <label><input type="radio" name="q8" value="1"> 코미디/로맨스</label><br>
+    <label><input type="radio" name="q8" value="2"> 액션/스릴러</label><br>
+    <label><input type="radio" name="q8" value="3"> 다큐/예술/힐링</label><br><br>
+
+    <p>Q9. 평소에 돈을 쓰는 스타일은?</p>
+    <label><input type="radio" name="q9" value="1"> 사고 싶은 건 바로 산다</label><br>
+    <label><input type="radio" name="q9" value="2"> 고민하다가 산다</label><br>
+    <label><input type="radio" name="q9" value="3"> 꼭 필요할 때만 쓴다</label><br><br>
+
+    <p>Q10. 미래에 대한 생각은?</p>
+    <label><input type="radio" name="q10" value="1"> 그때그때 생각한다</label><br>
+    <label><input type="radio" name="q10" value="2"> 목표를 세우고 준비한다</label><br>
+    <label><input type="radio" name="q10" value="3"> 미리미리 계획하고 대비한다</label><br><br>
+
+    <button type="submit">정신연령 계산하기</button>
+  </form>
+  <div id="mentalAgeResult" class="result" style="margin-top:20px; font-weight:bold;"></div>
+</div>
+
 </main>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
@@ -488,6 +546,29 @@ document.addEventListener('click', function(e) {
     if(dd) dd.style.display = "none";
   }
 });
+   function calcMentalAge() {
+    let score = 0;
+    for (let i = 1; i <= 10; i++) {
+        const answer = document.querySelector('input[name="q'+i+'"]:checked');
+        if (!answer) {
+            document.getElementById('mentalAgeResult').innerText = "모든 질문에 답해주세요!";
+            return false;
+        }
+        score += parseInt(answer.value);
+    }
+
+    let result = "";
+    if (score <= 14) {
+        result = "당신의 정신연령은 10대! 순수하고 자유로운 영혼을 가지고 있군요.";
+    } else if (score <= 22) {
+        result = "당신의 정신연령은 20~30대! 열정과 성숙함이 공존합니다.";
+    } else {
+        result = "당신의 정신연령은 40대 이상! 신중하고 깊이 있는 사고방식을 가졌어요.";
+    }
+
+    document.getElementById('mentalAgeResult').innerText = result;
+    return false;
+} 
 </script>
 
 </body>
