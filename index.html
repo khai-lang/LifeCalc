@@ -498,20 +498,19 @@
 <div id="zodiac" class="section">
   <h2>운세/별자리/띠 계산기</h2>
   <form id="zodiacForm" onsubmit="return calcZodiac();">
-    <label>
-      생년월일을 입력하세요:
-      <input type="date" id="zodiacDate" required style="width:180px;">
-    </label>
-    <label style="margin-left:16px;">
-      <input type="radio" name="calendarType" value="solar" checked> 양력
-    </label>
-    <label style="margin-left:10px;">
-      <input type="radio" name="calendarType" value="lunar"> 음력
-    </label>
-    <button type="submit" style="margin-left:16px;">결과 보기</button>
-  </form>
-  <div id="zodiacResult" class="result" style="margin-top:20px; font-weight:bold;"></div>
-</div>
+  <label>
+    생년월일:
+    <input type="date" id="zodiacDate" required style="width:170px;">
+  </label>
+  <label style="margin-left:16px;">
+    <input type="radio" name="calendarType" value="solar" checked> 양력
+  </label>
+  <label style="margin-left:10px;">
+    <input type="radio" name="calendarType" value="lunar"> 음력
+  </label>
+  <button type="submit" style="margin-left:16px;">결과 보기</button>
+</form>
+<div id="zodiacResult" class="result" style="margin-top:20px; font-weight:bold;"></div>
 
 
 </main>
@@ -629,6 +628,18 @@ function calcMentalAge() {
           "※ 음력 기능은 추후 지원 예정입니다.<br>현재는 양력만 지원합니다.";
         return false;
     }
+    const date = new Date(dateInput);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    // 띠/별자리/운세 계산 (생략)
+    document.getElementById('zodiacResult').innerHTML =
+        `<span>띠: <b>${animal}띠</b></span><br>
+         <span>별자리: <b>${sign}</b></span><br>
+         <span>오늘의 운세: <b>${fortune}</b></span>`;
+    return false;
+}
+
     const date = new Date(dateInput);
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
