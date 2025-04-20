@@ -471,6 +471,18 @@
   <div id="mentalAgeResult" class="result" style="margin-top:20px; font-weight:bold;"></div>
 </div>
 
+    <div id="zodiac" class="section">
+  <h2>운세/별자리/띠 계산기</h2>
+  <form id="zodiacForm" onsubmit="return calcZodiac();">
+    <label>생년월일을 입력하세요:
+      <input type="date" id="zodiacDate" required>
+    </label>
+    <button type="submit">결과 보기</button>
+  </form>
+  <div id="zodiacResult" class="result" style="margin-top:20px; font-weight:bold;"></div>
+</div>
+
+
 </main>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
@@ -546,7 +558,9 @@ document.addEventListener('click', function(e) {
     if(dd) dd.style.display = "none";
   }
 });
-   function calcMentalAge() {
+</script>
+   <script>
+function calcMentalAge() {
     let score = 0;
     for (let i = 1; i <= 10; i++) {
         const answer = document.querySelector('input[name="q'+i+'"]:checked');
@@ -568,8 +582,96 @@ document.addEventListener('click', function(e) {
 
     document.getElementById('mentalAgeResult').innerText = result;
     return false;
-} 
+}
+</script>
+    <script>
+function calcZodiac() {
+    const dateInput = document.getElementById('zodiacDate').value;
+    if (!dateInput) {
+        document.getElementById('zodiacResult').innerText = "생년월일을 입력하세요.";
+        return false;
+    }
+    const date = new Date(dateInput);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    // 12간지 띠 계산
+    const zodiacAnimals = ["원숭이", "닭", "개", "돼지", "쥐", "소", "호랑이", "토끼", "용", "뱀", "말", "양"];
+    const zodiacIndex = year % 12;
+    const animal = zodiacAnimals[zodiacIndex];
+
+    // 별자리 계산
+    const zodiacSigns = [
+        {sign: "물병자리", from: [1, 20], to: [2, 18]},
+        {sign: "물고기자리", from: [2, 19], to: [3, 20]},
+        {sign: "양자리", from: [3, 21], to: [4, 19]},
+        {sign: "황소자리", from: [4, 20], to: [5, 20]},
+        {sign: "쌍둥이자리", from: [5, 21], to: [6, 21]},
+        {sign: "게자리", from: [6, 22], to: [7, 22]},
+        {sign: "사자자리", from: [7, 23], to: [8, 22]},
+        {sign: "처녀자리", from: [8, 23], to: [9, 23]},
+        {sign: "천칭자리", from: [9, 24], to: [10, 22]},
+        {sign: "전갈자리", from: [10, 23], to: [11, 22]},
+        {sign: "사수자리", from: [11, 23], to: [12, 24]},
+        {sign: "염소자리", from: [12, 25], to: [1, 19]}
+    ];
+    let sign = "";
+    for (let i = 0; i < zodiacSigns.length; i++) {
+        const {sign: s, from, to} = zodiacSigns[i];
+        if (
+            (month === from[0] && day >= from[1]) ||
+            (month === to[0] && day <= to[1])
+        ) {
+            sign = s;
+            break;
+        }
+    }
+
+    // 오늘의 운세(랜덤 메시지, 실제 운세 API는 과금 또는 크롤링 필요)
+    const fortunes = [
+  "오늘은 새로운 기회가 찾아올 수 있습니다.",
+  "작은 행운이 따르는 하루가 될 거예요.",
+  "주변 사람들과의 관계에 신경 써보세요.",
+  "기분 좋은 소식이 들릴 수 있습니다.",
+  "자신감을 가지고 도전해보세요!",
+  "오늘은 평소보다 더 집중력이 높아집니다.",
+  "오래된 친구에게 연락해보면 좋은 일이 생깁니다.",
+  "작은 실수는 금방 만회할 수 있습니다.",
+  "긍정적인 생각이 행운을 부릅니다.",
+  "새로운 취미를 시작하기에 좋은 날입니다.",
+  "금전운이 상승하는 하루입니다.",
+  "건강을 위해 가벼운 운동을 해보세요.",
+  "오늘은 중요한 결정을 미루는 것이 좋습니다.",
+  "가족과의 대화에서 좋은 아이디어가 나올 수 있습니다.",
+  "뜻밖의 만남이 행운을 가져다줄 수 있습니다.",
+  "노력한 만큼 결과가 따라오는 날입니다.",
+  "마음의 여유를 가지면 더 큰 성취를 이룰 수 있습니다.",
+  "평소보다 감정 기복이 있을 수 있으니 주의하세요.",
+  "새로운 사람과의 인연이 시작될 수 있습니다.",
+  "오늘은 자기계발을 위한 공부에 집중해보세요.",
+  "작은 선행이 큰 복으로 돌아옵니다.",
+  "계획했던 일이 순조롭게 진행됩니다.",
+  "오랜 고민이 해결되는 계기가 생깁니다.",
+  "오늘은 자신을 위한 선물을 해보세요.",
+  "불필요한 지출을 줄이면 금전운이 좋아집니다.",
+  "주변의 조언을 귀 기울여 들어보세요.",
+  "오늘은 휴식이 필요한 날입니다. 무리하지 마세요.",
+  "창의력이 높아져 새로운 아이디어가 떠오릅니다.",
+  "작은 변화가 큰 행운을 가져올 수 있습니다.",
+  "웃음이 많은 하루가 될 것입니다. 밝은 에너지를 나누세요."
+];
+
+    const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+
+    document.getElementById('zodiacResult').innerHTML =
+        `<span>띠: <b>${animal}띠</b></span><br>
+         <span>별자리: <b>${sign}</b></span><br>
+         <span>오늘의 운세: <b>${fortune}</b></span>`;
+    return false;
+}
 </script>
 
+ 
 </body>
 </html>
