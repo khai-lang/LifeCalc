@@ -627,20 +627,7 @@ function calcMentalAge() {
     const date = new Date(dateInput);
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
-    const day = date.getDate();
-    // 띠/별자리/운세 계산 (생략)
-    document.getElementById('zodiacResult').innerHTML =
-        `<span>띠: <b>${animal}띠</b></span><br>
-         <span>별자리: <b>${sign}</b></span><br>
-         <span>오늘의 운세: <b>${fortune}</b></span>`;
-    return false;
-}
-
-    const date = new Date(dateInput);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-
+    const day = date.getDate();     
     // 띠
     const zodiacAnimals = ["원숭이", "닭", "개", "돼지", "쥐", "소", "호랑이", "토끼", "용", "뱀", "말", "양"];
     const zodiacIndex = year % 12;
@@ -714,12 +701,7 @@ function calcMentalAge() {
          <span>오늘의 운세: <b>${fortune}</b></span>`;
     return false;
 }
-      if (calendarType === "lunar") {
-    document.getElementById('zodiacResult').innerHTML =
-      "※ 음력 기능은 추후 지원 예정입니다.<br>현재는 양력만 지원합니다.";
-    return false;
-}
-  
+      
       </script>  
         
  
