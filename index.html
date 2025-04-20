@@ -495,26 +495,21 @@
 <div id="zodiac" class="section">
   <h2>운세/별자리/띠 계산기</h2>
   <form id="zodiacForm" onsubmit="return calcZodiac();">
-  <label>
-    입력하세요:
-    <input type="text" id="yearInput" maxlength="4" size="4" required placeholder="YYYY">
-    년
-    <input type="text" id="monthInput" maxlength="2" size="2" required placeholder="MM">
-    월
-    <input type="text" id="dayInput" maxlength="2" size="2" required placeholder="DD">
-    일
-  </label>
-  <label style="margin-left:16px;">
-    <input type="radio" name="calendarType" value="solar" checked> 양력
-  </label>
-  <label style="margin-left:10px;">
-    <input type="radio" name="calendarType" value="lunar"> 음력
-  </label>
-  <button type="submit" style="margin-left:10px;">결과 보기</button>
-</form>
-
+    <label>
+      생년월일을 입력하세요:
+      <input type="date" id="zodiacDate" required style="width:180px;">
+    </label>
+    <label style="margin-left:16px;">
+      <input type="radio" name="calendarType" value="solar" checked> 양력
+    </label>
+    <label style="margin-left:10px;">
+      <input type="radio" name="calendarType" value="lunar"> 음력
+    </label>
+    <button type="submit" style="margin-left:16px;">결과 보기</button>
+  </form>
   <div id="zodiacResult" class="result" style="margin-top:20px; font-weight:bold;"></div>
 </div>
+
 
 </main>
 
@@ -709,6 +704,12 @@ function calcMentalAge() {
          <span>오늘의 운세: <b>${fortune}</b></span>`;
     return false;
 }
+      if (calendarType === "lunar") {
+    document.getElementById('zodiacResult').innerHTML =
+      "※ 음력 기능은 추후 지원 예정입니다.<br>현재는 양력만 지원합니다.";
+    return false;
+}
+  
       </script>  
         
  
