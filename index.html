@@ -356,47 +356,17 @@
         <a href="#difference" onclick="showSection('difference')">한국식 나이와 차이</a>
         <a href="#example" onclick="showSection('example')">계산 예시</a>
         <a href="#law" onclick="showSection('law')">법률 상 나이 규정</a>
-     </nav>  
-    
-     <style>
-/* 드롭다운 메뉴 스타일 */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: #fff;
-  min-width: 180px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 1001;
-}
-.dropdown-content a {
-  color: #333;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-.dropdown-content a:hover {
-  background: #eee;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-</style>
-
-<!-- nav 메뉴 안에 추가 -->
-<div class="dropdown">
-  <a href="#">트렌드 도구 ▼</a>
-  <div class="dropdown-content">
-    <a href="#mentalage" onclick="showSection('mentalage')">정신연령 테스트</a>
-    <a href="#zodiac" onclick="showSection('zodiac')">운세/별자리/띠</a>
-    <a href="#anniversary" onclick="showSection('anniversary')">기념일/날짜 계산</a>
-    <a href="#viralquiz" onclick="showSection('viralquiz')">바이럴 퀴즈</a>
-  </div>
-</div>
-       
+     <!-- 트렌드 도구 드롭다운 추가 -->
+    <div class="dropdown" style="display:inline-block; position:relative;">
+      <a href="#" onclick="event.preventDefault();toggleDropdown();">트렌드 도구 ▼</a>
+      <div id="trendDropdown" class="dropdown-content" style="display:none; position:absolute; background:#fff; min-width:180px; box-shadow:0 8px 16px rgba(0,0,0,0.2); z-index:1001;">
+        <a href="#mentalage" onclick="showSection('mentalage');closeDropdown();">정신연령 테스트</a>
+        <a href="#zodiac" onclick="showSection('zodiac');closeDropdown();">운세/별자리/띠</a>
+        <a href="#anniversary" onclick="showSection('anniversary');closeDropdown();">기념일/날짜 계산</a>
+        <a href="#viralquiz" onclick="showSection('viralquiz');closeDropdown();">바이럴 퀴즈</a>
+      </div>
+    </div>
+</nav>      
    
 </header>
     
