@@ -291,6 +291,27 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+     /* 운세/별자리/띠 계산기 입력란 크기 조정 */
+#zodiacForm input[type="text"] {
+  width: 70px;
+  font-size: 1em;
+  padding: 4px 6px;
+  margin-right: 4px;
+  box-sizing: border-box;
+}
+#zodiacForm label {
+  font-size: 1em;
+  margin-right: 8px;
+}
+#zodiacForm button {
+  font-size: 1em;
+  padding: 4px 12px;
+  margin-left: 10px;
+}
+        #zodiacForm input[type="radio"] {
+  vertical-align: middle;
+  margin-right: 4px;
+}
 
     </style>
 </head>
@@ -470,27 +491,30 @@
   </form>
   <div id="mentalAgeResult" class="result" style="margin-top:20px; font-weight:bold;"></div>
 </div>
-
-    <form id="zodiacForm" onsubmit="return calcZodiacCustom();">
+    
+<div id="zodiac" class="section">
+  <h2>운세/별자리/띠 계산기</h2>
+  <form id="zodiacForm" onsubmit="return calcZodiac();">
   <label>
-    생년월일을 입력하세요:
-    <input type="text" id="yearInput" maxlength="4" size="4" pattern="\d{4}" required placeholder="YYYY"
-      oninput="if(this.value.length==4) document.getElementById('monthInput').focus();">
+    입력하세요:
+    <input type="text" id="yearInput" maxlength="4" size="4" required placeholder="YYYY">
     년
-    <input type="text" id="monthInput" maxlength="2" size="2" pattern="^(0[1-9]|1[0-2])$" required placeholder="MM"
-      oninput="if(this.value.length==2) document.getElementById('dayInput').focus();">
+    <input type="text" id="monthInput" maxlength="2" size="2" required placeholder="MM">
     월
-    <input type="text" id="dayInput" maxlength="2" size="2" pattern="^(0[1-9]|[12][0-9]|3[01])$" required placeholder="DD">
+    <input type="text" id="dayInput" maxlength="2" size="2" required placeholder="DD">
     일
   </label>
   <label style="margin-left:16px;">
     <input type="radio" name="calendarType" value="solar" checked> 양력
+  </label>
+  <label style="margin-left:10px;">
     <input type="radio" name="calendarType" value="lunar"> 음력
   </label>
-  <button type="submit">결과 보기</button>
+  <button type="submit" style="margin-left:10px;">결과 보기</button>
 </form>
-<div id="zodiacResult" class="result" style="margin-top:20px; font-weight:bold;"></div>
 
+  <div id="zodiacResult" class="result" style="margin-top:20px; font-weight:bold;"></div>
+</div>
 
 </main>
 
@@ -593,35 +617,28 @@ function calcMentalAge() {
     return false;
 }
 </script>
+    
     <script>
-   function calcZodiacCustom() {
-    const year = document.getElementById('yearInput').value;
-    const month = document.getElementById('monthInput').value;
-    const day = document.getElementById('dayInput').value;
+   function calcZodiac() {
+    const dateInput = document.getElementById('zodiacDate').value;
     const calendarType = document.querySelector('input[name="calendarType"]:checked').value;
-
-    // 입력값 검증
-    if (!/^\d{4}$/.test(year) || !/^(0[1-9]|1[0-2])$/.test(month) || !/^(0[1-9]|[12][0-9]|3[01])$/.test(day)) {
-        document.getElementById('zodiacResult').innerText = "생년월일을 올바르게 입력하세요.";
+    if (!dateInput) {
+        document.getElementById('zodiacResult').innerText = "생년월일을 입력하세요.";
         return false;
     }
-
-    // 음력 변환 안내 (실제 변환은 별도 API 필요)
     if (calendarType === "lunar") {
         document.getElementById('zodiacResult').innerHTML =
-          "※ 음력 기능은 추후 지원 예정입니다.<br>현재는 양력만 지원합니다.<br>입력하신 날짜: " +
-          `${year}-${month}-${day} (음력)`;
+          "※ 음력 기능은 추후 지원 예정입니다.<br>현재는 양력만 지원합니다.";
         return false;
     }
-
-    // 양력(띠/별자리/운세 계산)
-    const y = parseInt(year, 10);
-    const m = parseInt(month, 10);
-    const d = parseInt(day, 10);
+    const date = new Date(dateInput);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
 
     // 띠
     const zodiacAnimals = ["원숭이", "닭", "개", "돼지", "쥐", "소", "호랑이", "토끼", "용", "뱀", "말", "양"];
-    const zodiacIndex = y % 12;
+    const zodiacIndex = year % 12;
     const animal = zodiacAnimals[zodiacIndex];
 
     // 별자리
@@ -643,8 +660,8 @@ function calcMentalAge() {
     for (let i = 0; i < zodiacSigns.length; i++) {
         const {sign: s, from, to} = zodiacSigns[i];
         if (
-            (m === from[0] && d >= from[1]) ||
-            (m === to[0] && d <= to[1])
+            (month === from[0] && day >= from[1]) ||
+            (month === to[0] && day <= to[1])
         ) {
             sign = s;
             break;
