@@ -476,6 +476,97 @@ input[type="radio"] {
   font-size: 1.2em;
   color: #ff6010;
 }
+/* 헤더 전체 조정 */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background-color: #004b84; /* 메뉴바 배경색 */
+  position: relative;
+  z-index: 1000;
+}
+
+/* 로고 이미지 반응형 */
+header img {
+  height: 40px;
+  max-width: 100%;
+}
+
+/* 햄버거 메뉴 버튼 */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* 네비게이션 기본값 (PC 기준) */
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+/* 모바일용 메뉴 숨기기 */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #004b84;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+  }
+}
+<header>
+  <img src="/images/logo.png" alt="LifeCalc 로고">
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav>
+    <ul id="menuList">
+      <li><a href="#">만나이 계산기</a></li>
+      <li><a href="#">트렌드 도구</a></li>
+      <li><a href="#">법률 상 나이 규정</a></li>
+    </ul>
+  </nav>
+</header>
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('menuList');
+  menu.classList.toggle('show');
+}
+</script>
+
+
+
 
     </style>
 </head>
@@ -777,31 +868,43 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
-   <script>
+  <script>
 function calcMentalAge() {
-    let score = 0;
-    for (let i = 1; i <= 10; i++) {
-        const answer = document.querySelector('input[name="q'+i+'"]:checked');
-        if (!answer) {
-            document.getElementById('mentalAgeResult').innerText = "모든 질문에 답해주세요!";
-            return false;
-        }
-        score += parseInt(answer.value);
+  let totalScore = 0;
+  for (let i = 1; i <= 10; i++) {
+    const options = document.getElementsByName("q" + i);
+    for (const option of options) {
+      if (option.checked) {
+        totalScore += parseInt(option.value);
+        break;
+      }
     }
+  }
 
-    let result = "";
-    if (score <= 14) {
-        result = "당신의 정신연령은 10대! 순수하고 자유로운 영혼을 가지고 있군요.";
-    } else if (score <= 22) {
-        result = "당신의 정신연령은 20~30대! 열정과 성숙함이 공존합니다.";
-    } else {
-        result = "당신의 정신연령은 40대 이상! 신중하고 깊이 있는 사고방식을 가졌어요.";
-    }
-
-    document.getElementById('mentalAgeResult').innerText = result;
+  if (totalScore === 0) {
+    alert("모든 질문에 답해주세요!");
     return false;
+  }
+
+  // 점수에 따른 정신연령 결과 메시지
+  let resultText = "";
+  if (totalScore <= 15) {
+    resultText = "당신의 정신연령은 10대 수준입니다. 호기심이 많고 에너지가 넘쳐요!";
+  } else if (totalScore <= 22) {
+    resultText = "당신의 정신연령은 20대 초반! 도전과 변화에 열정적인 타입이에요.";
+  } else if (totalScore <= 28) {
+    resultText = "당신의 정신연령은 30대 중반. 균형잡힌 사고와 성숙함이 느껴져요.";
+  } else if (totalScore <= 33) {
+    resultText = "당신의 정신연령은 40대 이상! 안정과 신중함을 추구하는 편이군요.";
+  } else {
+    resultText = "와우! 당신은 노련한 마스터. 인생의 진리를 아는 타입이에요.";
+  }
+
+  document.getElementById("mentalAgeResult").innerText = resultText;
+  return false; // 폼 제출 방지
 }
 </script>
+
     
     <script>
    function calcZodiac() {
