@@ -92,6 +92,14 @@
             background-color: #006699;
             width: 200px; /* 메뉴바 너비 조정 */
         }
+        nav {
+  max-width: 1200px; /* 메뉴 최대 너비 제한 */
+  margin: 0 auto;     /* 좌우 가운데 정렬 */
+  padding: 0 20px;    /* 좌우 여백 추가 */
+  display: flex;
+  justify-content: space-between; /* 좌우 메뉴 구분 시 사용 */
+  align-items: center;
+}
 
         nav a {
             color: white;
@@ -102,7 +110,7 @@
 
         nav a:hover {
             background-color: #004d80;
-            color: white;
+            color: white !important;
         }
 
         /* PC 환경에서 메뉴를 같은 줄에 배치 */
@@ -310,7 +318,8 @@
   background: #fff;
 }
 .dropdown-content a:hover {
-  background: #eee;
+  background-color: #004d80;
+  color: white !important;
 }
 .dropdown:hover .dropdown-content {
   display: block;
@@ -337,6 +346,135 @@
 #zodiacForm input[type="radio"] {
   vertical-align: middle;
   margin-right: 4px;
+}
+
+<head>
+  <!-- 기존 head 내용들… -->
+
+  <style>
+    /* 1) 헤더 전체 레이아웃 */
+    header {
+      display: flex;
+      align-items: center;           /* 수직 가운데 정렬 */
+      justify-content: space-between;/* 좌우 공간 분배 */
+      padding: 10px 20px;            /* 상하 10px, 좌우 20px 여백 */
+      background-color: #004f7d;     /* 배경색 (원하시는 색으로 조절) */
+    }
+
+    /* 2) 로고 크기 조절 */
+    .logo img {
+      height: 50px;                  /* 로고 높이: 50px (필요하면 40~60px 사이에서 조절) */
+      width: auto;                   /* 비율 유지 */
+    }
+
+    /* 3) 네비게이션 메뉴 스타일 */
+    .main-nav {
+      display: flex;                 /* 가로 배열 */
+      list-style: none;              /* 기본 불릿 제거 */
+      margin: 0;                     /* 기본 마진 제거 */
+      padding: 0;                    /* 기본 패딩 제거 */
+    }
+    .main-nav li + li {
+      margin-left: 20px;             /* 메뉴 간격 20px */
+    }
+    .main-nav a {
+      color: #ffffff;                /* 텍스트 색: 흰색 */
+      text-decoration: none;         /* 밑줄 제거 */
+      font-weight: 500;              /* 글자 두께 */
+    }
+    .main-nav a:hover {
+      text-decoration: underline;    /* 호버 시 밑줄 */
+    }
+
+    /* 4) 모바일 축약 메뉴(필요 시) */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;      /* 세로 정렬로 변경 */
+        align-items: flex-start;
+      }
+      .main-nav {
+        flex-wrap: wrap;             /* 메뉴 줄바꿈 허용 */
+        margin-top: 10px;
+      }
+    }
+
+    /* 1) 로고 컨테이너에 배경과 여백 추가 */
+.logo {
+  background-color: #ffffff;    /* 흰색 배경 */
+  padding: 5px;                 /* 안쪽 여백 */
+  border-radius: 4px;           /* 둥근 모서리 */
+}
+
+/* 2) 로고 이미지 크기 조절 */
+.logo img {
+  width: 120px;   /* 가로 100px로 고정 */
+  height: 60px;   /* 세로는 자동 비율 유지 */
+}
+  display: block;               /* inline-block 대신 block 으로 여백 정리 */
+}
+
+/* (선택) 로고에 경계선 추가하고 싶다면 */
+/*.logo {
+  background-color: #ffffff;
+  padding: 3px;
+  border: 2px solid #004f7d;   /* 헤더 배경색과 같은 진한 파랑 테두리 */
+  border-radius: 4px;
+}*/
+
+/* 전체 폰트 설정 */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+/* 질문 카드 영역 */
+.question-box {
+  background: linear-gradient(to right, #fefefe, #f6faff);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+/* 질문 텍스트 */
+.question-box p {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #ff6010;
+}
+
+/* 선택지 */
+.question-box label {
+  display: block;
+  font-size: 1em;
+  background-color: hsl(0, 0%, 100%);
+  padding: 10px 14px;
+  margin: 6px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  transition: background-color 0.2s ease;
+}
+
+.question-box label:hover {
+  background-color: lab(85.03% -2.91 -12.18);
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+  transform: scale(1.1);
+  vertical-align: middle;
+}
+
+/* 결과 영역 */
+.result {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #ff6010;
 }
 
     </style>
@@ -370,7 +508,10 @@
     </div>
   
 <header>
-    <h1>만나이 계산기</h1>
+    <div class="logo">
+      <img src="images/logo.png" alt="LifeCalc (라이프캘크)">
+    </div>
+
     <div class="hamburger" onclick="toggleMenu()">
         <div></div>
         <div></div>
@@ -381,7 +522,7 @@
   <div class="dropdown">
     <a href="#" onclick="event.preventDefault();toggleDropdown();">트렌드 도구</a>
     <div id="trendDropdown" class="dropdown-content">
-      <a href="#mentallage" onclick="showSection('mentallage');closeDropdown();">정신연령 테스트</a>
+      <a href="#mentalage" onclick="showSection('mentalage');closeDropdown();">정신연령 테스트</a>
       <a href="#zodiac" onclick="showSection('zodiac');closeDropdown();">운세/별자리/띠</a>
       <a href="#anniversary" onclick="showSection('anniversary');closeDropdown();">기념일/날짜 계산</a>
       <a href="#viralquiz" onclick="showSection('viralquiz');closeDropdown();">바이럴 퀴즈</a>
@@ -465,61 +606,84 @@
         </p>
     </div>
     <div id="mentalage" class="section">
-  <h2>나의 정신연령 테스트</h2>
+ 
+    <h2>나의 정신연령 테스트</h2>
   <form id="mentalAgeForm" onsubmit="return calcMentalAge();">
-    <p>Q1. 주말에 주로 하는 일은?</p>
-    <label><input type="radio" name="q1" value="1"> 집에서 쉰다</label><br>
-    <label><input type="radio" name="q1" value="2"> 친구와 논다</label><br>
-    <label><input type="radio" name="q1" value="3"> 새로운 취미를 한다</label><br><br>
 
-    <p>Q2. 좋아하는 음식은?</p>
-    <label><input type="radio" name="q2" value="1"> 햄버거/피자</label><br>
-    <label><input type="radio" name="q2" value="2"> 한식/집밥</label><br>
-    <label><input type="radio" name="q2" value="3"> 건강식/샐러드</label><br><br>
+    <div class="question-box">
+      <p>Q1. 주말에 주로 하는 일은?</p>
+      <label><input type="radio" name="q1" value="1"> 집에서 쉰다</label>
+      <label><input type="radio" name="q1" value="2"> 친구와 논다</label>
+      <label><input type="radio" name="q1" value="3"> 새로운 취미를 한다</label>
+    </div>
 
-    <p>Q3. 새로운 일을 시작할 때 나는?</p>
-    <label><input type="radio" name="q3" value="1"> 바로 도전한다</label><br>
-    <label><input type="radio" name="q3" value="2"> 고민하다가 해본다</label><br>
-    <label><input type="radio" name="q3" value="3"> 신중하게 계획부터 세운다</label><br><br>
+    <div class="question-box">
+      <p>Q2. 좋아하는 음식은?</p>
+      <label><input type="radio" name="q2" value="1"> 햄버거/피자</label>
+      <label><input type="radio" name="q2" value="2"> 한식/집밥</label>
+      <label><input type="radio" name="q2" value="3"> 건강식/샐러드</label>
+    </div>
 
-    <p>Q4. 친구와의 약속이 취소되면?</p>
-    <label><input type="radio" name="q4" value="1"> 아쉽지만 금방 잊는다</label><br>
-    <label><input type="radio" name="q4" value="2"> 혼자만의 시간을 즐긴다</label><br>
-    <label><input type="radio" name="q4" value="3"> 미리 계획한 일이 틀어져서 속상하다</label><br><br>
+    <div class="question-box">
+      <p>Q3. 새로운 일을 시작할 때 나는?</p>
+      <label><input type="radio" name="q3" value="1"> 바로 도전한다</label>
+      <label><input type="radio" name="q3" value="2"> 고민하다가 해본다</label>
+      <label><input type="radio" name="q3" value="3"> 신중하게 계획부터 세운다</label>
+    </div>
 
-    <p>Q5. 가장 끌리는 여행지는?</p>
-    <label><input type="radio" name="q5" value="1"> 놀이공원, 테마파크</label><br>
-    <label><input type="radio" name="q5" value="2"> 유명 관광지, 도시</label><br>
-    <label><input type="radio" name="q5" value="3"> 자연, 휴양지</label><br><br>
+    <div class="question-box">
+      <p>Q4. 친구와의 약속이 취소되면?</p>
+      <label><input type="radio" name="q4" value="1"> 아쉽지만 금방 잊는다</label>
+      <label><input type="radio" name="q4" value="2"> 혼자만의 시간을 즐긴다</label>
+      <label><input type="radio" name="q4" value="3"> 미리 계획한 일이 틀어져서 속상하다</label>
+    </div>
 
-    <p>Q6. 아침에 일어나면 가장 먼저 하는 일은?</p>
-    <label><input type="radio" name="q6" value="1"> 휴대폰 확인</label><br>
-    <label><input type="radio" name="q6" value="2"> 물 마시기/세수하기</label><br>
-    <label><input type="radio" name="q6" value="3"> 스트레칭/운동</label><br><br>
+    <div class="question-box">
+      <p>Q5. 가장 끌리는 여행지는?</p>
+      <label><input type="radio" name="q5" value="1"> 놀이공원, 테마파크</label>
+      <label><input type="radio" name="q5" value="2"> 유명 관광지, 도시</label>
+      <label><input type="radio" name="q5" value="3"> 자연, 휴양지</label>
+    </div>
 
-    <p>Q7. 스트레스를 받을 때 나는?</p>
-    <label><input type="radio" name="q7" value="1"> 먹거나 잔다</label><br>
-    <label><input type="radio" name="q7" value="2"> 친구에게 털어놓는다</label><br>
-    <label><input type="radio" name="q7" value="3"> 혼자 조용히 생각한다</label><br><br>
+    <div class="question-box">
+      <p>Q6. 아침에 일어나면 가장 먼저 하는 일은?</p>
+      <label><input type="radio" name="q6" value="1"> 휴대폰 확인</label>
+      <label><input type="radio" name="q6" value="2"> 물 마시기/세수하기</label>
+      <label><input type="radio" name="q6" value="3"> 스트레칭/운동</label>
+    </div>
 
-    <p>Q8. 영화나 드라마를 볼 때 선호하는 장르는?</p>
-    <label><input type="radio" name="q8" value="1"> 코미디/로맨스</label><br>
-    <label><input type="radio" name="q8" value="2"> 액션/스릴러</label><br>
-    <label><input type="radio" name="q8" value="3"> 다큐/예술/힐링</label><br><br>
+    <div class="question-box">
+      <p>Q7. 스트레스를 받을 때 나는?</p>
+      <label><input type="radio" name="q7" value="1"> 먹거나 잔다</label>
+      <label><input type="radio" name="q7" value="2"> 친구에게 털어놓는다</label>
+      <label><input type="radio" name="q7" value="3"> 혼자 조용히 생각한다</label>
+    </div>
 
-    <p>Q9. 평소에 돈을 쓰는 스타일은?</p>
-    <label><input type="radio" name="q9" value="1"> 사고 싶은 건 바로 산다</label><br>
-    <label><input type="radio" name="q9" value="2"> 고민하다가 산다</label><br>
-    <label><input type="radio" name="q9" value="3"> 꼭 필요할 때만 쓴다</label><br><br>
+    <div class="question-box">
+      <p>Q8. 영화나 드라마를 볼 때 선호하는 장르는?</p>
+      <label><input type="radio" name="q8" value="1"> 코미디/로맨스</label>
+      <label><input type="radio" name="q8" value="2"> 액션/스릴러</label>
+      <label><input type="radio" name="q8" value="3"> 다큐/예술/힐링</label>
+    </div>
 
-    <p>Q10. 미래에 대한 생각은?</p>
-    <label><input type="radio" name="q10" value="1"> 그때그때 생각한다</label><br>
-    <label><input type="radio" name="q10" value="2"> 목표를 세우고 준비한다</label><br>
-    <label><input type="radio" name="q10" value="3"> 미리미리 계획하고 대비한다</label><br><br>
+    <div class="question-box">
+      <p>Q9. 평소에 돈을 쓰는 스타일은?</p>
+      <label><input type="radio" name="q9" value="1"> 사고 싶은 건 바로 산다</label>
+      <label><input type="radio" name="q9" value="2"> 고민하다가 산다</label>
+      <label><input type="radio" name="q9" value="3"> 꼭 필요할 때만 쓴다</label>
+    </div>
 
-    <button type="submit">정신연령 계산하기</button>
+    <div class="question-box">
+      <p>Q10. 미래에 대한 생각은?</p>
+      <label><input type="radio" name="q10" value="1"> 그때그때 생각한다</label>
+      <label><input type="radio" name="q10" value="2"> 목표를 세우고 준비한다</label>
+      <label><input type="radio" name="q10" value="3"> 미리미리 계획하고 대비한다</label>
+    </div>
+
+    <button type="submit" style="margin-top:20px; padding:12px 24px; font-size:1em; border:none; background:#ff6010; color:white; border-radius:6px; cursor:pointer;">정신연령 계산하기</button>
   </form>
-  <div id="mentalAgeResult" class="result" style="margin-top:20px; font-weight:bold;"></div>
+
+  <div id="mentalAgeResult" class="result"></div>
 </div>
     
 <div id="zodiac" class="section">
