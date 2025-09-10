@@ -698,85 +698,12 @@ function toggleMenu() {
     </div>
     <div id="mentalage" class="section">
  
-    <h2>나의 정신연령 테스트</h2>
-  <form id="mentalAgeForm" onsubmit="return calcMentalAge();">
-
-    <div class="question-box">
-      <p>Q1. 주말에 주로 하는 일은?</p>
-      <label><input type="radio" name="q1" value="1"> 집에서 쉰다</label>
-      <label><input type="radio" name="q1" value="2"> 친구와 논다</label>
-      <label><input type="radio" name="q1" value="3"> 새로운 취미를 한다</label>
-    </div>
-
-    <div class="question-box">
-      <p>Q2. 좋아하는 음식은?</p>
-      <label><input type="radio" name="q2" value="1"> 햄버거/피자</label>
-      <label><input type="radio" name="q2" value="2"> 한식/집밥</label>
-      <label><input type="radio" name="q2" value="3"> 건강식/샐러드</label>
-    </div>
-
-    <div class="question-box">
-      <p>Q3. 새로운 일을 시작할 때 나는?</p>
-      <label><input type="radio" name="q3" value="1"> 바로 도전한다</label>
-      <label><input type="radio" name="q3" value="2"> 고민하다가 해본다</label>
-      <label><input type="radio" name="q3" value="3"> 신중하게 계획부터 세운다</label>
-    </div>
-
-    <div class="question-box">
-      <p>Q4. 친구와의 약속이 취소되면?</p>
-      <label><input type="radio" name="q4" value="1"> 아쉽지만 금방 잊는다</label>
-      <label><input type="radio" name="q4" value="2"> 혼자만의 시간을 즐긴다</label>
-      <label><input type="radio" name="q4" value="3"> 미리 계획한 일이 틀어져서 속상하다</label>
-    </div>
-
-    <div class="question-box">
-      <p>Q5. 가장 끌리는 여행지는?</p>
-      <label><input type="radio" name="q5" value="1"> 놀이공원, 테마파크</label>
-      <label><input type="radio" name="q5" value="2"> 유명 관광지, 도시</label>
-      <label><input type="radio" name="q5" value="3"> 자연, 휴양지</label>
-    </div>
-
-    <div class="question-box">
-      <p>Q6. 아침에 일어나면 가장 먼저 하는 일은?</p>
-      <label><input type="radio" name="q6" value="1"> 휴대폰 확인</label>
-      <label><input type="radio" name="q6" value="2"> 물 마시기/세수하기</label>
-      <label><input type="radio" name="q6" value="3"> 스트레칭/운동</label>
-    </div>
-
-    <div class="question-box">
-      <p>Q7. 스트레스를 받을 때 나는?</p>
-      <label><input type="radio" name="q7" value="1"> 먹거나 잔다</label>
-      <label><input type="radio" name="q7" value="2"> 친구에게 털어놓는다</label>
-      <label><input type="radio" name="q7" value="3"> 혼자 조용히 생각한다</label>
-    </div>
-
-    <div class="question-box">
-      <p>Q8. 영화나 드라마를 볼 때 선호하는 장르는?</p>
-      <label><input type="radio" name="q8" value="1"> 코미디/로맨스</label>
-      <label><input type="radio" name="q8" value="2"> 액션/스릴러</label>
-      <label><input type="radio" name="q8" value="3"> 다큐/예술/힐링</label>
-    </div>
-
-    <div class="question-box">
-      <p>Q9. 평소에 돈을 쓰는 스타일은?</p>
-      <label><input type="radio" name="q9" value="1"> 사고 싶은 건 바로 산다</label>
-      <label><input type="radio" name="q9" value="2"> 고민하다가 산다</label>
-      <label><input type="radio" name="q9" value="3"> 꼭 필요할 때만 쓴다</label>
-    </div>
-
-    <div class="question-box">
-      <p>Q10. 미래에 대한 생각은?</p>
-      <label><input type="radio" name="q10" value="1"> 그때그때 생각한다</label>
-      <label><input type="radio" name="q10" value="2"> 목표를 세우고 준비한다</label>
-      <label><input type="radio" name="q10" value="3"> 미리미리 계획하고 대비한다</label>
-    </div>
-
-    <button type="submit" style="margin-top:20px; padding:12px 24px; font-size:1em; border:none; background:#ff6010; color:white; border-radius:6px; cursor:pointer;">정신연령 계산하기</button>
-  </form>
-
-  <div id="mentalAgeResult" class="result"></div>
-</div>
-    
+   <section id="mental-age">
+  <h2>정신연령 테스트</h2>
+  <p>내 멘탈 나이를 확인해 보세요!</p>
+  <a href="/mental-age/" class="btn">테스트 시작하기</a>
+   </section>
+    </div> 
 <div id="zodiac" class="section">
   <h2>운세/별자리/띠 계산기</h2>
   <form id="zodiacForm" onsubmit="return calcZodiac();">
@@ -1002,3 +929,4 @@ function calcMentalAge() {
  
 </body>
 </html>
+
