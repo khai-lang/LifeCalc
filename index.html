@@ -908,10 +908,72 @@ function calcMentalAge() {
 }
       
       </script>  
-        
+      <script>
+(function(){
+  const body = document.body;
+  body.classList.add('lc-has-fixed'); // 헤더 높이만큼 패딩
+
+  const burger = document.getElementById('lcBurger');
+  const nav = document.getElementById('lcNav');
+
+  function openNav(){
+    nav.classList.add('lc-open');
+    burger.setAttribute('aria-expanded','true');
+    document.documentElement.style.overflow='hidden';
+    body.style.overflow='hidden';
+  }
+  function closeNav(){
+    nav.classList.remove('lc-open');
+    burger.setAttribute('aria-expanded','false');
+    document.documentElement.style.overflow='';
+    body.style.overflow='';
+  }
+
+  if(burger && nav){
+    burger.addEventListener('click', ()=>{
+      nav.classList.contains('lc-open') ? closeNav() : openNav();
+    });
+    // 메뉴 클릭 시 자동 닫기 (모바일 UX)
+    nav.addEventListener('click', (e)=>{
+      if(e.target.tagName==='A' && window.innerWidth<=768) closeNav();
+    });
+  }
+
+  // 모바일 드롭다운(트렌드 도구) 클릭 토글
+  document.querySelectorAll('.lc-dropdown .lc-drop-toggle').forEach(tgl=>{
+    tgl.addEventListener('click', (e)=>{
+      if(window.innerWidth<=768){
+        e.preventDefault();
+        const parent = tgl.closest('.lc-dropdown');
+        const open = parent.classList.toggle('lc-open');
+        tgl.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+    });
+  });
+
+  // 데스크톱 전환 시 상태 정리
+  window.addEventListener('resize', ()=>{ if(window.innerWidth>768) closeNav(); });
+
+  // 고정 헤더 때문에 앵커 가려지는 문제 보정
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const id=a.getAttribute('href').slice(1);
+      const target=document.getElementById(id);
+      if(target){
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({top:y, behavior:'smooth'});
+        closeNav();
+      }
+    });
+  });
+})();
+</script>
+  
  
 </body>
 </html>
+
 
 
 
