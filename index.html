@@ -119,6 +119,13 @@
                 flex-grow: 1;
                 justify-content: flex-end;
             }
+        /* 모바일(768px 이하)에서는 상단 광고 숨김 */
+        @media (max-width: 768px) {
+           .ad-top {
+           display: none !important;
+           }
+         }
+    
         }
 
         /* 모바일 환경에서 햄버거 메뉴 표시 */
@@ -973,6 +980,7 @@ function calcMentalAge() {
  
 </body>
 </html>
+
 
 
 
