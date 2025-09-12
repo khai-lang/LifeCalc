@@ -559,6 +559,13 @@ nav li {
   padding: 10px 0;
   }
 }
+.ad-desktop { display:block; text-align:center; margin:16px 0; }
+.ad-mobile  { display:none; }
+
+@media (max-width: 768px){
+  .ad-desktop { display:none; }
+  .ad-mobile  { display:block; text-align:center; margin:16px 0; }
+}
 
 
 
@@ -726,7 +733,29 @@ nav li {
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-    
+    <!-- PC용 반응형 광고 -->
+<div class="ad-desktop">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3758454239921831"
+       data-ad-slot="7492664289"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+</div>
+
+<!-- 모바일 전용 320x100 광고 -->
+<div class="ad-mobile">
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:320px;height:100px"
+       data-ad-client="ca-pub-3758454239921831"
+       data-ad-slot="3716344454"></ins>
+</div>
+
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 
 </main>
 
@@ -987,6 +1016,7 @@ function calcMentalAge() {
  
 </body>
 </html>
+
 
 
 
