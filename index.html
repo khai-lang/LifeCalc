@@ -41,20 +41,22 @@
     }
 
     @media (max-width: 768px) {
-    .ad-side {
-        display: none; /* 모바일 환경에서 양사이드 광고 숨김 */
-    }
-    /* 모바일(768px 이하)에서는 상단 광고 숨김 */
-        @media (max-width: 768px) {
-           .ad-top {
-           display: none !important;
-           }
-         }
+  /* 모바일 환경에서는 양사이드 광고 숨김 */
+  .ad-side {
+    display: none;
+  }
 
-    .content {
-        margin: 0; /* 광고 공간이 없어지므로 기본 마진 제거 */
-    }
+  /* 모바일 환경에서는 상단 광고 숨김 */
+  .ad-top {
+    display: none !important;
+  }
+
+  /* 광고 공간이 없으므로 기본 마진 제거 */
+  .content {
+    margin: 0;
+  }
 }
+
 
         header {
             background-color: #004d80;
@@ -979,6 +981,7 @@ function calcMentalAge() {
  
 </body>
 </html>
+
 
 
 
