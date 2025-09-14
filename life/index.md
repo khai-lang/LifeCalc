@@ -11,3 +11,14 @@ permalink: /life/
   <li><a href="/life/date/">기념일·날짜 계산</a></li>
   <li><a href="/life/unit-converter/">단위 변환</a></li>
 </ul>
+<div class="ad-box">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3758454239921831"
+       data-ad-slot="1398373115"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
