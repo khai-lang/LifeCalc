@@ -68,108 +68,7 @@ description: 생활 계산기 포털
 }
 
 
-        header {
-            background-color: #004d80;
-            color: white;
-            padding: 1em;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            margin: 0;
-            padding-left: 20px;
-            font-size: 1.5em;
-            text-align: left;
-        }
-
-        /* 햄버거 메뉴 스타일 */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            margin-right: 20px;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 4px 0;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #006699;
-            width: 200px; /* 메뉴바 너비 조정 */
-        }
-        nav {
-  max-width: 1200px; /* 메뉴 최대 너비 제한 */
-  margin: 0 auto;     /* 좌우 가운데 정렬 */
-  padding: 0 20px;    /* 좌우 여백 추가 */
-  display: flex;
-  justify-content: space-between; /* 좌우 메뉴 구분 시 사용 */
-  align-items: center;
-}
-
-        nav a {
-            color: white;
-            padding: 14px 15px;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        nav a:hover {
-            background-color: #004d80;
-            color: white !important;
-        }
-
-        /* PC 환경에서 메뉴를 같은 줄에 배치 */
-        @media (min-width: 769px) {
-            nav {
-                flex-grow: 1;
-                justify-content: flex-end;
-            }  
-        }
-
-        /* 모바일 환경에서 햄버거 메뉴 표시 */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            nav {
-                display: none;
-                flex-direction: column;
-                position: fixed;
-                top: 50px;
-                left: 0;
-                width: 100%;
-                background-color: #333;
-                z-index: 1000;
-            }
-
-            nav a {
-                padding: 15px;
-                text-align: left;
-                border-bottom: 1px solid #444;
-            }
-
-            nav a:hover {
-                background-color: #444;
-            }
-
-            nav.active {
-                display: flex;
-            }
-        }
+        
 
         main {
             display: flex;
@@ -290,58 +189,6 @@ description: 생활 계산기 포털
                 padding: 10px;
             }
         }
-#navMenu {
-    display: flex;
-    align-items: center;
-    background: #f5f5f5;
-    padding: 0 20px;
-    height: 50px;
-    width: 800px;      /* 메뉴바 길이 고정 */
-    margin: 0 auto;     /* 가운데 정렬 */
-}
-
-.menu-group {
-  display: flex;
-  gap: 12px;
-  margin-left: auto; /* 오른쪽 끝으로 밀기 */
-}
-#navMenu a {
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  padding: 0 8px;
-  line-height: 50px;
-}
-/* 트렌드 도구 드롭다운 메뉴 스타일 */
-.dropdown {
-  display: inline-block;
-  position: relative;
-  margin-right: 40px;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 1001;
-  left: 0;
-}
-.dropdown-content a {
-  color: #333;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  background: #fff;
-}
-.dropdown-content a:hover {
-  background-color: #004d80;
-  color: white !important;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 
     
      /* 운세/별자리/띠 계산기 입력란 크기 조정 */
@@ -993,6 +840,7 @@ function calcMentalAge() {
  
 </body>
 </html>
+
 
 
 
