@@ -35,9 +35,15 @@
 
     /* 헤더 (풀폭) */
     header{position:sticky;top:0;z-index:1000;background:var(--brand);color:var(--brand-ink);box-shadow:0 1px 0 rgba(0,0,0,.06)}
-    .header-wrap{max-width:none;width:100%;padding:0 20px;height:var(--nav-h);display:flex;align-items:center;gap:16px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-    .brand img{height:28px;width:auto;display:block}
+    - .header-wrap{max-width:none;width:100%;padding:0 20px;height:var(--nav-h);display:flex;align-items:center;gap:16px;justify-content:space-between}
++ .header-wrap{
++   max-width:var(--max);   /* 본문과 동일 폭으로 중앙 배치 */
++   margin:0 auto;
++   padding:0 20px;
++   height:var(--nav-h);
++   display:flex; align-items:center; gap:16px;
++   justify-content:flex-start; /* 로고 옆에서부터 가로로 배치 */
++ }
 
     /* 네비게이션 (데스크톱 가로 + 드롭다운) */
     nav.site-nav{margin-left:auto}
