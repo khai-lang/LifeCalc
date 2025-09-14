@@ -45,6 +45,15 @@
     footer{border-top:1px solid var(--line);background:var(--muted);margin-top:28px}
     footer .foot{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .muted{opacity:.7}
+    
+    /* --- enforce horizontal nav --- */
+nav.nav{display:flex !important; flex-direction:row !important; align-items:center !important; gap:14px !important; flex-wrap:wrap}
+nav.nav a{display:inline-block !important; white-space:nowrap !important; padding:8px 10px; max-width:none !important; width:auto !important; line-height:1.2}
+@media (max-width:940px){
+  nav.nav{display:none !important}
+  #nav-toggle:checked + label + nav.nav{display:flex !important}
+}
+
   </style>
 </head>
 <body>
