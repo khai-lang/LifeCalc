@@ -1,8 +1,41 @@
 ---
 layout: default
 title: 홈
-description: 생활 계산기 포털
+description: 생활에 필요한 계산기를 한 곳에서
 ---
+
+<h1><span class="accent">만나이</span> 계산하기</h1>
+
+<div class="ad-box">
+  <ins class="adsbygoogle" style="display:block"
+       data-ad-client="ca-pub-3758454239921831"
+       data-ad-slot="1398373115"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="card" style="max-width:720px;margin:0 auto;">
+  <!-- 기존 만나이 폼/JS 그대로 -->
+  <form id="age" onsubmit="event.preventDefault(); calcAge();">
+    <label>생년월일 <input type="date" id="dob" required></label>
+    <label>기준일 <input type="date" id="ref" required></label>
+    <button type="submit">만나이 계산하기</button>
+  </form>
+  <div id="age-out" class="note"></div>
+</div>
+
+<script>
+function calcAge(){
+  const d=new Date(dob.value), r=new Date(ref.value);
+  if(!dob.value||!ref.value) return;
+  let a=r.getFullYear()-d.getFullYear();
+  const m=r.getMonth()-d.getMonth();
+  if(m<0 || (m===0 && r.getDate()<d.getDate())) a--;
+  document.getElementById('age-out').innerText=`만 ${a}세`;
+}
+</script>
+
 
 <!DOCTYPE html>
 <html lang="ko">    
@@ -840,6 +873,7 @@ function calcMentalAge() {
  
 </body>
 </html>
+
 
 
 
