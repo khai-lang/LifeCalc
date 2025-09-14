@@ -44,14 +44,20 @@
     .brand img{height:28px;width:auto;display:block}
 
     /* 내비게이션: 데스크톱 가로 + 클릭 드롭다운 */
-    nav.site-nav{margin-left:24px} /* 로고와 간격 */
-    .nav-ul{list-style:none;margin:0;padding:0;display:flex;gap:10px;align-items:center;font-size:var(--nav-size)}
-    .nav-ul>li>a,
-    .nav-parent{
-      color:var(--brand-ink);
-      padding:12px 14px; border-radius:10px;
-      background:transparent; border:0; cursor:pointer; font:inherit;
-    }
+    nav.site-nav{margin-left:36px} /* 로고와 간격 */
+    /* 메뉴 리스트: 간격 넓히고 줄바꿈 금지 */
+.nav-ul{
+  list-style:none;margin:0;padding:0;
+  display:flex; align-items:center;
+  gap:18px;              /* 10 → 18 으로 넓힘 (원하면 20~22까지 가능) */
+  flex-wrap:nowrap;      /* 강제로 한 줄 유지 */
+}
+.nav-ul>li>a,
+.nav-parent{
+  white-space:nowrap;    /* 줄바꿈 금지 */
+  word-break:keep-all;   /* 한글 임의 잘림 방지 */
+  letter-spacing:0;      /* 혹시 글자 간격 강제값이 있으면 무효화 */
+}
     .nav-ul>li>a:hover, .nav-parent:hover{background:rgba(255,255,255,.12)}
 
     .drop{position:relative}
