@@ -1,11 +1,15 @@
 ---
 layout: default
 title: 출산·육아 도구
-description: 출산 예정일, 예방접종 일정 등 육아에 유용한 계산기.
-permalink: /family/
+description: 출산 예정일, 생후 N일·개월, 백일·돌, 예방접종 일정.
+permalink: family/
 ---
 
 # 출산·육아 도구
 <ul>
   <li><a href="/family/due-date/">출산 예정일 계산</a></li>
+  <li><a href="/family/baby-days/">아이 생후 N일·개월</a></li>
+  <li><a href="/family/baegil/">백일 날짜</a></li>
+  <li><a href="/family/dol/">첫돌 날짜</a></li>
+  <li><a href="/family/vaccine/">예방접종 일정</a></li>
 </ul>
