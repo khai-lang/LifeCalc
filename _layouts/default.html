@@ -154,6 +154,31 @@ nav.site-nav{margin-left:auto}
 
       {% include nav.html %}
     </div>
+    <script>
+  (function(){
+    const drops = document.querySelectorAll('.drop');
+    drops.forEach(d => {
+      const btn = d.querySelector('.nav-parent');
+      btn && btn.addEventListener('click', e => {
+        // 다른 드롭다운 닫기
+        drops.forEach(x => { if(x!==d){ x.classList.remove('open'); const b=x.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); }});
+        // 현재 토글
+        const isOpen = d.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+    // 바깥 클릭 시 닫기
+    document.addEventListener('click', e => {
+      if(!e.target.closest('.drop')) drops.forEach(d => { d.classList.remove('open'); const b=d.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); });
+    });
+    // ESC 닫기
+    document.addEventListener('keydown', e => {
+      if(e.key==='Escape') drops.forEach(d => { d.classList.remove('open'); const b=d.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); });
+    });
+  })();
+</script>
+
+    
   </header>
 
   <!-- 본문 -->
