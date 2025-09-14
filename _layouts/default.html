@@ -7,21 +7,21 @@
   <meta name="description" content="{{ page.description | default: site.description }}">
   {% seo %}
 
-  <!-- Adsense (사이트 전체 1회) : 필요 없으면 제거 -->
+  <!-- AdSense (사이트 전체 1회, 원치 않으면 삭제) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
 
   <style>
-    /* ====== 디자인 변수 (여기만 바꾸면 전체가 바뀝니다) ====== */
+    /* ===== 디자인 변수 ===== */
     :root{
-      --brand:#0b4c74;         /* 헤더 배경 */
-      --brand-ink:#ffffff;     /* 헤더 글자 */
-      --accent:#ff6a00;        /* 포인트(제목/버튼) */
+      --brand:#0b4c74;      /* 헤더 배경 */
+      --brand-ink:#ffffff;  /* 헤더 글자색 */
+      --accent:#ff6a00;     /* 포인트 색 */
       --text:#222; --muted:#6b7280; --bg:#f5f7fa; --card:#fff; --line:#e6ebf0;
-      --max:1100px;            /* 본문 최대 너비 */
-      --nav-size:18px;         /* 헤더 메뉴 글자 크기 */
-      --nav-h:64px;            /* 헤더 높이 */
-      --hero-h1:32px;          /* 페이지 메인 제목 */
-      --hero-h2:22px;          /* 섹션 제목 */
+      --max:1100px;         /* 본문 최대 폭 */
+      --nav-size:20px;      /* 메뉴 글자 크기 */
+      --nav-h:72px;         /* 헤더 높이 */
+      --hero-h1:32px;       /* 페이지 제목 크기 */
+      --hero-h2:22px;       /* 섹션 제목 크기 */
       --radius:14px;
     }
 
@@ -33,46 +33,59 @@
     .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
     main{max-width:var(--max);margin:0 auto;padding:24px 16px}
 
-    /* 헤더 (풀폭) */
+    /* 헤더(배경 풀폭), 내용은 중앙 정렬 */
     header{position:sticky;top:0;z-index:1000;background:var(--brand);color:var(--brand-ink);box-shadow:0 1px 0 rgba(0,0,0,.06)}
-    - .header-wrap{max-width:none;width:100%;padding:0 20px;height:var(--nav-h);display:flex;align-items:center;gap:16px;justify-content:space-between}
-+ .header-wrap{
-+   max-width:var(--max);   /* 본문과 동일 폭으로 중앙 배치 */
-+   margin:0 auto;
-+   padding:0 20px;
-+   height:var(--nav-h);
-+   display:flex; align-items:center; gap:16px;
-+   justify-content:flex-start; /* 로고 옆에서부터 가로로 배치 */
-+ }
-
-    /* 네비게이션 (데스크톱 가로 + 드롭다운) */
-    nav.site-nav{margin-left:auto}
-    .nav-ul{list-style:none;margin:0;padding:0;display:flex;gap:8px;align-items:center;font-size:var(--nav-size)}
-    .nav-ul>li>a,.nav-ul>li>button{
-      color:var(--brand-ink);padding:10px 12px;border-radius:10px;background:transparent;border:0;cursor:pointer;font:inherit
+    .header-wrap{
+      max-width:var(--max); margin:0 auto;
+      height:var(--nav-h); padding:0 20px;
+      display:flex; align-items:center; gap:16px; justify-content:flex-start;
     }
-    .nav-ul>li>a:hover,.nav-ul>li>button:hover{background:rgba(255,255,255,.12)}
-    /* 드롭다운 */
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand img{height:28px;width:auto;display:block}
+
+    /* 내비게이션: 데스크톱 가로 + 클릭 드롭다운 */
+    nav.site-nav{margin-left:24px} /* 로고와 간격 */
+    .nav-ul{list-style:none;margin:0;padding:0;display:flex;gap:10px;align-items:center;font-size:var(--nav-size)}
+    .nav-ul>li>a,
+    .nav-parent{
+      color:var(--brand-ink);
+      padding:12px 14px; border-radius:10px;
+      background:transparent; border:0; cursor:pointer; font:inherit;
+    }
+    .nav-ul>li>a:hover, .nav-parent:hover{background:rgba(255,255,255,.12)}
+
     .drop{position:relative}
     .drop .menu{
-      position:absolute;left:0;top:calc(100% + 8px);min-width:220px;background:#fff;color:#111;border:1px solid var(--line);
-      border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:8px;display:none
+      position:absolute; left:0; top:calc(100% + 8px);
+      min-width:220px; background:#fff; color:#111;
+      border:1px solid var(--line); border-radius:12px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+      padding:8px; display:none; z-index:1200;
     }
-    
-    /* 모바일: 버거 & 아코디언 드롭다운 */
+    .drop.open .menu{display:block}
+    .menu a{display:block; padding:10px 12px; border-radius:8px}
+    .menu a:hover{background:#f6f7f9}
+
+    /* 모바일: 버거 + 아코디언 */
     #nav-toggle{display:none}
-    .burger{display:none;color:#fff;font-size:24px;padding:6px 10px;cursor:pointer}
+    .burger{display:none;color:#fff;font-size:24px;padding:6px 10px;cursor:pointer;margin-left:auto}
     @media (max-width:940px){
-      .burger{display:block;margin-left:auto}
-      nav.site-nav{display:none;position:absolute;left:0;right:0;top:var(--nav-h);background:var(--brand);padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.15)}
+      .burger{display:block}
+      nav.site-nav{
+        display:none; position:absolute; left:0; right:0; top:var(--nav-h);
+        background:var(--brand); padding:10px 12px; border-bottom:1px solid rgba(255,255,255,.15)
+      }
       #nav-toggle:checked ~ nav.site-nav{display:block}
       .nav-ul{flex-direction:column;align-items:flex-start;gap:6px}
-      .drop .menu{position:static;display:block;background:transparent;color:#fff;border:0;box-shadow:none;padding:0;margin-left:8px}
-      .menu a{padding:8px 10px;color:#fff;border-radius:8px}
+      .drop .menu{
+        position:static; display:none; background:transparent; color:#fff; border:0; box-shadow:none; padding:0; margin-left:8px
+      }
+      .drop.open .menu{display:block}
+      .menu a{padding:8px 10px; color:#fff}
       .menu a:hover{background:rgba(255,255,255,.12)}
     }
 
-    /* 카드/폼 공통 */
+    /* 본문 컴포넌트 */
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
     .btn{display:inline-block;padding:10px 14px;border-radius:999px;border:1px solid #ddd}
     label{display:block;margin:10px 0 6px}
@@ -87,59 +100,10 @@
 
     /* 광고 블록 중앙 정렬 */
     .ad-box{max-width:728px;margin:20px auto}
+
     /* 푸터 */
     footer{border-top:1px solid var(--line);background:#fff;margin-top:28px}
     footer .foot{max-width:var(--max);margin:0 auto;padding:12px 16px;color:var(--muted);display:flex;justify-content:space-between}
-
-    /* 데스크톱 가로 메뉴 유지 */
-nav.site-nav{margin-left:auto}
-.nav-ul{list-style:none;margin:0;padding:0;display:flex;gap:10px;align-items:center;font-size:var(--nav-size)}
-.nav-ul>li>a,
-.nav-parent{
-  color:var(--brand-ink);
-  padding:12px 14px;
-  border-radius:10px;
-  background:transparent;
-  border:0;
-  cursor:pointer;
-  font:inherit;
-}
-.nav-ul>li>a:hover,.nav-parent:hover{background:rgba(255,255,255,.12)}
-
-/* 드롭다운 박스 (기본 숨김, position 고정) */
-.drop{position:relative}
-.drop .menu{
-  position:absolute; left:0; top:calc(100% + 8px);
-  min-width:220px; background:#fff; color:#111;
-  border:1px solid var(--line); border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08); padding:8px; display:none; z-index:1200;
-}
-.drop.open .menu{display:block}
-.menu a{display:block; padding:10px 12px; border-radius:8px}
-.menu a:hover{background:#f6f7f9}
-
-/* 모바일에서 버거 + 아코디언 */
-#nav-toggle{display:none}
-.burger{display:none;color:#fff;font-size:24px;padding:6px 10px;cursor:pointer}
-@media (max-width:940px){
-  .burger{display:block;margin-left:auto}
-  nav.site-nav{display:none;position:absolute;left:0;right:0;top:var(--nav-h);background:var(--brand);padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.15)}
-  #nav-toggle:checked ~ nav.site-nav{display:block}
-  .nav-ul{flex-direction:column;align-items:flex-start;gap:6px}
-  .drop .menu{position:static;display:none;background:transparent;color:#fff;border:0;box-shadow:none;padding:0;margin-left:8px}
-  .drop.open .menu{display:block}
-  .menu a{padding:8px 10px;color:#fff}
-  .menu a:hover{background:rgba(255,255,255,.12)}
-}
-
-/* 헤더 높이/크기(요청대로 크게) */
-:root{
-  --nav-size:20px;  /* 메뉴 글자 */
-  --nav-h:72px;     /* 헤더 높이 */
-}
-.header-wrap{height:var(--nav-h)}
-
-    
   </style>
 </head>
 <body>
@@ -152,40 +116,81 @@ nav.site-nav{margin-left:auto}
         <span>{{ site.title | default: "LifeCalc" }}</span>
       </a>
 
+      <!-- 모바일 버거 -->
       <label for="nav-toggle" class="burger" aria-label="메뉴 열기">☰</label>
       <input id="nav-toggle" type="checkbox" aria-label="메뉴 토글">
 
-      {% include nav.html %}
-    </div>
-    <script>
-  (function(){
-    const drops = document.querySelectorAll('.drop');
-    drops.forEach(d => {
-      const btn = d.querySelector('.nav-parent');
-      btn && btn.addEventListener('click', e => {
-        // 다른 드롭다운 닫기
-        drops.forEach(x => { if(x!==d){ x.classList.remove('open'); const b=x.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); }});
-        // 현재 토글
-        const isOpen = d.classList.toggle('open');
-        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-    });
-    // 바깥 클릭 시 닫기
-    document.addEventListener('click', e => {
-      if(!e.target.closest('.drop')) drops.forEach(d => { d.classList.remove('open'); const b=d.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); });
-    });
-    // ESC 닫기
-    document.addEventListener('keydown', e => {
-      if(e.key==='Escape') drops.forEach(d => { d.classList.remove('open'); const b=d.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); });
-    });
-  })();
-</script>
+      <!-- 내비게이션 (드롭다운 포함) -->
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <ul class="nav-ul">
+          <li><a href="/">홈</a></li>
 
-    
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">생활 계산기</button>
+            <div class="menu" role="menu" aria-label="생활 계산기 하위">
+              <a href="/life/">전체 보기</a>
+              <a href="/life/age/">만나이 계산기</a>
+              <a href="/life/date/">기념일·날짜 계산</a>
+              <a href="/life/unit-converter/">단위 변환</a>
+            </div>
+          </li>
+
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">금융 계산기</button>
+            <div class="menu" role="menu" aria-label="금융 계산기 하위">
+              <a href="/finance/">전체 보기</a>
+              <a href="/finance/rent-to-jeonse/">월세→전세 전환</a>
+              <a href="/finance/loan/">대출 이자/원리금</a>
+              <a href="/finance/salary-hourly/">연봉↔시급 환산</a>
+            </div>
+          </li>
+
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">건강 계산기</button>
+            <div class="menu" role="menu" aria-label="건강 계산기 하위">
+              <a href="/health/">전체 보기</a>
+              <a href="/health/bmi/">BMI 계산기</a>
+              <a href="/health/bmr/">BMR 계산기</a>
+              <a href="/health/water-intake/">물 섭취량</a>
+            </div>
+          </li>
+
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">출산·육아</button>
+            <div class="menu" role="menu" aria-label="출산·육아 하위">
+              <a href="/family/">전체 보기</a>
+              <a href="/family/due-date/">출산 예정일</a>
+              <a href="/family/baby-days/">아이 생후 N일/개월</a>
+              <a href="/family/baegil/">백일 날짜</a>
+              <a href="/family/dol/">첫돌(1주년) 날짜</a>
+              <a href="/family/vaccine/">예방접종 일정</a>
+            </div>
+          </li>
+
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">재미있는 테스트</button>
+            <div class="menu" role="menu" aria-label="재미있는 테스트 하위">
+              <a href="/fun/">전체 보기</a>
+              <a href="/fun/mental-age/">정신연령 테스트</a>
+              <a href="/fun/astro/">별자리/띠</a>
+            </div>
+          </li>
+
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">가이드</button>
+            <div class="menu" role="menu" aria-label="가이드 하위">
+              <a href="/guide/">전체 보기</a>
+              <a href="/guide/rent-to-jeonse-rate/">전세 전환율 공식</a>
+              <a href="/guide/bmi-range/">BMI 범위 해석</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <!-- 본문 -->
-  <main class="wrap">
+  <main>
     {{ content }}
   </main>
 
@@ -196,5 +201,31 @@ nav.site-nav{margin-left:auto}
       <a href="/guide/">가이드</a>
     </div>
   </footer>
+
+  <!-- 드롭다운 클릭 토글(바깥 클릭/ESC 닫기 포함) -->
+  <script>
+    (function(){
+      const drops = document.querySelectorAll('.drop');
+      drops.forEach(d => {
+        const btn = d.querySelector('.nav-parent');
+        if(!btn) return;
+        btn.addEventListener('click', () => {
+          drops.forEach(x => { if(x!==d){ x.classList.remove('open'); const b=x.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); }});
+          const isOpen = d.classList.toggle('open');
+          btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+      });
+      document.addEventListener('click', e => {
+        if(!e.target.closest('.drop')){
+          drops.forEach(d => { d.classList.remove('open'); const b=d.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); });
+        }
+      });
+      document.addEventListener('keydown', e => {
+        if(e.key==='Escape'){
+          drops.forEach(d => { d.classList.remove('open'); const b=d.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
