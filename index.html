@@ -607,12 +607,43 @@ nav li {
     </div>
   
 <header>
-    <div class="logo">
-      <img src="images/logo.png" alt="LifeCalc (라이프캘크)">
+  <style>
+    /* --- 상단 전용 보정: 가로 메뉴 강제 --- */
+    nav.nav{display:flex !important; flex-direction:row !important; align-items:center !important; gap:14px !important; flex-wrap:wrap}
+    nav.nav a{display:inline-block !important; white-space:nowrap !important; padding:8px 10px; color:#fff; border-radius:8px}
+    nav.nav a:hover{background:rgba(255,255,255,.12)}
+    .header-wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+    .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700}
+    .site-header{background:#0b4c74;color:#fff;position:sticky;top:0;z-index:1000}
+    /* 모바일 */
+    #nav-toggle{display:none}
+    .burger{display:none;font-size:24px;cursor:pointer;padding:6px 10px;color:#fff}
+    @media (max-width:940px){
+      .burger{display:block}
+      nav.nav{display:none !important; flex-direction:column !important; align-items:flex-start !important; gap:8px !important; margin-top:8px}
+      #nav-toggle:checked + label + nav.nav{display:flex !important}
+      nav.nav a{width:100%}
+    }
+  </style>
+
+  <div class="site-header">
+    <div class="header-wrap">
+      <a class="brand" href="/">LifeCalc</a>
+      <input id="nav-toggle" type="checkbox" aria-label="메뉴 열기">
+      <label for="nav-toggle" class="burger" aria-hidden="true">☰</label>
+      <nav class="nav">
+        <a href="/">홈</a>
+        <a href="/life/">생활 계산기</a>
+        <a href="/finance/">금융 계산기</a>
+        <a href="/health/">건강 계산기</a>
+        <a href="/family/">출산·육아</a>
+        <a href="/fun/">재미있는 테스트</a>
+        <a href="/guide/">가이드</a>
+      </nav>
     </div>
-
-
+  </div>
 </header>
+
     
     
 <main>
@@ -997,6 +1028,7 @@ function calcMentalAge() {
  
 </body>
 </html>
+
 
 
 
