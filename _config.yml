@@ -1,7 +1,10 @@
 title: LifeCalc
+description: 생활 계산기 포털 - 금융, 건강, 날짜/기념일, 재미 테스트
 url: https://calculator.khaistory.com
-theme: null  # 테마 안 쓰면 null, 테마 쓰시면 유지
+theme: null
 plugins:
-  - jekyll-redirect-from   # 옛 URL -> 새 URL 리디렉션
+  - jekyll-redirect-from   # 옛 URL → 새 URL 리디렉션
   - jekyll-sitemap         # /sitemap.xml 자동 생성
-  - jekyll-seo-tag         # 메타 태그 자동(타이틀/OG 등)
+  - jekyll-seo-tag         # 메타 태그 자동(제목/설명/OG 등)
+markdown: kramdown
+permalink: /:path/
