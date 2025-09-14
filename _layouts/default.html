@@ -60,10 +60,10 @@ nav.nav a{display:inline-block !important; white-space:nowrap !important; paddin
   <header>
     <div class="wrap nav-bar">
       <a class="brand" href="/">
-        <!-- 원하시면 /assets/logo.png 경로에 로고를 두세요 -->
-        <!-- <img src="/assets/logo.png" alt="LifeCalc"> -->
-        <span>{{ site.title | default: "LifeCalc" }}</span>
-      </a>
+  <img src="/images/logo.png" alt="LifeCalc 로고" style="height:28px;width:auto;">
+  <span>{{ site.title | default: "LifeCalc" }}</span>
+</a>
+
       <input id="nav-toggle" type="checkbox" aria-label="메뉴 열기">
       <label for="nav-toggle" class="burger" aria-hidden="true">☰</label>
       {% include nav.html %}
