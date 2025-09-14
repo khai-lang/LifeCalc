@@ -54,6 +54,52 @@ nav.nav a{display:inline-block !important; white-space:nowrap !important; paddin
   #nav-toggle:checked + label + nav.nav{display:flex !important}
 }
 
+/* === NAV: 데스크톱 가로 고정 === */
+nav.nav{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  gap:14px !important;
+  flex-wrap:wrap;
+}
+nav.nav a{
+  display:inline-block !important;
+  white-space:nowrap !important;
+  padding:8px 10px;
+  max-width:none !important;
+  width:auto !important;
+  line-height:1.2;
+  /* 혹시 테마가 세로쓰기 강제하면 아래 줄이 막아줍니다 */
+  writing-mode:horizontal-tb !important;
+}
+
+/* === NAV: 모바일 버거 메뉴 === */
+#nav-toggle{display:none}
+.burger{display:none; font-size:24px; cursor:pointer; padding:6px 10px; color:#fff}
+
+@media (max-width:940px){
+  .burger{display:block}
+  nav.nav{
+    display:none !important;              /* 기본 접힘 */
+    flex-direction:column !important;     /* 세로로 펼침 */
+    align-items:flex-start !important;
+    gap:8px !important;
+    margin-top:8px;
+  }
+  #nav-toggle:checked + label + nav.nav{
+    display:flex !important;              /* 체크되면 보이기 */
+  }
+  nav.nav a{width:100%}
+}
+
+/* 헤더는 풀폭(처음 이미지처럼) */
+.header-wrap{
+  max-width:none; width:100%; margin:0;
+  padding:12px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+    
+    
   </style>
 </head>
 <body>
@@ -64,10 +110,21 @@ nav.nav a{display:inline-block !important; white-space:nowrap !important; paddin
   <span>{{ site.title | default: "LifeCalc" }}</span>
 </a>
 
-      <input id="nav-toggle" type="checkbox" aria-label="메뉴 열기">
-      <label for="nav-toggle" class="burger" aria-hidden="true">☰</label>
-      {% include nav.html %}
+<input id="nav-toggle" type="checkbox" aria-label="메뉴 열기">
+<label for="nav-toggle" class="burger" aria-hidden="true">☰</label>
+
+<nav class="nav">
+  <a href="/">홈</a>
+  <a href="/life/">생활 계산기</a>
+  <a href="/finance/">금융 계산기</a>
+  <a href="/health/">건강 계산기</a>
+  <a href="/family/">출산·육아</a>
+  <a href="/fun/">재미있는 테스트</a>
+  <a href="/guide/">가이드</a>
+</nav>
+
     </div>
+    
   </header>
 
   <main class="wrap">
