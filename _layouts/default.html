@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  {% seo %}
+  <style>
+    :root{
+      --brand:#0b4c74; --text:#222; --bg:#fff; --muted:#f6f7f9; --line:#e9eef2;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:10px 16px}
+    /* Header */
+    header{position:sticky;top:0;background:var(--brand);color:#fff;z-index:1000;border-bottom:1px solid rgba(0,0,0,.06)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand img{height:26px;width:26px}
+    .nav-bar{display:flex;align-items:center;justify-content:space-between}
+    /* Burger */
+    #nav-toggle{display:none}
+    .burger{display:none;font-size:24px;cursor:pointer;padding:6px 10px}
+    nav.nav{display:flex;gap:14px;align-items:center}
+    nav.nav>a{color:#fff;padding:8px 10px;border-radius:8px}
+    nav.nav>a:hover{background:rgba(255,255,255,.12)}
+    /* Responsive */
+    @media (max-width:940px){
+      .burger{display:block;color:#fff}
+      nav.nav{display:none;flex-direction:column;align-items:flex-start;background:var(--brand);border-top:1px solid rgba(255,255,255,.15);margin-top:8px}
+      #nav-toggle:checked + label + nav.nav{display:flex}
+      nav.nav>a{padding:10px 12px;width:100%}
+    }
+    /* Main */
+    main{max-width:1100px;margin:0 auto;padding:22px 16px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+    .card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+    .btn{display:inline-block;margin-top:8px;padding:8px 12px;border:1px solid #ddd;border-radius:999px}
+    label{display:block;margin:10px 0}
+    input,select,button{padding:8px;border:1px solid #ccc;border-radius:8px}
+    form button{cursor:pointer}
+    .note{background:#f7fbff;border:1px solid #dfeeff;border-radius:10px;padding:12px;margin:16px 0}
+    /* Footer */
+    footer{border-top:1px solid var(--line);background:var(--muted);margin-top:28px}
+    footer .foot{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .muted{opacity:.7}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav-bar">
+      <a class="brand" href="/">
+        <!-- 원하시면 /assets/logo.png 경로에 로고를 두세요 -->
+        <!-- <img src="/assets/logo.png" alt="LifeCalc"> -->
+        <span>{{ site.title | default: "LifeCalc" }}</span>
+      </a>
+      <input id="nav-toggle" type="checkbox" aria-label="메뉴 열기">
+      <label for="nav-toggle" class="burger" aria-hidden="true">☰</label>
+      {% include nav.html %}
+    </div>
+  </header>
+
+  <main class="wrap">
+    {{ content }}
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="muted">© {{ "now" | date: "%Y" }} {{ site.title | default: "LifeCalc 생활 계산기" }} · All rights reserved.</div>
+      <a class="muted" href="/guide/">가이드</a>
+    </div>
+  </footer>
+</body>
+</html>
