@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 출산·육아 도구
-description: 출산 예정일, 생후 N일·개월, 백일·돌, 예방접종 일정.
+description: 출산 예정일, 생후 N일·개월, 백일, 예방접종 일정.
 permalink: family/
 ---
 
