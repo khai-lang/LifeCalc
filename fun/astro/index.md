@@ -1,27 +1,33 @@
 ---
 layout: default
 title: 별자리·띠 찾기
-description: 생일로 서양 별자리와 12간지를 확인합니다.
+description: 생년월일로 서양 별자리와 12간지(띠)를 확인합니다.
 permalink: fun/astro/
 ---
+
 # 별자리·띠 찾기
-<div class="card" style="max-width:720px;margin:0 auto;">
+<div class="card" style="max-width:760px;margin:0 auto;">
   <form onsubmit="event.preventDefault();astro();">
     <label>생년월일 <input type="date" id="ad" required></label>
-    <button>확인</button>
+    <button class="btn" style="background:#ff6a00;color:#fff;border:0">확인</button>
   </form>
   <div id="astro-out" class="note"></div>
+  <p style="font-size:14px;color:#6b7280">* 띠는 통상 양력 해 기준으로 계산했습니다(설 전 출생자는 음력 기준이 다를 수 있어요).</p>
 </div>
+
 <script>
-function zod(m,d){
-  const t=[[1,20,'염소'],[2,19,'물병'],[3,21,'물고기'],[4,20,'양'],[5,21,'황소'],[6,22,'쌍둥이'],[7,23,'게'],
-           [8,23,'사자'],[9,24,'처녀'],[10,23,'천칭'],[11,23,'전갈'],[12,24,'사수'],[12,32,'염소']];
+function western(m,d){
+  const t=[[1,20,'염소자리'],[2,19,'물병자리'],[3,21,'물고기자리'],[4,20,'양자리'],[5,21,'황소자리'],[6,22,'쌍둥이자리'],
+           [7,23,'게자리'],[8,23,'사자자리'],[9,24,'처녀자리'],[10,23,'천칭자리'],[11,23,'전갈자리'],[12,24,'사수자리'],[12,32,'염소자리']];
   for(const [mm,dd,name] of t){ if(m<mm || (m===mm && d<dd)) return name; }
 }
-function branch(y){ const animals=['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양']; return animals[y%12]; }
+function zodiac(y){
+  const animals=['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양'];
+  return animals[y % 12];
+}
 function astro(){
-  const dt=new Date(ad.value); const m=dt.getMonth()+1, d=dt.getDate(), y=dt.getFullYear();
-  astro-out.innerText = `별자리: ${zod(m,d)} · 띠: ${branch(y)}`;
+  const dt=new Date(ad.value); if(!ad.value) return;
+  const m=dt.getMonth()+1, d=dt.getDate(), y=dt.getFullYear();
+  astro-out.innerHTML = `서양 별자리: <b>${western(m,d)}</b> · 12간지 띠: <b>${zodiac(y)}띠</b>`;
 }
 </script>
-
