@@ -5,7 +5,7 @@
     <label>몸무게(kg) <input id="wtWeight" type="number" inputmode="decimal" placeholder="예: 62"></label>
     <label>운동 시간(분) <input id="wtWorkout" type="number" inputmode="numeric" placeholder="예: 30"></label>
     <small style="color:#64748b">기준: kg당 약 30~35ml, 운동 30분당 +350ml (일반 가이드)</small>
-    <button id="wtBtn" type="button" style="padding:12px;border:0;border-radius:8px;background:#22c55e;color:#fff">계산하기</button>
+    <button class="btn" style="background:#ff6a00;color:#fff;border:0">계산</button>
     <div id="wtResult" style="padding:10px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;display:none"></div>
   </div>
 </section>
