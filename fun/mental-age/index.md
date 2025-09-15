@@ -28,7 +28,7 @@ redirect_from:
 <style>
   /* 질문 박스(카드) 스타일 */
   .ma-qbox{
-    background:#ffffff;
+    background:#e8e3d8;
     border:1px solid #e5e7eb;
     border-radius:12px;
     padding:18px 16px;
