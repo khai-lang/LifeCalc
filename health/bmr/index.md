@@ -27,7 +27,7 @@ permalink: health/bmr/
         <option value="1.9">아주 강함(육체노동/선수)</option>
       </select>
     </label>
-    <button class="btn" style="background:#ff6a00;color:#fff;border:0">계산</button>
+   <button class="btn" style="background:#ff6a00;color:#fff;border:0">계산</button>
     <div id="bmrResult" style="padding:10px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;display:none"></div>
   </div>
 </section>
