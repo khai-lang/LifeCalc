@@ -61,6 +61,51 @@ redirect_from:
     color:#6b7280;
     margin-top:6px;
   }
+  /* 질문 전체 박스 */
+.ma-qbox{
+  background:#ffffff;                /* 흰색 박스 */
+  border:1px solid #e5e7eb;          /* 연한 회색 테두리 */
+  border-radius:12px;                /* 둥근 모서리 */
+  padding:18px 16px;
+  margin:18px 0;
+  box-shadow:0 4px 10px rgba(0,0,0,0.04); /* 은은한 그림자 */
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.ma-qbox:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* 질문 텍스트 */
+.ma-q{
+  font-size:19px;                    /* 글자 크게 */
+  font-weight:600;                   /* 질문 강조 */
+  margin:0 0 12px;
+  color:#222;
+  line-height:1.5;
+}
+
+/* 선택지(라디오 버튼 그룹) */
+.ma-scale{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.ma-scale label{
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  border-radius:8px;
+  padding:8px 10px;
+  cursor:pointer;
+  font-size:15px;
+  transition:background .2s, border-color .2s;
+}
+.ma-scale input{ accent-color:#ff6a00; }
+.ma-scale label:hover{
+  background:#fff4e6;                /* 파스텔 오렌지 톤 hover */
+  border-color:#ffddb0;
+}
+
 </style>
 
 <script>
@@ -126,30 +171,43 @@ redirect_from:
   // 계산 로직:
   // 평균 점수(1~5)를 18~66세 범위로 선형 변환 (가벼운 재미용)
   function calcMA(){
-    const form = document.getElementById('ma-form');
-    const values = [];
-    for(let i=0; i<QUESTIONS.length; i++){
-      const sel = form.querySelector(`input[name="q${i}"]:checked`);
-      if(!sel){ alert("모든 문항에 응답해 주세요."); return; }
-      values.push(parseInt(sel.value,10));
-    }
-    const avg = values.reduce((a,b)=>a+b,0) / values.length; // 1~5
-    let age = Math.round(avg * 12 + 6); // 18~66
-    if (age < 10) age = 10;
-    if (age > 90) age = 90;
+  const form = document.getElementById('ma-form');
+  const values = [];
+  for(let i=0; i<QUESTIONS.length; i++){
+    const sel = form.querySelector(`input[name="q${i}"]:checked`);
+    if(!sel){ alert("모든 문항에 응답해 주세요."); return; }
+    values.push(parseInt(sel.value,10));
+  }
+  const total = values.reduce((a,b)=>a+b,0);
+  const avg = total / values.length; // 1.0 ~ 5.0
 
-    const type = age<25 ? "청년형"
-               : age<40 ? "균형형"
-               : age<55 ? "성숙형"
-               : "노련형";
+  let band, tag, desc;
+  if(avg < 1.4){
+    band='10대 초중반'; tag='스파클 ⚡'; desc='호기심 폭발! 신상·놀이·도전이 에너지 원.';
+  } else if(avg < 1.8){
+    band='10대 후반~20초'; tag='트렌드 메이커 🔥'; desc='새로움에 강하고 실행이 빠른 타입.';
+  } else if(avg < 2.2){
+    band='20후~30초'; tag='밸런서 🎯'; desc='일·관계·재미의 균형을 잘 맞춥니다.';
+  } else if(avg < 2.5){
+    band='30중후반'; tag='리얼리스트 🧭'; desc='현실 감각이 뛰어나고 계획적입니다.';
+  } else if(avg < 2.8){
+    band='40대'; tag='케어테이커 🏡'; desc='안정·책임·내실을 중시하는 마음.';
+  } else if(avg < 3.2){
+    band='50대'; tag='멘탈 장인 🛠️'; desc='경험에서 나오는 침착함과 통찰.';
+  } else {
+    band='60대+'; tag='세이지 🌳'; desc='여유와 지혜가 돋보이는 어른 멘탈.';
+  }
 
-    const out = document.getElementById('ma-out');
-    out.style.display = 'block';
-    out.innerHTML = `
-      <div style="font-size:18px; margin-bottom:8px;">당신의 정신연령(추정)</div>
-      <div style="font-size:28px; font-weight:800; margin-bottom:6px;">약 ${age}세 · <span class="accent">${type}</span></div>
-      <div style="color:#6b7280; font-size:14px;">* 재미용 도구입니다. 실제 심리 평가로 사용하지 마세요.</div>
-    `;
+  const out = document.getElementById('ma-out');
+  out.style.display = 'block';
+  out.innerHTML = `
+    <div style="font-size:18px; margin-bottom:8px;">당신의 정신연령 결과</div>
+    <div style="font-size:26px; font-weight:800; margin-bottom:4px;">${band} · <span class="accent">${tag}</span></div>
+    <div style="color:#444; margin-bottom:6px;">${desc}</div>
+    <div style="color:#6b7280; font-size:14px;">* 재미용 도구입니다. 실제 심리 평가로 사용하지 마세요.</div>
+  `;
+}
+
 
     // 주소에 점수 힌트를 남기고 싶다면(선택)
     // history.replaceState(null, "", `#ma=${age}`);
