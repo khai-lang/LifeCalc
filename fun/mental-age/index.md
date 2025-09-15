@@ -14,297 +14,162 @@ redirect_from:
 
   <form id="ma-form" onsubmit="event.preventDefault(); calcMA();">
     <div id="quiz"></div>
-<style>
-  :root{
-    --accent:#ff6010;        /* 오렌지 포인트 */
-    --soft:#f5fbff;          /* 파스텔 박스 배경 */
-    --line:#e7eef7;
-    --text:#222;
-  }
-  /* 전체 기본 폰트 크게 */
-  html{font-size:18px;}
-  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,Arial,sans-serif;background:#fafafa;color:var(--text)}
-  .container{max-width:940px;margin:38px auto;padding:0 18px}
-  h2.title{color:var(--accent);margin:8px 0 22px;font-size:1.8rem;line-height:1.25}
 
-  .card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.06);padding:18px 16px;margin:18px 0}
-  .question-box{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:16px;margin:22px 0}
-
-  /* 질문은 크게(22px) */
-  .question-box p{
-    margin:0 0 14px;
-    font-weight:800;
-    color:var(--accent);
-    font-size:1.22rem; /* ~22px */
-    line-height:1.35;
-  }
-
-  /* 선택지는 질문보다 작게(17~18px) */
-  .option{
-    display:flex;align-items:center;gap:12px;
-    border:1px solid #e9edf3;background:#fff;border-radius:10px;
-    padding:14px 16px;margin:10px 0;cursor:pointer;transition:.15s;
-    font-size:1rem; /* 18px 기준 18px, 기기별 가독성 OK */
-  }
-  .option:hover{box-shadow:0 4px 12px rgba(0,0,0,.06)}
-  .option input{transform:scale(1.15)}
-
-  .controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:24px 0}
-  .btn{background:var(--accent);border:none;color:#fff;border-radius:10px;padding:14px 18px;font-size:1rem;cursor:pointer}
-  .btn.sub{background:#3b4a64}
-  .btn.ghost{background:#fff;color:var(--accent);border:1px solid var(--accent)}
-  .result{font-weight:900;color:var(--accent);text-align:center;font-size:1.25rem;margin:16px 0 8px}
-  .explain{margin:0 auto 18px;max-width:720px;line-height:1.75;color:#444;text-align:center;font-size:1.02rem}
-
-  .progress{height:12px;background:#edf3fa;border-radius:999px;overflow:hidden;margin:10px 0 6px}
-  .progress > span{display:block;height:100%;background:var(--accent);width:0%;transition:width .25s}
-  .progress-label{font-size:.85rem;color:#666;text-align:right}
-
-  .adbox{margin:22px 0;text-align:center}
-  footer{color:#667;font-size:.85rem;text-align:center;padding:24px 0 40px}
-
-  /* 모바일 살짝 키우기 */
-  @media (max-width:480px){
-    html{font-size:19px;}
-    .option{padding:15px 16px}
-  }
-</style>
-</head>
-<body>
-<div class="container">
-  <h2 class="title">나의 정신연령 테스트</h2>
-
-
-
-  <div class="card">
-    <!-- 진행도 -->
-    <div class="progress"><span id="pgbar"></span></div>
-    <div class="progress-label"><span id="pgtext">0 / 15</span></div>
-
-    <form id="mentalAgeForm" onsubmit="return calcMentalAge();">
-      <!-- Q1~Q15 -->
-      <div class="question-box">
-        <p>Q1. 주말에 주로 하는 일은?</p>
-        <label class="option"><input type="radio" name="q1" value="1">집에서 쉰다</label>
-        <label class="option"><input type="radio" name="q1" value="2">친구와 논다</label>
-        <label class="option"><input type="radio" name="q1" value="3">새로운 취미를 한다</label>
-        <label class="option"><input type="radio" name="q1" value="4">자기계발(공부/독서)</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q2. 좋아하는 음식은?</p>
-        <label class="option"><input type="radio" name="q2" value="1">햄버거/피자</label>
-        <label class="option"><input type="radio" name="q2" value="2">한식/집밥</label>
-        <label class="option"><input type="radio" name="q2" value="3">건강식/샐러드</label>
-        <label class="option"><input type="radio" name="q2" value="4">디저트/간식</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q3. 새로운 일을 시작할 때 나는?</p>
-        <label class="option"><input type="radio" name="q3" value="1">바로 도전한다</label>
-        <label class="option"><input type="radio" name="q3" value="2">고민하다가 해본다</label>
-        <label class="option"><input type="radio" name="q3" value="3">신중하게 계획부터 세운다</label>
-        <label class="option"><input type="radio" name="q3" value="4">정보를 충분히 수집한 후 실행</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q4. 친구와의 약속이 취소되면?</p>
-        <label class="option"><input type="radio" name="q4" value="1">아쉽지만 금방 잊는다</label>
-        <label class="option"><input type="radio" name="q4" value="2">혼자만의 시간을 즐긴다</label>
-        <label class="option"><input type="radio" name="q4" value="3">계획이 틀어져서 속상하다</label>
-        <label class="option"><input type="radio" name="q4" value="4">대체 일정을 곧바로 잡는다</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q5. 가장 끌리는 여행지는?</p>
-        <label class="option"><input type="radio" name="q5" value="1">놀이공원/테마파크</label>
-        <label class="option"><input type="radio" name="q5" value="2">유명 관광지/도시</label>
-        <label class="option"><input type="radio" name="q5" value="3">자연/휴양지</label>
-        <label class="option"><input type="radio" name="q5" value="4">조용한 시골/힐링</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q6. 아침에 일어나면 가장 먼저 하는 일은?</p>
-        <label class="option"><input type="radio" name="q6" value="1">휴대폰 확인</label>
-        <label class="option"><input type="radio" name="q6" value="2">물 마시기/세수</label>
-        <label class="option"><input type="radio" name="q6" value="3">스트레칭/운동</label>
-        <label class="option"><input type="radio" name="q6" value="4">하루 계획 점검</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q7. 스트레스를 받을 때 나는?</p>
-        <label class="option"><input type="radio" name="q7" value="1">먹거나 잔다</label>
-        <label class="option"><input type="radio" name="q7" value="2">친구에게 털어놓는다</label>
-        <label class="option"><input type="radio" name="q7" value="3">혼자 조용히 생각한다</label>
-        <label class="option"><input type="radio" name="q7" value="4">운동/산책으로 푼다</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q8. 영화/드라마 장르는?</p>
-        <label class="option"><input type="radio" name="q8" value="1">코미디/로맨스</label>
-        <label class="option"><input type="radio" name="q8" value="2">액션/스릴러</label>
-        <label class="option"><input type="radio" name="q8" value="3">다큐/예술/힐링</label>
-        <label class="option"><input type="radio" name="q8" value="4">최신 OTT 인기작</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q9. 평소 돈 쓰는 스타일은?</p>
-        <label class="option"><input type="radio" name="q9" value="1">사고 싶은 건 바로 산다</label>
-        <label class="option"><input type="radio" name="q9" value="2">고민하다 산다</label>
-        <label class="option"><input type="radio" name="q9" value="3">꼭 필요할 때만 쓴다</label>
-        <label class="option"><input type="radio" name="q9" value="4">예산·가치 대비 분석</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q10. 미래에 대한 생각은?</p>
-        <label class="option"><input type="radio" name="q10" value="1">그때그때 생각한다</label>
-        <label class="option"><input type="radio" name="q10" value="2">목표를 세우고 준비</label>
-        <label class="option"><input type="radio" name="q10" value="3">미리 계획하고 대비</label>
-        <label class="option"><input type="radio" name="q10" value="4">리스크 관리까지 챙김</label>
-      </div>
-
-      <!-- 추가 문항 -->
-      <div class="question-box">
-        <p>Q11. 스마트폰 사용 습관은?</p>
-        <label class="option"><input type="radio" name="q11" value="1">하루 종일 붙어 있다</label>
-        <label class="option"><input type="radio" name="q11" value="2">필요할 때만 본다</label>
-        <label class="option"><input type="radio" name="q11" value="3">사용 시간 관리한다</label>
-        <label class="option"><input type="radio" name="q11" value="4">디지털 디톡스 자주 함</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q12. 생일을 맞이했을 때 기분은?</p>
-        <label class="option"><input type="radio" name="q12" value="1">파티하고 싶다</label>
-        <label class="option"><input type="radio" name="q12" value="2">조용히 가족과 보낸다</label>
-        <label class="option"><input type="radio" name="q12" value="3">특별하지 않다고 느낀다</label>
-        <label class="option"><input type="radio" name="q12" value="4">지난 해를 정리·성찰한다</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q13. SNS 사용 태도는?</p>
-        <label class="option"><input type="radio" name="q13" value="1">매일 업로드한다</label>
-        <label class="option"><input type="radio" name="q13" value="2">가끔 올린다</label>
-        <label class="option"><input type="radio" name="q13" value="3">눈팅 위주</label>
-        <label class="option"><input type="radio" name="q13" value="4">거의 하지 않는다</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q14. 일에서 실패했을 때?</p>
-        <label class="option"><input type="radio" name="q14" value="1">금방 털고 다시 한다</label>
-        <label class="option"><input type="radio" name="q14" value="2">원인 분석 후 재도전</label>
-        <label class="option"><input type="radio" name="q14" value="3">한동안 마음에 남는다</label>
-        <label class="option"><input type="radio" name="q14" value="4">교훈 정리·재발 방지책</label>
-      </div>
-
-      <div class="question-box">
-        <p>Q15. 선호하는 대화 스타일은?</p>
-        <label class="option"><input type="radio" name="q15" value="1">유머와 농담이 많다</label>
-        <label class="option"><input type="radio" name="q15" value="2">진지하고 현실적</label>
-        <label class="option"><input type="radio" name="q15" value="3">철학적·깊은 이야기</label>
-        <label class="option"><input type="radio" name="q15" value="4">듣는 편, 질문형</label>
-      </div>
-
-      <div class="controls">
-        <button type="submit" class="btn">결과 보기</button>
-        <button type="button" id="retryBtn" class="btn ghost" style="display:none" onclick="retry()">다시 하기</button>
-      </div>
-    </form>
-
-    <!-- 결과 영역 -->
-    <div id="result" class="result" aria-live="polite"></div>
-    <div id="explain" class="explain"></div>
-
-    <div class="controls" id="shareRow" style="display:none">
-      <button class="btn sub" type="button" onclick="copyResult()">결과 복사</button>
-      <a id="tw" class="btn" target="_blank" rel="noopener">트위터로 공유</a>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+      <button class="btn" style="background:#ff6a00;color:#fff;border:0" type="submit">결과 보기</button>
+      <button class="btn" type="button" onclick="resetMA()">다시 하기</button>
+      <button class="btn" type="button" onclick="shareMA()">결과 공유</button>
     </div>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
-     crossorigin="anonymous"></script>
-<!-- 계산기 광고 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3758454239921831"
-     data-ad-slot="7492664289"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  </div>
+  </form>
+
+  <div id="ma-out" class="note" style="display:none;margin-top:16px"></div>
 </div>
 
-<footer>ⓒ 2025 LifeCalc — 모든 계산은 브라우저에서만 처리되며 개인정보를 저장하지 않습니다.</footer>
+<style>
+  /* 페이지 전용 파스텔 스타일 */
+  .ma-qbox{
+    background:#f5fbff;
+    border:1px solid #e7eef7;
+    border-radius:14px;
+    padding:14px;
+    margin:14px 0;
+  }
+  .ma-q{
+    font-size:18px;
+    line-height:1.45;
+    margin:0 0 10px;
+  }
+  .ma-scale{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .ma-scale label{
+    background:#fff;
+    border:1px solid #e7eef7;
+    border-radius:10px;
+    padding:8px 10px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer;
+  }
+  .ma-scale input{ accent-color:#ff6a00; }
+  .ma-legend{
+    font-size:13px;
+    color:#6b7280;
+    margin-top:6px;
+  }
+</style>
 
 <script>
-const TOTAL = 15;
-const pgbar = document.getElementById('pgbar');
-const pgtext = document.getElementById('pgtext');
+  // 15개 문항
+  const QUESTIONS = [
+    "새로운 것보다는 익숙한 것을 선호한다.",
+    "감정보다 이성을 우선하여 결정한다.",
+    "계획표를 세우고 그에 맞춰 움직이는 편이다.",
+    "실수했을 때 빠르게 인정하고 수정한다.",
+    "주변의 시선보다 스스로의 기준을 더 중요하게 여긴다.",
+    "중요하지 않은 일은 과감히 미룬다.",
+    "돈 관리(예산/저축/지출)를 꾸준히 한다.",
+    "타인의 입장을 고려해 말을 고른다.",
+    "건강(수면/운동/식습관)을 일정하게 관리한다.",
+    "감정적으로 힘들 때 도움을 요청할 줄 안다.",
+    "장기 목표와 단기 목표를 구분해 실행한다.",
+    "실패를 학습 기회로 받아들이는 편이다.",
+    "SNS/알림에 즉각 반응하지 않아도 괜찮다.",
+    "관계에서 경계(바운더리)를 설정할 줄 안다.",
+    "내가 통제할 수 없는 일은 내려놓는다."
+  ];
 
-document.getElementById('mentalAgeForm').addEventListener('change', updateProgress);
-function updateProgress(){
-  let filled=0;
-  for(let i=1;i<=TOTAL;i++){
-    if(document.querySelector(`input[name="q${i}"]:checked`)) filled++;
+  // Likert 레이블
+  const SCALE = [
+    {v:1, label:"전혀 아니다"},
+    {v:2, label:"아니다"},
+    {v:3, label:"보통"},
+    {v:4, label:"그렇다"},
+    {v:5, label:"매우 그렇다"},
+  ];
+
+  // 문항 렌더링
+  (function renderQuiz(){
+    const box = document.getElementById('quiz');
+    QUESTIONS.forEach((q, i) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'ma-qbox';
+      const p = document.createElement('p');
+      p.className = 'ma-q';
+      p.textContent = `${i+1}. ${q}`;
+      wrap.appendChild(p);
+
+      const scale = document.createElement('div');
+      scale.className = 'ma-scale';
+      SCALE.forEach(s => {
+        const id = `q${i}_${s.v}`;
+        const lab = document.createElement('label');
+        lab.setAttribute('for', id);
+        lab.innerHTML = `<input type="radio" name="q${i}" id="${id}" value="${s.v}" required> ${s.label}`;
+        scale.appendChild(lab);
+      });
+      wrap.appendChild(scale);
+
+      const legend = document.createElement('div');
+      legend.className = 'ma-legend';
+      legend.textContent = "전혀 아니다(1) ~ 매우 그렇다(5)";
+      wrap.appendChild(legend);
+
+      box.appendChild(wrap);
+    });
+  })();
+
+  // 계산 로직:
+  // 평균 점수(1~5)를 18~66세 범위로 선형 변환 (가벼운 재미용)
+  function calcMA(){
+    const form = document.getElementById('ma-form');
+    const values = [];
+    for(let i=0; i<QUESTIONS.length; i++){
+      const sel = form.querySelector(`input[name="q${i}"]:checked`);
+      if(!sel){ alert("모든 문항에 응답해 주세요."); return; }
+      values.push(parseInt(sel.value,10));
+    }
+    const avg = values.reduce((a,b)=>a+b,0) / values.length; // 1~5
+    let age = Math.round(avg * 12 + 6); // 18~66
+    if (age < 10) age = 10;
+    if (age > 90) age = 90;
+
+    const type = age<25 ? "청년형"
+               : age<40 ? "균형형"
+               : age<55 ? "성숙형"
+               : "노련형";
+
+    const out = document.getElementById('ma-out');
+    out.style.display = 'block';
+    out.innerHTML = `
+      <div style="font-size:18px; margin-bottom:8px;">당신의 정신연령(추정)</div>
+      <div style="font-size:28px; font-weight:800; margin-bottom:6px;">약 ${age}세 · <span class="accent">${type}</span></div>
+      <div style="color:#6b7280; font-size:14px;">* 재미용 도구입니다. 실제 심리 평가로 사용하지 마세요.</div>
+    `;
+
+    // 주소에 점수 힌트를 남기고 싶다면(선택)
+    // history.replaceState(null, "", `#ma=${age}`);
   }
-  const pct = Math.round((filled/TOTAL)*100);
-  pgbar.style.width = pct+'%';
-  pgtext.textContent = `${filled} / ${TOTAL}`;
-}
 
-/* 결과 계산(세분화 7단계 + 캐릭터 해설) */
-function calcMentalAge(){
-  let total=0, answered=0;
-  for(let i=1;i<=TOTAL;i++){
-    const sel=document.querySelector(`input[name="q${i}"]:checked`);
-    if(sel){ total += parseInt(sel.value,10); answered++; }
-  }
-  if(answered<TOTAL){
-    alert('모든 문항에 응답해 주세요 🙂');
-    return false;
+  function resetMA(){
+    const form = document.getElementById('ma-form');
+    form.reset();
+    document.getElementById('ma-out').style.display = 'none';
   }
 
-  const avg = total/TOTAL; // 1.0 ~ 4.0
-  let band, tag, desc;
-  if(avg < 1.4){ band='10대 초중반', tag='스파클 ⚡', desc='호기심 폭발! 신상·놀이·도전이 에너지 원.'; }
-  else if(avg < 1.8){ band='10대 후반~20초', tag='트렌드 메이커 🔥', desc='새로움에 강하고 실행이 빠른 타입.'; }
-  else if(avg < 2.2){ band='20후~30초', tag='밸런서 🎯', desc='일·관계·재미의 균형을 잘 맞춥니다.'; }
-  else if(avg < 2.5){ band='30중후반', tag='리얼리스트 🧭', desc='현실 감각이 뛰어나고 계획적입니다.'; }
-  else if(avg < 2.8){ band='40대', tag='케어테이커 🏡', desc='안정·책임·내실을 중시하는 마음.'; }
-  else if(avg < 3.2){ band='50대', tag='멘탈 장인 🛠️', desc='경험에서 나오는 침착함과 통찰.'; }
-  else { band='60대+', tag='세이지 🌳', desc='여유와 지혜가 돋보이는 어른 멘탈.'; }
-
-  const resultTxt = `당신의 정신연령: ${band} (${tag})`;
-  document.getElementById('result').textContent = resultTxt;
-  document.getElementById('explain').textContent = desc + ' 결과가 마음에 드셨다면 친구와 공유해 보세요!';
-  document.getElementById('retryBtn').style.display='inline-block';
-
-  const url = location.href;
-  const tw = document.getElementById('tw');
-  tw.href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(resultTxt) + "&url=" + encodeURIComponent(url);
-  document.getElementById('shareRow').style.display='flex';
-
-  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'center'});
-  return false;
-}
-
-function retry(){
-  document.getElementById('mentalAgeForm').reset();
-  document.getElementById('result').textContent='';
-  document.getElementById('explain').textContent='';
-  document.getElementById('retryBtn').style.display='none';
-  document.getElementById('shareRow').style.display='none';
-  updateProgress();
-}
-
-async function copyResult(){
-  const t = document.getElementById('result').textContent + ' - ' + document.getElementById('explain').textContent;
-  try{
-    await navigator.clipboard.writeText(t);
-    alert('결과가 복사되었습니다. 친구에게 붙여넣어 공유하세요!');
-  }catch(e){
-    alert('복사에 실패했습니다. 브라우저 권한을 확인해 주세요.');
+  function shareMA(){
+    const txt = document.getElementById('ma-out').innerText || "나의 정신연령을 확인해 보세요!";
+    const url = location.href;
+    if (navigator.share) {
+      navigator.share({ title:"정신연령 계산기", text:txt, url });
+    } else {
+      navigator.clipboard.writeText(`${txt}\n${url}`).then(()=>{
+        alert("결과와 링크가 클립보드에 복사되었습니다.");
+      });
+    }
   }
-}
 </script>
-</body>
-</html>
