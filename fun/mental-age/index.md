@@ -58,7 +58,7 @@ redirect_from:
     align-items:center;
   }
   .ma-scale label{
-    background:#f9fafb;
+    background:#e6dbca;
     border:1px solid #e5e7eb;
     border-radius:8px;
     padding:8px 10px;
