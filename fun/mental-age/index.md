@@ -9,7 +9,7 @@ redirect_from:
 
 <h1><span class="accent">정신연령</span> 계산기</h1>
 
-<div class="card" style="max-width:880px;margin:0 auto;">
+<div class="card" style="max-width:900px;margin:0 auto;">
   <p class="note">아래 15가지 문항에 대해 본인에게 가까운 정도를 선택해 주세요. (전혀 아니다 ~ 매우 그렇다)</p>
 
   <form id="ma-form" onsubmit="event.preventDefault(); calcMA();">
