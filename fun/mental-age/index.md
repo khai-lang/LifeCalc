@@ -3,17 +3,17 @@ layout: default
 title: 정신연령 계산기
 description: 15가지 질문으로 자신의 정신연령을 확인할 수 있습니다.
 permalink: fun/mental-age/
+redirect_from:
+  - /mental-age/
 ---
 
+<h1><span class="accent">정신연령</span> 계산기</h1>
 
-<html lang="ko">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>나의 정신연령 테스트 | LifeCalc</title>
-<meta name="description" content="15가지 질문으로 내 정신연령(멘탈 나이)을 재미있게 확인해 보세요. 결과 해설·다시하기·공유 기능까지!">
-<link rel="canonical" href="https://calculator.khaistory.com/mental-age/">
+<div class="card" style="max-width:880px;margin:0 auto;">
+  <p class="note">아래 15가지 문항에 대해 본인에게 가까운 정도를 선택해 주세요. (전혀 아니다 ~ 매우 그렇다)</p>
 
+  <form id="ma-form" onsubmit="event.preventDefault(); calcMA();">
+    <div id="quiz"></div>
 <style>
   :root{
     --accent:#ff6010;        /* 오렌지 포인트 */
