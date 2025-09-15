@@ -22,7 +22,7 @@ description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
   </a>
   <a class="card" href="/finance/">
     <div style="font-weight:700">금융 계산기</div>
-    <div style="color:#6b7280">월세→전세, 대출, 연봉↔시급</div>
+    <div style="color:#6b7280">월세→전세, 전세→월세, 대출, 연봉↔시급</div>
   </a>
   <a class="card" href="/health/">
     <div style="font-weight:700">건강 계산기</div>
@@ -30,7 +30,7 @@ description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
   </a>
   <a class="card" href="/family/">
     <div style="font-weight:700">출산·육아</div>
-    <div style="color:#6b7280">예정일, 생후 N일/개월, 백일·돌, 예방접종</div>
+    <div style="color:#6b7280">예정일, 생후 N일/개월, 백일, 예방접종</div>
   </a>
   <a class="card" href="/fun/">
     <div style="font-weight:700">재미있는 테스트</div>
