@@ -33,14 +33,14 @@ permalink: family/vaccine/
             display:flex;
             gap:10px;
             flex-wrap:wrap;
-            background:#fdf6f0;       /* 파스텔 배경 */
+            background:#d0e6eb;       /* 파스텔 배경 */
             border:1px solid #f3e6db; /* 연한 테두리 */
             border-radius:12px;
             padding:16px;">
-  <a class="btn" href="https://nip.kdca.go.kr/irgd/index.html" target="_blank" rel="noopener">
+  <a class="btn" href="https://nip.kdca.go.kr/irgd/index.html"  rel="noopener">
     질병관리청 NIP 바로가기
   </a>
-  <a class="btn" href="https://www.kdca.go.kr/" target="_blank" rel="noopener">
+  <a class="btn" href="https://www.kdca.go.kr/"  rel="noopener">
     질병관리청 홈페이지
   </a>
 </div>
