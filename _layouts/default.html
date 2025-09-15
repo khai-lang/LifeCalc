@@ -102,6 +102,70 @@
   border-radius: 4px;
 }
 
+    /* ▼ 드롭다운 공통 컨테이너: 파스텔 배경 + 그림자 */
+.nav-ul .menu {
+  background: #fdf6f0;                /* 파스텔 베이지(전체 동일 배경) */
+  border: 1px solid #f3e6db;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  z-index: 1200;
+}
+
+/* ▼ 아이템을 '카드형 박스'로: 큰 글자 + 여백 넉넉 */
+.nav-ul .menu a {
+  display: block;
+  font-size: 16.5px;                  /* 기존보다 크게 */
+  line-height: 1.35;
+  color: #2b2b2b;                     /* 진한 회색으로 대비 ↑ */
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin: 4px 0;
+  background: #fff;                    /* 아이템은 흰 박스 */
+  border: 1px solid #efe2d7;           /* 은은한 테두리 */
+  transition: background .2s, border-color .2s, transform .05s;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+/* ▼ hover/포커스: 파스텔 블루 하이라이트 + 살짝 떠오르는 느낌 */
+.nav-ul .menu a:hover,
+.nav-ul .menu a:focus {
+  background: #e8f6ff;                 /* 파스텔 블루 */
+  border-color: #d6ecfb;
+  color: #1a1a1a;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* ▼ 키보드 접근성: 명확한 아웃라인 */
+.nav-ul .menu a:focus-visible {
+  box-shadow: 0 0 0 3px rgba(40, 140, 240, 0.35);
+}
+
+/* ▼ 드롭다운 상하 여백 & 섹션 간격 보정 */
+.nav-ul .menu { min-width: 240px; }
+@media (max-width: 940px){
+  .nav-ul .menu {
+    background: transparent;           /* 모바일은 헤더색과 어울리게 */
+    border: 0;
+    box-shadow: none;
+    padding: 6px 0 0 8px;
+  }
+  .nav-ul .menu a {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;                        /* 어두운 헤더 위에서 가독성 ↑ */
+  }
+  .nav-ul .menu a:hover,
+  .nav-ul .menu a:focus {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.28);
+    color: #fff;
+  }
+}
+
+
 
     /* 모바일: 버거 + 아코디언 */
     #nav-toggle{display:none}
