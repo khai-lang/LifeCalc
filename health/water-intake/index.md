@@ -1,30 +1,42 @@
----
-layout: default
-title: 물 섭취량 계산기
-description: 체중·활동·기후를 고려한 하루 권장 수분 섭취량을 추정합니다.
-permalink: health/water-intake/
----
+<!-- 물 섭취량 계산기 -->
+<section id="water-calc" style="max-width:520px;margin-top:18px;padding:16px;border:1px solid #eee;border-radius:12px">
+  <h3 style="margin:0 0 12px">하루 물 섭취량 계산기</h3>
+  <div style="display:grid;gap:10px">
+    <label>몸무게(kg) <input id="wtWeight" type="number" inputmode="decimal" placeholder="예: 62"></label>
+    <label>운동 시간(분) <input id="wtWorkout" type="number" inputmode="numeric" placeholder="예: 30"></label>
+    <small style="color:#64748b">기준: kg당 약 30~35ml, 운동 30분당 +350ml (일반 가이드)</small>
+    <button id="wtBtn" type="button" style="padding:12px;border:0;border-radius:8px;background:#22c55e;color:#fff">계산하기</button>
+    <div id="wtResult" style="padding:10px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;display:none"></div>
+  </div>
+</section>
 
-# 물 섭취량 계산기
-<div class="card" style="max-width:760px;margin:0 auto;">
-  <form onsubmit="event.preventDefault();waterCalc();">
-    <label>체중(kg) <input type="number" id="kg" value="70" required></label>
-    <label>유산소 등 활동(분/일) <input type="number" id="min" value="30" required></label>
-    <label><input type="checkbox" id="hot"> 더운 환경/땀 많이 흘림</label>
-    <button class="btn" style="background:#ff6a00;color:#fff;border:0">계산</button>
-  </form>
-  <div id="water-out" class="note"></div>
-  <p style="font-size:14px;color:#6b7280">* 일반 가이드: 체중 1kg당 30~35ml + 운동 15분당 350~500ml 보충. 질환/의사 지시가 있으면 따르세요.</p>
-</div>
+<script defer>
+document.addEventListener('DOMContentLoaded', function(){
+  const $ = id => document.getElementById(id);
+  const clean = v => String(v ?? '').replace(/,/g,'').trim();
 
-<script>
-function waterCalc(){
-  const k=+kg.value, m=+min.value, isHot=hot.checked;
-  let base = k * 32.5;                 // 30~35ml의 중간값
-  let extra = (m/15) * 400;            // 15분당 0.4L 추가
-  if(isHot) extra *= 1.2;              // 덥거나 땀 많으면 20% 가산
-  const ml = Math.round(base + extra);
-  const L  = (ml/1000).toFixed(2);
-  water-out.innerHTML = `권장 수분: <b>${ml} ml</b> (약 <b>${L} L</b>/일)`;
-}
+  $('wtBtn').addEventListener('click', function(){
+    const w = parseFloat(clean($('wtWeight').value));
+    const workoutMin = parseFloat(clean($('wtWorkout').value || '0'));
+
+    if (Number.isNaN(w) || w<=0) {
+      $('wtResult').style.display='block';
+      $('wtResult').innerText = '몸무게를 정확히 입력하세요.';
+      return;
+    }
+
+    const baseLowMl = w * 30;
+    const baseHighMl = w * 35;
+    const extraMl = Math.floor((workoutMin/30)) * 350;
+
+    const low = baseLowMl + extraMl;
+    const high = baseHighMl + extraMl;
+
+    $('wtResult').style.display='block';
+    $('wtResult').innerHTML = `
+      <strong>권장 섭취량:</strong> ${Math.round(low/1000)} ~ ${Math.round(high/1000)} L/일
+      <br><small style="color:#64748b">※ 개인 건강상태에 따라 다를 수 있습니다.</small>
+    `;
+  });
+});
 </script>
