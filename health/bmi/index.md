@@ -9,7 +9,9 @@ permalink: health/bmi/
 <form id="bmi-form" onsubmit="event.preventDefault(); calcBMI();">
   <label>키(cm) <input type="number" id="height" required></label>
   <label>몸무게(kg) <input type="number" id="weight" required></label>
-  <button type="submit">계산</button>
+  <!-- BMI 계산기 버튼 -->
+<button id="bmiBtn" type="button" class="btn-orange">계산</button>
+
 </form>
 <div id="bmi-result" class="note"></div>
 
