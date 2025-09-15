@@ -56,6 +56,21 @@
   gap:18px;              /* 10 → 18 으로 넓힘 (원하면 20~22까지 가능) */
   flex-wrap:nowrap;      /* 강제로 한 줄 유지 */
 }
+/* 상위 메뉴 버튼 기본 스타일 */
+.nav-ul>li>a,
+.nav-parent{
+  color: var(--brand-ink);
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  display: inline-block;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+    
 .nav-ul>li>a,
 .nav-parent{
   white-space:nowrap;    /* 줄바꿈 금지 */
