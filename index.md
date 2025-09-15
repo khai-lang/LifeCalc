@@ -11,17 +11,7 @@ description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
     <div style="font-weight:800;font-size:20px;margin-bottom:6px">가장 많이 찾는 계산기</div>
     <div>만나이, 기념일·날짜, 대출, BMI 등을 빠르게 계산하세요.</div>
   </div>
-  <a href="/life/age/" class="btn" 
-   style="background:#ff6a00;
-          color:#fff;
-          border:0;
-          display:inline-block;
-          padding:14px 30px;
-          font-size:20px;
-          border-radius:8px;
-          text-align:center;">
-  만나이 계산하기 →
-</a>
+  <a href="/life/age/" class="btn" style="background:#ff6a00;color:#fff;border:0">만나이 계산하기 →</a>
 
 </div>
 
