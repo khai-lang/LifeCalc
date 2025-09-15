@@ -5,11 +5,8 @@
     <label>몸무게(kg) <input id="wtWeight" type="number" inputmode="decimal" placeholder="예: 62"></label>
     <label>운동 시간(분) <input id="wtWorkout" type="number" inputmode="numeric" placeholder="예: 30"></label>
     <small style="color:#64748b">기준: kg당 약 30~35ml, 운동 30분당 +350ml (일반 가이드)</small>
-    <!-- id 추가 + 버튼 스타일 -->
-    <button id="wtBtn" class="btn" 
-      style="background:#ff6a00;color:#fff;border:0;padding:10px 16px;font-size:16px;border-radius:6px;cursor:pointer">
-      계산
-    </button>
+     <label><input type="checkbox" id="hot"> 더운 환경/땀 많이 흘림</label>
+    <button class="btn" style="background:#ff6a00;color:#fff;border:0">계산</button>
     <div id="wtResult" style="padding:10px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;display:none"></div>
   </div>
 </section>
