@@ -10,6 +10,5 @@ permalink: family/
   <li><a href="/family/due-date/">출산 예정일 계산</a></li>
   <li><a href="/family/baby-days/">아이 생후 N일·개월</a></li>
   <li><a href="/family/baegil/">백일 날짜</a></li>
-  <li><a href="/family/dol/">첫돌 날짜</a></li>
   <li><a href="/family/vaccine/">예방접종 일정</a></li>
 </ul>
