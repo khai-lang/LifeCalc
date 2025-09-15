@@ -28,7 +28,7 @@ redirect_from:
 <style>
   /* 질문 박스(카드) 스타일 */
   .ma-qbox{
-    background:#dce2e9;
+    background:#e9e7dc;
     border:1px solid #e5e7eb;
     border-radius:12px;
     padding:18px 16px;
@@ -58,7 +58,7 @@ redirect_from:
     align-items:center;
   }
   .ma-scale label{
-    background:#dce2e9;
+    background:#e9e7dc;
     border:1px solid #e5e7eb;
     border-radius:8px;
     padding:8px 10px;
