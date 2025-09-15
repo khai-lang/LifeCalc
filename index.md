@@ -16,7 +16,7 @@ description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
           color:#fff;
           border:0;
           display:inline-block;
-          padding:16px 32px;
+          padding:14px 30px;
           font-size:20px;
           border-radius:8px;
           text-align:center;">
