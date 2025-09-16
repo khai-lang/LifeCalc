@@ -7,13 +7,35 @@ permalink: fun/astro/
 
 # 별자리·띠 찾기
 <div class="card" style="max-width:760px;margin:0 auto;">
-  <form onsubmit="event.preventDefault();astro();">
-    <label>생년월일 <input type="date" id="ad" required></label>
-    <button class="btn" style="background:#ff6a00;color:#fff;border:0">확인</button>
+  <form onsubmit="event.preventDefault();astro();" style="margin-bottom:16px;">
+    <label>생년월일 
+      <input type="date" id="ad" required>
+    </label>
+    <button class="btn">확인</button>
   </form>
   <div id="astro-out" class="note"></div>
-  <p style="font-size:14px;color:#6b7280">* 띠는 통상 양력 해 기준으로 계산했습니다(설 전 출생자는 음력 기준이 다를 수 있어요).</p>
+  <p style="font-size:14px;color:#6b7280">
+    * 띠는 통상 양력 해 기준으로 계산했습니다(설 전 출생자는 음력 기준이 다를 수 있어요).
+  </p>
 </div>
+
+<!-- 버튼 스타일 -->
+<style>
+  .btn {
+    display:inline-block;
+    padding:12px 24px;       /* 버튼을 조금 더 넓게 */
+    border:0;
+    border-radius:8px;
+    background:#ff6a00;      /* 오렌지색 */
+    color:#fff;
+    font-size:16px;          /* 글자 크기 키움 */
+    font-weight:bold;
+    cursor:pointer;
+  }
+  .btn:hover {
+    background:#e55d00;      /* hover 시 진한 오렌지 */
+  }
+</style>
 
 <script>
 function western(m,d){
@@ -22,7 +44,7 @@ function western(m,d){
     [4,20,'양자리'],[5,21,'황소자리'],[6,22,'쌍둥이자리'],
     [7,23,'게자리'],[8,23,'사자자리'],[9,24,'처녀자리'],
     [10,23,'천칭자리'],[11,23,'전갈자리'],[12,24,'사수자리'],
-    [12,32,'염소자리'] // 안전하게 마지막 처리
+    [12,32,'염소자리']
   ];
   for(const [mm,dd,name] of t){
     if(m < mm || (m === mm && d < dd)) return name;
