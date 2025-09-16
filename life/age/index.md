@@ -36,6 +36,7 @@ function calcAge(){
 
 ## 계산 공식
 `만 나이 = 기준연도 − 출생연도 (단, 생일 전이면 1 빼기)`
+<br><br><br>
 <div class="ad-box">
   <ins class="adsbygoogle"
        style="display:block"
