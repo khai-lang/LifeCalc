@@ -57,7 +57,7 @@ permalink: family/vaccine/
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    background-color: #a5d8ff; /* 연한 파스텔톤 하늘색 */
+    background-color: orange; /* 오렌지 */
     color: #004080;            /* 글자색: 진한 파랑 */
     transition: background 0.3s;
   }
