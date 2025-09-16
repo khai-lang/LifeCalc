@@ -30,10 +30,10 @@ permalink: life/unit-converter/
       <select id="to"></select>
     </label>
 
-    <button class="btn" style="background:#ff6a00;color:#fff;border:0">변환</button>
+    <button type="submit" class="btn">변환</button>
   </form>
-  <div id="out" class="note"></div>
-</div>
+ <!-- 결과 박스: 전역 .result-box 사용 -->
+<div id="out" class="result-box"></div>
 
 <script>
 const UNITS = {
