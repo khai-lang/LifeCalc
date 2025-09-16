@@ -43,7 +43,7 @@ description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
   </a>
   <a class="card card-link" href="/family/">
     <div class="icon">👶</div>
-    <div class="title">출산·육아</div>
+    <div class="title">출산·육아 계산기</div>
     <div class="desc">예정일, 생후 N일/개월, 백일, 예방접종</div>
   </a>
   <a class="card card-link" href="/fun/">
