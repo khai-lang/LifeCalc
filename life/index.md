@@ -11,6 +11,8 @@ permalink: /life/
   <li><a href="/life/date/">기념일·날짜 계산</a></li>
   <li><a href="/life/unit-converter/">단위 변환</a></li>
 </ul>
+<br><br><br>
+
 <div class="ad-box">
   <ins class="adsbygoogle"
        style="display:block"
