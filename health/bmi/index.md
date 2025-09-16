@@ -28,13 +28,16 @@ function calcBMI(){
     return;
   }
 
-  const bmi = (w/(h*h)).toFixed(1);
-  let cat="정상";
-  if(bmi < 18.5) cat="저체중";
-  else if(bmi >= 25) cat="과체중/비만";
+  const bmi = parseFloat((w/(h*h)).toFixed(1));
+  let cat = "정상";
+  if(bmi < 18.5) cat = "저체중";
+  else if(bmi >= 25) cat = "과체중/비만";
 
   out.classList.add('show');
-  out.innerHTML = `📊 <strong>BMI:</strong> ${bmi} <br>🩺 <strong>해석:</strong> ${cat}`;
+  out.innerHTML = `
+    📊 <strong>BMI:</strong> ${bmi}<br>
+    🩺 <strong>해석:</strong> ${cat}
+  `;
 }
 </script>
 
