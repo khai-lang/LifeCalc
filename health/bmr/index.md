@@ -27,18 +27,11 @@ permalink: health/bmr/
         <option value="1.9">아주 강함(육체노동/선수)</option>
       </select>
     </label><br><br>
-    <!-- 버튼: 별자리 계산기와 동일한 크기 -->
-    <button type="submit" class="btn">계산</button>
-  </form>
+    
+    <button id="bmrBtn" class="btn">계산</button>
+    <div id="bmrResult" class="result-box"></div>
 
-  <!-- 결과 박스 -->
-  <div id="bmrResult" style="padding:12px;
-                             background:#fffaf5;
-                             color:#333;
-                             border:1px solid #ffb366;
-                             border-radius:10px;
-                             box-shadow:0 2px 6px rgba(0,0,0,0.08);
-                             display:none"></div>
+    
 </section>
 
 <!-- 버튼 스타일 -->
