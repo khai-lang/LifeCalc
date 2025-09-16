@@ -6,28 +6,55 @@ permalink: life/date/
 ---
 
 # 기념일·날짜 계산기
-<form id="date-form" onsubmit="event.preventDefault(); runDate();">
+<form id="date-form" onsubmit="event.preventDefault(); runDate();" style="margin-bottom:12px;">
   <label>기준 날짜 <input type="date" id="base" required></label>
   <label>N일 (+앞으로 / -과거) <input type="number" id="days" value="100" required></label>
   <button type="submit" class="btn">계산</button>
 </form>
 
 <!-- 결과 박스: 전역 .result-box 사용 -->
-<div id="age-out" class="result-box"></div>
+<div id="date-out" class="result-box"></div>
 
 <script>
+// YYYY-MM-DD로 포맷 (로컬 기준)
+function fmt(date){
+  const y = date.getFullYear();
+  const m = String(date.getMonth()+1).padStart(2,'0');
+  const d = String(date.getDate()).padStart(2,'0');
+  return `${y}-${m}-${d}`;
+}
+
+// 페이지 로드 시 기준 날짜를 오늘로
+(function(){
+  const base = document.getElementById('base');
+  if(!base.value){
+    const t = new Date();
+    base.value = fmt(t);
+  }
+})();
+
 function runDate(){
-  const base=document.getElementById('base').value;
-  const n=parseInt(document.getElementById('days').value,10);
-  if(!base || isNaN(n)) return;
-  const d=new Date(base);
-  d.setDate(d.getDate()+n);
-  document.getElementById('date-result').innerText = `${n}일 기준 날짜: ${d.toISOString().slice(0,10)}`;
+  const baseVal = document.getElementById('base').value;
+  const n = parseInt(document.getElementById('days').value, 10);
+  const out = document.getElementById('date-out');
+
+  if(!baseVal || Number.isNaN(n)){
+    out.classList.add('show');
+    out.innerHTML = '⚠️ 기준 날짜와 N일을 정확히 입력해주세요.';
+    return;
+  }
+
+  const d = new Date(baseVal);
+  d.setDate(d.getDate() + n);
+
+  out.classList.add('show');
+  out.innerHTML = `📅 <strong>결과:</strong> ${fmt(d)} <br><small style="color:#64748b">(${n >= 0 ? '+'+n : n}일 기준)</small>`;
 }
 </script>
 
 ## 예시
 - 오늘 기준 100일: N=100 입력 → 결과 날짜 표시
+
 <br><br><br>
 <div class="ad-box">
   <ins class="adsbygoogle"
