@@ -16,19 +16,20 @@ redirect_from:
     <div id="quiz"></div>
 
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <button class="btn" style="background:#ff6a00;color:#fff;border:0" type="submit">결과 보기</button>
+      <button class="btn" type="submit">결과 보기</button>
       <button class="btn" type="button" onclick="resetMA()">다시 하기</button>
       <button class="btn" type="button" onclick="shareMA()">결과 공유</button>
     </div>
   </form>
 
-  <div id="ma-out" class="note" style="display:none;margin-top:16px"></div>
+  <!-- 전역 결과 박스 사용 -->
+  <div id="ma-out" class="result-box"></div>
 </div>
 
 <style>
   /* 질문 박스(카드) 스타일 */
   .ma-qbox{
-    background:#e9e7dc;
+    background:#dce9e4;
     border:1px solid #e5e7eb;
     border-radius:12px;
     padding:18px 16px;
@@ -36,50 +37,20 @@ redirect_from:
     box-shadow:0 4px 10px rgba(0,0,0,0.04);
     transition:transform .15s ease, box-shadow .15s ease;
   }
-  .ma-qbox:hover{
-    transform:translateY(-2px);
-    box-shadow:0 6px 16px rgba(0,0,0,0.08);
-  }
+  .ma-qbox:hover{ transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,0.08); }
 
-  /* 질문 텍스트 */
-  .ma-q{
-    font-size:19px;
-    font-weight:600;
-    margin:0 0 12px;
-    color:#222;
-    line-height:1.5;
-  }
+  .ma-q{ font-size:19px; font-weight:600; margin:0 0 12px; color:#222; line-height:1.5; }
 
-  /* 선택지(라디오 그룹) */
-  .ma-scale{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    align-items:center;
-  }
+  .ma-scale{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
   .ma-scale label{
-    background:#e9e7dc;
-    border:1px solid #e5e7eb;
-    border-radius:8px;
-    padding:8px 10px;
-    cursor:pointer;
-    font-size:15px;
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
+    background:#e9e7dc; border:1px solid #e5e7eb; border-radius:8px;
+    padding:8px 10px; cursor:pointer; font-size:15px; display:inline-flex; align-items:center; gap:6px;
     transition:background .2s, border-color .2s;
   }
   .ma-scale input{ accent-color:#ff6a00; }
-  .ma-scale label:hover{
-    background:#fff4e6;
-    border-color:#ffddb0;
-  }
+  .ma-scale label:hover{ background:#fff4e6; border-color:#ffddb0; }
 
-  .ma-legend{
-    font-size:13px;
-    color:#6b7280;
-    margin-top:6px;
-  }
+  .ma-legend{ font-size:13px; color:#6b7280; margin-top:6px; }
 </style>
 
 <script>
@@ -102,7 +73,6 @@ redirect_from:
     "내가 통제할 수 없는 일은 내려놓는다."
   ];
 
-  // Likert 레이블
   const SCALE = [
     {v:1, label:"전혀 아니다"},
     {v:2, label:"아니다"},
@@ -143,7 +113,7 @@ redirect_from:
     });
   })();
 
-  // 결과 계산: 평균 점수(1~5) → 구간(band/tag/desc)
+  // 결과 계산
   function calcMA(){
     const form = document.getElementById('ma-form');
     const values = [];
@@ -173,21 +143,20 @@ redirect_from:
     }
 
     const out = document.getElementById('ma-out');
-    out.style.display = 'block';
+    out.classList.add('show'); // 전역 .result-box 표시
     out.innerHTML = `
-      <div style="font-size:18px; margin-bottom:8px;">당신의 정신연령 결과</div>
-      <div style="font-size:26px; font-weight:800; margin-bottom:4px;">${band} · <span class="accent">${tag}</span></div>
-      <div style="color:#444; margin-bottom:6px;">${desc}</div>
-      <div style="color:#6b7280; font-size:14px;">* 재미용 도구입니다. 실제 심리 평가로 사용하지 마세요.</div>
+      <div style="font-size:18px;margin-bottom:8px;">당신의 정신연령 결과</div>
+      <div style="font-size:26px;font-weight:800;margin-bottom:4px;">${band} · <span class="accent">${tag}</span></div>
+      <div style="color:#444;margin-bottom:6px;">${desc}</div>
+      <div style="color:#6b7280;font-size:14px;">* 재미용 도구입니다. 실제 심리 평가로 사용하지 마세요.</div>
     `;
-
-    // 필요 시 공유용 해시 등으로 남기고 싶다면(선택)
-    // history.replaceState(null, "", "#band=" + encodeURIComponent(band));
   }
 
   function resetMA(){
     document.getElementById('ma-form').reset();
-    document.getElementById('ma-out').style.display = 'none';
+    const out = document.getElementById('ma-out');
+    out.classList.remove('show');
+    out.innerHTML = '';
   }
 
   function shareMA(){
