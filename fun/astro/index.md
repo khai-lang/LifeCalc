@@ -11,31 +11,17 @@ permalink: fun/astro/
     <label>생년월일 
       <input type="date" id="ad" required>
     </label>
-    <button class="btn">확인</button>
+    <!-- 전역 버튼 스타일 사용 -->
+    <button type="submit" class="btn">확인</button>
   </form>
-  <div id="astro-out" class="note"></div>
+
+  <!-- 전역 결과 박스 스타일 사용 -->
+  <div id="astro-out" class="result-box"></div>
+
   <p style="font-size:14px;color:#6b7280">
     * 띠는 통상 양력 해 기준으로 계산했습니다(설 전 출생자는 음력 기준이 다를 수 있어요).
   </p>
 </div>
-
-<!-- 버튼 스타일 -->
-<style>
-  .btn {
-    display:inline-block;
-    padding:12px 24px;       /* 버튼을 조금 더 넓게 */
-    border:0;
-    border-radius:8px;
-    background:#ff6a00;      /* 오렌지색 */
-    color:#fff;
-    font-size:16px;          /* 글자 크기 키움 */
-    font-weight:bold;
-    cursor:pointer;
-  }
-  .btn:hover {
-    background:#e55d00;      /* hover 시 진한 오렌지 */
-  }
-</style>
 
 <script>
 function western(m,d){
@@ -60,9 +46,14 @@ function zodiac(y){
 function astro(){
   const input = document.getElementById("ad");
   if(!input.value) return;
+
   const dt = new Date(input.value);
   const m = dt.getMonth()+1, d = dt.getDate(), y = dt.getFullYear();
-  document.getElementById("astro-out").innerHTML =
-    `서양 별자리: <b>${western(m,d)}</b> · 12간지 띠: <b>${zodiac(y)}띠</b>`;
+
+  const out = document.getElementById("astro-out");
+  out.classList.add('show');  // 전역 result-box 보이기
+  out.innerHTML =
+    `✨ 서양 별자리: <b>${western(m,d)}</b><br>🐭 12간지 띠: <b>${zodiac(y)}띠</b>`;
 }
 </script>
+
