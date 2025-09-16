@@ -6,6 +6,7 @@ permalink: family/vaccine/
 ---
 
 # 영유아 예방접종 일정(요약)
+
 <div class="card">
   <p class="note">※ 지역·연도·백신공급 상황에 따라 달라질 수 있습니다. 반드시 보건소/소아청소년과의 최신 일정을 확인하세요.</p>
 
@@ -29,20 +30,39 @@ permalink: family/vaccine/
     </tbody>
   </table>
 
+  <!-- 버튼 영역 -->
   <div style="margin-top:14px;
-            display:flex;
-            gap:10px;
-            flex-wrap:wrap;
-            background:#d0e6eb;       /* 파스텔 배경 */
-            border:1px solid #f3e6db; /* 연한 테두리 */
-            border-radius:12px;
-            padding:16px;">
-  <a class="btn" href="https://nip.kdca.go.kr/irgd/index.html"  rel="noopener">
-    질병관리청 NIP 바로가기
-  </a>
-  <a class="btn" href="https://www.kdca.go.kr/"  rel="noopener">
-    질병관리청 홈페이지
-  </a>
+              display:flex;
+              gap:10px;
+              flex-wrap:wrap;
+              background:#ffffff;   /* 전체 배경 흰색 */
+              border:1px solid #f3e6db;
+              border-radius:12px;
+              padding:16px;">
+
+    <a class="btn" href="https://nip.kdca.go.kr/irgd/index.html" rel="noopener">
+      질병관리청 NIP 바로가기
+    </a>
+    <a class="btn" href="https://www.kdca.go.kr/" rel="noopener">
+      질병관리청 홈페이지
+    </a>
+  </div>
 </div>
 
-</div>
+<!-- 버튼 스타일 -->
+<style>
+  .btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #a5d8ff; /* 연한 파스텔톤 하늘색 */
+    color: #004080;            /* 글자색: 진한 파랑 */
+    transition: background 0.3s;
+  }
+  .btn:hover {
+    background-color: #74c0fc; /* hover 시 조금 더 진한 하늘색 */
+    color: #fff;
+  }
+</style>
