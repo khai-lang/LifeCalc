@@ -9,9 +9,11 @@ permalink: life/date/
 <form id="date-form" onsubmit="event.preventDefault(); runDate();">
   <label>기준 날짜 <input type="date" id="base" required></label>
   <label>N일 (+앞으로 / -과거) <input type="number" id="days" value="100" required></label>
-  <button type="submit">계산</button>
+  <button type="submit" class="btn">계산</button>
 </form>
-<div id="date-result" class="note"></div>
+
+<!-- 결과 박스: 전역 .result-box 사용 -->
+<div id="age-out" class="result-box"></div>
 
 <script>
 function runDate(){
