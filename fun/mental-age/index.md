@@ -29,7 +29,7 @@ redirect_from:
 <style>
   /* 질문 박스(카드) 스타일 */
   .ma-qbox{
-    background:#dce9e4;
+    background:#cee3f2;
     border:1px solid #e5e7eb;
     border-radius:12px;
     padding:18px 16px;
@@ -43,7 +43,7 @@ redirect_from:
 
   .ma-scale{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
   .ma-scale label{
-    background:#e9e7dc; border:1px solid #e5e7eb; border-radius:8px;
+    background:#cee3f2; border:1px solid #e5e7eb; border-radius:8px;
     padding:8px 10px; cursor:pointer; font-size:15px; display:inline-flex; align-items:center; gap:6px;
     transition:background .2s, border-color .2s;
   }
