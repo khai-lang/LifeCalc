@@ -26,6 +26,8 @@ function runDate(){
 
 ## 예시
 - 오늘 기준 100일: N=100 입력 → 결과 날짜 표시
+
+<br><br><br>
 <div class="ad-box">
   <ins class="adsbygoogle"
        style="display:block"
