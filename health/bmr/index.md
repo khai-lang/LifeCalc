@@ -27,7 +27,9 @@ permalink: health/bmr/
         <option value="1.9">아주 강함(육체노동/선수)</option>
       </select>
     </label>
-   <button class="btn" style="background:#ff6a00;color:#fff;border:0">계산</button>
+    <!-- id 추가 + 버튼 크기 작게 -->
+    <button id="bmrBtn" class="btn" style="background:#ff6a00;color:#fff;border:0;padding:8px 16px;font-size:14px;">계산</button>
+
     <div id="bmrResult" style="padding:10px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;display:none"></div>
   </div>
 </section>
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function(){
       return;
     }
 
-    // Mifflin–St Jeor
+    // Mifflin–St Jeor 공식
     let bmr = 10*weight + 6.25*height - 5*age + (sex==='male' ? 5 : -161);
     let tdee = bmr * act;
 
@@ -64,3 +66,4 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
+
