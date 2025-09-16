@@ -8,16 +8,16 @@ permalink: health/bmr/
 <!-- BMR 계산기 -->
 <section id="bmr-calc" style="max-width:520px;padding:16px;border:1px solid #eee;border-radius:12px">
   <h3 style="margin:0 0 12px">BMR 계산기</h3>
-  <div style="display:grid;gap:10px">
+  <form onsubmit="event.preventDefault();calcBmr();" style="margin-bottom:16px;">
     <label>성별
       <select id="bmrSex">
         <option value="male">남성</option>
         <option value="female">여성</option>
       </select>
-    </label>
-    <label>나이(만, 세) <input id="bmrAge" type="number" inputmode="numeric" placeholder="예: 28"></label>
-    <label>키(cm) <input id="bmrHeight" type="number" inputmode="decimal" placeholder="예: 170"></label>
-    <label>몸무게(kg) <input id="bmrWeight" type="number" inputmode="decimal" placeholder="예: 65"></label>
+    </label><br><br>
+    <label>나이(만, 세) <input id="bmrAge" type="number" inputmode="numeric" placeholder="예: 28"></label><br><br>
+    <label>키(cm) <input id="bmrHeight" type="number" inputmode="decimal" placeholder="예: 170"></label><br><br>
+    <label>몸무게(kg) <input id="bmrWeight" type="number" inputmode="decimal" placeholder="예: 65"></label><br><br>
     <label>활동수준
       <select id="bmrActivity">
         <option value="1.2">거의 운동 안함</option>
@@ -26,23 +26,29 @@ permalink: health/bmr/
         <option value="1.725">강한 운동(주6~7)</option>
         <option value="1.9">아주 강함(육체노동/선수)</option>
       </select>
-    </label>
-    <!-- 버튼 -->
-    <button id="bmrBtn" class="btn">계산</button>
+    </label><br><br>
+    <!-- 버튼: 별자리 계산기와 동일한 크기 -->
+    <button type="submit" class="btn">계산</button>
+  </form>
 
-    <!-- 결과 박스: 아주 연한 오렌지 배경 -->
-    <div id="bmrResult" style="padding:12px;background:#fffaf5;color:#333;border:1px solid #ffb366;border-radius:8px;display:none"></div>
-  </div>
+  <!-- 결과 박스 -->
+  <div id="bmrResult" style="padding:12px;
+                             background:#fffaf5;
+                             color:#333;
+                             border:1px solid #ffb366;
+                             border-radius:10px;
+                             box-shadow:0 2px 6px rgba(0,0,0,0.08);
+                             display:none"></div>
 </section>
 
 <!-- 버튼 스타일 -->
 <style>
   .btn {
     display:inline-block;
-    padding:6px 14px;
+    padding:6px 14px;       /* 별자리 계산기와 동일 */
     border:0;
     border-radius:6px;
-    background:#ff6a00;      /* 오렌지색 */
+    background:#ff6a00;     /* 오렌지색 */
     color:#fff;
     font-size:14px;
     font-weight:bold;
@@ -54,34 +60,31 @@ permalink: health/bmr/
 </style>
 
 <script defer>
-document.addEventListener('DOMContentLoaded', function(){
-  const $ = id => document.getElementById(id);
-  const clean = v => {
-    if (typeof v !== 'string') v = String(v ?? '');
-    return v.replace(/,/g,'').trim();
-  };
-  $('bmrBtn').addEventListener('click', function(){
-    const sex = $('bmrSex').value;
-    const age = parseFloat(clean($('bmrAge').value));
-    const height = parseFloat(clean($('bmrHeight').value));
-    const weight = parseFloat(clean($('bmrWeight').value));
-    const act = parseFloat($('bmrActivity').value);
+function calcBmr(){
+  const age = parseFloat(document.getElementById("bmrAge").value);
+  const height = parseFloat(document.getElementById("bmrHeight").value);
+  const weight = parseFloat(document.getElementById("bmrWeight").value);
+  const sex = document.getElementById("bmrSex").value;
+  const act = parseFloat(document.getElementById("bmrActivity").value);
 
-    if ([age,height,weight].some(x => Number.isNaN(x) || x<=0)) {
-      $('bmrResult').style.display='block';
-      $('bmrResult').innerHTML = '⚠️ 입력값을 다시 확인해주세요. 숫자와 단위를 정확히 입력해야 합니다.';
-      return;
-    }
+  const resultBox = document.getElementById("bmrResult");
 
-    let bmr = 10*weight + 6.25*height - 5*age + (sex==='male' ? 5 : -161);
-    let tdee = bmr * act;
+  if ([age,height,weight].some(x => Number.isNaN(x) || x<=0)) {
+    resultBox.style.display='block';
+    resultBox.innerHTML = '⚠️ 입력값을 다시 확인해주세요. 숫자와 단위를 정확히 입력해야 합니다.';
+    return;
+  }
 
-    $('bmrResult').style.display='block';
-    $('bmrResult').innerHTML = `
-      📊 <strong>BMR:</strong> ${Math.round(bmr).toLocaleString()} kcal/일<br>
-      🔥 <strong>TDEE(유지 칼로리):</strong> ${Math.round(tdee).toLocaleString()} kcal/일
-    `;
-  });
-});
+  // Mifflin–St Jeor 공식
+  let bmr = 10*weight + 6.25*height - 5*age + (sex==='male' ? 5 : -161);
+  let tdee = bmr * act;
+
+  resultBox.style.display='block';
+  resultBox.innerHTML = `
+    📊 <strong>BMR:</strong> ${Math.round(bmr).toLocaleString()} kcal/일<br>
+    🔥 <strong>TDEE(유지 칼로리):</strong> ${Math.round(tdee).toLocaleString()} kcal/일
+  `;
+}
 </script>
+
 
