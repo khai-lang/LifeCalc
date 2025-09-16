@@ -29,9 +29,10 @@ permalink: health/bmr/
     </label><br><br>
     
     <button id="bmrBtn" class="btn">계산</button>
-    <div id="bmrResult" class="result-box"></div>
+    <div id="bmrResult" class="result-box"
+    </div>
 
-    
+ 
 </section>
 
 <!-- 버튼 스타일 -->
