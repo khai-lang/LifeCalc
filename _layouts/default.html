@@ -36,47 +36,43 @@
     /* 헤더(배경 풀폭), 내용은 중앙 정렬 */
     header{position:sticky;top:0;z-index:1000;background:var(--brand);color:var(--brand-ink);box-shadow:0 1px 0 rgba(0,0,0,.06)}
     .header-wrap{
-  max-width:var(--max);
-  margin:0 auto;
-  height:var(--nav-h);
-  padding:0 20px;
-  display:flex; align-items:center; gap:16px;
-  justify-content:flex-start;   /* 로고 왼쪽 → 그 옆에 메뉴 */
-}
-
+      max-width:var(--max);
+      margin:0 auto;
+      height:var(--nav-h);
+      padding:0 20px;
+      display:flex; align-items:center; gap:16px;
+      justify-content:flex-start;
+    }
     .brand{display:flex;align-items:center;gap:10px;font-weight:700}
     .brand img{height:28px;width:auto;display:block}
 
     /* 내비게이션: 데스크톱 가로 + 클릭 드롭다운 */
-    nav.site-nav{margin-left:36px} /* 로고와 간격 */
-    /* 메뉴 리스트: 간격 넓히고 줄바꿈 금지 */
-.nav-ul{
-  list-style:none;margin:0;padding:0;
-  display:flex; align-items:center;
-  gap:18px;              /* 10 → 18 으로 넓힘 (원하면 20~22까지 가능) */
-  flex-wrap:nowrap;      /* 강제로 한 줄 유지 */
-}
-/* 상위 메뉴 버튼 기본 스타일 */
-.nav-ul>li>a,
-.nav-parent{
-  color: var(--brand-ink);
-  padding: 12px 14px;
-  border-radius: 10px;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  font: inherit;
-  display: inline-block;
-  white-space: nowrap;
-  word-break: keep-all;
-}
-    
-.nav-ul>li>a,
-.nav-parent{
-  white-space:nowrap;    /* 줄바꿈 금지 */
-  word-break:keep-all;   /* 한글 임의 잘림 방지 */
-  letter-spacing:0;      /* 혹시 글자 간격 강제값이 있으면 무효화 */
-}
+    nav.site-nav{margin-left:36px}
+    .nav-ul{
+      list-style:none;margin:0;padding:0;
+      display:flex; align-items:center;
+      gap:18px;
+      flex-wrap:nowrap;
+    }
+    .nav-ul>li>a,
+    .nav-parent{
+      color: var(--brand-ink);
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      display: inline-block;
+      white-space: nowrap;
+      word-break: keep-all;
+    }
+    .nav-ul>li>a,
+    .nav-parent{
+      white-space:nowrap;
+      word-break:keep-all;
+      letter-spacing:0;
+    }
     .nav-ul>li>a:hover, .nav-parent:hover{background:rgba(255,255,255,.12)}
 
     .drop{position:relative}
@@ -92,93 +88,83 @@
     .menu a:hover{background:#f6f7f9}
 
     /* 하위 메뉴 컨테이너 */
-.nav-ul ul {
-  background-color: #d7e0e9;   /* 기본 파스텔 */
-  border: 1px solid #f5e6da;
-  border-radius: 8px;
-  padding: 6px 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* 살짝 그림자 */
-}
+    .nav-ul ul {
+      background-color: #d7e0e9;
+      border: 1px solid #f5e6da;
+      border-radius: 8px;
+      padding: 6px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    /* 하위 메뉴 항목 */
+    .nav-ul ul li a {
+      display: block;
+      padding: 10px 18px;
+      color: #444;
+      text-decoration: none;
+      font-size: 15px;
+      transition: background 0.25s, color 0.25s;
+    }
+    .nav-ul ul li a:hover {
+      background-color: #e0f7fa;
+      color: #222;
+      border-radius: 4px;
+    }
 
-/* 하위 메뉴 항목 */
-.nav-ul ul li a {
-  display: block;
-  padding: 10px 18px;
-  color: #444;
-  text-decoration: none;
-  font-size: 15px;
-  transition: background 0.25s, color 0.25s;
-}
+    /* ▼ 드롭다운 공통 컨테이너 */
+    .nav-ul .menu {
+      background: #fdf6f0;
+      border: 1px solid #f3e6db;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+      z-index: 1200;
+      min-width: 240px;
+    }
+    .nav-ul .menu a {
+      display: block;
+      font-size: 16.5px;
+      line-height: 1.35;
+      color: #2b2b2b;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin: 4px 0;
+      background: #fff;
+      border: 1px solid #efe2d7;
+      transition: background .2s, border-color .2s, transform .05s;
+      white-space: nowrap;
+      word-break: keep-all;
+    }
+    .nav-ul .menu a:hover,
+    .nav-ul .menu a:focus {
+      background: #e8f6ff;
+      border-color: #d6ecfb;
+      color: #1a1a1a;
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .nav-ul .menu a:focus-visible {
+      box-shadow: 0 0 0 3px rgba(40, 140, 240, 0.35);
+    }
 
-/* hover 시 파스텔톤 강조 */
-.nav-ul ul li a:hover {
-  background-color: #e0f7fa;  /* 파스텔 블루 */
-  color: #222;
-  border-radius: 4px;
-}
-
-    /* ▼ 드롭다운 공통 컨테이너: 파스텔 배경 + 그림자 */
-.nav-ul .menu {
-  background: #fdf6f0;                /* 파스텔 베이지(전체 동일 배경) */
-  border: 1px solid #f3e6db;
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-  z-index: 1200;
-}
-
-/* ▼ 아이템을 '카드형 박스'로: 큰 글자 + 여백 넉넉 */
-.nav-ul .menu a {
-  display: block;
-  font-size: 16.5px;                  /* 기존보다 크게 */
-  line-height: 1.35;
-  color: #2b2b2b;                     /* 진한 회색으로 대비 ↑ */
-  padding: 12px 14px;
-  border-radius: 10px;
-  margin: 4px 0;
-  background: #fff;                    /* 아이템은 흰 박스 */
-  border: 1px solid #efe2d7;           /* 은은한 테두리 */
-  transition: background .2s, border-color .2s, transform .05s;
-  white-space: nowrap;
-  word-break: keep-all;
-}
-
-/* ▼ hover/포커스: 파스텔 블루 하이라이트 + 살짝 떠오르는 느낌 */
-.nav-ul .menu a:hover,
-.nav-ul .menu a:focus {
-  background: #e8f6ff;                 /* 파스텔 블루 */
-  border-color: #d6ecfb;
-  color: #1a1a1a;
-  transform: translateY(-1px);
-  outline: none;
-}
-
-/* ▼ 키보드 접근성: 명확한 아웃라인 */
-.nav-ul .menu a:focus-visible {
-  box-shadow: 0 0 0 3px rgba(40, 140, 240, 0.35);
-}
-
-/* ▼ 드롭다운 상하 여백 & 섹션 간격 보정 */
-.nav-ul .menu { min-width: 240px; }
-@media (max-width: 940px){
-  .nav-ul .menu {
-    background: transparent;           /* 모바일은 헤더색과 어울리게 */
-    border: 0;
-    box-shadow: none;
-    padding: 6px 0 0 8px;
-  }
-  .nav-ul .menu a {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
-    color: #fff;                        /* 어두운 헤더 위에서 가독성 ↑ */
-  }
-  .nav-ul .menu a:hover,
-  .nav-ul .menu a:focus {
-    background: rgba(255,255,255,0.18);
-    border-color: rgba(255,255,255,0.28);
-    color: #fff;
-  }
-}
+    @media (max-width: 940px){
+      .nav-ul .menu {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        padding: 6px 0 0 8px;
+      }
+      .nav-ul .menu a {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.18);
+        color: #fff;
+      }
+      .nav-ul .menu a:hover,
+      .nav-ul .menu a:focus {
+        background: rgba(255,255,255,0.18);
+        border-color: rgba(255,255,255,0.28);
+        color: #fff;
+      }
+    }
 
     /* 모바일: 버거 + 아코디언 */
     #nav-toggle{display:none}
@@ -201,10 +187,12 @@
 
     /* 본문 컴포넌트 */
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:999px;border:1px solid #ddd}
+
+    /* ⛳ 폼 기본요소 스타일(단, .btn 은 제외) */
     label{display:block;margin:10px 0 6px}
-    input,select,button{padding:10px;border:1px solid #cfd7df;border-radius:10px;font-size:16px}
-    form button{cursor:pointer;background:var(--accent);color:#fff;border:0}
+    input,select,button:not(.btn){padding:10px;border:1px solid #cfd7df;border-radius:10px;font-size:16px}
+    form button:not(.btn){cursor:pointer;background:var(--accent);color:#fff;border:0}
+
     .note{background:#f7fbff;border:1px solid #dfeeff;border-radius:12px;padding:12px;margin:16px 0}
 
     /* 제목 톤(홈과 동일) */
@@ -219,36 +207,35 @@
     footer{border-top:1px solid var(--line);background:#fff;margin-top:28px}
     footer .foot{max-width:var(--max);margin:0 auto;padding:12px 16px;color:var(--muted);display:flex;justify-content:space-between}
 
-   /* 버튼 스타일 */
-  .btn {
-    display:inline-block;
-    padding:6px 14px;       /* 아담한 크기 */
-    border:0;
-    border-radius:6px;
-    background:#ff6a00;     /* 오렌지색 */
-    color:#fff;
-    font-size:14px;
-    font-weight:bold;
-    cursor:pointer;
-    transition: background 0.3s;
-  }
-  .btn:hover {
-    background:#e55d00;     /* hover 시 진한 오렌지 */
-  }
- /* 결과 박스 스타일 */
-  .result-box {
-    padding:12px;
-    background:#fffaf5;                  /* 아주 연한 오렌지 */
-    color:#333;
-    border:1px solid #ffb366;
-    border-radius:10px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.08);
-    display:none;                        /* 처음엔 숨김 */
-    font-size:15px;
-    line-height:1.6;
-    margin-top:10px;
-  }
-    
+    /* ✅ 공통 버튼(.btn) — 파일 내에서 단 한 번만 정의 */
+    .btn {
+      display:inline-block;
+      padding:6px 14px;                 /* 별자리/BMR과 동일 */
+      border:0;
+      border-radius:6px;
+      background:#ff6a00;               /* 오렌지 */
+      color:#fff;
+      font-size:14px;
+      font-weight:bold;
+      cursor:pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover { background:#e55d00; }
+
+    /* ✅ 공통 결과 박스(.result-box) */
+    .result-box {
+      padding:12px;
+      background:#fffaf5;               /* 아주 연한 오렌지 */
+      color:#333;
+      border:1px solid #ffb366;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      display:none;                     /* 기본 숨김 */
+      font-size:15px;
+      line-height:1.6;
+      margin-top:10px;
+    }
+    .result-box.show{ display:block; }  /* JS로 토글할 때 사용 */
   </style>
 </head>
 <body>
