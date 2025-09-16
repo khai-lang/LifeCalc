@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BMR(기초대사량)계산기
+title: BMR(기초대사량), TDEE(활동대사량) 계산기
 description: Mifflin-St Jeor 공식을 사용해 BMR과 활동대사량(TDEE)을 추정합니다.
 permalink: health/bmr/
 ---
@@ -27,12 +27,31 @@ permalink: health/bmr/
         <option value="1.9">아주 강함(육체노동/선수)</option>
       </select>
     </label>
-    <!-- id 추가 + 버튼 크기 작게 -->
-    <button id="bmrBtn" class="btn" style="background:#ff6a00;color:#fff;border:0;padding:8px 16px;font-size:14px;">계산</button>
+    <!-- id 추가 + 버튼 가로 좁게 -->
+    <button id="bmrBtn" class="btn">계산</button>
 
-    <div id="bmrResult" style="padding:10px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;display:none"></div>
+    <!-- 결과 박스 색상 강조 -->
+    <div id="bmrResult" style="padding:12px;background:#fff4e6;color:#333;border:1px solid #ffb366;border-radius:8px;display:none"></div>
   </div>
 </section>
+
+<!-- 버튼 스타일 -->
+<style>
+  .btn {
+    display:inline-block;
+    padding:8px 16px;         /* 좁고 작은 버튼 */
+    border:0;
+    border-radius:8px;
+    background:#ff6a00;       /* 오렌지색 */
+    color:#fff;
+    font-size:14px;           /* 작은 글씨 */
+    font-weight:bold;
+    cursor:pointer;
+  }
+  .btn:hover {
+    background:#e55d00;       /* hover 시 진한 오렌지 */
+  }
+</style>
 
 <script defer>
 document.addEventListener('DOMContentLoaded', function(){
@@ -66,4 +85,5 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
+
 
