@@ -65,6 +65,38 @@ permalink: guide/bmi-range/
     <li><b>비만</b> — 전문의 상담과 함께 식단 조절·운동 처방을 받아 <b>단계적 감량</b>이 안전합니다.</li>
   </ul>
 
+<style>
+/* 버튼 공통 스타일 */
+a[class^="btn-"] {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+/* 오렌지 버튼 */
+.btn-orange {
+  background: #f97316; /* Tailwind orange-500 */
+}
+.btn-orange:hover {
+  background: #ea580c; /* Tailwind orange-600 */
+}
+
+/* 테두리만 있는 버튼 */
+.btn-ghost {
+  background: transparent;
+  border: 2px solid #ccc;
+  color: #333;
+}
+.btn-ghost:hover {
+  background: #f3f4f6; /* hover 시 은은한 회색 */
+}
+</style>
+
+
   <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
     <a class="btn-orange" href="/health/bmi/">BMI 계산하러 가기</a>
     <a class="btn-ghost" href="/guide/">가이드 목록</a>
