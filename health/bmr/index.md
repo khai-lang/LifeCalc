@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BMR(기초대사량), TDEE(활동대사량) 계산기
+title: BMR(기초대사량)계산기
 description: Mifflin-St Jeor 공식을 사용해 BMR과 활동대사량(TDEE)을 추정합니다.
 permalink: health/bmr/
 ---
@@ -27,11 +27,11 @@ permalink: health/bmr/
         <option value="1.9">아주 강함(육체노동/선수)</option>
       </select>
     </label>
-    <!-- id 추가 + 버튼 가로 좁게 -->
+    <!-- 버튼 -->
     <button id="bmrBtn" class="btn">계산</button>
 
-    <!-- 결과 박스 색상 강조 -->
-    <div id="bmrResult" style="padding:12px;background:#fff4e6;color:#333;border:1px solid #ffb366;border-radius:8px;display:none"></div>
+    <!-- 결과 박스: 아주 연한 오렌지 배경 -->
+    <div id="bmrResult" style="padding:12px;background:#fffaf5;color:#333;border:1px solid #ffb366;border-radius:8px;display:none"></div>
   </div>
 </section>
 
@@ -39,17 +39,17 @@ permalink: health/bmr/
 <style>
   .btn {
     display:inline-block;
-    padding:8px 16px;         /* 좁고 작은 버튼 */
+    padding:6px 14px;
     border:0;
-    border-radius:8px;
-    background:#ff6a00;       /* 오렌지색 */
+    border-radius:6px;
+    background:#ff6a00;      /* 오렌지색 */
     color:#fff;
-    font-size:14px;           /* 작은 글씨 */
+    font-size:14px;
     font-weight:bold;
     cursor:pointer;
   }
   .btn:hover {
-    background:#e55d00;       /* hover 시 진한 오렌지 */
+    background:#e55d00;
   }
 </style>
 
@@ -63,27 +63,25 @@ document.addEventListener('DOMContentLoaded', function(){
   $('bmrBtn').addEventListener('click', function(){
     const sex = $('bmrSex').value;
     const age = parseFloat(clean($('bmrAge').value));
-    const height = parseFloat(clean($('bmrHeight').value)); // cm
-    const weight = parseFloat(clean($('bmrWeight').value)); // kg
+    const height = parseFloat(clean($('bmrHeight').value));
+    const weight = parseFloat(clean($('bmrWeight').value));
     const act = parseFloat($('bmrActivity').value);
 
     if ([age,height,weight].some(x => Number.isNaN(x) || x<=0)) {
       $('bmrResult').style.display='block';
-      $('bmrResult').innerText = '입력값을 다시 확인해주세요. 숫자와 단위를 정확히 입력해야 합니다.';
+      $('bmrResult').innerHTML = '⚠️ 입력값을 다시 확인해주세요. 숫자와 단위를 정확히 입력해야 합니다.';
       return;
     }
 
-    // Mifflin–St Jeor 공식
     let bmr = 10*weight + 6.25*height - 5*age + (sex==='male' ? 5 : -161);
     let tdee = bmr * act;
 
     $('bmrResult').style.display='block';
     $('bmrResult').innerHTML = `
-      <strong>BMR:</strong> ${Math.round(bmr).toLocaleString()} kcal/일<br>
-      <strong>TDEE(유지 칼로리):</strong> ${Math.round(tdee).toLocaleString()} kcal/일
+      📊 <strong>BMR:</strong> ${Math.round(bmr).toLocaleString()} kcal/일<br>
+      🔥 <strong>TDEE(유지 칼로리):</strong> ${Math.round(tdee).toLocaleString()} kcal/일
     `;
   });
 });
 </script>
-
 
