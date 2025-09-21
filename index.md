@@ -17,10 +17,7 @@ description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
       <a href="/family/due-date/" class="btn btn-ghost">출산 예정일</a>
     </div>
   </div>
-  <div class="hero-badge">
-    <div class="badge-top">오늘의 팁</div>
-    <div class="badge-body">버튼 · 결과 박스는 전역 디자인을 사용해<br>모든 페이지가 한결같이 보여요.</div>
-  </div>
+  
 </section>
 
 <!-- 카테고리 -->
