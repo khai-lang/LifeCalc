@@ -276,30 +276,24 @@
   }
 }
 
-/* 카드 시각 강조(색/버튼) – 유지 */
-.promo-card{
-  background:#f5fbff;
-  border:1px solid #e7eef7;
-  border-radius:14px;
-  padding:14px 16px;
-  box-shadow:0 8px 24px rgba(0,0,0,.06);
-  margin-bottom:16px;
-  transition:transform .2s, box-shadow .2s;
-}
-.promo-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
-}
-.promo-card .promo-title{ margin:0 0 8px; font-weight:800; font-size:16px; color:#0f172a; }
-.promo-card .promo-desc{ margin:6px 0 12px; color:#334155; line-height:1.6; }
-.promo-card .btn-orange{
-  display:inline-block; padding:7px 14px; border-radius:8px;
-  background:#f97316; color:#fff !important; font-weight:600; text-decoration:none;
-  transition:background .2s;
-}
+/* 카드 스타일만 유지 */
+.promo-card{ background:#f5fbff; border:1px solid #e7eef7; border-radius:14px;
+  padding:14px 16px; box-shadow:0 8px 24px rgba(0,0,0,.06); margin-bottom:16px; }
+.promo-card .btn-orange{ display:inline-block; padding:7px 14px; border-radius:8px;
+  background:#f97316; color:#fff !important; font-weight:600; text-decoration:none; }
 .promo-card .btn-orange:hover{ background:#ea580c; }
- 
- 
+
+/* 반응형: 모바일=본문 하단만, PC=사이드만 */
+@media (max-width:1100px){
+  .mobile-only{ display:block; }
+  .ad-side .promo-card{ display:none; }
+}
+@media (min-width:1101px){
+  .mobile-only{ display:none; }
+  .ad-side .promo-card{ display:block; }
+}
+
+
     
   </style>
 </head>
