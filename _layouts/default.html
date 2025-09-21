@@ -10,6 +10,11 @@
   <!-- AdSense (사이트 전체 1회, 원치 않으면 삭제) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
 
+  <script>
+  window.PAGE_SECTION = "{{ page.section | default: page.url | split:'/' | slice:1 | first | default:'home' }}";
+  </script>
+
+
   <style>
     /* ===== 디자인 변수 ===== */
     :root{
