@@ -1,9 +1,9 @@
 <!-- _includes/promo-tip.html -->
-<aside id="promo-tip" class="promo-card mini" aria-labelledby="promo-tip-title">
-  <h3 id="promo-tip-title" class="promo-title">오늘의 팁</h3>
+<aside class="promo-card mini js-promo" aria-label="오늘의 팁">
+  <h3 class="promo-title">오늘의 팁</h3>
   <div class="promo-body">
     <p class="promo-desc">계산기를 더 활용해 보세요.</p>
-    <a class="btn-orange" href="/" id="promo-cta">자세히 보기</a>
+    <a class="btn-orange promo-cta" href="/">자세히 보기</a>
   </div>
 </aside>
 
@@ -71,22 +71,25 @@ const PROMOS_BY_SECTION = {
   ]
 };
 
-/* 섹션에 맞는 팁을 노출(매일 순환) */
+/* 섹션에 맞는 팁 1개 주입(모바일/PC 둘 다 주입 가능) */
 (function(){
-  const box = document.getElementById('promo-tip');
-  if(!box) return;
+  const cards = document.querySelectorAll('.js-promo');
+  if(!cards.length) return;
 
   const set = PROMOS_BY_SECTION[window.PAGE_SECTION] || PROMOS_BY_SECTION.home;
   const idx = new Date().getDate() % set.length;
   const pick = set[idx];
 
-  const titleEl = box.querySelector('.promo-title');
-  const descEl  = box.querySelector('.promo-desc');
-  const ctaEl   = box.querySelector('#promo-cta');
+  cards.forEach(function(box){
+    const titleEl = box.querySelector('.promo-title');
+    const descEl  = box.querySelector('.promo-desc');
+    const ctaEl   = box.querySelector('.promo-cta');
 
-  titleEl.textContent = "오늘의 팁";
-  descEl.textContent  = pick.desc;
-  ctaEl.textContent   = pick.cta;
-  ctaEl.href          = pick.href;
+    titleEl.textContent = "오늘의 팁";
+    descEl.textContent  = pick.desc;
+    ctaEl.textContent   = pick.cta;
+    ctaEl.href          = pick.href;
+  });
 })();
 </script>
+
