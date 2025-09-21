@@ -236,6 +236,27 @@
       margin-top:10px;
     }
     .result-box.show{ display:block; }  /* JS로 토글할 때 사용 */
+
+    /* 상단 네비 pill 공통 스타일 */
+.header-wrap .nav-ul>li>a,
+.header-wrap a.nav-pill {
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid rgba(255,255,255,.25);   /* 테두리 */
+  border-radius:12px;
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  text-decoration:none;
+  transition:background .15s, border-color .15s, color .15s;
+}
+
+.header-wrap .nav-ul>li>a:hover,
+.header-wrap a.nav-pill:hover {
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.4);
+}
+
+    
   </style>
 </head>
 <body>
