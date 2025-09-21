@@ -401,7 +401,7 @@
   <div class="main-content">
     {{ content }}
 
-    <!-- 모바일 전용: 본문 하단 카드 -->
+    <!-- 모바일 전용: 본문 하단 카드 (PC에서는 숨김) -->
     <div class="promo-inline mobile-only">
       {% include promo-tip.html %}
     </div>
@@ -425,7 +425,6 @@
       </script>
     </div>
   </aside>
-
 
 </main>
 
@@ -465,29 +464,21 @@
   </script>
   <script>
 (function(){
-  // 데스크톱에서만 동작 (모바일은 사이드 레일이 숨겨짐)
   if (window.matchMedia('(min-width:1101px)').matches){
     const rightRail = document.querySelector('.right-rail');
-    const sideAdBox = document.querySelector('#side-ad'); // 사이드 광고 컨테이너
+    const sideAdBox = document.querySelector('#side-ad');
     if (rightRail && sideAdBox){
-      // 본문 안에 잘못 들어간 카드/광고를 찾아서 사이드로 이동
-      const strayPromos = document.querySelectorAll('.main-content .promo-card');
-      strayPromos.forEach(promo => {
-        if (!rightRail.contains(promo)) {
-          rightRail.insertBefore(promo, sideAdBox); // 광고 위로 이동
-        }
+      document.querySelectorAll('.main-content .promo-card').forEach(promo => {
+        if (!rightRail.contains(promo)) rightRail.insertBefore(promo, sideAdBox);
       });
-
-      const strayAds = document.querySelectorAll('.main-content ins.adsbygoogle');
-      strayAds.forEach(ad => {
-        if (!sideAdBox.contains(ad)) {
-          sideAdBox.appendChild(ad); // 사이드 광고 컨테이너로 이동
-        }
+      document.querySelectorAll('.main-content ins.adsbygoogle').forEach(ad => {
+        if (!sideAdBox.contains(ad)) sideAdBox.appendChild(ad);
       });
     }
   }
 })();
 </script>
+
 
 </body>
 </html>
