@@ -272,10 +272,13 @@
 /* 반응형: 데스크톱은 사이드, 모바일은 본문에 */
 @media (max-width:1100px){
   .mobile-only{ display:block; }
+  .promo-desktop{ display:none; }
 }
 @media (min-width:1101px){
   .mobile-only{ display:none; }
+  .promo-desktop{ display:block; }
 }
+
   /* 버튼/링크 가독성 보강 */
 .promo-card .btn-orange{
   display:inline-block;
