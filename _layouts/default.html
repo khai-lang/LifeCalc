@@ -256,7 +256,27 @@
   border-color:rgba(255,255,255,.4);
 }
 
- /* 팁 카드 */
+/* 모바일: 본문 하단 노출 */
+@media (max-width:1100px){
+  .mobile-only{ display:block; }
+  .promo-desktop{ display:none; }
+}
+
+/* PC: 화면 우측 상단 "항상 고정" + 홈과 같은 라인 정렬 */
+@media (min-width:1101px){
+  .mobile-only{ display:none; }
+  .promo-desktop{
+    display:block;
+    position:fixed;
+    top:96px; /* 헤더 높이에 맞게 조절 */
+    /* wrap(max-width: var(--max))의 우측 경계에 맞춰 고정 */
+    right: calc( (100vw - var(--max)) / 2 + 16px ); /* 16px = wrap 내부 패딩 */
+    width:300px;
+    z-index: 1000;
+  }
+}
+
+/* 카드 시각 강조(색/버튼) – 유지 */
 .promo-card{
   background:#f5fbff;
   border:1px solid #e7eef7;
@@ -264,64 +284,21 @@
   padding:14px 16px;
   box-shadow:0 8px 24px rgba(0,0,0,.06);
   margin-bottom:16px;
+  transition:transform .2s, box-shadow .2s;
 }
-.promo-card.mini .promo-title{ margin:0 0 8px; font-weight:800; font-size:16px; color:#0f172a;}
+.promo-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+}
+.promo-card .promo-title{ margin:0 0 8px; font-weight:800; font-size:16px; color:#0f172a; }
 .promo-card .promo-desc{ margin:6px 0 12px; color:#334155; line-height:1.6; }
-.promo-inline .promo-card{ margin-top:16px; }
-
-/* 반응형: 데스크톱은 사이드, 모바일은 본문에 */
-@media (max-width:1100px){
-  .mobile-only{ display:block; }
-  .promo-desktop{ display:none; }
-}
-@media (min-width:1101px){
-  .mobile-only{ display:none; }
-  .promo-desktop{ display:block; }
-}
-
-  /* 버튼/링크 가독성 보강 */
 .promo-card .btn-orange{
-  display:inline-block;
-  padding:7px 14px;
-  border-radius:8px;
-  background:#f97316;
-  color:#fff !important;
-  font-weight:600;
-  text-decoration:none;
+  display:inline-block; padding:7px 14px; border-radius:8px;
+  background:#f97316; color:#fff !important; font-weight:600; text-decoration:none;
   transition:background .2s;
 }
 .promo-card .btn-orange:hover{ background:#ea580c; }
-.promo-card a{ color:#0ea5e9; text-decoration:none; }
-.promo-card a:hover{ text-decoration:underline; }
-
-/* PC/모바일 위치 전환을 위한 훅 */
-.promo-desktop{
-  display:block;
-  position:fixed;
-  top:100px;          /* 헤더 높이만큼 띄워줌 */
-  right:40px;         /* 화면 오른쪽에서 간격 */
-  width:300px;        /* 카드 폭 */
-  z-index:999;        /* 다른 요소 위에 표시 */
-}
-
-
-/* 반응형: 모바일=본문 하단만 보이게 */
-@media (max-width:1100px){
-  .mobile-only{ display:block; }  /* 본문 하단 카드 표시 */
-  .promo-desktop{ display:none; } /* 우측 사이드는 숨김 */
-}
-
-/* 반응형: 데스크톱=우측 사이드만 보이게 */
-@media (min-width:1101px){
-  .mobile-only{ display:none; }   /* 본문 하단 카드 숨김 */
-  .promo-desktop{
-    display:block;
-    width:320px;                  /* 광고 사이드폭과 비슷하게 */
-    margin-left:auto;
-    position:sticky;              /* 스크롤해도 따라오도록 */
-    top:96px;                     /* 헤더 높이에 맞춰 조정 */
-  }
-}
+ 
  
     
   </style>
