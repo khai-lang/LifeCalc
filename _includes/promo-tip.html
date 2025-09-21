@@ -45,6 +45,25 @@ const PROMOS_BY_SECTION = { /* ...기존 객체 그대로... */ };
     ctaEl.href          = pick.href;
   });
 })();
+
+/* 10초 간격으로 다음 팁 표시 (선택) */
+(function(){
+  const box = document.querySelector('.js-promo');
+  if(!box) return;
+
+  const set = PROMOS_BY_SECTION[window.PAGE_SECTION] || PROMOS_BY_SECTION.home;
+  let i = Math.floor(Math.random()*set.length);
+
+  setInterval(function(){
+    i = (i + 1) % set.length;
+    const pick = set[i];
+    box.querySelector('.promo-desc').textContent = pick.desc;
+    const cta = box.querySelector('.promo-cta');
+    cta.textContent = pick.cta;
+    cta.href = pick.href;
+  }, 10000); // 10초
+})();
+  
 </script>
 
 /* 카테고리별 팁 후보 */
