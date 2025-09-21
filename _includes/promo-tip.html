@@ -8,9 +8,12 @@
 </aside>
 
 <script>
-/* 페이지 섹션: /health/bmi/ -> 'health' */
-(function(){
-  window.PAGE_SECTION = window.PAGE_SECTION || (location.pathname.split('/')[1] || 'home');
+/* 섹션: default.html에서 window.PAGE_SECTION 주입됨. 없으면 경로로 재산정 */
+(function ensureSection(){
+  if (window.PAGE_SECTION) return;
+  var path = location.pathname.replace(/index\.html$/,'');
+  var seg = (path.split('/').filter(Boolean)[0]) || 'home';
+  window.PAGE_SECTION = seg;
 })();
 
 /* 카테고리별 팁 후보 */
@@ -44,20 +47,23 @@ const PROMOS_BY_SECTION = {
   ]
 };
 
-/* 랜덤 선택 + 10초마다 순환 */
+/* 랜덤 선택 + 10초마다 순환 (모바일/PC 모두 동일 로직) */
 (function(){
   const cards = document.querySelectorAll('.js-promo');
-  if(!cards.length) return;
+  if (!cards.length) return;
 
-  const set = PROMOS_BY_SECTION[window.PAGE_SECTION] || PROMOS_BY_SECTION.home;
+  const section = (window.PAGE_SECTION || 'home').toLowerCase();
+  const set = PROMOS_BY_SECTION[section] || PROMOS_BY_SECTION.home;
+  if (!set || !set.length) return;
+
   let i = Math.floor(Math.random() * set.length);
 
   function apply(pick){
     cards.forEach(box=>{
-      box.querySelector('.promo-desc').textContent = pick.desc;
-      const cta = box.querySelector('.promo-cta');
-      cta.textContent = pick.cta;
-      cta.href = pick.href;
+      const descEl = box.querySelector('.promo-desc');
+      const ctaEl  = box.querySelector('.promo-cta');
+      if (descEl) descEl.textContent = pick.desc;
+      if (ctaEl) { ctaEl.textContent = pick.cta; ctaEl.href = pick.href; }
     });
   }
 
@@ -69,5 +75,3 @@ const PROMOS_BY_SECTION = {
   }, 10000);
 })();
 </script>
-
-
