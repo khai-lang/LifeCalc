@@ -404,16 +404,17 @@
   <div class="wrap">
     {{ content }}
 
-    <!-- 모바일 전용: 본문 하단 -->
-    <div class="promo-inline mobile-only">
-      {% include promo-tip.html %}
-    </div>
+    <!-- ▼ 모바일 전용: 본문 하단 팁 카드 -->
+   <div class="promo-inline mobile-only">
+        {% include promo-tip.html %}
+   </div>
   </div>
-
-  <!-- PC 전용: 오른쪽 사이드(광고 영역 옆) -->
-  <aside class="promo-desktop">
+    <!-- ▼ PC 전용: 우측 사이드 컨테이너를 새로 만듦 -->
+   <aside class="promo-desktop">
     {% include promo-tip.html %}
-  </aside>
+   </aside>
+    
+    
  </main>
 
   <!-- 푸터 -->
