@@ -8,11 +8,44 @@
 </aside>
 
 <script>
-/* 페이지 섹션 추출: /health/bmi/ -> health */
+/* 페이지 섹션: /health/bmi/ -> 'health' */
 (function(){
-  window.PAGE_SECTION = window.PAGE_SECTION ||
-    (location.pathname.split('/')[1] || 'home');
+  window.PAGE_SECTION = window.PAGE_SECTION || (location.pathname.split('/')[1] || 'home');
 })();
+
+/* 섹션별 팁 후보 (기존과 동일) */
+const PROMOS_BY_SECTION = { /* ...기존 객체 그대로... */ };
+
+/* ▼ 랜덤 선택으로 변경 */
+(function(){
+  const cards = document.querySelectorAll('.js-promo');  // 모바일/PC 2개 모두 주입
+  if(!cards.length) return;
+
+  const set = PROMOS_BY_SECTION[window.PAGE_SECTION] || PROMOS_BY_SECTION.home;
+
+  // ① 새로고침/페이지 이동마다 랜덤
+  const idx = Math.floor(Math.random() * set.length);
+
+  // ② (선택) 같은 세션 동안은 동일 문구 유지하고 싶으면 아래 3줄 사용
+  // const key = 'promo_' + (window.PAGE_SECTION||'home');
+  // const idx = +sessionStorage.getItem(key) || Math.floor(Math.random()*set.length);
+  // sessionStorage.setItem(key, idx);
+
+  const pick = set[idx];
+
+  cards.forEach(function(box){
+    const titleEl = box.querySelector('.promo-title');
+    const descEl  = box.querySelector('.promo-desc');
+    const ctaEl   = box.querySelector('.promo-cta');
+    if (!titleEl || !descEl || !ctaEl) return;
+
+    titleEl.textContent = "오늘의 팁";
+    descEl.textContent  = pick.desc;
+    ctaEl.textContent   = pick.cta;
+    ctaEl.href          = pick.href;
+  });
+})();
+</script>
 
 /* 카테고리별 팁 후보 */
 const PROMOS_BY_SECTION = {
