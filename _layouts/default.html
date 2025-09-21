@@ -256,6 +256,27 @@
   border-color:rgba(255,255,255,.4);
 }
 
+ /* 팁 카드 */
+.promo-card{
+  background:#f5fbff;
+  border:1px solid #e7eef7;
+  border-radius:14px;
+  padding:14px 16px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:16px;
+}
+.promo-card.mini .promo-title{ margin:0 0 8px; font-weight:800; font-size:16px; color:#0f172a;}
+.promo-card .promo-desc{ margin:6px 0 12px; color:#334155; line-height:1.6; }
+.promo-inline .promo-card{ margin-top:16px; }
+
+/* 반응형: 데스크톱은 사이드, 모바일은 본문에 */
+@media (max-width:1100px){
+  .mobile-only{ display:block; }
+}
+@media (min-width:1101px){
+  .mobile-only{ display:none; }
+}
+   
     
   </style>
 </head>
