@@ -400,14 +400,19 @@
   <!-- 왼쪽: 본문 -->
   <div class="main-content">
     {{ content }}
+
+    <!-- 모바일 전용: 본문 하단 카드 (PC에서는 자동 숨김) -->
+    <div class="promo-inline mobile-only">
+      {% include promo-tip.html %}
+    </div>
   </div>
 
   <!-- 오른쪽: 레일 (PC 전용) -->
   <aside class="right-rail">
-    <!-- ✅ 카드: 항상 광고 위 -->
+    <!-- 카드: PC에서는 사이드 광고 위에 1개만 노출 -->
     {% include promo-tip.html %}
 
-    <!-- ✅ 사이드 광고: 카드 아래 -->
+    <!-- 사이드 광고: 카드 아래 -->
     <div id="side-ad" class="ad-box">
       <ins class="adsbygoogle"
            style="display:block"
@@ -422,6 +427,7 @@
   </aside>
 
 </main>
+
 
 
   <!-- 푸터 -->
@@ -459,20 +465,32 @@
   </script>
   <script>
 (function(){
+  // 데스크톱에서만 동작 (모바일은 사이드 레일이 숨김)
   if (window.matchMedia('(min-width:1101px)').matches){
     const rightRail = document.querySelector('.right-rail');
     const sideAdBox = document.querySelector('#side-ad');
     if (rightRail && sideAdBox){
+
+      // 1) 본문에 잘못 들어간 카드(.promo-card) 중
+      //    "모바일 전용(.mobile-only)" 내부 카드는 건너뛴다.
       document.querySelectorAll('.main-content .promo-card').forEach(promo => {
-        if (!rightRail.contains(promo)) rightRail.insertBefore(promo, sideAdBox);
+        if (promo.closest('.mobile-only')) return; // 모바일 전용은 유지
+        if (!rightRail.contains(promo)) {
+          rightRail.insertBefore(promo, sideAdBox); // 광고 위로 이동
+        }
       });
+
+      // 2) 본문에 잘못 들어간 광고도 사이드 컨테이너로 이동
       document.querySelectorAll('.main-content ins.adsbygoogle').forEach(ad => {
-        if (!sideAdBox.contains(ad)) sideAdBox.appendChild(ad);
+        if (!sideAdBox.contains(ad)) {
+          sideAdBox.appendChild(ad);
+        }
       });
     }
   }
 })();
 </script>
+
 
 
 </body>
