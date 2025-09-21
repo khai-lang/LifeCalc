@@ -267,35 +267,45 @@
   .promo-desktop{ display:none; }
 }
 
-/* PC: 화면 우측 상단 "항상 고정" + 홈과 같은 라인 정렬 */
-@media (min-width:1101px){
-  .mobile-only{ display:none; }
-  .promo-desktop{
-    display:block;
-    position:fixed;
-    top:96px; /* 헤더 높이에 맞게 조절 */
-    /* wrap(max-width: var(--max))의 우측 경계에 맞춰 고정 */
-    right: calc( (100vw - var(--max)) / 2 + 16px ); /* 16px = wrap 내부 패딩 */
-    width:300px;
-    z-index: 1000;
-  }
+/* 2열 레이아웃: 본문 + 오른쪽 레일 */
+.wrap--with-rail{
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 320px;  /* 왼쪽 유동, 오른쪽 고정폭 */
+  gap: 24px;
+  align-items: start;
 }
 
-/* 카드 스타일만 유지 */
-.promo-card{ background:#f5fbff; border:1px solid #e7eef7; border-radius:14px;
-  padding:14px 16px; box-shadow:0 8px 24px rgba(0,0,0,.06); margin-bottom:16px; }
-.promo-card .btn-orange{ display:inline-block; padding:7px 14px; border-radius:8px;
-  background:#f97316; color:#fff !important; font-weight:600; text-decoration:none; }
+/* 오른쪽 레일은 상단 고정(sticky) */
+.right-rail{
+  position: sticky;
+  top: 96px;   /* 헤더 높이에 맞게 조정 */
+}
+
+/* 카드 스타일 */
+.promo-card{
+  background:#f5fbff;
+  border:1px solid #e7eef7;
+  border-radius:14px;
+  padding:14px 16px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  margin-bottom:16px;
+}
+.promo-card .btn-orange{
+  display:inline-block; padding:7px 14px; border-radius:8px;
+  background:#f97316; color:#fff !important; font-weight:600; text-decoration:none;
+}
 .promo-card .btn-orange:hover{ background:#ea580c; }
 
-/* 반응형: 모바일=본문 하단만, PC=사이드만 */
+/* 반응형: 모바일은 본문만, 오른쪽 레일 숨김 */
 @media (max-width:1100px){
+  .wrap--with-rail{ grid-template-columns: 1fr; }
+  .right-rail{ display:none; }
   .mobile-only{ display:block; }
-  .ad-side .promo-card{ display:none; }
 }
+
+/* PC: 본문 옆에 레일 표시 */
 @media (min-width:1101px){
   .mobile-only{ display:none; }
-  .ad-side .promo-card{ display:block; }
 }
 
 
@@ -386,30 +396,27 @@
 
   <!-- 본문 -->
   <main>
-  <div class="wrap wrap--with-rail">
+  <main class="wrap wrap--with-rail">
 
-    <!-- 왼쪽: 본문 -->
-    <div class="main-content">
-      {{ content }}
+  <!-- 왼쪽: 본문 -->
+  <div class="main-content">
+    {{ content }}
 
-      <!-- 모바일 전용: 본문 하단 카드 -->
-      <div class="promo-inline mobile-only">
-        {% include promo-tip.html %}
-      </div>
+    <!-- 모바일 전용: 본문 하단 카드 -->
+    <div class="promo-inline mobile-only">
+      {% include promo-tip.html %}
     </div>
+  </div>
 
-    <!-- 오른쪽: 레일(PC에서 상단) -->
-    <div class="right-rail">
-      {% include promo-tip.html %}   <!-- ← 카드가 ‘오른쪽 상단’에 위치 -->
-      {# 여기에 기존 광고 블록들도 함께 넣으면 ‘카드 위 광고/아래 광고’ 정렬 가능 #}
-      <!-- 예시)
-      <div class="ad-box">...adsense unit...</div>
-      -->
-    </div>
+  <!-- 오른쪽: 레일 (PC 전용) -->
+  <aside class="right-rail">
+    {% include promo-tip.html %}
+    <!-- 필요하면 광고도 여기에 -->
+    <!-- <div class="ad-box"> ... </div> -->
+  </aside>
 
+</main>
 
-      
- </main>
 
   <!-- 푸터 -->
   <footer>
