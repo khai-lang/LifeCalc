@@ -8,15 +8,16 @@
 </aside>
 
 <script>
-/* 섹션: default.html에서 window.PAGE_SECTION 주입됨. 없으면 경로로 재산정 */
-(function ensureSection(){
-  if (window.PAGE_SECTION) return;
-  var path = location.pathname.replace(/index\.html$/,'');
-  var seg = (path.split('/').filter(Boolean)[0]) || 'home';
-  window.PAGE_SECTION = seg;
+/* 섹션 확보(기본은 default.html에서 주입) – 없으면 경로로 계산 */
+(function(){
+  if (!window.PAGE_SECTION){
+    var path = location.pathname.replace(/index\.html$/,'');
+    var seg = (path.split('/').filter(Boolean)[0]) || 'home';
+    window.PAGE_SECTION = seg;
+  }
 })();
 
-/* 카테고리별 팁 후보 */
+/* 카테고리별 팁 */
 const PROMOS_BY_SECTION = {
   home: [
     {desc:"몸무게·운동량 기준으로 하루 권장 수분을 계산해 보세요.", href:"/health/water/", cta:"물 섭취량 계산"},
@@ -47,7 +48,7 @@ const PROMOS_BY_SECTION = {
   ]
 };
 
-/* 랜덤 선택 + 10초마다 순환 (모바일/PC 모두 동일 로직) */
+/* 랜덤 선택 + 10초 간격 순환 */
 (function(){
   const cards = document.querySelectorAll('.js-promo');
   if (!cards.length) return;
@@ -75,3 +76,4 @@ const PROMOS_BY_SECTION = {
   }, 10000);
 })();
 </script>
+
