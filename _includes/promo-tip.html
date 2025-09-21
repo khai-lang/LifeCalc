@@ -1,0 +1,92 @@
+<!-- _includes/promo-tip.html -->
+<aside id="promo-tip" class="promo-card mini" aria-labelledby="promo-tip-title">
+  <h3 id="promo-tip-title" class="promo-title">오늘의 팁</h3>
+  <div class="promo-body">
+    <p class="promo-desc">계산기를 더 활용해 보세요.</p>
+    <a class="btn-orange" href="/" id="promo-cta">자세히 보기</a>
+  </div>
+</aside>
+
+<script>
+/* 페이지 섹션 추출: /health/bmi/ -> health */
+(function(){
+  window.PAGE_SECTION = window.PAGE_SECTION ||
+    (location.pathname.split('/')[1] || 'home');
+})();
+
+/* 카테고리별 팁 후보 */
+const PROMOS_BY_SECTION = {
+  home: [
+    {title:"물은 얼마나 마셔야 할까요?",
+     desc:"몸무게·운동량 기준으로 하루 권장 수분을 계산해 보세요.",
+     href:"/health/water/", cta:"물 섭취량 계산"},
+    {title:"전세↔월세 헷갈리면",
+     desc:"전월세 전환 계산기로 총비용을 빠르게 비교하세요.",
+     href:"/finance/rent-conversion/", cta:"전월세 전환 계산"}
+  ],
+  life: [
+    {title:"기념일·날짜 계산 쉽게",
+     desc:"D+N, D-N, 요일, 윤년/평년까지 한 번에.",
+     href:"/life/date/", cta:"날짜 계산하기"},
+    {title:"만나이 바로 계산",
+     desc:"법정 만나이·국내식 나이 차이를 즉시 확인.",
+     href:"/life/age/", cta:"만나이 계산"}
+  ],
+  finance: [
+    {title:"대출 원리금/이자 한눈에",
+     desc:"원리금균등·원금균등·원금일시를 비교해 보세요.",
+     href:"/finance/loan/", cta:"대출 계산기"},
+    {title:"전세↔월세 전환",
+     desc:"보증금과 이자율로 적정 월세를 추산합니다.",
+     href:"/finance/rent-conversion/", cta:"전환 계산"}
+  ],
+  health: [
+    {title:"BMI만 보셨다면 BMR도",
+     desc:"기초대사량으로 하루 칼로리 소모량을 가늠해 보세요.",
+     href:"/health/bmr/", cta:"BMR 계산"},
+    {title:"하루 물 섭취량",
+     desc:"몸무게와 활동량으로 적정 섭취량을 계산합니다.",
+     href:"/health/water/", cta:"물 섭취량 계산"}
+  ],
+  family: [
+    {title:"출산 예정일·생후 N일/개월",
+     desc:"백일·돌 날짜까지 자동 계산.",
+     href:"/family/", cta:"출산·육아 계산기"},
+    {title:"예방접종 일정",
+     desc:"공식 사이트 바로가기와 안내.",
+     href:"/family/vaccine/", cta:"예방접종 안내"}
+  ],
+  fun: [
+    {title:"정신연령 테스트",
+     desc:"15문항으로 가볍게 멘탈 나이를 체크해 보세요.",
+     href:"/fun/mental-age/", cta:"테스트 시작"},
+    {title:"별자리·띠",
+     desc:"생일로 서양 별자리와 12간지 띠 보기.",
+     href:"/fun/astro/", cta:"확인하기"}
+  ],
+  guide: [
+    {title:"계산 공식/해석 모음",
+     desc:"공식과 해석을 모아 정리했습니다.",
+     href:"/guide/", cta:"가이드 보기"}
+  ]
+};
+
+/* 섹션에 맞는 팁을 노출(매일 순환) */
+(function(){
+  const box = document.getElementById('promo-tip');
+  if(!box) return;
+
+  const set = PROMOS_BY_SECTION[window.PAGE_SECTION] || PROMOS_BY_SECTION.home;
+  const idx = new Date().getDate() % set.length;
+  const pick = set[idx];
+
+  const titleEl = box.querySelector('.promo-title');
+  const descEl  = box.querySelector('.promo-desc');
+  const ctaEl   = box.querySelector('#promo-cta');
+
+  titleEl.textContent = "오늘의 팁";
+  descEl.textContent  = pick.desc;
+  ctaEl.textContent   = pick.cta;
+  ctaEl.href          = pick.href;
+})();
+</script>
