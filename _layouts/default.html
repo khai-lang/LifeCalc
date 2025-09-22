@@ -150,26 +150,21 @@
     .nav-ul .menu a:focus-visible {
       box-shadow: 0 0 0 3px rgba(40, 140, 240, 0.35);
     }
-
-    @media (max-width: 940px){
-      .nav-ul .menu {
-        background: transparent;
-        border: 0;
-        box-shadow: none;
-        padding: 6px 0 0 8px;
-      }
-      .nav-ul .menu a {
-        background: rgba(255,255,255,0.08);
-        border: 1px solid rgba(255,255,255,0.18);
-        color: #fff;
-      }
-      .nav-ul .menu a:hover,
-      .nav-ul .menu a:focus {
-        background: rgba(255,255,255,0.18);
-        border-color: rgba(255,255,255,0.28);
-        color: #fff;
-      }
-    }
+/* PC 전용: 하위 메뉴 컨테이너를 베이지로, 링크는 투명 */
+@media (min-width: 941px){
+  .nav-ul .menu { 
+    background: #fdf6f0;   /* 연한 베이지 */
+    padding: 10px;         /* 베이지가 보이도록 여백 유지 */
+  }
+  .nav-ul .menu a {
+    background: transparent;   /* 흰 배경 제거 */
+    border: 1px solid #efe2d7; /* 테두리만 유지 *
+  }
+  .nav-ul .menu a:hover {
+    background: rgba(0,0,0,.04); /* hover 시 살짝 강조 */
+    border-color: #e8d8c9;
+  }
+}
 
     /* 모바일: 버거 + 아코디언 */
     #nav-toggle{display:none}
