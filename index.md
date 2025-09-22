@@ -130,7 +130,7 @@ description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
     margin-bottom: 8px;
   }
   .mini{ padding:14px; transition: background .2s, transform .06s; }
-  .mini:hover{ background:#f8fafc; transform: translateY(-1px); }
+  .mini:hover{ background:#f5e6da; transform: translateY(-1px); }
   .mini-title{ font-weight:700; margin-bottom:4px; }
   .mini-desc{ color:#6b7280; font-size:14px; }
 
