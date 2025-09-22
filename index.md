@@ -86,7 +86,7 @@ description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
 <style>
   /* Hero */
   .hero{
-    background: linear-gradient(135deg, #fdf6f0 0%, #f5e6da 100%);
+    background-color: #f5e6da;   /* 연한 베이지 */
     border:1px solid var(--line);
     border-radius: var(--radius);
     padding: 22px 18px;
