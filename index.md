@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 홈
+title: 계산기 포털
 description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
 ---
 
