@@ -14,12 +14,12 @@ section: realestate
 <div class="card" style="max-width:760px;margin:0 auto;">
   <form onsubmit="event.preventDefault();calcCGT();">
     <h2>양도세 계산</h2>
-    <label>취득가액 (원)
-      <input type="number" id="buyPrice" placeholder="예: 300000000">
-    </label>
-    <label>양도가액 (원)
-      <input type="number" id="sellPrice" placeholder="예: 500000000">
-    </label>
+    label>취득가액 (원)
+  <input type="text" id="buyPrice" oninput="formatNumberInput(this)" placeholder="예: 300,000,000">
+</label>
+<label>양도가액 (원)
+  <input type="text" id="sellPrice" oninput="formatNumberInput(this)" placeholder="예: 500,000,000">
+</label>
     <label>보유기간 (년)
       <input type="number" id="years" placeholder="예: 3">
     </label>
@@ -32,14 +32,14 @@ section: realestate
 
 <script>
 function calcCGT(){
-  const buy = +document.getElementById('buyPrice').value||0;
-  const sell = +document.getElementById('sellPrice').value||0;
-  const years = +document.getElementById('years').value||0;
+  const buy = getNumberValue('buyPrice');
+  const sell = getNumberValue('sellPrice');
+  const years = getNumberValue('years');
 
   const gain = sell - buy;
-  const deduction = years >= 3 ? Math.round(gain * 0.1) : 0; // 장기보유특별공제 10% (단순 예시)
+  const deduction = years >= 3 ? Math.round(gain * 0.1) : 0;
   const taxable = gain - deduction;
-  const tax = taxable > 0 ? Math.round(taxable * 0.22) : 0; // 22% 단순 적용
+  const tax = taxable > 0 ? Math.round(taxable * 0.22) : 0;
 
   document.getElementById('cgtResult').innerHTML =
     `양도차익: <b>${gain.toLocaleString()}</b> 원<br>
