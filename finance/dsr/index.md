@@ -12,30 +12,32 @@ section: finance
 대출 가능 여부와 한도를 결정하는 핵심 지표입니다.
 
 <div class="card" style="max-width:760px;margin:0 auto;">
-  
-<form onsubmit="event.preventDefault();calcDSR();">
-  <label>연간 소득 (원)
-    <input type="text" id="income" oninput="formatNumberInput(this)" placeholder="예: 50,000,000">
-  </label>
-  <label>연간 원리금 상환액 (원)
-    <input type="text" id="repay" oninput="formatNumberInput(this)" placeholder="예: 20,000,000">
-  </label>
-  <button class="btn">계산</button>
-</form>
-<div id="dsrResult" class="result-box"></div>
+  <form onsubmit="event.preventDefault(); calcDSR();">
+    <h2>DSR 계산</h2>
+    <label>연간 소득(원) <input id="income" data-format="currency" type="text" placeholder="예: 50,000,000"></label>
+    <label>연간 원리금 상환액(원) <input id="repay" data-format="currency" type="text" placeholder="예: 20,000,000"></label>
+    <button class="btn">계산</button>
+  </form>
+  <div id="dsrResult" class="result-box"></div>
+</div>
 
 <script>
-function calcDSR(){
-  const inc = getNumberValue('income');
-  const repay = getNumberValue('repay');
-  const dsr = inc>0 ? (repay/inc*100) : 0;
-  document.getElementById('dsrResult').innerHTML =
-    `연간 소득: <b>${inc.toLocaleString()}</b> 원<br>
-     연간 원리금 상환액: <b>${repay.toLocaleString()}</b> 원<br>
-     DSR 비율: <b>${dsr.toFixed(1)}%</b>`;
-  document.getElementById('dsrResult').classList.add("show");
-}
+(function(){
+  'use strict';
+  window.calcDSR = function(){
+    const inc = CalcCommon.num('income');
+    const rep = CalcCommon.num('repay');
+    const dsr = inc>0 ? rep/inc*100 : 0;
+
+    const el=document.getElementById('dsrResult');
+    el.innerHTML = `연간 소득: <b>${CalcCommon.money(inc)}</b> 원<br>
+                    연간 원리금 상환액: <b>${CalcCommon.money(rep)}</b> 원<br>
+                    DSR 비율: <b>${dsr.toFixed(1)}%</b>`;
+    el.classList.add('show');
+  };
+})();
 </script>
+
 
 ---
 
