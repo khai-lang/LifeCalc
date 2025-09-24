@@ -12,42 +12,37 @@ section: realestate
 취득가액, 양도가액, 보유기간 등을 입력하세요. (단순화된 계산이므로 참고용입니다)
 
 <div class="card" style="max-width:760px;margin:0 auto;">
-  <form onsubmit="event.preventDefault();calcCGT();">
+  <form onsubmit="event.preventDefault(); calcCGT();">
     <h2>양도세 계산</h2>
-    label>취득가액 (원)
-  <input type="text" id="buyPrice" oninput="formatNumberInput(this)" placeholder="예: 300,000,000">
-</label>
-<label>양도가액 (원)
-  <input type="text" id="sellPrice" oninput="formatNumberInput(this)" placeholder="예: 500,000,000">
-</label>
-    <label>보유기간 (년)
-      <input type="number" id="years" placeholder="예: 3">
-    </label>
-
+    <label>취득가액(원) <input id="buyPrice" data-format="currency" type="text" placeholder="예: 300,000,000"></label>
+    <label>양도가액(원) <input id="sellPrice" data-format="currency" type="text" placeholder="예: 500,000,000"></label>
+    <label>보유기간(년) <input id="years" data-format="number" type="text" placeholder="예: 3"></label>
     <button class="btn">계산하기</button>
   </form>
-
   <div id="cgtResult" class="result-box"></div>
 </div>
 
 <script>
-function calcCGT(){
-  const buy = getNumberValue('buyPrice');
-  const sell = getNumberValue('sellPrice');
-  const years = getNumberValue('years');
+(function(){
+  'use strict';
+  window.calcCGT = function(){
+    const buy = CalcCommon.num('buyPrice');
+    const sell = CalcCommon.num('sellPrice');
+    const years= CalcCommon.num('years');
 
-  const gain = sell - buy;
-  const deduction = years >= 3 ? Math.round(gain * 0.1) : 0;
-  const taxable = gain - deduction;
-  const tax = taxable > 0 ? Math.round(taxable * 0.22) : 0;
+    const gain = Math.max(0, sell - buy);
+    const deduction = years>=3 ? Math.round(gain*0.10) : 0;      // (예시) 장특공 10%
+    const taxable = Math.max(0, gain - deduction);
+    const tax = Math.round(taxable * 0.22);                      // (예시) 22%
 
-  document.getElementById('cgtResult').innerHTML =
-    `양도차익: <b>${gain.toLocaleString()}</b> 원<br>
-     장기보유 공제: <b>${deduction.toLocaleString()}</b> 원<br>
-     과세표준: <b>${taxable.toLocaleString()}</b> 원<br>
-     예상 세액: <b>${tax.toLocaleString()}</b> 원`;
-  document.getElementById('cgtResult').classList.add("show");
-}
+    const el=document.getElementById('cgtResult');
+    el.innerHTML = `양도차익: <b>${CalcCommon.money(gain)}</b> 원<br>
+                    장기보유 공제: <b>${CalcCommon.money(deduction)}</b> 원<br>
+                    과세표준: <b>${CalcCommon.money(taxable)}</b> 원<br>
+                    예상 세액: <b>${CalcCommon.money(tax)}</b> 원`;
+    el.classList.add('show');
+  };
+})();
 </script>
 
 ---
