@@ -24,11 +24,10 @@ section: finance
 </form>
 <div id="dsrResult" class="result-box"></div>
 
-
 <script>
 function calcDSR(){
-  const inc = +document.getElementById('income').value||0;
-  const repay = +document.getElementById('repay').value||0;
+  const inc = getNumberValue('income');
+  const repay = getNumberValue('repay');
   const dsr = inc>0 ? (repay/inc*100) : 0;
   document.getElementById('dsrResult').innerHTML =
     `연간 소득: <b>${inc.toLocaleString()}</b> 원<br>
