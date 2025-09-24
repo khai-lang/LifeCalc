@@ -6,6 +6,8 @@ permalink: /realestate/rent-to-jeonse/
 redirect_from:
   - /finance/rent-conversion/
   - /finance/rent-conversion/index.html
+  - /finance/rent-to-jeonse/
+  - /finance/rent-to-jeonse/index.html
 section: realestate
 ---
 
