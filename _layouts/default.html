@@ -419,11 +419,17 @@
   </div>
 
   <!-- 오른쪽: 레일 (PC 전용) -->
-  <aside class="right-rail">
-    <!-- 카드: PC에서는 사이드 광고 위에 1개만 노출 -->
-    {% include promo-tip.html %}
+  <!-- _layouts/default.html의 오른쪽 레일 -->
+<aside class="right-rail">
+  {% include promo-tip-guide.html %}   <!-- PC: 오른쪽 상단 1개 -->
+  <div id="side-ad" class="ad-box"> ... </div>
+</aside>
 
-  
+<!-- 본문(content) 바로 아래, 전 페이지 공통 -->
+<div class="promo-mobile">
+  {% include promo-tip-guide.html %}   <!-- 모바일: 결과 아래(회전형) -->
+</div>
+
   </aside>
 
 </main>
