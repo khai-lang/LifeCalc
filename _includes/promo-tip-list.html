@@ -1,0 +1,31 @@
+<!-- _includes/promo-tip-list.html -->
+<aside class="promo-card" aria-label="오늘의 팁">
+  <h3 class="promo-title" style="margin:0 0 8px">오늘의 팁</h3>
+  <div class="promo-body">
+    <ul class="promo-list" style="list-style:none;margin:0;padding:0;display:grid;gap:8px">
+      <!-- 항목은 JS로 주입 -->
+    </ul>
+  </div>
+</aside>
+
+{% include promo-data.js %}
+
+<script>
+(function(){
+  const section = (window.PAGE_SECTION || 'home').toLowerCase();
+  const set = (window.PROMOS_BY_SECTION && window.PROMOS_BY_SECTION[section]) || window.PROMOS_BY_SECTION.home || [];
+  const list = document.currentScript.previousElementSibling.querySelector('.promo-list');
+  if (!list) return;
+
+  // 많이 넣으면 과밀해지므로 최대 6개
+  const items = set.slice(0, 6);
+  list.innerHTML = items.map(p =>
+    `<li>
+      <a class="btn-orange" href="${p.href}" style="display:block;text-align:left">
+        <strong style="display:block">${p.cta}</strong>
+        <span style="display:block;opacity:.8;font-size:13.5px;margin-top:2px">${p.desc}</span>
+      </a>
+    </li>`
+  ).join('');
+})();
+</script>
