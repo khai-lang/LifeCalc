@@ -1,23 +1,22 @@
 ---
 layout: default
-title: 계산기 포털
-description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
+title: 계산기 포털 | LifeCalc
+description: 생활·금융·부동산·건강·코인·보험 계산기를 한 곳에서. 전세↔월세, 대출, 양도세, BMI, 코인 수익률, 자동차 보험료 등 실생활 계산을 빠르고 정확하게.
 ---
 
 <!-- Hero -->
 <section class="hero">
   <div class="hero-text">
     <h1 style="margin:0 0 6px">LifeCalc 계산기 포털</h1>
-    <p class="hero-sub">만나이, 기념일·날짜, 대출, BMI 등 실생활 계산을 빠르고 정확하게.</p>
+    <p class="hero-sub">전세↔월세, 대출, 양도세, BMI, 코인 수익률, 자동차 보험료까지 한 번에.</p>
 
     <div class="hero-quick">
-      <a href="/life/age/" class="btn btn-lg">만나이 계산하기 →</a>
-      <a href="/finance/loan/" class="btn btn-ghost">대출 계산</a>
-      <a href="/health/bmi/" class="btn btn-ghost">BMI</a>
-      <a href="/family/due-date/" class="btn btn-ghost">출산 예정일</a>
+      <a href="/realestate/rent-to-jeonse/" class="btn btn-lg">전세↔월세 계산기 →</a>
+      <a href="/finance/loan/" class="btn btn-ghost">대출 이자 계산</a>
+      <a href="/crypto/profit/" class="btn btn-ghost">코인 수익률</a>
+      <a href="/insurance/auto/" class="btn btn-ghost">자동차 보험료</a>
     </div>
   </div>
-  
 </section>
 
 <!-- 카테고리 -->
@@ -26,28 +25,45 @@ description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
   <a class="card card-link" href="/life/">
     <div class="icon">🧰</div>
     <div class="title">생활 계산기</div>
-    <div class="desc">만나이, 기념일·날짜, 단위 변환</div>
+    <div class="desc">만나이, 날짜, 단위 변환, 출산·육아</div>
   </a>
+
   <a class="card card-link" href="/finance/">
     <div class="icon">💰</div>
     <div class="title">금융 계산기</div>
-    <div class="desc">전세↔월세, 대출, 연봉↔시급</div>
+    <div class="desc">대출, 연봉↔시급, DSR</div>
   </a>
+
+  <a class="card card-link" href="/realestate/">
+    <div class="icon">🏠</div>
+    <div class="title">부동산·세금 계산기</div>
+    <div class="desc">전세↔월세, 양도세, 취득세, 종부세</div>
+  </a>
+
   <a class="card card-link" href="/health/">
     <div class="icon">⚕️</div>
     <div class="title">건강 계산기</div>
     <div class="desc">BMI, BMR, 물 섭취량</div>
   </a>
-  <a class="card card-link" href="/family/">
-    <div class="icon">👶</div>
-    <div class="title">출산·육아 계산기</div>
-    <div class="desc">예정일, 생후 N일/개월, 백일, 예방접종</div>
+
+  <a class="card card-link" href="/crypto/">
+    <div class="icon">₿</div>
+    <div class="title">코인 계산기</div>
+    <div class="desc">수익률, DCA, APR↔APY, IL</div>
   </a>
+
+  <a class="card card-link" href="/insurance/">
+    <div class="icon">🛡️</div>
+    <div class="title">보험 계산기</div>
+    <div class="desc">자동차, 실손, 보장액, 연금</div>
+  </a>
+
   <a class="card card-link" href="/fun/">
     <div class="icon">🎯</div>
     <div class="title">재미있는 테스트</div>
     <div class="desc">정신연령, 별자리/띠</div>
   </a>
+
   <a class="card card-link" href="/guide/">
     <div class="icon">📘</div>
     <div class="title">가이드</div>
@@ -58,18 +74,39 @@ description: 생활·금융·건강·출산 육아 계산기를 한 곳에서
 <!-- 추천 계산기 -->
 <h2>추천 계산기</h2>
 <div class="grid-mini">
-  <a class="mini card" href="/life/age/">
-    <div class="mini-title">만나이 계산기</div>
-    <div class="mini-desc">생년월일·기준일로 정확한 만 나이</div>
+  <a class="mini card" href="/realestate/rent-to-jeonse/">
+    <div class="mini-title">전세↔월세 전환</div>
+    <div class="mini-desc">전세 전환율·월세 환산</div>
   </a>
   <a class="mini card" href="/finance/loan/">
     <div class="mini-title">대출 이자/원리금</div>
-    <div class="mini-desc">원리금균등·원금균등 월 상환액/총이자</div>
+    <div class="mini-desc">월 상환액·총이자</div>
+  </a>
+  <a class="mini card" href="/realestate/capital-gains/">
+    <div class="mini-title">양도소득세 계산기</div>
+    <div class="mini-desc">기본공제·장특공 포함</div>
+  </a>
+  <a class="mini card" href="/realestate/acquisition-tax/">
+    <div class="mini-title">취득세 계산기</div>
+    <div class="mini-desc">주택 취득 부대비용</div>
+  </a>
+  <a class="mini card" href="/crypto/profit/">
+    <div class="mini-title">코인 수익률 계산기</div>
+    <div class="mini-desc">매수가·수수료 반영</div>
+  </a>
+  <a class="mini card" href="/insurance/auto/">
+    <div class="mini-title">자동차 보험료 추정</div>
+    <div class="mini-desc">연령·차종 가중치</div>
   </a>
   <a class="mini card" href="/health/bmi/">
     <div class="mini-title">BMI 계산기</div>
-    <div class="mini-desc">체질량지수와 간단 해석</div>
+    <div class="mini-desc">체질량지수·해석</div>
   </a>
+</div>
+
+<!-- 오늘의 팁 (홈=리스트형) -->
+<div class="promo-desktop">
+  {% include promo-tip-list.html %}
 </div>
 
 <!-- 광고 -->
