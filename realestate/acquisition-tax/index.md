@@ -8,18 +8,28 @@ section: realestate
 
 # 취득세 계산기
 
-주택이나 토지를 매수할 때 부과되는 **취득세**를 계산합니다.  
-주택 가격, 세율, 감면 규정에 따라 세금이 달라질 수 있습니다.
+<div class="card" style="max-width:760px;margin:0 auto;">
+  <form onsubmit="event.preventDefault();calcAcq();">
+    <h2>취득세 계산</h2>
+    <label>주택 매수가액 (원)
+      <input type="text" id="price" oninput="formatNumberInput(this)" placeholder="예: 400,000,000">
+    </label>
+    <button class="btn">계산하기</button>
+  </form>
+  <div id="acqResult" class="result-box"></div>
+</div>
 
----
+<script>
+function calcAcq(){
+  const price = getNumberValue('price');
+  let rate = 0.01; // 기본 1%
+  if(price > 600000000) rate = 0.02;
+  if(price > 900000000) rate = 0.03;
+  const tax = Math.round(price * rate);
 
-## 참고
-- 일반 주택의 경우 1~3% 세율 적용
-- 다주택자의 경우 가산세율 적용
-- 감면 혜택 여부에 따라 세율 변동 가능
-
----
-
-## 함께 보면 좋은 계산기
-- [양도세 계산기](/realestate/capital-gains/)  
-- [종부세 계산기](/realestate/property-tax/)
+  document.getElementById('acqResult').innerHTML =
+    `취득세율: <b>${(rate*100).toFixed(1)}%</b><br>
+     예상 취득세: <b>${tax.toLocaleString()}</b> 원`;
+  document.getElementById('acqResult').classList.add("show");
+}
+</script>
