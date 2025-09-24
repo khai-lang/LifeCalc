@@ -9,14 +9,35 @@ section: finance
 # DSR 계산기
 
 **총부채원리금상환비율(DSR)**은 연간 소득 대비 연간 원리금 상환액의 비율을 뜻합니다.  
-대출 가능 여부, 한도를 결정하는 핵심 지표입니다.
+대출 가능 여부와 한도를 결정하는 핵심 지표입니다.
 
----
+<div class="card" style="max-width:760px;margin:0 auto;">
+  <form onsubmit="event.preventDefault();calcDSR();">
+    <h2>DSR 계산</h2>
+    <label>연간 소득 (원)
+      <input type="number" id="income" placeholder="예: 50000000">
+    </label>
+    <label>연간 원리금 상환액 (원)
+      <input type="number" id="repay" placeholder="예: 20000000">
+    </label>
+    <button class="btn">계산</button>
+  </form>
 
-## 계산 공식
-- **DSR = 연간 총 원리금 상환액 ÷ 연간 소득 × 100**
+  <div id="dsrResult" class="result-box"></div>
+</div>
 
-👉 예: 연소득 5,000만 원, 연간 원리금 상환액 2,000만 원 → DSR = 40%
+<script>
+function calcDSR(){
+  const inc = +document.getElementById('income').value||0;
+  const repay = +document.getElementById('repay').value||0;
+  const dsr = inc>0 ? (repay/inc*100) : 0;
+  document.getElementById('dsrResult').innerHTML =
+    `연간 소득: <b>${inc.toLocaleString()}</b> 원<br>
+     연간 원리금 상환액: <b>${repay.toLocaleString()}</b> 원<br>
+     DSR 비율: <b>${dsr.toFixed(1)}%</b>`;
+  document.getElementById('dsrResult').classList.add("show");
+}
+</script>
 
 ---
 
