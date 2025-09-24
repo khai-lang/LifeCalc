@@ -1,0 +1,41 @@
+<!-- _includes/promo-tip-guide.html -->
+<aside class="promo-card mini js-promo" aria-label="오늘의 팁" style="background:#f5e6da;border:1px solid #f3e6db;">
+  <h3 class="promo-title" style="margin:0 0 6px">오늘의 팁</h3>
+  <div class="promo-body">
+    <p class="promo-desc" style="margin:0 0 8px"></p>
+    <a class="btn-orange promo-cta" href="#" style="display:inline-block">바로 보기</a>
+  </div>
+</aside>
+
+<script>
+/* Liquid로 가이드 글 목록을 JSON으로 주입 */
+window.GUIDE_PROMOS = window.GUIDE_PROMOS || [
+  {% assign guides = site.pages | where_exp:"p","p.url contains '/guide/'" %}
+  {% assign guides = guides | where_exp:"p","p.url != '/guide/'" %}
+  {% for p in guides %}
+  {
+    desc: {{ (p.description | default: p.title) | jsonify }},
+    href: {{ p.url | absolute_url | jsonify }},
+    cta: {{ (p.cta | default: "가이드 보기") | jsonify }}
+  }{% if forloop.last == false %},{% endif %}
+  {% endfor %}
+];
+
+(function(){
+  const cards = document.querySelectorAll('.js-promo');
+  const set = (window.GUIDE_PROMOS || []).filter(x=>x && x.href);
+  if(!cards.length || !set.length) return;
+
+  let i = 0;
+  function apply(p){
+    cards.forEach(box=>{
+      const d = box.querySelector('.promo-desc');
+      const a = box.querySelector('.promo-cta');
+      if(d) d.textContent = p.desc || '';
+      if(a){ a.textContent = p.cta || '가이드 보기'; a.href = p.href; }
+    });
+  }
+  apply(set[i]);                         // 첫 진입 즉시 가이드 노출 (플레이스홀더 X)
+  setInterval(()=>{ i=(i+1)%set.length; apply(set[i]); }, 10000); // 10초 회전
+})();
+</script>
