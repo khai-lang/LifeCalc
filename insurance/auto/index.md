@@ -9,11 +9,9 @@ section: insurance
 # 자동차 보험료 계산기
 
 <div class="card" style="max-width:760px;margin:0 auto;">
-  <form onsubmit="event.preventDefault();calcAutoIns();">
+  <form onsubmit="event.preventDefault(); calcAutoIns();">
     <h2>자동차 보험료 계산</h2>
-    <label>차량가액 (원)
-      <input type="text" id="carValue" oninput="formatNumberInput(this)" placeholder="예: 20,000,000">
-    </label>
+    <label>차량가액(원) <input id="carValue" data-format="currency" type="text" placeholder="예: 20,000,000"></label>
     <label>운전자 연령
       <select id="ageFactor">
         <option value="1.0">30세 이상</option>
@@ -27,16 +25,20 @@ section: insurance
 </div>
 
 <script>
-function calcAutoIns(){
-  const value = getNumberValue('carValue');
-  const age = parseFloat(document.getElementById('ageFactor').value);
-  const baseRate = 0.03; // 3% 기본요율
-  const premium = Math.round(value * baseRate * age);
+(function(){
+  'use strict';
+  window.calcAutoIns = function(){
+    const value = CalcCommon.num('carValue');
+    const age = parseFloat(document.getElementById('ageFactor').value||'1');
+    const baseRate = 0.03; // 예시 기본요율 3%
+    const premium = Math.round(value*baseRate*age);
 
-  document.getElementById('autoResult').innerHTML =
-    `차량가액: <b>${value.toLocaleString()}</b> 원<br>
-     적용 요율: <b>${(baseRate*100*age).toFixed(1)}%</b><br>
-     예상 보험료: <b>${premium.toLocaleString()}</b> 원`;
-  document.getElementById('autoResult').classList.add("show");
-}
+    const el=document.getElementById('autoResult');
+    el.innerHTML = `차량가액: <b>${CalcCommon.money(value)}</b> 원<br>
+                    적용 요율: <b>${(baseRate*100*age).toFixed(1)}%</b><br>
+                    예상 보험료: <b>${CalcCommon.money(premium)}</b> 원`;
+    el.classList.add('show');
+  };
+})();
 </script>
+
