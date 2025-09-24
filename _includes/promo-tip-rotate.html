@@ -1,0 +1,40 @@
+<!-- _includes/promo-tip-rotate.html -->
+<aside class="promo-card mini js-promo" aria-label="오늘의 팁">
+  <h3 class="promo-title">오늘의 팁</h3>
+  <div class="promo-body">
+    <p class="promo-desc">계산기를 더 활용해 보세요.</p>
+    <a class="btn-orange promo-cta" href="/">자세히 보기</a>
+  </div>
+</aside>
+
+{% include promo-data.js %}
+
+<script>
+(function(){
+  const cards = document.querySelectorAll('.js-promo');
+  if (!cards.length) return;
+
+  const section = (window.PAGE_SECTION || 'home').toLowerCase();
+  const setFull = (window.PROMOS_BY_SECTION && window.PROMOS_BY_SECTION[section]) || window.PROMOS_BY_SECTION.home || [];
+  if (!setFull.length) return;
+
+  // 과밀 방지: 상위 3개만 순환
+  const set = setFull.slice(0, 3);
+  let i = Math.floor(Math.random() * set.length);
+
+  function apply(pick){
+    cards.forEach(box=>{
+      const descEl = box.querySelector('.promo-desc');
+      const ctaEl  = box.querySelector('.promo-cta');
+      if (descEl) descEl.textContent = pick.desc;
+      if (ctaEl) { ctaEl.textContent = pick.cta; ctaEl.href = pick.href; }
+    });
+  }
+  apply(set[i]);
+
+  setInterval(function(){
+    i = (i + 1) % set.length;
+    apply(set[i]);
+  }, 10000);
+})();
+</script>
