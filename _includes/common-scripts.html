@@ -1,0 +1,12 @@
+<script>
+// 입력 필드 숫자 포맷 (천단위 콤마 표시)
+function formatNumberInput(el){
+  let value = el.value.replace(/[^0-9]/g,'');
+  if(value === "") { el.value = ""; return; }
+  el.value = Number(value).toLocaleString();
+}
+// 콤마 제거 후 숫자값으로 반환
+function getNumberValue(id){
+  return Number(document.getElementById(id).value.replace(/,/g,'')) || 0;
+}
+</script>
