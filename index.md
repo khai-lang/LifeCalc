@@ -106,17 +106,7 @@ description: 생활·금융·부동산·건강·코인·보험 계산기를 한 
 
 <!-- 오늘의 팁 (홈=리스트형) -->
 <div class="promo-desktop">
-  {% include promo-tip-list.html %}
-</div>
-
-<!-- 광고 -->
-<div class="ad-box">
-  <ins class="adsbygoogle" style="display:block"
-       data-ad-client="ca-pub-3758454239921831"
-       data-ad-slot="1398373115"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+ 
 </div>
 
 <!-- 페이지 전용 보조 스타일 -->
