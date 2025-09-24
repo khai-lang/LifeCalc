@@ -8,37 +8,101 @@ section: crypto
 
 # 코인 수익률 계산기
 
-<div class="card" style="max-width:760px;margin:0 auto;">
-  <form onsubmit="event.preventDefault();calcProfit();">
-    <h2>코인 수익률 계산</h2>
-    <label>매수가 (원)
-      <input type="text" id="buy" oninput="formatNumberInput(this)" placeholder="예: 30,000,000">
-    </label>
-    <label>매도가 (원)
-      <input type="text" id="sell" oninput="formatNumberInput(this)" placeholder="예: 35,000,000">
-    </label>
-    <label>수량 (개)
-      <input type="text" id="qty" oninput="formatNumberInput(this)" placeholder="예: 0.5">
-    </label>
+<div class="card" style="max-width:860px;margin:0 auto;">
+  <form onsubmit="event.preventDefault(); calcCoinAvg();">
+    <h2>코인 평균단가·손익 계산기</h2>
+
+    <table class="trade-table">
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>단가(원)</th>
+          <th>수량</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+      <tbody id="tradeList">
+        <tr>
+          <td>
+            <select class="trade-type">
+              <option value="buy">매수</option>
+              <option value="sell">매도</option>
+            </select>
+          </td>
+          <td><input type="text" class="trade-price" data-format="currency" placeholder="예: 30,000,000"></td>
+          <td><input type="text" class="trade-qty" data-format="number" placeholder="예: 0.5"></td>
+          <td><button type="button" onclick="removeRow(this)">❌</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="button" onclick="addRow()">+ 거래 추가</button>
     <button class="btn">계산하기</button>
   </form>
-  <div id="profitResult" class="result-box"></div>
+
+  <div id="coinResult" class="result-box"></div>
 </div>
 
 <script>
-function calcProfit(){
-  const b = getNumberValue('buy');
-  const s = getNumberValue('sell');
-  const q = getNumberValue('qty');
+function addRow(){
+  const row=document.createElement('tr');
+  row.innerHTML=`
+    <td>
+      <select class="trade-type">
+        <option value="buy">매수</option>
+        <option value="sell">매도</option>
+      </select>
+    </td>
+    <td><input type="text" class="trade-price" data-format="currency" placeholder="단가(원)"></td>
+    <td><input type="text" class="trade-qty" data-format="number" placeholder="수량"></td>
+    <td><button type="button" onclick="removeRow(this)">❌</button></td>
+  `;
+  document.getElementById('tradeList').appendChild(row);
+}
 
-  const cost = b*q, revenue = s*q, profit = revenue - cost;
-  const rate = cost>0 ? (profit/cost*100):0;
+function removeRow(btn){ btn.closest('tr').remove(); }
 
-  document.getElementById('profitResult').innerHTML =
-    `총 매입금액: <b>${cost.toLocaleString()}</b> 원<br>
-     총 매도금액: <b>${revenue.toLocaleString()}</b> 원<br>
-     손익: <b>${profit.toLocaleString()}</b> 원<br>
-     수익률: <b>${rate.toFixed(2)}%</b>`;
-  document.getElementById('profitResult').classList.add("show");
+function calcCoinAvg(){
+  let totalBuyCost=0, totalBuyQty=0;
+  let realizedProfit=0, remainingQty=0;
+
+  document.querySelectorAll('#tradeList tr').forEach(row=>{
+    const type=row.querySelector('.trade-type').value;
+    const price=parseFloat((row.querySelector('.trade-price').value||'').replace(/,/g,''))||0;
+    const qty=parseFloat((row.querySelector('.trade-qty').value||'').replace(/,/g,''))||0;
+
+    if(type==='buy'){
+      totalBuyCost += price*qty;
+      totalBuyQty  += qty;
+      remainingQty += qty;
+    }else if(type==='sell'){
+      if(totalBuyQty>0){
+        const avg= totalBuyCost/totalBuyQty;
+        realizedProfit += (price-avg)*qty;
+        totalBuyCost -= avg*qty;
+        totalBuyQty  -= qty;
+        remainingQty -= qty;
+      }
+    }
+  });
+
+  const avgPrice = totalBuyQty>0 ? totalBuyCost/totalBuyQty : 0;
+  const el=document.getElementById('coinResult');
+  el.innerHTML=
+    `<h3>결과</h3>
+     평균 매입 단가: <b>${isNaN(avgPrice)?'-':avgPrice.toLocaleString()}</b> 원<br>
+     보유 수량: <b>${remainingQty}</b> 개<br>
+     잔여 평가 금액: <b>${totalBuyCost.toLocaleString()}</b> 원<br>
+     실현 손익: <b>${realizedProfit.toLocaleString()}</b> 원`;
+  el.classList.add('show');
 }
 </script>
+
+<style>
+.trade-table{ width:100%; border-collapse:collapse; margin-bottom:12px; }
+.trade-table th, .trade-table td{ border:1px solid #ddd; padding:6px 8px; text-align:center; }
+.trade-table th{ background:#f9f9f9; }
+.trade-table input, .trade-table select{ width:100%; box-sizing:border-box; padding:4px; }
+.trade-table button{ background:none; border:none; cursor:pointer; font-size:16px; }
+</style>
+
