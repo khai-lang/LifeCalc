@@ -8,14 +8,51 @@ section: realestate
 
 # 양도소득세 계산기
 
-부동산 매매 시 발생하는 **양도차익**에 따라 납부해야 하는 세금을 자동으로 계산합니다.  
-취득가액, 양도가액, 보유기간, 거주기간, 장기보유특별공제율 등을 반영합니다.
+부동산 매매 시 발생하는 **양도차익**을 기준으로 납부해야 하는 세금을 자동으로 계산합니다.  
+취득가액, 양도가액, 보유기간 등을 입력하세요. (단순화된 계산이므로 참고용입니다)
 
-👉 실제 세율은 해마다 개정될 수 있으므로, 계산 결과는 참고용으로 활용하시고 반드시 세무사 상담을 권장합니다.
+<div class="card" style="max-width:760px;margin:0 auto;">
+  <form onsubmit="event.preventDefault();calcCGT();">
+    <h2>양도세 계산</h2>
+    <label>취득가액 (원)
+      <input type="number" id="buyPrice" placeholder="예: 300000000">
+    </label>
+    <label>양도가액 (원)
+      <input type="number" id="sellPrice" placeholder="예: 500000000">
+    </label>
+    <label>보유기간 (년)
+      <input type="number" id="years" placeholder="예: 3">
+    </label>
+
+    <button class="btn">계산하기</button>
+  </form>
+
+  <div id="cgtResult" class="result-box"></div>
+</div>
+
+<script>
+function calcCGT(){
+  const buy = +document.getElementById('buyPrice').value||0;
+  const sell = +document.getElementById('sellPrice').value||0;
+  const years = +document.getElementById('years').value||0;
+
+  const gain = sell - buy;
+  const deduction = years >= 3 ? Math.round(gain * 0.1) : 0; // 장기보유특별공제 10% (단순 예시)
+  const taxable = gain - deduction;
+  const tax = taxable > 0 ? Math.round(taxable * 0.22) : 0; // 22% 단순 적용
+
+  document.getElementById('cgtResult').innerHTML =
+    `양도차익: <b>${gain.toLocaleString()}</b> 원<br>
+     장기보유 공제: <b>${deduction.toLocaleString()}</b> 원<br>
+     과세표준: <b>${taxable.toLocaleString()}</b> 원<br>
+     예상 세액: <b>${tax.toLocaleString()}</b> 원`;
+  document.getElementById('cgtResult').classList.add("show");
+}
+</script>
 
 ---
 
 ## 함께 보면 좋은 계산기
 - [취득세 계산기](/realestate/acquisition-tax/)  
 - [종부세 계산기](/realestate/property-tax/)  
-- [전세↔월세 전환 계산기](/realestate/rent-to-jeonse/)
+- [전세↔월세 계산기](/realestate/rent-to-jeonse/)
