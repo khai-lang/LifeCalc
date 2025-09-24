@@ -8,11 +8,35 @@ section: insurance
 
 # 자동차 보험료 계산기
 
-차량 연식, 배기량, 운전자 연령, 가입 이력 등을 반영해 **자동차 보험료**를 추정합니다.  
-보험사마다 산출 기준이 다르므로 참고용으로만 활용하세요.
+<div class="card" style="max-width:760px;margin:0 auto;">
+  <form onsubmit="event.preventDefault();calcAutoIns();">
+    <h2>자동차 보험료 계산</h2>
+    <label>차량가액 (원)
+      <input type="text" id="carValue" oninput="formatNumberInput(this)" placeholder="예: 20,000,000">
+    </label>
+    <label>운전자 연령
+      <select id="ageFactor">
+        <option value="1.0">30세 이상</option>
+        <option value="1.2">26~29세</option>
+        <option value="1.5">25세 이하</option>
+      </select>
+    </label>
+    <button class="btn">계산하기</button>
+  </form>
+  <div id="autoResult" class="result-box"></div>
+</div>
 
----
+<script>
+function calcAutoIns(){
+  const value = getNumberValue('carValue');
+  const age = parseFloat(document.getElementById('ageFactor').value);
+  const baseRate = 0.03; // 3% 기본요율
+  const premium = Math.round(value * baseRate * age);
 
-## 함께 보면 좋은 계산기
-- [실손보험 계산기](/insurance/health/) _(추가 예정)_  
-- [연금 계산기](/insurance/pension/) _(추가 예정)_  
+  document.getElementById('autoResult').innerHTML =
+    `차량가액: <b>${value.toLocaleString()}</b> 원<br>
+     적용 요율: <b>${(baseRate*100*age).toFixed(1)}%</b><br>
+     예상 보험료: <b>${premium.toLocaleString()}</b> 원`;
+  document.getElementById('autoResult').classList.add("show");
+}
+</script>
