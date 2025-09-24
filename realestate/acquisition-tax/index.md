@@ -40,18 +40,18 @@ section: realestate
     const price = CalcCommon.num('price');
     let rate = 0, desc="";
 
+    // 기본 취득세율 (단순화 예시)
     if(type==='house'){
-      // 주택 (단순 예시) - 실제는 주택 수, 조정지역 여부 등 조건 많음
       if(price > 900_000_000) rate=0.03;
       else if(price > 600_000_000) rate=0.02;
       else rate=0.01;
       desc="주택";
     }
     else if(type==='land'){
-      rate=0.04; desc="토지 (일반)";
+      rate=0.04; desc="토지";
     }
     else if(type==='car'){
-      rate=0.07; desc="자동차 (일반)";
+      rate=0.07; desc="자동차";
     }
     else if(type==='building'){
       rate=0.03; desc="건축물";
@@ -60,11 +60,36 @@ section: realestate
       rate=0.024; desc="기타 자산";
     }
 
-    const tax = Math.round(price*rate);
+    // 세금 계산
+    const acquisitionTax = Math.round(price * rate);
+
+    // 농어촌특별세 (일부 자산/금액에 부과, 여기서는 단순화 예시)
+    let ruralTax = 0;
+    if(type==='house' && price > 600_000_000){
+      ruralTax = Math.round(acquisitionTax * 0.1); // 10%
+    } else if(type==='land'){
+      ruralTax = Math.round(acquisitionTax * 0.2); // 20%
+    }
+
+    // 지방교육세 (취득세의 10%)
+    const eduTax = Math.round(acquisitionTax * 0.1);
+
+    // 총 세액
+    const total = acquisitionTax + ruralTax + eduTax;
+
+    // 출력
     const el=document.getElementById('acqResult');
-    el.innerHTML = `${desc} 취득가액: <b>${CalcCommon.money(price)}</b> 원<br>
-                    적용 세율: <b>${(rate*100).toFixed(2)}%</b><br>
-                    예상 취득세: <b>${CalcCommon.money(tax)}</b> 원`;
+    el.innerHTML = `
+      <h3>${desc} 취득세 계산 결과</h3>
+      취득가액: <b>${CalcCommon.money(price)}</b> 원<br>
+      기본 취득세율: <b>${(rate*100).toFixed(2)}%</b><br>
+      <hr>
+      취득세: <b>${CalcCommon.money(acquisitionTax)}</b> 원<br>
+      지방교육세: <b>${CalcCommon.money(eduTax)}</b> 원<br>
+      농어촌특별세: <b>${CalcCommon.money(ruralTax)}</b> 원<br>
+      <hr>
+      <b>총 납부세액: ${CalcCommon.money(total)} 원</b>
+    `;
     el.classList.add('show');
   };
 })();
