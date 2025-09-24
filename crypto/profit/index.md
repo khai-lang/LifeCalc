@@ -1,18 +1,46 @@
 ---
 layout: default
-title: 코인 수익률 계산기
-description: 암호화폐 매수·매도 가격을 기준으로 수익률과 손익을 계산합니다.
-permalink: /crypto/profit/
-section: crypto
+title: DSR 계산기
+description: 소득 대비 원리금 상환 비율(DSR)을 계산합니다.
+permalink: /finance/dsr/
+section: finance
 ---
 
-# 코인 수익률 계산기
+# DSR 계산기
 
-매수 가격과 매도 가격, 수량을 입력하면 **수익률(%)와 손익 금액**을 계산합니다.  
-거래 수수료를 반영하여 실제 수익을 더 정확하게 추정할 수 있습니다.
+**총부채원리금상환비율(DSR)**은 연간 소득 대비 연간 원리금 상환액의 비율을 뜻합니다.  
+대출 가능 여부와 한도를 결정하는 핵심 지표입니다.
+
+<div class="card" style="max-width:760px;margin:0 auto;">
+  <form onsubmit="event.preventDefault();calcDSR();">
+    <h2>DSR 계산</h2>
+    <label>연간 소득 (원)
+      <input type="number" id="income" placeholder="예: 50000000">
+    </label>
+    <label>연간 원리금 상환액 (원)
+      <input type="number" id="repay" placeholder="예: 20000000">
+    </label>
+    <button class="btn">계산</button>
+  </form>
+
+  <div id="dsrResult" class="result-box"></div>
+</div>
+
+<script>
+function calcDSR(){
+  const inc = +document.getElementById('income').value||0;
+  const repay = +document.getElementById('repay').value||0;
+  const dsr = inc>0 ? (repay/inc*100) : 0;
+  document.getElementById('dsrResult').innerHTML =
+    `연간 소득: <b>${inc.toLocaleString()}</b> 원<br>
+     연간 원리금 상환액: <b>${repay.toLocaleString()}</b> 원<br>
+     DSR 비율: <b>${dsr.toFixed(1)}%</b>`;
+  document.getElementById('dsrResult').classList.add("show");
+}
+</script>
 
 ---
 
 ## 함께 보면 좋은 계산기
-- [DCA(분할 매수) 계산기](/crypto/dca/) _(추가 예정)_  
-- [APR↔APY 변환기](/crypto/apr-apy/) _(추가 예정)_  
+- [대출 이자 계산기](/finance/loan/)  
+- [전세↔월세 계산기](/realestate/rent-to-jeonse/)
