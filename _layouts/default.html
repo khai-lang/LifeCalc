@@ -3,309 +3,102 @@
 <head>
   <meta charset="utf-8">
   <title>{{ page.title }} | {{ site.title }}</title>
-  <meta name="naver-site-verification" content="6633d1c8c8a00c5d38d070d46bc2c9e8d0cce9d3" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ page.description | default: site.description }}">
   {% seo %}
 
-  <!-- AdSense (사이트 전체 1회, 원치 않으면 삭제) -->
+  <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
 
   <script>
-  window.PAGE_SECTION = "{{ page.section | default: page.url | split:'/' | slice:1 | first | default:'home' }}";
+    /* 페이지 섹션 값 (guide 카드 회전에 사용) */
+    window.PAGE_SECTION = "{{ page.section | default: page.url | split:'/' | slice:1 | first | default:'home' }}";
   </script>
 
-
   <style>
-    /* ===== 디자인 변수 ===== */
     :root{
-      --brand:#0b4c74;      /* 헤더 배경 */
-      --brand-ink:#ffffff;  /* 헤더 글자색 */
-      --accent:#ff6a00;     /* 포인트 색 */
+      --brand:#0b4c74; --brand-ink:#fff; --accent:#ff6a00;
       --text:#222; --muted:#6b7280; --bg:#f5f7fa; --card:#fff; --line:#e6ebf0;
-      --max:1100px;         /* 본문 최대 폭 */
-      --nav-size:20px;      /* 메뉴 글자 크기 */
-      --nav-h:72px;         /* 헤더 높이 */
-      --hero-h1:32px;       /* 페이지 제목 크기 */
-      --hero-h2:22px;       /* 섹션 제목 크기 */
-      --radius:14px;
+      --max:1100px; --nav-h:72px; --radius:14px;
+      --hero-h1:32px; --hero-h2:22px;
     }
-
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif}
     a{color:inherit;text-decoration:none}
 
-    /* 공통 컨테이너 */
+    /* 컨테이너 */
     .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
-    main{max-width:var(--max);margin:0 auto;padding:24px 16px}
+    main.wrap{padding:24px 16px}
 
-    /* 헤더(배경 풀폭), 내용은 중앙 정렬 */
+    /* 헤더 */
     header{position:sticky;top:0;z-index:1000;background:var(--brand);color:var(--brand-ink);box-shadow:0 1px 0 rgba(0,0,0,.06)}
-    .header-wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      height:var(--nav-h);
-      padding:0 20px;
-      display:flex; align-items:center; gap:16px;
-      justify-content:flex-start;
-    }
+    .header-wrap{max-width:var(--max);margin:0 auto;height:var(--nav-h);padding:0 20px;display:flex;align-items:center;gap:16px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:700}
     .brand img{height:28px;width:auto;display:block}
 
-    /* 내비게이션: 데스크톱 가로 + 클릭 드롭다운 */
+    /* 내비 */
     nav.site-nav{margin-left:36px}
-    .nav-ul{
-      list-style:none;margin:0;padding:0;
-      display:flex; align-items:center;
-      gap:18px;
-      flex-wrap:nowrap;
-    }
-    .nav-ul>li>a,
-    .nav-parent{
-      color: var(--brand-ink);
-      padding: 12px 14px;
-      border-radius: 10px;
-      background: transparent;
-      border: 0;
-      cursor: pointer;
-      font: inherit;
-      display: inline-block;
-      white-space: nowrap;
-      word-break: keep-all;
-    }
-    .nav-ul>li>a,
-    .nav-parent{
-      white-space:nowrap;
-      word-break:keep-all;
-      letter-spacing:0;
-    }
-    .nav-ul>li>a:hover, .nav-parent:hover{background:rgba(255,255,255,.12)}
-
+    .nav-ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:18px;flex-wrap:nowrap}
+    .nav-ul>li>a,.nav-parent{color:var(--brand-ink);padding:12px 14px;border-radius:10px;background:transparent;border:0;cursor:pointer;font:inherit;white-space:nowrap}
+    .nav-ul>li>a:hover,.nav-parent:hover{background:rgba(255,255,255,.12)}
     .drop{position:relative}
-    .drop .menu{
-      position:absolute; left:0; top:calc(100% + 8px);
-      min-width:220px; 
-      border:1px solid var(--line); border-radius:12px;
-      box-shadow:0 10px 30px rgba(0,0,0,.08);
-      padding:8px; display:none; z-index:1200;
-    }
+    .drop .menu{position:absolute;left:0;top:calc(100% + 8px);min-width:240px;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:10px;display:none;z-index:1200;background:#fdf6f0}
     .drop.open .menu{display:block}
-    .menu a{display:block; padding:10px 12px; border-radius:8px}
-    .menu a:hover{background:#f6f7f9}
+    .menu a{display:block;font-size:16.5px;line-height:1.35;color:#2b2b2b;padding:12px 14px;border-radius:10px;margin:4px 0;border:1px solid #efe2d7;transition:background .2s,border-color .2s,transform .05s}
+    .menu a:hover{background:rgba(0,0,0,.04);border-color:#e8d8c9;transform:translateY(-1px)}
 
-    /* 하위 메뉴 컨테이너 */
-    .nav-ul ul {
-      background-color: #f5e6da;
-      border: 1px solid #b9d7ee;
-      border-radius: 8px;
-      padding: 6px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }
-    /* 하위 메뉴 항목 */
-    .nav-ul ul li a {
-      display: block;
-      padding: 10px 18px;
-      color: #444;
-      text-decoration: none;
-      font-size: 15px;
-      transition: background 0.25s, color 0.25s;
-    }
-    .nav-ul ul li a:hover {
-      background-color: #e0f7fa;
-      color: #222;
-      border-radius: 4px;
-    }
-
-    /* ▼ 드롭다운 공통 컨테이너 */
-    .nav-ul .menu {
-      background: #f5e6da;
-      border: 1px solid #f3e6db;
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-      z-index: 1200;
-      min-width: 240px;
-    }
-    .nav-ul .menu a {
-      display: block;
-      font-size: 16.5px;
-      line-height: 1.35;
-      color: #2b2b2b;
-      padding: 12px 14px;
-      border-radius: 10px;
-      margin: 4px 0;
-      background: #fff;
-      border: 1px solid #efe2d7;
-      transition: background .2s, border-color .2s, transform .05s;
-      white-space: nowrap;
-      word-break: keep-all;
-    }
-    .nav-ul .menu a:hover,
-    .nav-ul .menu a:focus {
-      background: #e8f6ff;
-      border-color: #d6ecfb;
-      color: #1a1a1a;
-      transform: translateY(-1px);
-      outline: none;
-    }
-    .nav-ul .menu a:focus-visible {
-      box-shadow: 0 0 0 3px rgba(40, 140, 240, 0.35);
-    }
-/* PC 전용: 하위 메뉴 컨테이너를 베이지로, 링크는 투명 */
-@media (min-width: 941px){
-  .nav-ul .menu { 
-    background: #fdf6f0;   /* 연한 베이지 */
-    padding: 10px;         /* 베이지가 보이도록 여백 유지 */
-  }
-  .nav-ul .menu a {
-    background: transparent;   /* 흰 배경 제거 */
-    border: 1px solid #efe2d7; /* 테두리만 유지 */
-  }
-  .nav-ul .menu a:hover {
-    background: rgba(0,0,0,.04); /* hover 시 살짝 강조 */
-    border-color: #e8d8c9;
-  }
-}
-
-    /* 모바일: 버거 + 아코디언 */
+    /* 모바일 내비 */
     #nav-toggle{display:none}
     .burger{display:none;color:#fff;font-size:24px;padding:6px 10px;cursor:pointer;margin-left:auto}
     @media (max-width:940px){
       .burger{display:block}
-      nav.site-nav{
-        display:none; position:absolute; left:0; right:0; top:var(--nav-h);
-        background:var(--brand); padding:10px 12px; border-bottom:1px solid rgba(255,255,255,.15)
-      }
+      nav.site-nav{display:none;position:absolute;left:0;right:0;top:var(--nav-h);background:var(--brand);padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.15)}
       #nav-toggle:checked ~ nav.site-nav{display:block}
       .nav-ul{flex-direction:column;align-items:flex-start;gap:6px}
-      .drop .menu{
-        position:static; display:none; background:transparent; color:#fff; border:0; box-shadow:none; padding:0; margin-left:8px
-      }
+      .drop .menu{position:static;display:none;background:transparent;border:0;box-shadow:none;padding:0;margin-left:8px}
       .drop.open .menu{display:block}
-      .menu a{padding:8px 10px; color:#fff}
+      .menu a{padding:8px 10px;color:#fff;border-color:transparent}
       .menu a:hover{background:rgba(255,255,255,.12)}
     }
 
-    /* 본문 컴포넌트 */
+    /* 본문/카드/버튼 */
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
-
-    /* ⛳ 폼 기본요소 스타일(단, .btn 은 제외) */
     label{display:block;margin:10px 0 6px}
     input,select,button:not(.btn){padding:10px;border:1px solid #cfd7df;border-radius:10px;font-size:16px}
     form button:not(.btn){cursor:pointer;background:var(--accent);color:#fff;border:0}
-
     .note{background:#f7fbff;border:1px solid #dfeeff;border-radius:12px;padding:12px;margin:16px 0}
-
-    /* 제목 톤(홈과 동일) */
     h1{font-size:var(--hero-h1);margin:6px 0 18px}
     h2{font-size:var(--hero-h2);margin:20px 0 10px}
-    .accent{color:var(--accent);font-weight:800}
-
-    /* 광고 블록 중앙 정렬 */
+    .btn{display:inline-block;padding:6px 14px;border:0;border-radius:6px;background:#ff6a00;color:#fff;font-size:14px;font-weight:bold;cursor:pointer;transition:background .3s}
+    .btn:hover{background:#e55d00}
+    .result-box{padding:12px;background:#fbd7b6;color:#333;border:1px solid #ffb366;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.08);display:none;font-size:15px;line-height:1.6;margin-top:10px}
+    .result-box.show{display:block}
     .ad-box{max-width:728px;margin:20px auto}
 
-    /* 푸터 */
-    footer{border-top:1px solid var(--line);background:#fff;margin-top:28px}
-    footer .foot{max-width:var(--max);margin:0 auto;padding:12px 16px;color:var(--muted);display:flex;justify-content:space-between}
+    /* 2열 레이아웃 */
+    .wrap--with-rail{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
 
-    /* ✅ 공통 버튼(.btn) — 파일 내에서 단 한 번만 정의 */
-    .btn {
-      display:inline-block;
-      padding:6px 14px;                 /* 별자리/BMR과 동일 */
-      border:0;
-      border-radius:6px;
-      background:#ff6a00;               /* 오렌지 */
-      color:#fff;
-      font-size:14px;
-      font-weight:bold;
-      cursor:pointer;
-      transition: background 0.3s;
+    /* ⛳ 본문 중앙 정렬 + 가독폭 */
+    .main-content{max-width:880px;margin:0 auto;padding-right:4px}
+    @media (max-width:860px){ .main-content{padding:0 10px} }
+
+    /* 오른쪽 레일 고정 */
+    .right-rail{position:sticky;top:96px}
+
+    /* 오늘의 팁 카드(연한 베이지) */
+    .promo-card{background:#f5e6da;border:1px solid #f3e6db;border-radius:14px;padding:14px 16px;box-shadow:0 8px 24px rgba(0,0,0,.06);margin-bottom:16px}
+    .promo-card .btn-orange{display:inline-block;padding:7px 14px;border-radius:8px;background:#f97316;color:#fff !important;font-weight:600;text-decoration:none}
+    .promo-card .btn-orange:hover{background:#ea580c}
+
+    /* 반응형: 모바일은 레일 숨김, 본문 하단에 팁 노출 */
+    @media (max-width:860px){
+      .wrap--with-rail{grid-template-columns:1fr}
+      .right-rail{display:none}
+      .promo-mobile{display:block;margin-top:14px}
     }
-    .btn:hover { background:#e55d00; }
-
-    /* ✅ 공통 결과 박스(.result-box) */
-    .result-box {
-      padding:12px;
-      background:#fbd7b6;               /* 아주 연한 오렌지 */
-      color:#333;
-      border:1px solid #ffb366;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-      display:none;                     /* 기본 숨김 */
-      font-size:15px;
-      line-height:1.6;
-      margin-top:10px;
+    @media (min-width:861px){
+      .promo-mobile{display:none !important}
     }
-    .result-box.show{ display:block; }  /* JS로 토글할 때 사용 */
-
-    /* 상단 네비 pill 공통 스타일 */
-.header-wrap .nav-ul>li>a,
-.header-wrap a.nav-pill {
-  display:inline-block;
-  padding:8px 14px;
-  border:1px solid rgba(255,255,255,.25);   /* 테두리 */
-  border-radius:12px;
-  background:rgba(255,255,255,.06);
-  color:#fff;
-  text-decoration:none;
-  transition:background .15s, border-color .15s, color .15s;
-}
-
-.header-wrap .nav-ul>li>a:hover,
-.header-wrap a.nav-pill:hover {
-  background:rgba(255,255,255,.12);
-  border-color:rgba(255,255,255,.4);
-}
-
-/* 모바일: 본문 하단 노출 */
-@media (max-width:1100px){
-  .mobile-only{ display:block; }
-  .promo-desktop{ display:none; }
-}
-
-/* 2열 레이아웃: 본문 + 오른쪽 레일 */
-.wrap--with-rail{
-  display: grid;
-  grid-template-columns: minmax(0,1fr) 320px;  /* 왼쪽 유동, 오른쪽 고정폭 */
-  gap: 24px;
-  align-items: start;
-}
-
-/* 오른쪽 레일은 상단 고정(sticky) */
-.right-rail{
-  position: sticky;
-  top: 96px;   /* 헤더 높이에 맞게 조정 */
-}
-
-/* 카드 스타일 */
-.promo-card{
-  background:#f5fbff;
-  border:1px solid #e7eef7;
-  border-radius:14px;
-  padding:14px 16px;
-  box-shadow:0 8px 24px rgba(0,0,0,.06);
-  margin-bottom:16px;
-}
-.promo-card .btn-orange{
-  display:inline-block; padding:7px 14px; border-radius:8px;
-  background:#f97316; color:#fff !important; font-weight:600; text-decoration:none;
-}
-.promo-card .btn-orange:hover{ background:#ea580c; }
-
-/* 반응형: 모바일은 본문만, 오른쪽 레일 숨김 */
-@media (max-width:1100px){
-  .wrap--with-rail{ grid-template-columns: 1fr; }
-  .right-rail{ display:none; }
-  .mobile-only{ display:block; }
-}
-
-/* PC: 본문 옆에 레일 표시 */
-@media (min-width:1101px){
-  .mobile-only{ display:none; }
-}
-
-
-    
   </style>
 </head>
 <body>
@@ -313,191 +106,140 @@
   <!-- 헤더 -->
   <header>
     <div class="header-wrap">
-      <a class="brand" href="/">
-        <img src="/images/logo.png" alt="LifeCalc 로고">
-        <span>{{ site.title | default: "LifeCalc" }}</span>
-      </a>
-
-      <!-- 모바일 버거 -->
+      <a class="brand" href="/"><img src="/images/logo.png" alt="LifeCalc 로고"><span>{{ site.title | default: "LifeCalc" }}</span></a>
       <label for="nav-toggle" class="burger" aria-label="메뉴 열기">☰</label>
       <input id="nav-toggle" type="checkbox" aria-label="메뉴 토글">
 
-      <!-- 내비게이션 (드롭다운 포함) -->
+      <!-- 내비 -->
       <nav class="site-nav" aria-label="주요 메뉴">
         <ul class="nav-ul">
-  <li><a href="/">홈</a></li>
+          <li><a href="/">홈</a></li>
 
-  <!-- 생활 -->
-  <li class="drop">
-  <button type="button" class="nav-parent" aria-expanded="false">생활 계산기</button>
-  <div class="menu" role="menu" aria-label="생활 계산기 하위">
-    <a href="/life/">전체 보기</a>
-    <a href="/life/age/">만나이 계산기</a>
-    <a href="/life/date/">기념일·날짜 계산</a>
-    <a href="/life/unit-converter/">단위 변환</a>
+          <!-- 생활 -->
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">생활 계산기</button>
+            <div class="menu" role="menu" aria-label="생활 계산기 하위">
+              <a href="/life/">전체 보기</a>
+              <a href="/life/age/">만나이 계산기</a>
+              <a href="/life/date/">기념일·날짜 계산</a>
+              <a href="/life/unit-converter/">단위 변환</a>
+              <div style="margin:6px 0 4px;padding:6px 10px;font-weight:700;color:#444;opacity:.8;">출산·육아</div>
+              <a href="/family/due-date/">출산 예정일</a>
+              <a href="/family/baby-days/">아이 생후 N일/개월</a>
+              <a href="/family/baegil/">백일 날짜</a>
+              <a href="/family/vaccine/">예방접종 일정</a>
+            </div>
+          </li>
 
-    <!-- ▼ 여기부터: 출산·육아를 생활로 편입 -->
-    <div style="margin:6px 0 4px; padding:6px 10px; font-weight:700; color:#444; opacity:.8;">출산·육아</div>
-    <a href="/family/due-date/">출산 예정일</a>
-    <a href="/family/baby-days/">아이 생후 N일/개월</a>
-    <a href="/family/baegil/">백일 날짜</a>
-    <a href="/family/vaccine/">예방접종 일정</a>
-  </div>
-</li>
+          <!-- 금융 -->
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">금융 계산기</button>
+            <div class="menu" role="menu" aria-label="금융 계산기 하위">
+              <a href="/finance/">전체 보기</a>
+              <a href="/finance/loan/">대출 이자/원리금</a>
+              <a href="/finance/salary-hourly/">연봉↔시급 환산</a>
+              <a href="/finance/dsr/">DSR 계산기</a>
+            </div>
+          </li>
 
+          <!-- 부동산·세금 -->
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">부동산·세금</button>
+            <div class="menu" role="menu" aria-label="부동산·세금 계산기 하위">
+              <a href="/realestate/">전체 보기</a>
+              <a href="/realestate/rent-to-jeonse/">전세↔월세 전환 계산기</a>
+              <a href="/realestate/acquisition-tax/">취득세 계산기</a>
+              <a href="/realestate/capital-gains/">양도소득세 계산기</a>
+              <a href="/realestate/property-tax/">종부세 계산기</a>
+            </div>
+          </li>
 
-  <!-- 금융 (전월세 제거) -->
-  <li class="drop">
-    <button type="button" class="nav-parent" aria-expanded="false">금융 계산기</button>
-    <div class="menu" role="menu" aria-label="금융 계산기 하위">
-      <a href="/finance/">전체 보기</a>
-      <a href="/finance/loan/">대출 이자/원리금</a>
-      <a href="/finance/salary-hourly/">연봉↔시급 환산</a>
-      <a href="/finance/dsr/">DSR 계산기</a><!-- (신규 예정) -->
-    </div>
-  </li>
+          <!-- 건강 -->
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">건강 계산기</button>
+            <div class="menu" role="menu" aria-label="건강 계산기 하위">
+              <a href="/health/">전체 보기</a>
+              <a href="/health/bmi/">BMI 계산기</a>
+              <a href="/health/bmr/">BMR 계산기</a>
+              <a href="/health/water-intake/">물 섭취량</a>
+            </div>
+          </li>
 
-  <!-- ✅ 신규: 부동산·세금 -->
-  <li class="drop">
-    <button type="button" class="nav-parent" aria-expanded="false">부동산·세금</button>
-    <div class="menu" role="menu" aria-label="부동산·세금 계산기 하위">
-      <a href="/realestate/">전체 보기</a>
-      <a href="/realestate/rent-to-jeonse/">전세↔월세 전환 계산기</a>
-      <a href="/realestate/acquisition-tax/">취득세 계산기</a>
-      <a href="/realestate/capital-gains/">양도소득세 계산기</a>
-      <a href="/realestate/property-tax/">종부세 계산기</a>
-    </div>
-  </li>
+          <!-- 재미 -->
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">재미있는 테스트</button>
+            <div class="menu" role="menu" aria-label="재미있는 테스트 하위">
+              <a href="/fun/">전체 보기</a>
+              <a href="/fun/mental-age/">정신연령 테스트</a>
+              <a href="/fun/astro/">별자리/띠</a>
+            </div>
+          </li>
 
-  <!-- 건강 -->
-  <li class="drop">
-    <button type="button" class="nav-parent" aria-expanded="false">건강 계산기</button>
-    <div class="menu" role="menu" aria-label="건강 계산기 하위">
-      <a href="/health/">전체 보기</a>
-      <a href="/health/bmi/">BMI 계산기</a>
-      <a href="/health/bmr/">BMR 계산기</a>
-      <a href="/health/water-intake/">물 섭취량</a>
-    </div>
-  </li>
-
-  <!-- 재미 -->
-  <li class="drop">
-    <button type="button" class="nav-parent" aria-expanded="false">재미있는 테스트</button>
-    <div class="menu" role="menu" aria-label="재미있는 테스트 하위">
-      <a href="/fun/">전체 보기</a>
-      <a href="/fun/mental-age/">정신연령 테스트</a>
-      <a href="/fun/astro/">별자리/띠</a>
-    </div>
-  </li>
-
-  <!-- 가이드 -->
-  <li class="drop">
-    <button type="button" class="nav-parent" aria-expanded="false">가이드</button>
-    <div class="menu" role="menu" aria-label="가이드 하위">
-      <a href="/guide/">전체 보기</a>
-      <a href="/guide/rent-to-jeonse-rate/">전세 전환율 공식</a>
-      <a href="/guide/bmi-range/">BMI 범위 해석</a>
-    </div>
-  </li>
-</ul>
-
+          <!-- 가이드 -->
+          <li class="drop">
+            <button type="button" class="nav-parent" aria-expanded="false">가이드</button>
+            <div class="menu" role="menu" aria-label="가이드 하위">
+              <a href="/guide/">전체 보기</a>
+              <a href="/guide/rent-to-jeonse-rate/">전세 전환율 공식</a>
+              <a href="/guide/bmi-range/">BMI 범위 해석</a>
+            </div>
+          </li>
+        </ul>
       </nav>
     </div>
   </header>
 
-<!-- 본문 -->
-<main class="wrap wrap--with-rail">
+  <!-- 본문 -->
+  <main class="wrap wrap--with-rail">
+    <!-- 왼쪽 본문 (가운데 정렬 적용) -->
+    <div class="main-content">
+      {{ content }}
 
-  <!-- 왼쪽: 본문 -->
-  <div class="main-content">
-    {{ content }}
-
-    <!-- 모바일 전용: 본문 하단 카드 (PC에서는 자동 숨김) -->
-    <div class="promo-inline mobile-only">
-      {% include promo-tip.html %}
+      <!-- 모바일 전용: 결과값 아래 '오늘의 팁'(가이드 회전형) -->
+      <div class="promo-mobile">
+        {% include promo-tip-guide.html %}
+      </div>
     </div>
-  </div>
 
-  <!-- 오른쪽: 레일 (PC 전용) -->
-  <!-- _layouts/default.html의 오른쪽 레일 -->
-<aside class="right-rail">
-  {% include promo-tip-guide.html %}   <!-- PC: 오른쪽 상단 1개 -->
-  <div id="side-ad" class="ad-box"> ... </div>
-</aside>
-
-<!-- 본문(content) 바로 아래, 전 페이지 공통 -->
-<div class="promo-mobile">
-  {% include promo-tip-guide.html %}   <!-- 모바일: 결과 아래(회전형) -->
-</div>
-
-  </aside>
-
-</main>
-
-
+    <!-- 오른쪽 레일(PC): '오늘의 팁' 1개만 -->
+    <aside class="right-rail">
+      {% include promo-tip-guide.html %}
+      <div id="side-ad" class="ad-box"></div>
+    </aside>
+  </main>
 
   <!-- 푸터 -->
   <footer>
-    <div class="foot">
+    <div class="foot wrap" style="padding:12px 0;color:var(--muted);display:flex;justify-content:space-between">
       <div>© {{ "now" | date: "%Y" }} LifeCalc · All rights reserved.</div>
       <a href="/guide/">가이드</a>
     </div>
   </footer>
 
-  <!-- 드롭다운 클릭 토글(바깥 클릭/ESC 닫기 포함) -->
+  <!-- 드롭다운 토글 -->
   <script>
     (function(){
       const drops = document.querySelectorAll('.drop');
-      drops.forEach(d => {
-        const btn = d.querySelector('.nav-parent');
+      drops.forEach(d=>{
+        const btn=d.querySelector('.nav-parent');
         if(!btn) return;
-        btn.addEventListener('click', () => {
-          drops.forEach(x => { if(x!==d){ x.classList.remove('open'); const b=x.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); }});
-          const isOpen = d.classList.toggle('open');
-          btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        btn.addEventListener('click',()=>{
+          drops.forEach(x=>{ if(x!==d){ x.classList.remove('open'); const b=x.querySelector('.nav-parent'); b&&b.setAttribute('aria-expanded','false'); }});
+          const open=d.classList.toggle('open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
       });
-      document.addEventListener('click', e => {
+      document.addEventListener('click',e=>{
         if(!e.target.closest('.drop')){
-          drops.forEach(d => { d.classList.remove('open'); const b=d.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); });
+          drops.forEach(d=>{ d.classList.remove('open'); const b=d.querySelector('.nav-parent'); b&&b.setAttribute('aria-expanded','false'); });
         }
       });
-      document.addEventListener('keydown', e => {
+      document.addEventListener('keydown',e=>{
         if(e.key==='Escape'){
-          drops.forEach(d => { d.classList.remove('open'); const b=d.querySelector('.nav-parent'); b && b.setAttribute('aria-expanded','false'); });
+          drops.forEach(d=>{ d.classList.remove('open'); const b=d.querySelector('.nav-parent'); b&&b.setAttribute('aria-expanded','false'); });
         }
       });
     })();
   </script>
-  <script>
-(function(){
-  // 데스크톱에서만 동작 (모바일은 사이드 레일이 숨김)
-  if (window.matchMedia('(min-width:1101px)').matches){
-    const rightRail = document.querySelector('.right-rail');
-    const sideAdBox = document.querySelector('#side-ad');
-    if (rightRail && sideAdBox){
-
-      // 1) 본문에 잘못 들어간 카드(.promo-card) 중
-      //    "모바일 전용(.mobile-only)" 내부 카드는 건너뛴다.
-      document.querySelectorAll('.main-content .promo-card').forEach(promo => {
-        if (promo.closest('.mobile-only')) return; // 모바일 전용은 유지
-        if (!rightRail.contains(promo)) {
-          rightRail.insertBefore(promo, sideAdBox); // 광고 위로 이동
-        }
-      });
-
-      // 2) 본문에 잘못 들어간 광고도 사이드 컨테이너로 이동
-      document.querySelectorAll('.main-content ins.adsbygoogle').forEach(ad => {
-        if (!sideAdBox.contains(ad)) {
-          sideAdBox.appendChild(ad);
-        }
-      });
-    }
-  }
-})();
-</script>
-
-
-
 </body>
 </html>
