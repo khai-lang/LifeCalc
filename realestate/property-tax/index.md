@@ -8,11 +8,33 @@ section: realestate
 
 # 종합부동산세 계산기
 
-보유 주택·토지의 공시가격 합산액이 일정 기준을 초과할 경우 부과되는 **종합부동산세**를 계산합니다.  
-공정시장가액비율, 세율 구간 등을 반영합니다.
+<div class="card" style="max-width:760px;margin:0 auto;">
+  <form onsubmit="event.preventDefault();calcProperty();">
+    <h2>종부세 계산</h2>
+    <label>공시가격 합계 (원)
+      <input type="text" id="value" oninput="formatNumberInput(this)" placeholder="예: 1,200,000,000">
+    </label>
+    <button class="btn">계산하기</button>
+  </form>
+  <div id="propResult" class="result-box"></div>
+</div>
 
----
+<script>
+function calcProperty(){
+  const v = getNumberValue('value');
+  const deduction = 1200000000; // 기본 공제 (1.2억 = 예시)
+  const base = Math.max(v - deduction, 0);
 
-## 함께 보면 좋은 계산기
-- [취득세 계산기](/realestate/acquisition-tax/)  
-- [양도세 계산기](/realestate/capital-gains/)  
+  let rate = 0;
+  if(base <= 300000000) rate = 0.006;
+  else if(base <= 600000000) rate = 0.008;
+  else rate = 0.01;
+
+  const tax = Math.round(base * rate);
+  document.getElementById('propResult').innerHTML =
+    `과세표준: <b>${base.toLocaleString()}</b> 원<br>
+     적용 세율: <b>${(rate*100).toFixed(2)}%</b><br>
+     예상 종부세: <b>${tax.toLocaleString()}</b> 원`;
+  document.getElementById('propResult').classList.add("show");
+}
+</script>
