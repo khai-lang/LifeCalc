@@ -7,11 +7,25 @@ section: realestate
 ---
 
 <h1>부동산·세금 계산기</h1>
+<p class="muted">부동산 계약 시 필수로 확인해야 할 전환율, 세금, 부대비용을 한 곳에서 계산하세요.</p>
+
 <div class="grid-cards">
-  <a class="card card-link" href="/realestate/rent-to-jeonse/"><div class="title">전세↔월세 전환</div><div class="desc">전환율·월세 환산</div></a>
-  <a class="card card-link" href="/realestate/capital-gains/"><div class="title">양도소득세</div><div class="desc">기본공제·장특공</div></a>
-  <a class="card card-link" href="/realestate/acquisition-tax/"><div class="title">취득세</div><div class="desc">주택 취득 부대비용</div></a>
-  <a class="card card-link" href="/realestate/property-tax/"><div class="title">종부세</div><div class="desc">보유세 추정</div></a>
+  <a class="card card-link" href="/realestate/rent-to-jeonse/">
+    <div class="title">전세↔월세 전환</div>
+    <div class="desc">전환율·월세 환산</div>
+  </a>
+  <a class="card card-link" href="/realestate/capital-gains/">
+    <div class="title">양도소득세</div>
+    <div class="desc">기본공제·장특공 포함</div>
+  </a>
+  <a class="card card-link" href="/realestate/acquisition-tax/">
+    <div class="title">취득세</div>
+    <div class="desc">주택 취득 부대비용</div>
+  </a>
+  <a class="card card-link" href="/realestate/property-tax/">
+    <div class="title">종부세</div>
+    <div class="desc">보유세 추정</div>
+  </a>
 </div>
 
 {% include promo-tip-list.html %}
