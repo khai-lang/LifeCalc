@@ -12,19 +12,18 @@ section: finance
 대출 가능 여부와 한도를 결정하는 핵심 지표입니다.
 
 <div class="card" style="max-width:760px;margin:0 auto;">
-  <form onsubmit="event.preventDefault();calcDSR();">
-    <h2>DSR 계산</h2>
-    <label>연간 소득 (원)
-      <input type="number" id="income" placeholder="예: 50000000">
-    </label>
-    <label>연간 원리금 상환액 (원)
-      <input type="number" id="repay" placeholder="예: 20000000">
-    </label>
-    <button class="btn">계산</button>
-  </form>
+  
+<form onsubmit="event.preventDefault();calcDSR();">
+  <label>연간 소득 (원)
+    <input type="text" id="income" oninput="formatNumberInput(this)" placeholder="예: 50,000,000">
+  </label>
+  <label>연간 원리금 상환액 (원)
+    <input type="text" id="repay" oninput="formatNumberInput(this)" placeholder="예: 20,000,000">
+  </label>
+  <button class="btn">계산</button>
+</form>
+<div id="dsrResult" class="result-box"></div>
 
-  <div id="dsrResult" class="result-box"></div>
-</div>
 
 <script>
 function calcDSR(){
