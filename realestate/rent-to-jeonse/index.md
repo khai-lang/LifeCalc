@@ -13,7 +13,6 @@ section: realestate
 
 <h1>전세↔월세 전환 계산기</h1>
 
-<<!-- ✅ 단일 박스 + 모드 선택 -->
 <div class="card" style="max-width:820px;margin:0 auto;">
   <form onsubmit="event.preventDefault(); calcRentConv();" aria-label="전세·월세 전환 계산">
     <label for="mode"><strong>계산 모드</strong></label>
