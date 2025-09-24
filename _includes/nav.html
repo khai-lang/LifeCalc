@@ -2,6 +2,7 @@
   <ul class="nav-ul">
     <li><a href="/" class="nav-pill">홈</a></li>
 
+    <!-- 생활 계산기 (출산·육아 통합) -->
     <li class="drop">
       <button type="button" class="nav-parent" aria-expanded="false">생활 계산기</button>
       <div class="menu" role="menu" aria-label="생활 계산기 하위">
@@ -9,19 +10,40 @@
         <a href="/life/age/">만나이 계산기</a>
         <a href="/life/date/">기념일·날짜 계산</a>
         <a href="/life/unit-converter/">단위 변환</a>
+
+        <!-- 구분 라벨(클릭되지 않음) -->
+        <div style="margin:6px 0 4px; padding:6px 10px; font-weight:700; color:#444; opacity:.8;">출산·육아</div>
+        <a href="/family/due-date/">출산 예정일</a>
+        <a href="/family/baby-days/">아이 생후 N일/개월</a>
+        <a href="/family/baegil/">백일 날짜</a>
+        <a href="/family/vaccine/">예방접종 일정</a>
       </div>
     </li>
 
+    <!-- 금융 계산기 (전월세는 부동산·세금으로 이동) -->
     <li class="drop">
       <button type="button" class="nav-parent" aria-expanded="false">금융 계산기</button>
       <div class="menu" role="menu" aria-label="금융 계산기 하위">
         <a href="/finance/">전체 보기</a>
-        <a href="/finance/rent-conversion/">전세↔월세 전환</a>   <!-- 추가 -->
         <a href="/finance/loan/">대출 이자/원리금</a>
         <a href="/finance/salary-hourly/">연봉↔시급 환산</a>
+        <a href="/finance/dsr/">DSR 계산기</a> <!-- 필요 시 신설 -->
       </div>
     </li>
 
+    <!-- 부동산·세금 (신설: 전월세/세금류) -->
+    <li class="drop">
+      <button type="button" class="nav-parent" aria-expanded="false">부동산·세금</button>
+      <div class="menu" role="menu" aria-label="부동산·세금 계산기 하위">
+        <a href="/realestate/">전체 보기</a>
+        <a href="/realestate/rent-to-jeonse/">전세↔월세 전환 계산기</a>
+        <a href="/realestate/acquisition-tax/">취득세 계산기</a>
+        <a href="/realestate/capital-gains/">양도소득세 계산기</a>
+        <a href="/realestate/property-tax/">종부세 계산기</a>
+      </div>
+    </li>
+
+    <!-- 건강 -->
     <li class="drop">
       <button type="button" class="nav-parent" aria-expanded="false">건강 계산기</button>
       <div class="menu" role="menu" aria-label="건강 계산기 하위">
@@ -32,18 +54,31 @@
       </div>
     </li>
 
+    <!-- 코인 (신설) -->
     <li class="drop">
-  <button type="button" class="nav-parent" aria-expanded="false">출산·육아</button>
-  <div class="menu" role="menu" aria-label="출산·육아 하위">
-    <a href="/family/">전체 보기</a>
-    <a href="/family/due-date/">출산 예정일</a>
-    <a href="/family/baby-days/">아이 생후 N일/개월</a>
-    <a href="/family/baegil/">백일 날짜</a>
-    <a href="/family/vaccine/">예방접종 일정</a>
-  </div>
-</li>
+      <button type="button" class="nav-parent" aria-expanded="false">코인 계산기</button>
+      <div class="menu" role="menu" aria-label="코인 계산기 하위">
+        <a href="/crypto/">전체 보기</a>
+        <a href="/crypto/profit/">수익률 계산기</a>
+        <a href="/crypto/dca/">평단가(DCA) 계산기</a>
+        <a href="/crypto/apy/">APR↔APY 복리 계산기</a>
+        <a href="/crypto/impermanent-loss/">비영구적 손실(IL) 계산기</a>
+      </div>
+    </li>
 
+    <!-- 보험 (신설) -->
+    <li class="drop">
+      <button type="button" class="nav-parent" aria-expanded="false">보험 계산기</button>
+      <div class="menu" role="menu" aria-label="보험 계산기 하위">
+        <a href="/insurance/">전체 보기</a>
+        <a href="/insurance/auto/">자동차 보험료 추정</a>
+        <a href="/insurance/health/">실손 자기부담금 계산</a>
+        <a href="/insurance/life/">필요 보장액 계산</a>
+        <a href="/insurance/annuity/">연금보험 수령액 추정</a>
+      </div>
+    </li>
 
+    <!-- 재미 -->
     <li class="drop">
       <button type="button" class="nav-parent" aria-expanded="false">재미있는 테스트</button>
       <div class="menu" role="menu" aria-label="재미있는 테스트 하위">
@@ -53,6 +88,7 @@
       </div>
     </li>
 
+    <!-- 가이드 -->
     <li class="drop">
       <button type="button" class="nav-parent" aria-expanded="false">가이드</button>
       <div class="menu" role="menu" aria-label="가이드 하위">
