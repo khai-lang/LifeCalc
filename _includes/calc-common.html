@@ -1,0 +1,27 @@
+<!-- _includes/calc-common.html -->
+<script>
+(function(){
+  'use strict';
+  const DIGITS=/[^\d.-]/g;
+  function parseNum(v){ v=String(v??'').replace(/,/g,'').trim(); const n=parseFloat(v); return isFinite(n)?n:0; }
+  function num(id){ const el=document.getElementById(id); return el ? parseNum(el.value) : 0; }
+  function money(n){ return (isFinite(n)?Math.round(n):0).toLocaleString('ko-KR'); }
+  function formatInput(el, opts){
+    const allowFloat = !!(opts&&opts.float);
+    let v=(el.value||'').replace(DIGITS,'');
+    if(allowFloat){
+      const parts=v.split('.'); if(parts.length>2) v=parts.shift()+'.'+parts.join('');
+    }else{ v=v.replace(/\./g,''); }
+    if(!v){ el.value=''; return; }
+    const n=allowFloat? parseFloat(v): parseInt(v,10);
+    el.value = isFinite(n) ? n.toLocaleString('ko-KR') : '';
+  }
+  window.CalcCommon={ num, money, formatInput };
+  // data-format 자동 바인딩
+  window.addEventListener('input', e=>{
+    const t=e.target; if(!t||!t.dataset) return;
+    if(t.dataset.format==='currency') return CalcCommon.formatInput(t,{float:false});
+    if(t.dataset.format==='number')   return CalcCommon.formatInput(t,{float:true});
+  }, {passive:true});
+})();
+</script>
