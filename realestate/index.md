@@ -28,4 +28,4 @@ section: realestate
   </a>
 </div>
 
-{% include promo-tip-list.html %}
+
