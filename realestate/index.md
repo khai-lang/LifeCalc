@@ -7,19 +7,9 @@ section: realestate
 ---
 
 <style>
-/* 페이지 전용(스코프) 스타일 – 다른 페이지에 영향 주지 않도록 섹션에 한정 */
+/* 페이지 전용 스타일 */
 .realestate-wrap {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-/* 데스크톱에서 우측 팁 영역과 2열 구성 */
-@media (min-width: 992px) {
-  .realestate-wrap {
-    grid-template-columns: 1fr 340px;
-    align-items: start;
-  }
+  display: block;
 }
 
 /* 설명 문구 */
@@ -36,7 +26,7 @@ section: realestate
   gap: 14px;
 }
 
-/* 화면 넓어질수록 열 수 증가 */
+/* 화면 넓어질수록 2열 */
 @media (min-width: 560px) {
   .grid-cards { grid-template-columns: repeat(2, 1fr); }
 }
@@ -44,7 +34,7 @@ section: realestate
   .grid-cards { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* 카드(링크) 기본 스타일 */
+/* 카드 스타일 */
 .card {
   display: block;
   padding: 18px 16px;
@@ -75,38 +65,6 @@ section: realestate
   font-size: 14px;
   color: #666;
 }
-
-/* 우측 ‘오늘의 팁’ 박스(있을 경우) */
-.tip-box {
-  background: #fff7f0;
-  border: 1px solid #ffe0c7;
-  border-radius: 14px;
-  padding: 18px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-}
-.tip-box h3 {
-  margin: 0 0 8px;
-  font-size: 18px;
-}
-.tip-box p {
-  margin: 0 0 12px;
-  color: #6b4a2f;
-  line-height: 1.6;
-}
-.tip-box .btn {
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: #ff7a00;
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-/* 하단 공통 팁 리스트 인클루드 상자 보강 */
-.section-tip-list {
-  margin-top: 28px;
-}
 </style>
 
 <section class="realestate-wrap">
@@ -136,11 +94,5 @@ section: realestate
         <div class="desc">보유세 추정</div>
       </a>
     </div>
-
-    <div class="section-tip-list">
-      {% include promo-tip-list.html %}
-    </div>
   </div>
-
-
 </section>
