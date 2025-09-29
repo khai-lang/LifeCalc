@@ -142,10 +142,5 @@ section: realestate
     </div>
   </div>
 
-  <!-- 우측 사이드 팁(선택적으로 노출하려면 유지 / 필요 없으면 제거) -->
-  <aside class="tip-box">
-    <h3>오늘의 팁</h3>
-    <p>원리금 균등, 원금 균등, 만기일시 상환 방식에 따라 달라지는 대출 이자 계산법을 쉽게 정리했습니다.</p>
-    <a class="btn" href="{{ site.baseurl }}/finance/loan/">대출 계산기 열기</a>
-  </aside>
+
 </section>
