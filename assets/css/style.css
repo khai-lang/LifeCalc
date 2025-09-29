@@ -1,0 +1,22 @@
+/* 가이드 공통 레이아웃 */
+.guide-wrap { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.guide-wrap .grid { display: grid; grid-template-columns: 1fr 320px; gap: 32px; }
+@media (max-width: 1024px) {
+  .guide-wrap .grid { grid-template-columns: 1fr; }
+}
+
+/* 본문 폭/가독성(계산기 본문과 같은 느낌) */
+.guide-content { max-width: 760px; }
+.page-title { margin: 8px 0 20px; font-size: 28px; font-weight: 700; }
+
+/* 타이포 */
+.prose { font-size: 17px; line-height: 1.8; letter-spacing: 0; color: #1b1f23; }
+.prose h2 { margin: 28px 0 12px; font-size: 22px; font-weight: 700; }
+.prose h3 { margin: 22px 0 8px; font-size: 19px; font-weight: 700; }
+.prose p, .prose ul, .prose ol { margin: 10px 0; }
+.prose ul { padding-left: 1.2em; list-style: disc; }
+.prose ol { padding-left: 1.2em; list-style: decimal; }
+.prose hr { border: 0; border-top: 1px solid #e8ecef; margin: 24px 0; }
+
+/* 사이드 영역 */
+.guide-aside { position: sticky; top: 84px; height: fit-content; }
