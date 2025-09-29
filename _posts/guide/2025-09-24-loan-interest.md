@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: guide
 title: 대출 이자 계산기 | 2025 최신 금리 반영, 상환방식 비교
 description: 대출 원금·금리·기간만 입력하면 월 상환액과 총이자를 즉시 계산합니다. 원리금균등·원금균등·만기일시 상환 비교, 금리 변화 시뮬레이션, DSR/한도 체크까지 한 번에.
 permalink: /guide/loan-interest/
