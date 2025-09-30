@@ -8,15 +8,13 @@ section: home
 <!-- Hero -->
 <section class="hero">
   <div class="hero-text">
-    <h1 style="margin:0 0 6px">LifeCalc 계산기 포털</h1>
-    <p class="hero-sub">전세↔월세, 대출, 양도세, BMI, 코인 수익률, 자동차 보험료까지 한 번에.</p>
-
-    <!-- 상단 핵심 CTA: 가벼운 스트로크 버튼 4개 -->
-    <div class="hero-quick">
-      <a href="/realestate/rent-to-jeonse/" class="btn btn-lg">전세↔월세 계산기 →</a>
-      <a href="/finance/loan/" class="btn-ghost">대출 이자 계산</a>
-      <a href="/crypto/profit/" class="btn-ghost">코인 수익률</a>
-      <a href="/insurance/auto/" class="btn-ghost">자동차 보험료</a>
+    <h1 style="margin:0 0 6px">만나이 계산기와 생활형 계산기 모음</h1>
+    <p class="hero-sub">연봉·세금·전월세·대출까지, 가장 자주 쓰는 계산을 한 곳에서.</p>
+    <div class="hero-quick" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+      <a href="/life/age/" class="btn" style="background:#111;color:#fff">만나이 계산기 →</a>
+      <a href="/finance/net-pay/" class="btn">연봉 실수령</a>
+      <a href="/realestate/rent-to-jeonse/" class="btn">전세↔월세</a>
+      <a href="/finance/loan/" class="btn">대출 이자</a>
     </div>
   </div>
 </section>
