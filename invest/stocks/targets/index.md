@@ -49,3 +49,23 @@ function tgtCalc(){
     </div>`;
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"투자 계산기 모음","item":"https://calculator.khaistory.com/invest/"},
+    {"@type":"ListItem","position":2,"name":"주식 목표가·손절가 계산기","item":"https://calculator.khaistory.com/invest/stocks/targets/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"손익비(R:R)는 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"목표수익률 ÷ 손절률로 계산되며, 2:1이면 기대수익이 기대손실의 2배를 의미합니다."}},
+    {"@type":"Question","name":"수량을 입력하면 무엇이 달라지나요?","acceptedAnswer":{"@type":"Answer","text":"예상 이익/손실 금액(원)을 함께 표시해 포지션 크기 의사결정에 도움을 줍니다."}}
+  ]
+}
+</script>
+
