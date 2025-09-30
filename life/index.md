@@ -24,3 +24,12 @@ permalink: /life/
        (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"생활 계산기 모음","item":"https://calculator.khaistory.com/life/"}
+  ]
+}
+</script>
