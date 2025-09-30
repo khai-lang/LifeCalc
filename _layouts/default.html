@@ -111,11 +111,11 @@
       <input id="nav-toggle" type="checkbox" aria-label="메뉴 토글">
 
       <!-- 내비 -->
-      <nav class="site-nav nav-scroll" aria-label="주요 메뉴">
+     <nav class="site-nav" aria-label="주요 메뉴">
   <ul class="nav-ul">
-    <li><a href="/" class="nav-pill">홈</a></li>
+    <li><a href="/">홈</a></li>
 
-    <!-- 생활 -->
+    <!-- 생활 계산기 -->
     <li class="drop">
       <button type="button" class="nav-parent" aria-expanded="false">생활 계산기</button>
       <div class="menu" role="menu" aria-label="생활 계산기 하위">
@@ -123,7 +123,7 @@
         <a href="/life/age/">만나이 계산기</a>
         <a href="/life/date/">기념일·날짜 계산</a>
         <a href="/life/unit-converter/">단위 변환</a>
-        <div style="margin:6px 0 4px;padding:6px 10px;font-weight:700;color:#444;opacity:.8;">출산·육아</div>
+        <div style="margin:6px 0 4px; padding:6px 10px; font-weight:700; color:#444; opacity:.8;">출산·육아</div>
         <a href="/family/due-date/">출산 예정일</a>
         <a href="/family/baby-days/">아이 생후 N일/개월</a>
         <a href="/family/baegil/">백일 날짜</a>
@@ -131,18 +131,23 @@
       </div>
     </li>
 
-    <!-- 금융 -->
+    <!-- 급여·소득 (기존: 금융 계산기) -->
     <li class="drop">
-      <button type="button" class="nav-parent" aria-expanded="false">금융 계산기</button>
-      <div class="menu" role="menu" aria-label="금융 계산기 하위">
-        <a href="/finance/">전체 보기</a>
-        <a href="/finance/loan/">대출 이자/원리금</a>
+      <button type="button" class="nav-parent" aria-expanded="false">급여·소득</button>
+      <div class="menu" role="menu" aria-label="급여·소득 하위">
+        <a href="/finance/salary/">연봉·급여·세금 허브</a>
+        <a href="/finance/net-pay/">연봉 실수령 계산기</a>
         <a href="/finance/salary-hourly/">연봉↔시급 환산</a>
-        <a href="/finance/dsr/">DSR 계산기</a>
+        <a href="/finance/insurances/">4대보험 계산기</a>
+        <a href="/finance/withholding/">원천징수세액 계산기</a>
+        <a href="/finance/income-tax/">종합소득세 계산기</a>
+        <a href="/finance/biz-income-tax/">사업자 종합소득세</a>
+        <a href="/finance/retirement/">퇴직금 계산기</a>
+        <a href="/finance/pension-savings/">연금저축(세액공제)</a>
       </div>
     </li>
 
-    <!-- 부동산·세금 -->
+    <!-- 부동산·세금 (대출/DSR 포함) -->
     <li class="drop">
       <button type="button" class="nav-parent" aria-expanded="false">부동산·세금</button>
       <div class="menu" role="menu" aria-label="부동산·세금 계산기 하위">
@@ -151,6 +156,10 @@
         <a href="/realestate/acquisition-tax/">취득세 계산기</a>
         <a href="/realestate/capital-gains/">양도소득세 계산기</a>
         <a href="/realestate/property-tax/">종부세 계산기</a>
+        <div style="margin:6px 0 4px; padding:6px 10px; font-weight:700; color:#444; opacity:.8;">주택담보/대출</div>
+        <!-- 현재 URL을 유지하여 SEO 손실 방지 -->
+        <a href="/finance/loan/">대출 이자/원리금 계산기</a>
+        <a href="/finance/dsr/">DSR 계산기</a>
       </div>
     </li>
 
@@ -165,23 +174,13 @@
       </div>
     </li>
 
-    <!-- 보험 (복구) -->
+    <!-- 재미 -->
     <li class="drop">
-      <button type="button" class="nav-parent" aria-expanded="false">보험 계산기</button>
-      <div class="menu" role="menu" aria-label="보험 계산기 하위">
-        <a href="/insurance/">전체 보기</a>
-        <a href="/insurance/auto/">자동차 보험료</a>
-        <!-- 확장 예정: <a href="/insurance/health/">실손보험</a> -->
-      </div>
-    </li>
-
-    <!-- 코인 (복구) -->
-    <li class="drop">
-      <button type="button" class="nav-parent" aria-expanded="false">코인 계산기</button>
-      <div class="menu" role="menu" aria-label="코인 계산기 하위">
-        <a href="/crypto/">전체 보기</a>
-        <a href="/crypto/profit/">코인 수익률</a>
-        <!-- 확장 예정: <a href="/crypto/dca/">DCA</a> <a href="/crypto/apr-apy/">APR↔APY</a> -->
+      <button type="button" class="nav-parent" aria-expanded="false">재미있는 테스트</button>
+      <div class="menu" role="menu" aria-label="재미있는 테스트 하위">
+        <a href="/fun/">전체 보기</a>
+        <a href="/fun/mental-age/">정신연령 테스트</a>
+        <a href="/fun/astro/">별자리/띠</a>
       </div>
     </li>
 
@@ -189,11 +188,14 @@
     <li class="drop">
       <button type="button" class="nav-parent" aria-expanded="false">가이드</button>
       <div class="menu" role="menu" aria-label="가이드 하위">
-        <a href="/guide/">가이드 글 보기</a>             
+        <a href="/guide/">전체 보기</a>
+        <a href="/guide/rent-to-jeonse-rate/">전세 전환율 공식</a>
+        <a href="/guide/bmi-range/">BMI 범위 해석</a>
       </div>
     </li>
   </ul>
 </nav>
+
 
     </div>
     <script src="/assets/js/lifecalc-ads-v2.js" defer></script>
