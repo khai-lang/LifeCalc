@@ -26,3 +26,21 @@ permalink: /insurance/
        (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"보험 계산기 모음","item":"https://calculator.khaistory.com/insurance/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"자동차보험 할인은 어떻게 적용되나요?","acceptedAnswer":{"@type":"Answer","text":"여러 할인율을 연쇄 곱 방식으로 적용해 보수적으로 추정합니다."}},
+    {"@type":"Question","name":"실손 계산 결과가 실제와 달라요.","acceptedAnswer":{"@type":"Answer","text":"약관/특약/비급여 구분에 따라 실지급액이 달라질 수 있어 안내용으로 제공됩니다."}}
+  ]
+}
+</script>
