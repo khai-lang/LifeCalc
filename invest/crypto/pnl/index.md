@@ -50,3 +50,22 @@ function cpnlCalc(){
     </div>`;
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"투자 계산기 모음","item":"https://calculator.khaistory.com/invest/"},
+    {"@type":"ListItem","position":2,"name":"코인 수익/손실 계산기","item":"https://calculator.khaistory.com/invest/crypto/pnl/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"수수료는 어디에 입력하나요?","acceptedAnswer":{"@type":"Answer","text":"매수/매도 수수료(%)와 기타 비용(원)을 각각 입력하면 원가와 처분가에 자동 반영됩니다."}},
+    {"@type":"Question","name":"마진/선물 포지션도 계산되나요?","acceptedAnswer":{"@type":"Answer","text":"현물 기준 계산기입니다. 레버리지·청산가 등은 별도 계산기가 필요합니다."}}
+  ]
+}
+</script>
+
