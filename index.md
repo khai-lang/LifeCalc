@@ -30,7 +30,7 @@ section: home
 
   <a class="card card-link" href="/finance/">
     <div class="icon">💰</div>
-    <div class="title">연봉·급여 계산기</div>
+    <div class="title">급여·소득 계산기</div>
     <div class="desc">연봉 실수령액, 4대보험, 원천징수세액</div>
   </a>
 
