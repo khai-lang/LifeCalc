@@ -59,7 +59,7 @@ function savgCalc(){
   "@context":"https://schema.org","@type":"BreadcrumbList",
   "itemListElement":[
     {"@type":"ListItem","position":1,"name":"투자 계산기 모음","item":"https://calculator.khaistory.com/invest/"},
-    {"@type":"ListItem","position":2,"name":"코인 평단가·추가매수 계산기","item":"https://calculator.khaistory.com/invest/crypto/avg-cost/"}
+    {"@type":"ListItem","position":2,"name":"주식 평단가·물타기 계산기","item":"https://calculator.khaistory.com/invest/stocks/avg-cost/"}
   ]
 }
 </script>
@@ -67,8 +67,8 @@ function savgCalc(){
 {
   "@context":"https://schema.org","@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"수수료는 어떻게 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"왕복 수수료(%)를 총 원가에 곱해 평단가에 반영하는 보수적 근사 방식을 사용합니다."}},
-    {"@type":"Question","name":"보유/추가 수량 중 하나가 0이어도 되나요?","acceptedAnswer":{"@type":"Answer","text":"총 수량이 0보다 크면 계산됩니다. 둘 다 0이면 계산할 수 없습니다."}}
+    {"@type":"Question","name":"수수료는 어떻게 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"왕복 수수료(%)를 총 매입원가에 곱해 새로운 평단가를 보수적으로 산정합니다."}},
+    {"@type":"Question","name":"평단가만 계산하고 손익은 계산하지 않나요?","acceptedAnswer":{"@type":"Answer","text":"이 계산기는 평단가 갱신에 초점을 맞췄습니다. 손익은 주식 손익 계산기를 사용하세요."}}
   ]
 }
 </script>
