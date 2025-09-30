@@ -47,3 +47,23 @@ function autoCalc(){
     </div>`;
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"보험 계산기 모음","item":"https://calculator.khaistory.com/insurance/"},
+    {"@type":"ListItem","position":2,"name":"자동차보험 할인·특약 효과 계산기","item":"https://calculator.khaistory.com/insurance/auto-discount/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"할인율은 어떻게 합산되나요?","acceptedAnswer":{"@type":"Answer","text":"중복 할인을 과대평가하지 않도록 연쇄 곱 방식으로 적용합니다."}},
+    {"@type":"Question","name":"실제 보험료와 차이가 나는 이유는?","acceptedAnswer":{"@type":"Answer","text":"보험사별 산식·담보 구성·개인 조건이 달라 안내 결과와 차이가 날 수 있습니다."}}
+  ]
+}
+</script>
+
