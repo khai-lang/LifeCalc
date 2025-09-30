@@ -48,3 +48,22 @@ function trvCalc(){
     </div>`;
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"보험 계산기 모음","item":"https://calculator.khaistory.com/insurance/"},
+    {"@type":"ListItem","position":2,"name":"여행자보험 간편 보험료 계산기","item":"https://calculator.khaistory.com/insurance/travel/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"연령/지역에 따른 가중치는 어떻게 적용되나요?","acceptedAnswer":{"@type":"Answer","text":"연령·지역·플랜 계수를 곱하는 보수적 근사 모델을 사용합니다."}},
+    {"@type":"Question","name":"실제 보험료와 다른 이유는?","acceptedAnswer":{"@type":"Answer","text":"보험사별 산식·보장내역·특약에 따라 실제 보험료가 달라질 수 있습니다."}}
+  ]
+}
+</script>
