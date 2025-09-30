@@ -1,12 +1,59 @@
 ---
 layout: default
-title: 연봉 실수령 계산기
+title: 연봉 실수령 계산기 2025
 description: 연봉·월급 기준으로 4대보험 및 세금을 반영한 월/연 실수령액을 자동 계산. 연도별 요율은 데이터 파일 1곳에서만 업데이트.
 permalink: /finance/net-pay/
 section: finance
 ---
 
 <h1>연봉 실수령 계산기</h1>
+<!-- 탭 네비 -->
+<nav class="subnav" style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;">
+  <a class="chip" href="#netpay">실수령 계산</a>
+  <a class="chip" href="#convert">연봉↔시급 환산</a>
+</nav>
+
+<!-- B. 연봉↔시급 환산 (신규 섹션) -->
+<section id="convert" class="card p-4" style="max-width:980px;margin:24px auto;scroll-margin-top:80px">
+  <h2>연봉↔시급 환산</h2>
+  <p class="muted">근무시간/주휴 고려 없는 간단 환산입니다. (옵션으로 한국 관행치 보정)</p>
+
+  <div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <label>입력 기준
+      <select id="convMode">
+        <option value="hourly">시급 → 연/월</option>
+        <option value="annual">연봉 → 시급</option>
+      </select>
+    </label>
+    <label>주당 근무시간(시간)
+      <input id="convHoursPerWeek" type="number" inputmode="numeric" value="40">
+    </label>
+    <label>연 근무주(주)
+      <input id="convWeeksPerYear" type="number" inputmode="numeric" value="52">
+    </label>
+    <label>주휴·유급휴일 보정
+      <select id="convPaidLeave">
+        <option value="none">미적용(순수 근무시간)</option>
+        <option value="korea">한국 관행치(+8% 근사)</option>
+      </select>
+    </label>
+
+    <label id="convHourlyWrap">시급(원)
+      <input id="convHourly" type="number" inputmode="numeric" placeholder="예) 10000">
+    </label>
+    <label id="convAnnualWrap" style="display:none">연봉(세전, 원)
+      <input id="convAnnual" type="number" inputmode="numeric" placeholder="예) 42000000">
+    </label>
+  </div>
+
+  <div class="mt-3">
+    <button class="btn" id="convBtn">환산하기</button>
+  </div>
+
+  <div id="convResult" class="grid-cards" style="margin-top:12px"></div>
+</section>
+
+
 <p class="muted">연봉(또는 월급)을 입력하면 국민연금·건강보험(장기요양 포함)·고용보험·소득세·지방소득세를 반영한 <strong>실수령액</strong>을 계산합니다. 연도별 수치는 <code>_data/payroll_korea.yml</code>에 1번만 업데이트하면 전부 반영돼요.</p>
 
 <div class="card p-4" style="max-width:980px;margin:auto">
@@ -132,4 +179,70 @@ document.getElementById('calcBtn').addEventListener('click', ()=>{
     <p class="muted" style="margin-top:8px">※ 안내용 계산기입니다. 실제 급여와 차이가 날 수 있어요. 연도별 요율·상한은 <code>_data/payroll_korea.yml</code>에서 최신으로 유지해 주세요.</p>
   `;
 });
+   <script>
+// ====== 환산 탭 스크립트 ======
+const convMode = document.getElementById('convMode');
+const convHourlyWrap = document.getElementById('convHourlyWrap');
+const convAnnualWrap = document.getElementById('convAnnualWrap');
+const convHourly = document.getElementById('convHourly');
+const convAnnual = document.getElementById('convAnnual');
+const convHoursPerWeek = document.getElementById('convHoursPerWeek');
+const convWeeksPerYear = document.getElementById('convWeeksPerYear');
+const convPaidLeave = document.getElementById('convPaidLeave');
+const convBtn = document.getElementById('convBtn');
+const convOut = document.getElementById('convResult');
+
+const fmtKR = n => (Math.round(n)).toLocaleString('ko-KR');
+const paidLeaveFactor = sel => sel === 'korea' ? 1.08 : 1.00;
+
+if (convMode) {
+  convMode.addEventListener('change', ()=>{
+    const m = convMode.value;
+    if (m === 'hourly'){ convHourlyWrap.style.display=''; convAnnualWrap.style.display='none'; }
+    else { convHourlyWrap.style.display='none'; convAnnualWrap.style.display=''; }
+    convOut.innerHTML = '';
+  });
+  convBtn.addEventListener('click', ()=>{
+    const hours = Number(convHoursPerWeek.value || 0);
+    const weeks = Number(convWeeksPerYear.value || 0);
+    const factor = paidLeaveFactor(convPaidLeave.value);
+    if (hours<=0 || weeks<=0){ alert('근무시간/근무주를 확인해 주세요.'); return; }
+
+    if (convMode.value === 'hourly'){
+      const hourly = Number(convHourly.value || 0);
+      if (!hourly){ alert('시급을 입력해 주세요.'); return; }
+      const annual = hourly * hours * weeks * factor;
+      const monthly = annual / 12;
+      convOut.innerHTML = `
+        <div class="card p-3">
+          <div class="title">시급 → 연/월 환산</div>
+          <div class="desc">
+            <ul>
+              <li><strong>월 환산(세전):</strong> ${fmtKR(monthly)} 원</li>
+              <li><strong>연 환산(세전):</strong> ${fmtKR(annual)} 원</li>
+            </ul>
+          </div>
+        </div>`;
+    } else {
+      const annual = Number(convAnnual.value || 0);
+      if (!annual){ alert('연봉(세전)을 입력해 주세요.'); return; }
+      const hourly = (annual / (hours * weeks)) / factor; // 역산
+      const monthly = annual / 12;
+      convOut.innerHTML = `
+        <div class="card p-3">
+          <div class="title">연봉 → 시급 환산</div>
+          <div class="desc">
+            <ul>
+              <li><strong>월 환산(세전):</strong> ${fmtKR(monthly)} 원</li>
+              <li><strong>시급(세전):</strong> ${fmtKR(hourly)} 원</li>
+            </ul>
+          </div>
+        </div>`;
+    }
+  });
+}
+</script>
+<style>.chip{display:inline-block;padding:6px 10px;border:1px solid #e6ebf0;border-radius:999px;background:#fff}.chip:hover{background:#f6f7f9}</style>
+
+  
 </script>
