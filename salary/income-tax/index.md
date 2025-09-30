@@ -1,15 +1,67 @@
 ---
 layout: default
-title: 종합소득세 계산기 2025
-description: 근로·기타소득 등 기본 항목 중심의 종합소득세 간편 계산.
+title: 종합소득세 계산기 2025(간편)
+description: 과세표준 구간별 단순 누진세 계산(지방소득세 10% 포함).
 permalink: /salary/income-tax/
 section: salary
 ---
 
-<h1>종합소득세 계산기</h1>
-<p class="muted">안내용 간편 계산입니다. 실제 신고는 국세청 홈택스를 참고하세요.</p>
+# 종합소득세(간편 계산)
 
-<!-- TODO: 계산기 UI/로직 -->
+<form id="it-form" onsubmit="event.preventDefault(); calcIT();">
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+    <label>연 과세표준(원)
+      <input type="number" id="it-base" placeholder="예: 24000000" required>
+    </label>
+    <label>세액공제/감면(연, 원)
+      <input type="number" id="it-credit" value="0">
+    </label>
+    <label>지방소득세 포함
+      <select id="it-local"><option value="yes">예</option><option value="no">아니오</option></select>
+    </label>
+  </div>
+  <button class="btn" type="submit">계산</button>
+</form>
+
+<div id="it-out" class="result-box"></div>
+
+<div class="btn-row" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+  <a class="btn" href="/salary/retirement/">다음: 퇴직금</a>
+  <a class="btn ghost" href="/salary/">허브로 돌아가기</a>
+</div>
+
+<script>
+const fmt = n => (Math.round(n)).toLocaleString('ko-KR');
+function pit(base){
+  // 간단 누진(예시 구간) — 실제 연도별 세율표로 교체 권장
+  const br = [
+    {up: 12_000_000, rate:0.06,  ded:0},
+    {up: 46_000_000, rate:0.15,  ded:1_080_000},
+    {up: 88_000_000, rate:0.24,  ded:5_220_000},
+    {up:150_000_000, rate:0.35,  ded:14_900_000},
+    {up:300_000_000, rate:0.38,  ded:19_400_000},
+    {up:500_000_000, rate:0.40,  ded:25_400_000},
+    {up:1_000_000_000, rate:0.42, ded:35_400_000},
+    {up:Infinity, rate:0.45,     ded:65_400_000}
+  ];
+  for (const b of br){ if (base <= b.up) return Math.round(base*b.rate - b.ded); }
+  return 0;
+}
+function calcIT(){
+  const base = Math.max(0, Number(document.getElementById('it-base').value)||0);
+  const credit = Math.max(0, Number(document.getElementById('it-credit').value)||0);
+  const localYes = document.getElementById('it-local').value === 'yes';
+  let tax = Math.max(0, pit(base) - credit);
+  const local = localYes ? Math.round(tax*0.1) : 0;
+  document.getElementById('it-out').classList.add('show');
+  document.getElementById('it-out').innerHTML = `
+    <div class="card p-3"><div class="title">종합소득세(간편)</div>
+    <ul><li>국세: ${fmt(tax)} 원</li>${localYes?`<li>지방세: ${fmt(local)} 원</li>`:''}
+    <li><strong>합계:</strong> ${fmt(tax+local)} 원</li></ul>
+    <small class="muted">※ 단순화된 계산입니다. 실제 신고는 홈택스를 참고하세요.</small>
+    </div>`;
+}
+</script>
 
 <div class="btn-row" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
   <a class="btn" href="/salary/retirement/">다음: 퇴직금</a>
