@@ -248,17 +248,11 @@ if (convMode) {
   <a class="btn" href="/finance/salary/#withholding">원천징수로 이동</a>
   <a class="btn ghost" href="/finance/salary/">허브로 돌아가기</a>
 </div>
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"급여·소득","item":"https://calculator.khaistory.com/finance/"},
-    {"@type":"ListItem","position":2,"name":"연봉·급여·세금 허브","item":"https://calculator.khaistory.com/finance/salary/"},
-    {"@type":"ListItem","position":3,"name":"연봉 실수령 계산기","item":"https://calculator.khaistory.com/finance/net-pay/"}
-  ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"급여·소득","item":"https://calculator.khaistory.com/salary/"},
+  {"@type":"ListItem","position":2,"name":"연봉 실수령 계산기","item":"https://calculator.khaistory.com/salary/net-pay/"}
+]}</script>
+
 
 <script type="application/ld+json">
 {
