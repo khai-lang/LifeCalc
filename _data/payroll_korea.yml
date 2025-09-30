@@ -1,0 +1,43 @@
+# _data/payroll_korea.yml
+"2025":
+  # 국민연금(근로자부담) – 표준보수월액 하한/상한, 요율
+  national_pension:
+    rate: 0.045         # 4.5%
+    floor: 380000       # 표준보수월액 하한(예시)
+    ceiling: 6210000    # 표준보수월액 상한(예시)
+  # 건강보험(근로자부담) – 건강보험요율(근로자 부담분)과 장기요양요율
+  health_insurance:
+    employee_rate: 0.035 # 3.5% 근로자 부담분(예시)
+    ltc_rate: 0.1295     # 장기요양보험료율(건보료 × 12.95% 예시)
+  # 고용보험(근로자부담)
+  employment_insurance:
+    rate: 0.009         # 0.9% (예시)
+  # 간이세액(근로소득세) 근사치용 누진세율표(월 과세표준 기준) – 간편모드
+  # 정확모드는 별도 CSV(간이세액표)를 사용할 수 있습니다(아래 4) 참고)
+  income_tax_brackets_monthly:
+    - { up_to: 1400000,   rate: 0.06,  quick_deduction: 0     }
+    - { up_to: 5000000,   rate: 0.15,  quick_deduction: 63000 }
+    - { up_to: 8800000,   rate: 0.24,  quick_deduction: 423000}
+    - { up_to: 15000000,  rate: 0.35,  quick_deduction: 1173000}
+    - { up_to: 30000000,  rate: 0.38,  quick_deduction: 1947000}
+    - { up_to: 50000000,  rate: 0.40,  quick_deduction: 2547000}
+    - { up_to: 999999999, rate: 0.45,  quick_deduction: 5047000}
+  # 지방소득세 = 소득세의 10%
+  local_income_tax_rate: 0.10
+  # 간이세액표를 사용할 때 필요한 부양가족 기본 수(본인 1명)
+  default_dependents: 1
+
+"2024":
+  national_pension: { rate: 0.045, floor: 380000, ceiling: 5900000 }
+  health_insurance: { employee_rate: 0.034, ltc_rate: 0.1281 }
+  employment_insurance: { rate: 0.009 }
+  income_tax_brackets_monthly:
+    - { up_to: 1400000,   rate: 0.06,  quick_deduction: 0 }
+    - { up_to: 5000000,   rate: 0.15,  quick_deduction: 63000 }
+    - { up_to: 8800000,   rate: 0.24,  quick_deduction: 423000 }
+    - { up_to: 15000000,  rate: 0.35,  quick_deduction: 1173000 }
+    - { up_to: 30000000,  rate: 0.38,  quick_deduction: 1947000 }
+    - { up_to: 50000000,  rate: 0.40,  quick_deduction: 2547000 }
+    - { up_to: 999999999, rate: 0.45,  quick_deduction: 5047000 }
+  local_income_tax_rate: 0.10
+  default_dependents: 1
