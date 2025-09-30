@@ -39,3 +39,23 @@ function agrCalc(){
     </div>`;
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"보험 계산기 모음","item":"https://calculator.khaistory.com/insurance/"},
+    {"@type":"ListItem","position":2,"name":"자동차보험 등급 추정기","item":"https://calculator.khaistory.com/insurance/auto-grade/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"등급 변동 규칙은 무엇을 쓰나요?","acceptedAnswer":{"@type":"Answer","text":"무사고 1년 -1등급, 사고 1건 +1등급의 단순 근사 규칙을 사용합니다."}},
+    {"@type":"Question","name":"보험사마다 등급 산식이 다르지 않나요?","acceptedAnswer":{"@type":"Answer","text":"맞습니다. 실제 등급은 보험사·사고유형에 따라 달라집니다."}}
+  ]
+}
+</script>
+
