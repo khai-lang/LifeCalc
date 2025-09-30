@@ -47,3 +47,23 @@ function divCalc(){
     </div>`;
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"투자 계산기 모음","item":"https://calculator.khaistory.com/invest/"},
+    {"@type":"ListItem","position":2,"name":"배당수익률·YoC 계산기","item":"https://calculator.khaistory.com/invest/stocks/dividend-yield/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"YoC는 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"투자원가수익률(Yield on Cost)로, 현재 배당금을 과거 나의 매수가로 나눈 비율입니다."}},
+    {"@type":"Question","name":"세후 배당수익률은 어떻게 계산하나요?","acceptedAnswer":{"@type":"Answer","text":"배당소득세율(%)을 입력하면 DPS×(1-세율)을 사용하여 세후 수익률을 계산합니다."}}
+  ]
+}
+</script>
+
