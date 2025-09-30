@@ -23,8 +23,7 @@ permalink: /life/
   <script>
        (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
-</div>
-
+  
 <script type="application/ld+json">
 {
   "@context":"https://schema.org","@type":"BreadcrumbList",
@@ -33,3 +32,7 @@ permalink: /life/
   ]
 }
 </script>
+
+  
+</div>
+
