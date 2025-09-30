@@ -20,3 +20,14 @@ section: salary
   {"@type":"ListItem","position":1,"name":"급여·소득","item":"https://calculator.khaistory.com/salary/"},
   {"@type":"ListItem","position":2,"name":"연봉 실수령 계산기","item":"https://calculator.khaistory.com/salary/income-tax/"}
 ]}</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"간편 계산과 실제 신고 금액이 다를 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"간편 계산은 안내용이며 실제 신고는 공제 항목과 소득 구분에 따라 달라질 수 있습니다."}},
+    {"@type":"Question","name":"연도 변경은 어떻게 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"세율·상한 변경은 데이터 파일을 갱신하면 자동 반영되도록 설계할 수 있습니다."}}
+  ]
+}
+</script>
