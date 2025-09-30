@@ -53,3 +53,23 @@ function savgCalc(){
     </div>`;
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"투자 계산기 모음","item":"https://calculator.khaistory.com/invest/"},
+    {"@type":"ListItem","position":2,"name":"코인 평단가·추가매수 계산기","item":"https://calculator.khaistory.com/invest/crypto/avg-cost/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"수수료는 어떻게 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"왕복 수수료(%)를 총 원가에 곱해 평단가에 반영하는 보수적 근사 방식을 사용합니다."}},
+    {"@type":"Question","name":"보유/추가 수량 중 하나가 0이어도 되나요?","acceptedAnswer":{"@type":"Answer","text":"총 수량이 0보다 크면 계산됩니다. 둘 다 0이면 계산할 수 없습니다."}}
+  ]
+}
+</script>
+
