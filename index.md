@@ -130,3 +130,49 @@ section: home
   }
 </style>
 
+<!-- WebSite: 사이트 검색이 있다면 SearchAction의 target URL 쿼리 파라미터만 맞춰주세요 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "생활형 계산기",
+  "url": "https://calculator.khaistory.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://calculator.khaistory.com/search/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "생활형 계산기",
+  "url": "https://calculator.khaistory.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://calculator.khaistory.com/assets/logo-512.png"
+  },
+  "sameAs": [
+    "https://github.com/khaistory"
+  ]
+}
+</script>
+
+<!-- SiteNavigationElement (최상단 주요 메뉴를 검색엔진에 명시) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "itemListElement":[
+    {"@type":"SiteNavigationElement","position":1,"name":"생활 계산기","url":"https://calculator.khaistory.com/life/"},
+    {"@type":"SiteNavigationElement","position":2,"name":"급여·세금","url":"https://calculator.khaistory.com/salary/"},
+    {"@type":"SiteNavigationElement","position":3,"name":"부동산·대출","url":"https://calculator.khaistory.com/realestate/"},
+    {"@type":"SiteNavigationElement","position":4,"name":"투자 계산기","url":"https://calculator.khaistory.com/invest/"},
+    {"@type":"SiteNavigationElement","position":5,"name":"보험 계산기","url":"https://calculator.khaistory.com/insurance/"}
+  ]
+}
+</script>
