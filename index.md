@@ -58,12 +58,6 @@ section: home
     <div class="desc">자동차, 실손, 보장액, 연금</div>
   </a>
 
-  <a class="card card-link" href="/fun/">
-    <div class="icon">🎯</div>
-    <div class="title">재미있는 테스트</div>
-    <div class="desc">정신연령, 별자리/띠</div>
-  </a>
-
   <a class="card card-link" href="/guide/">
     <div class="icon">📘</div>
     <div class="title">가이드</div>
