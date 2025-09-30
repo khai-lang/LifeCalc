@@ -243,6 +243,34 @@ if (convMode) {
 }
 </script>
 <style>.chip{display:inline-block;padding:6px 10px;border:1px solid #e6ebf0;border-radius:999px;background:#fff}.chip:hover{background:#f6f7f9}</style>
+<div class="btn-row" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+  <a class="btn" href="/finance/salary/#insurances">다음: 4대보험 계산</a>
+  <a class="btn" href="/finance/salary/#withholding">원천징수로 이동</a>
+  <a class="btn ghost" href="/finance/salary/">허브로 돌아가기</a>
+</div>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"급여·소득","item":"https://calculator.khaistory.com/finance/"},
+    {"@type":"ListItem","position":2,"name":"연봉·급여·세금 허브","item":"https://calculator.khaistory.com/finance/salary/"},
+    {"@type":"ListItem","position":3,"name":"연봉 실수령 계산기","item":"https://calculator.khaistory.com/finance/net-pay/"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"보너스는 어떻게 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"보너스 총액을 12개월로 나누어 월 평균 지급액에 합산합니다."}},
+    {"@type":"Question","name":"부양가족 수는 어떻게 적용되나요?","acceptedAnswer":{"@type":"Answer","text":"간편모드에서는 부양가족 수에 따른 간이세액 근사 보정을 적용합니다. 정확모드는 간이세액표 CSV로 확장 가능합니다."}},
+    {"@type":"Question","name":"연도별 요율은 어디서 바꾸나요?","acceptedAnswer":{"@type":"Answer","text":"_data/payroll_korea.yml 파일의 해당 연도 블록을 수정하면 자동 반영됩니다."}}
+  ]
+}
+</script>
 
   
 </script>
