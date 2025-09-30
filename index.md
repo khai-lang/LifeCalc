@@ -12,9 +12,9 @@ section: home
     <p class="hero-sub">연봉·세금·전월세·대출까지, 가장 자주 쓰는 계산을 한 곳에서.</p>
     <div class="hero-quick" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
       <a href="/life/age/" class="btn" style="background:#111;color:#fff">만나이 계산기 →</a>
-      <a href="/finance/net-pay/" class="btn">연봉 실수령</a>
+      <a href="/salary/net-pay/" class="btn">연봉 실수령</a>
       <a href="/realestate/rent-to-jeonse/" class="btn">전세↔월세</a>
-      <a href="/finance/loan/" class="btn">대출 이자</a>
+      <a href="/realestate/loan/" class="btn">대출 이자</a>
     </div>
   </div>
 </section>
@@ -30,8 +30,8 @@ section: home
 
   <a class="card card-link" href="/finance/">
     <div class="icon">💰</div>
-    <div class="title">금융 계산기</div>
-    <div class="desc">대출, 연봉↔시급, DSR</div>
+    <div class="title">연봉·급여 계산기</div>
+    <div class="desc">연봉 실수령액, 4대보험, 원천징수세액</div>
   </a>
 
   <a class="card card-link" href="/realestate/">
@@ -70,7 +70,7 @@ section: home
 <div class="btn-grid">
   <a class="pill" href="/realestate/capital-gains/">양도세 계산</a>
   <a class="pill" href="/realestate/acquisition-tax/">취득세 계산</a>
-  <a class="pill" href="/finance/dsr/">DSR 계산</a>
+  <a class="pill" href="/realestate/dsr/">DSR 계산</a>
   <a class="pill" href="/health/bmi/">BMI</a>
   <a class="pill" href="/crypto/profit/">코인 수익률</a>
   <a class="pill" href="/insurance/auto/">자동차 보험료</a>
