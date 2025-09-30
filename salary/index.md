@@ -28,3 +28,13 @@ section: salary
 </div>
 
 <style>.chip{display:inline-block;padding:6px 10px;border:1px solid #e6ebf0;border-radius:999px;background:#fff}.chip:hover{background:#f6f7f9}</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"연봉·급여·세금 허브","item":"https://calculator.khaistory.com/salary/"}
+  ]
+}
+</script>
+
