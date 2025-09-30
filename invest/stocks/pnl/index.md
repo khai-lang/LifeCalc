@@ -55,3 +55,23 @@ function spnlCalc(){
     </div>`;
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"투자 계산기 모음","item":"https://calculator.khaistory.com/invest/"},
+    {"@type":"ListItem","position":2,"name":"주식 수익/손실 계산기","item":"https://calculator.khaistory.com/invest/stocks/pnl/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"거래세율은 어떻게 설정하나요?","acceptedAnswer":{"@type":"Answer","text":"매도 거래세(%) 입력칸에서 직접 변경할 수 있습니다. 시장/종목에 따라 실제 세율은 다를 수 있습니다."}},
+    {"@type":"Question","name":"수수료는 어디까지 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"매수·매도 수수료(%)를 각각 입력하면 원가와 처분가에 반영됩니다."}}
+  ]
+}
+</script>
+
