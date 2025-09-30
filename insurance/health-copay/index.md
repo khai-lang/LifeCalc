@@ -46,3 +46,23 @@ function copayCalc(){
     </div>`;
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"보험 계산기 모음","item":"https://calculator.khaistory.com/insurance/"},
+    {"@type":"ListItem","position":2,"name":"실손의료보험 자기부담금 계산기","item":"https://calculator.khaistory.com/insurance/health-copay/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"공제금액과 본인부담률을 어디서 바꾸나요?","acceptedAnswer":{"@type":"Answer","text":"입력 폼에서 직접 수정하면 계산에 즉시 반영됩니다."}},
+    {"@type":"Question","name":"비급여 항목도 계산되나요?","acceptedAnswer":{"@type":"Answer","text":"본 계산기는 안내용이며, 세부 약관에 따라 실제 지급액은 달라질 수 있습니다."}}
+  ]
+}
+</script>
+
