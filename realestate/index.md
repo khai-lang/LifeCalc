@@ -95,3 +95,13 @@ section: realestate
     </a>
   </div>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"부동산 계산기 모음","item":"https://calculator.khaistory.com/realestate/"}
+  ]
+}
+</script>
+
