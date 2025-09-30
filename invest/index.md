@@ -34,3 +34,24 @@ permalink: /invest/
        (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
 </div>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"투자 계산기 모음","item":"https://calculator.khaistory.com/invest/"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"수수료와 세금은 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"각 계산기에서 수수료/세율 입력칸을 제공하며, 미입력 시 기본값 또는 0%로 계산합니다."}},
+    {"@type":"Question","name":"DCA 계산기의 가격 입력은 어떻게 하나요?","acceptedAnswer":{"@type":"Answer","text":"개월 수와 동일한 개수의 가격을 쉼표로 입력합니다. 비우면 모든 달에 현재가를 적용해 근사 계산합니다."}}
+  ]
+}
+</script>
+
