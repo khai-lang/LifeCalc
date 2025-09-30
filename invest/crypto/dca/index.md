@@ -62,3 +62,22 @@ function cdcaCalc(){
     </div>`;
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"투자 계산기 모음","item":"https://calculator.khaistory.com/invest/"},
+    {"@type":"ListItem","position":2,"name":"코인 DCA(적립식) 수익률 계산기","item":"https://calculator.khaistory.com/invest/crypto/dca/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"월별 가격을 비워두면 어떻게 되나요?","acceptedAnswer":{"@type":"Answer","text":"모든 달의 가격을 현재가로 간주하여 평균매입가와 수익률을 근사 계산합니다."}},
+    {"@type":"Question","name":"수수료·세금은 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"간단화를 위해 기본 계산에는 포함하지 않습니다. 필요 시 월 적립금에서 차감해 입력해 주세요."}}
+  ]
+}
+</script>
