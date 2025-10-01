@@ -35,8 +35,8 @@ window.PROMOS_BY_SECTION = {
     {desc:"취득세 자동 계산", href:"/realestate/acquisition-tax/", cta:"취득세"},
     {desc:"양도소득세 추정", href:"/realestate/capital-gains/", cta:"양도세"},
     {desc:"종합부동산세 추정", href:"/realestate/property-tax/", cta:"종부세"},
-    {desc:"주택담보/일반 대출 이자·원리금", href:"/finance/loan/", cta:"대출 이자"},
-    {desc:"총부채원리금상환비율", href:"/finance/dsr/", cta:"DSR"}
+    {desc:"주택담보/일반 대출 이자·원리금", href:"/realestate/loan/", cta:"대출 이자"},
+    {desc:"총부채원리금상환비율", href:"/realestate/dsr/", cta:"DSR"}
   ],
 
   /* 건강 계산기 */
