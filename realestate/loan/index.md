@@ -2,7 +2,7 @@
 layout: default
 title: 대출 이자/원리금 계산기
 description: 원리금균등·원금균등 상환액을 추정합니다.
-permalink: finance/loan/
+permalink: realestate/loan/
 ---
 
 # 대출 이자/원리금 계산기
