@@ -3,7 +3,7 @@ layout: default
 title: 퇴직금 계산기 — 평균임금·근속연수 기준
 description: 최근 3개월 평균임금과 근속연수로 퇴직금(안내용) 계산.
 permalink: /salary/retirement/
-section: salary
+
 ---
 
 # 퇴직금 계산기
