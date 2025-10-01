@@ -3,7 +3,7 @@ layout: default
 title: 4대보험 계산기 2025 — 근로자 부담액 자동 계산
 description: 연봉/월급 기준 국민연금·건강보험(장기요양)·고용보험 근로자 부담액 추정.
 permalink: /salary/insurances/
-section: salary
+
 ---
 
 # 4대보험 계산기
