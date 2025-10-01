@@ -3,7 +3,6 @@ layout: default
 title: 원천징수세액 계산기 — 간이세액(근사)
 description: 부양가족 수에 따른 간이세액 근사와 지방소득세(10%) 계산.
 permalink: /salary/withholding/
-section: salary
 ---
 
 # 원천징수세액 계산기(근사)
