@@ -24,8 +24,8 @@ window.PROMOS_BY_SECTION = {
     {desc:"4대보험 부담액 계산", href:"/salary/insurances/", cta:"4대보험"},
     {desc:"원천징수세액 계산", href:"/salary/withholding/", cta:"원천징수"},
     {desc:"종합소득세 계산", href:"/salary/income-tax/", cta:"종소세"},
-    {desc:"사업자 종합소득세 계산", href:"/finance/biz-income-tax/", cta:"사업자 종소세"},
-    {desc:"퇴직금 계산", href:"salary/retiremesalarynt/", cta:"퇴직금"},
+    {desc:"사업자 종합소득세 계산", href:"/salary/biz-income-tax/", cta:"사업자 종소세"},
+    {desc:"퇴직금 계산", href:"/salary/retiremesalarynt/", cta:"퇴직금"},
     {desc:"연금저축(세액공제) 효과", href:"/salary/pension-savings/", cta:"연금저축"}
   ],
 
