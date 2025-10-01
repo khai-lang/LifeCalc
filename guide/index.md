@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: guide-index
 title: 가이드 모음
 description: 전세 전환율, BMI 범위, 대출 이자 등 다양한 계산 공식과 해석을 제공합니다.
 permalink: /guide/
