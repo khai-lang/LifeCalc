@@ -24,5 +24,5 @@ permalink: /life/
 </script>
 
   
-</div>
+
 
