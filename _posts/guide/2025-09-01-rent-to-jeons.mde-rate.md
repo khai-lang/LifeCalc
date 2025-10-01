@@ -1,5 +1,5 @@
 ---
-layout: post
+layout:ｄｅｆａｕｌｔ
 title: 전세 전환율 공식 (2025 최신) — 계산법·상한·예시 총정리
 description: 전세↔월세 전환율 공식, 법정 상한, 계산 예시와 주의사항을 한 번에 정리했습니다. 전환율 헷갈리지 않도록 ‘%’와 소수점 표기 모두 예시로 보여드립니다.
 permalink: ／guide/rent-to-jeonse-rate/
