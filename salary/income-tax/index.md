@@ -3,7 +3,7 @@ layout: default
 title: 종합소득세 계산기 2025(간편)
 description: 과세표준 구간별 단순 누진세 계산(지방소득세 10% 포함).
 permalink: /salary/income-tax/
-section: salary
+
 ---
 
 # 종합소득세(간편 계산)
