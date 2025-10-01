@@ -20,3 +20,9 @@
 
 /* 사이드 영역 */
 .guide-aside { position: sticky; top: 84px; height: fit-content; }
+
+.guide-list { margin: 12px 0 0; padding: 0; list-style: none; }
+.guide-list li { padding: 14px 0; border-top: 1px solid #e8ecef; }
+.guide-list li:first-child { border-top: 0; }
+.guide-item-title { font-weight: 700; text-decoration: none; }
+.muted { color:#6b7280; font-size: 14px; margin:6px 0 0; }
