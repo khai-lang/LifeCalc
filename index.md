@@ -28,7 +28,7 @@ section: home
     <div class="desc">만나이, 날짜, 단위 변환, 출산·육아</div>
   </a>
 
-  <a class="card card-link" href="/finance/">
+  <a class="card card-link" href="/salary/">
     <div class="icon">💰</div>
     <div class="title">급여·소득 계산기</div>
     <div class="desc">연봉 실수령액, 4대보험, 원천징수세액</div>
