@@ -3,7 +3,7 @@ layout: default
 title: 연금저축 세액공제 계산기 2025
 description: 납입액·한도·세액공제율로 공제액 추정(간편).
 permalink: /salary/pension-savings/
-section: salary
+
 ---
 
 # 연금저축 세액공제(간편)
