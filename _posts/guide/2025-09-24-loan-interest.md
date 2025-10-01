@@ -1,12 +1,9 @@
 ---
-layout: guide
+layout: guide                # 블로그 스타일 레이아웃 사용
 title: 대출 이자 계산기 | 2025 최신 금리 반영, 상환방식 비교
 description: 대출 원금·금리·기간만 입력하면 월 상환액과 총이자를 즉시 계산합니다. 원리금균등·원금균등·만기일시 상환 비교, 금리 변화 시뮬레이션, DSR/한도 체크까지 한 번에.
 permalink: /guide/loan-interest/
-categories: guide
-hide_nav_extra: true
-
-
+section: guide
 tags: [대출이자계산기, 원리금균등, 원금균등, 만기일시, 주택담보대출, 신용대출, 자동차할부]
 ---
 
