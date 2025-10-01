@@ -17,17 +17,16 @@ window.PROMOS_BY_SECTION = {
     {desc:"출산 예정일/생후 N일·개월/백일", href:"/family/due-date/", cta:"출산·육아"}
   ],
 
-  /* 급여·소득 (finance) */
+  /* 급여·소득 (salary) */
   finance: [
-    {desc:"급여·세금 허브(빠른 길잡이)", href:"/finance/salary/", cta:"허브 보기"},
-    {desc:"연봉 → 시급/시급 → 연봉 환산", href:"/finance/salary-hourly/", cta:"연봉↔시급"},
-    {desc:"연봉 실수령액 계산", href:"/finance/net-pay/", cta:"실수령 계산"},
-    {desc:"4대보험 부담액 계산", href:"/finance/insurances/", cta:"4대보험"},
-    {desc:"원천징수세액 계산", href:"/finance/withholding/", cta:"원천징수"},
-    {desc:"종합소득세 계산", href:"/finance/income-tax/", cta:"종소세"},
+    {desc:"급여·세금 허브(빠른 길잡이)", href:"/salary/", cta:"허브 보기"},
+    {desc:"연봉 실수령액 계산", href:"/salary/net-pay/", cta:"실수령 계산"},
+    {desc:"4대보험 부담액 계산", href:"/salary/insurances/", cta:"4대보험"},
+    {desc:"원천징수세액 계산", href:"/salary/withholding/", cta:"원천징수"},
+    {desc:"종합소득세 계산", href:"/salary/income-tax/", cta:"종소세"},
     {desc:"사업자 종합소득세 계산", href:"/finance/biz-income-tax/", cta:"사업자 종소세"},
-    {desc:"퇴직금 계산", href:"/finance/retirement/", cta:"퇴직금"},
-    {desc:"연금저축(세액공제) 효과", href:"/finance/pension-savings/", cta:"연금저축"}
+    {desc:"퇴직금 계산", href:"salary/retiremesalarynt/", cta:"퇴직금"},
+    {desc:"연금저축(세액공제) 효과", href:"/salary/pension-savings/", cta:"연금저축"}
   ],
 
   /* 부동산·세금 (대출/DSR 포함) */
