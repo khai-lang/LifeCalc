@@ -287,5 +287,31 @@
   
   {% include calc-common.html %}
 
+  <script>
+(function(){
+  "use strict";
+  function clean(v){ return String(v==null?"":v).replace(/[^\d.-]/g,""); }
+  function fmt(el, isFloat){
+    var v = clean(el.value);
+    if(!v){ el.value=""; return; }
+    if(!isFloat) v = v.replace(/\./g,"");               // 통화는 소수점 제거
+    var n = isFloat ? parseFloat(v) : parseInt(v,10);
+    el.value = isFinite(n) ? n.toLocaleString("ko-KR") : "";
+  }
+  // 입력 중 실시간 포맷
+  document.addEventListener("input", function(e){
+    var t=e.target; if(!t||!t.dataset) return;
+    if(t.dataset.format==="currency") fmt(t,false);
+    if(t.dataset.format==="number")   fmt(t,true);
+  }, {passive:true});
+  // 포커스 아웃 시 재포맷(붙여넣기 정리)
+  document.addEventListener("blur", function(e){
+    var t=e.target; if(!t||!t.dataset||!t.dataset.format) return;
+    fmt(t, t.dataset.format==="number");
+  }, true);
+})();
+</script>
+
+
 </body>
 </html>
