@@ -3,7 +3,6 @@ layout: default
 title: 연봉·급여·세금 (2025)
 description: 연봉 실수령을 시작으로 4대보험·원천징수·종합소득세·퇴직금·연금저축까지 한 흐름으로.
 permalink: /salary/
-section: salary
 ---
 
 <h1>연봉·급여·세금 (2025)</h1>
