@@ -1,27 +1,125 @@
-<!-- _includes/calc-common.html -->
+<!-- _includes/calc-common.html (v2025-10-01) -->
 <script>
 (function(){
   'use strict';
+
+  /* ====== 유틸 ====== */
   const DIGITS=/[^\d.-]/g;
-  function parseNum(v){ v=String(v??'').replace(/,/g,'').trim(); const n=parseFloat(v); return isFinite(n)?n:0; }
-  function num(id){ const el=document.getElementById(id); return el ? parseNum(el.value) : 0; }
-  function money(n){ return (isFinite(n)?Math.round(n):0).toLocaleString('ko-KR'); }
+  function parseNum(v){
+    v=String(v??'').replace(/,/g,'').trim();
+    const n=parseFloat(v);
+    return isFinite(n)?n:0;
+  }
+  function num(id){
+    const el=document.getElementById(id);
+    return el ? parseNum(el.value) : 0;
+  }
+  function money(n){
+    return (isFinite(n)?Math.round(n):0).toLocaleString('ko-KR');
+  }
+
+  /**
+   * formatInput(el, {float})
+   * float=true  → 소수 허용(비율/요율)
+   * float=false → 정수(원화/금액)
+   */
   function formatInput(el, opts){
     const allowFloat = !!(opts&&opts.float);
     let v=(el.value||'').replace(DIGITS,'');
     if(allowFloat){
-      const parts=v.split('.'); if(parts.length>2) v=parts.shift()+'.'+parts.join('');
-    }else{ v=v.replace(/\./g,''); }
+      const parts=v.split('.');
+      if(parts.length>2) v=parts.shift()+'.'+parts.join('');
+    }else{
+      v=v.replace(/\./g,''); // 통화는 소수점 제거
+    }
     if(!v){ el.value=''; return; }
     const n=allowFloat? parseFloat(v): parseInt(v,10);
     el.value = isFinite(n) ? n.toLocaleString('ko-KR') : '';
   }
-  window.CalcCommon={ num, money, formatInput };
-  // data-format 자동 바인딩
+
+  /* ====== 전역 노출 ====== */
+  window.CalcCommon={ num, money, formatInput, parseNum };
+
+  /* ====== 휴먼-프렌들리 자동 추론 ======
+     - data-format 미지정 input을 스캔하여 자동 지정
+     - 금액/원화: currency
+     - 비율/요율: number (소수 허용)
+  ===================================== */
+  const KEY_CURRENCY=/\b(amount|amt|price|gross|income|revenue|sales|turnover|cost|expense|fee|charge|loan|principal|balance|deposit|rent|jeonse|salary|pay|wage|bonus|insurance|premium|tax|dsr|dti|withholding|pension|saving|deduct|credit|limit|cap)\b/i;
+  const KEY_NUMBER  =/\b(rate|percent|pct|ratio|apy|apr|yield|interest|ltc)\b/i; // 비율·요율
+
+  function guessFormat(el){
+    if(el.dataset && el.dataset.format) return; // 이미 지정됨
+    if(el.type==='number'){
+      // number 타입: step에 소수 허용되면 number, 아니면 currency(정수)
+      if(el.step && el.step.indexOf('.')>=0) el.dataset.format='number';
+      else el.dataset.format='currency';
+      return;
+    }
+    const hay = [el.id, el.name, el.placeholder, el.getAttribute('aria-label')].join(' ').toLowerCase();
+    if(KEY_CURRENCY.test(hay) || /원|금액|보증금|월세|전세|세액|보험료|납입|연봉|실수령/.test(hay)){
+      el.dataset.format='currency';
+      return;
+    }
+    if(KEY_NUMBER.test(hay) || /%|요율|수익률|비율|이율/.test(hay)){
+      el.dataset.format='number';
+      return;
+    }
+  }
+
+  function applyFormatNow(el){
+    if(!el || !el.dataset) return;
+    if(el.dataset.format==='currency') formatInput(el,{float:false});
+    if(el.dataset.format==='number')   formatInput(el,{float:true});
+  }
+
+  function enhanceInput(el){
+    if(!(el instanceof HTMLInputElement)) return;
+    // 숫자 키패드 힌트
+    if(el.dataset && el.dataset.format){
+      el.setAttribute('inputmode', el.dataset.format==='number' ? 'decimal' : 'numeric');
+    }
+    // 초기 포맷(값이 이미 채워져 있으면)
+    if(el.value) applyFormatNow(el);
+
+    // 포커스 시 전체 선택(빠른 덮어쓰기)
+    el.addEventListener('focus', ()=>{ try{ el.select(); }catch(e){} }, {passive:true});
+
+    // 블러 시 강제 포맷(붙여넣기 후 정리)
+    el.addEventListener('blur', ()=>applyFormatNow(el), {passive:true});
+  }
+
+  function scanAndBind(root){
+    const inputs = (root||document).querySelectorAll('input[type="text"], input[type="number"]');
+    inputs.forEach(el=>{
+      guessFormat(el);
+      if(el.dataset && el.dataset.format) enhanceInput(el);
+    });
+  }
+
+  // 기존: data-format 기준 실시간 포맷
   window.addEventListener('input', e=>{
     const t=e.target; if(!t||!t.dataset) return;
-    if(t.dataset.format==='currency') return CalcCommon.formatInput(t,{float:false});
-    if(t.dataset.format==='number')   return CalcCommon.formatInput(t,{float:true});
+    if(t.dataset.format==='currency') return formatInput(t,{float:false});
+    if(t.dataset.format==='number')   return formatInput(t,{float:true});
   }, {passive:true});
+
+  // DOM 로드 시 전체 스캔
+  window.addEventListener('DOMContentLoaded', ()=> scanAndBind(document), {once:true});
+
+  // 동적 추가 대응
+  const mo = new MutationObserver(muts=>{
+    muts.forEach(m=>{
+      m.addedNodes && m.addedNodes.forEach(n=>{
+        if(n.nodeType===1){ // ELEMENT_NODE
+          if(n.matches && (n.matches('input[type="text"],input[type="number"]'))) scanAndBind(n.parentNode||n);
+          const nested = n.querySelectorAll?.('input[type="text"],input[type="number"]');
+          nested && nested.length && scanAndBind(n);
+        }
+      });
+    });
+  });
+  mo.observe(document.documentElement, {childList:true, subtree:true});
+
 })();
 </script>
