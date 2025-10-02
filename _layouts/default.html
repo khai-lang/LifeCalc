@@ -4,6 +4,8 @@
   <!-- Canonical -->
 <link rel="canonical" href="{{ page.url | absolute_url }}"/>
 
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ page.title | escape }}">
@@ -311,6 +313,9 @@
 })();
 </script>
 
-
+ {% include header.html %}
+  {{ content }}
+  {% include footer.html %}
+  
 </body>
 </html>
