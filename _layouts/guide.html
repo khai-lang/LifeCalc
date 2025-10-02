@@ -1,144 +1,45 @@
-<!doctype html>
-<html lang="ko">
-  <head>
-    {% include common-scripts.html %}
+---
+layout: default
+---
 
-    <!-- ✅ 공통 헤더/네비 스타일 -->
-    <link rel="stylesheet" href="{{ '/assets/css/main.css?v=20251003' | relative_url }}">
-    <!-- 가이드 전용 보조 스타일(본문 타이포 등) -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+<main class="guide-wrap">
+  <div class="grid">
+    <!-- 본문 -->
+    <article class="guide-content">
+      <h1 class="page-title">{{ page.title }}</h1>
 
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    <title>{{ page.title }} | {{ site.title }}</title>
+      <!-- 상단 광고 -->
+      <ins class="adsbygoogle" style="display:block"
+           data-ad-client="ca-pub-3758454239921831"
+           data-ad-slot="4868892684"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 
-    <!-- AdSense 전역 스크립트 -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
-  </head>
-  <body>
-
-    <!-- ✅ 홈과 동일한 헤더 구조 -->
-    <header>
-  <div class="header-wrap">
-    <a class="brand" href="/">
-      <img src="/images/logo.png" alt="LifeCalc 로고">
-      <span>{{ site.title | default: "LifeCalc" }}</span>
-    </a>
-    <label for="nav-toggle" class="burger" aria-label="메뉴 열기">☰</label>
-    <input id="nav-toggle" type="checkbox" aria-label="메뉴 토글">
-    {% include header.html %}
-  </div>
-</header>
-
-
-    <main class="guide-wrap">
-      <div class="grid">
-        <!-- 본문 -->
-        <article class="guide-content">
-          <h1 class="page-title">{{ page.title }}</h1>
-
-          <!-- 상단 광고 -->
-          <ins class="adsbygoogle" style="display:block"
-               data-ad-client="ca-pub-3758454239921831"
-               data-ad-slot="4868892684"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-          <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-
-          <!-- !!! prose 안에 content 필수 -->
-          <div class="prose">
-            {{ content }}
-          </div>
-
-          <!-- 하단 광고 -->
-          <ins class="adsbygoogle" style="display:block; margin-top:24px"
-               data-ad-client="ca-pub-3758454239921831"
-               data-ad-slot="4868892684"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-          <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-        </article>
-
-        <!-- 우측 사이드 -->
-        <aside class="guide-aside">
-          {% include promo-tip-guide.html %}
-
-          <ins class="adsbygoogle" style="display:block; margin-top:16px"
-               data-ad-client="ca-pub-3758454239921831"
-               data-ad-slot="4868892684"
-               data-ad-format="rectangle"
-               data-full-width-responsive="true"></ins>
-          <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-        </aside>
+      <!-- !!! prose 안에 content 필수 -->
+      <div class="prose">
+        {{ content }}
       </div>
-    </main>
 
-    {% include promo-data.js %}
+      <!-- 하단 광고 -->
+      <ins class="adsbygoogle" style="display:block; margin-top:24px"
+           data-ad-client="ca-pub-3758454239921831"
+           data-ad-slot="4868892684"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </article>
 
-    <!-- ✅ 가이드 전용: 드롭다운 토글 스크립트 -->
-    <script>
-    (function(){
-      const drops = document.querySelectorAll('.drop');
+    <!-- 오른쪽 레일 -->
+    <aside class="guide-aside">
+      {% include promo-tip-guide.html %}
 
-      // 초기화: 모두 닫기
-      drops.forEach(d=>{
-        d.classList.remove('open');
-        const b = d.querySelector('.nav-parent');
-        if (b) b.setAttribute('aria-expanded','false');
-      });
-
-      // 버튼 토글
-      drops.forEach(d=>{
-        const btn = d.querySelector('.nav-parent');
-        if (!btn) return;
-
-        function closeOthers(){
-          drops.forEach(x=>{
-            if (x !== d) {
-              x.classList.remove('open');
-              const xb = x.querySelector('.nav-parent');
-              xb && xb.setAttribute('aria-expanded','false');
-            }
-          });
-        }
-        function toggleDrop(){
-          closeOthers();
-          const willOpen = !d.classList.contains('open');
-          d.classList.toggle('open', willOpen);
-          btn.setAttribute('aria-expanded', willOpen ? 'true':'false');
-        }
-
-        btn.addEventListener('click', e=>{
-          e.preventDefault();
-          toggleDrop();
-        });
-        btn.addEventListener('keydown', e=>{
-          if (e.key==='Enter' || e.key===' ') {
-            e.preventDefault();
-            toggleDrop();
-          }
-        });
-      });
-
-      // 바깥 클릭/ESC 닫기
-      document.addEventListener('click', e=>{
-        if(!e.target.closest('.drop')){
-          drops.forEach(d=>{
-            d.classList.remove('open');
-            const b=d.querySelector('.nav-parent');
-            b && b.setAttribute('aria-expanded','false');
-          });
-        }
-      });
-      document.addEventListener('keydown', e=>{
-        if(e.key==='Escape'){
-          drops.forEach(d=>{
-            d.classList.remove('open');
-            const b=d.querySelector('.nav-parent');
-            b && b.setAttribute('aria-expanded','false');
-          });
-        }
-      });
-    })();
-    </script>
-  </body>
-</html>
+      <ins class="adsbygoogle" style="display:block; margin-top:16px"
+           data-ad-client="ca-pub-3758454239921831"
+           data-ad-slot="4868892684"
+           data-ad-format="rectangle"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </aside>
+  </div>
+</main>
