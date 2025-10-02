@@ -69,8 +69,6 @@ window.PROMOS_BY_SECTION = {
   /* 가이드 */
   guide: [
     {desc:"계산 공식/해석 모음", href:"/guide/", cta:"가이드"},
-    {desc:"전세 전환율 공식 정리", href:"/guide/rent-to-jeonse-rate/", cta:"전환율 공식"},
-    {desc:"BMI 범위 해석", href:"/guide/bmi-range/", cta:"BMI 해석"}
   ]
 };
 </script>
