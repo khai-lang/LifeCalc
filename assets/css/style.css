@@ -169,36 +169,26 @@
   .drop .menu a:hover{ background:rgba(255,255,255,.12); }
 }
 
-/* 본문 + 우측 레일 2열 레이아웃 */
+/* 2열 레이아웃 */
 .wrap--with-rail{
-  display: grid;
-  grid-template-columns: minmax(0,1fr) 320px; /* 본문, 사이드 폭 */
-  gap: 24px;
-  align-items: start;
+  display:grid;
+  grid-template-columns: minmax(0,1fr) 320px; /* 본문 + 오른쪽 레일 */
+  gap:24px; align-items:start;
 }
+.main-content{ max-width:880px; margin:0 auto; padding-right:4px; }
+.right-rail{ position: sticky; top:96px; display:flex; flex-direction:column; gap:16px; }
 
-/* 본문 폭(중앙 정렬 + 가독 폭) */
-.main-content{
-  max-width: 880px;
-  margin: 0 auto;
-  padding-right: 4px;
-}
-
-/* 사이드 레일 고정 (헤더 높이에 맞게 top 조정) */
-.right-rail{
-  position: sticky;
-  top: 96px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* 모바일: 1열, 사이드 숨김, 본문 하단 대체 노출 */
+/* 모바일: 사이드 숨김, promo-mobile만 보이기 */
+.promo-mobile{ display:none; }
 @media (max-width: 860px){
   .wrap--with-rail{ grid-template-columns: 1fr; }
-  .right-rail{ display: none; }
+  .right-rail{ display:none; }
   .promo-mobile{ display:block; margin-top:14px; }
 }
+
+/* ✅ 안전장치: 데스크탑에서 본문 내부 팁/광고는 숨김 (가이드 본문 중복 차단) */
 @media (min-width: 861px){
-  .promo-mobile{ display:none !important; }
+  .main-content .promo-card,
+  .main-content .adsbygoogle{ display:none !important; }
 }
+
