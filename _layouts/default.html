@@ -6,6 +6,11 @@
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
+  {% if page.layout == 'guide' or page.section == 'guide' %}
+<link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+{% endif %}
+
+
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page.title | escape }}">
