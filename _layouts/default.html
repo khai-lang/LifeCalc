@@ -138,37 +138,44 @@
     <script src="/assets/js/lifecalc-ads-v2.js" defer></script>
   </header>
 
-  <!-- 본문 -->
-  <main class="wrap wrap--with-rail">
-    <!-- 왼쪽 본문 (가운데 정렬 적용) -->
-    <div class="main-content">
-      {{ content }}
+ <!-- 본문 -->
+<main class="wrap wrap--with-rail">
+  <!-- 왼쪽 본문 (가운데 정렬 적용) -->
+  <div class="main-content">
+    {{ content }}
 
-      <!-- 모바일 전용: 결과값 아래 '오늘의 팁'(가이드 회전형) -->
-      <div class="promo-mobile">
-        {% include promo-tip-guide.html %}
-      </div>
+    {%- comment -%}
+      ✅ 가이드 페이지에서만 본문 ‘하단’에 팁을 한 번 보여줍니다.
+      (데스크탑에서는 CSS로 숨기고, 모바일에서만 보이도록 합니다)
+    {%- endcomment -%}
+    {% if page.layout == 'guide' or page.section == 'guide' %}
+    <div class="promo-mobile">
+      {% include promo-tip-guide.html %}
+      {# 필요하면 모바일 전용 광고도 여기에 #}
     </div>
+    {% endif %}
+  </div>
 
-    <!-- 오른쪽 레일(PC) -->
-    <aside class="right-rail">
-      {%- comment -%}
-        ✅ 가이드는 '본문에 팁'을 두시므로, 여기선 중복 방지를 위해 팁을 뺍니다.
-        (guide가 아닌 페이지에서는 오른쪽 레일에 팁을 보여주고 싶다면 아래 if문을 열어 사용)
-      {%- endcomment -%}
-      {%- unless page.layout == 'guide' or page.section == 'guide' -%}
-        {% include promo-tip-guide.html %}
-      {%- endunless -%}
+  <!-- 오른쪽 레일(PC) -->
+  <aside class="right-rail">
+    {%- comment -%}
+      ✅ 가이드가 아닐 때만 사이드 상단에 ‘오늘의 팁’을 노출합니다.
+      (가이드는 본문에서 처리하므로 중복 방지)
+    {%- endcomment -%}
+    {% unless page.layout == 'guide' or page.section == 'guide' %}
+      {% include promo-tip-guide.html %}
+    {% endunless %}
 
-      <!-- ✅ 실제 AdSense 사이드 광고 슬롯 -->
-      <ins class="adsbygoogle" style="display:block; margin-top:16px"
-           data-ad-client="ca-pub-3758454239921831"
-           data-ad-slot="4868892684"
-           data-ad-format="rectangle"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-    </aside>
-  </main>
+    <!-- ✅ 사이드 AdSense 광고 (모든 페이지 공통) -->
+    <ins class="adsbygoogle" style="display:block; margin-top:16px"
+         data-ad-client="ca-pub-3758454239921831"
+         data-ad-slot="4868892684"
+         data-ad-format="rectangle"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </aside>
+</main>
+
 
   <!-- 푸터 -->
   <footer>
