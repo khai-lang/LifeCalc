@@ -6,23 +6,43 @@ permalink: /guide/
 section: guide
 ---
 
-# 가이드 모음
-
+<h1>가이드 모음</h1>
 <p class="muted">계산기를 이해하고 활용하는 데 필요한 각종 공식과 해석을 정리했습니다.</p>
 
-<ul class="guide-list">
-  {% assign guides = site.categories.guide | sort: "date" | reverse %}
-  {% for post in guides %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <small style="color:#6b7280">{{ post.date | date: "%Y-%m-%d" }}</small><br>
-      <span style="color:#444">{{ post.description | default: post.excerpt | strip_html | truncate: 100 }}</span>
-    </li>
-  {% endfor %}
-</ul>
+{%- comment -%}
+  1) _posts/guide/ 폴더의 글을 우선 수집 (categories 누락돼도 안전)
+  2) 폴더에 글이 없으면 categories: guide 로 대체
+{%- endcomment -%}
+{%- assign guides_folder = site.posts | where_exp: "p", "p.path contains '_posts/guide/'" -%}
+{%- if guides_folder and guides_folder != empty -%}
+  {%- assign guides = guides_folder -%}
+{%- else -%}
+  {%- assign guides = site.categories.guide -%}
+{%- endif -%}
+{%- assign guides = guides | sort: "date" | reverse -%}
+
+<div class="grid-cards guide-grid">
+  {%- for post in guides -%}
+    <a class="card card-link" href="{{ post.url | relative_url }}">
+      <div class="title">{{ post.title }}</div>
+      <div class="meta">{{ post.date | date: "%Y-%m-%d" }}</div>
+      <div class="desc">
+        {{ post.description | default: post.excerpt | strip_html | truncate: 110 }}
+      </div>
+    </a>
+  {%- endfor -%}
+</div>
 
 <style>
-.guide-list{ list-style:none; padding:0; margin:0; display:grid; gap:12px }
-.guide-list li{ padding:12px; border:1px solid #e6ebf0; border-radius:10px; background:#fff; }
-.guide-list a{ font-weight:700; }
+/* ===== 기본 카드 스타일(사이트 공통이 있으면 중복 적용 OK) ===== */
+.grid-cards{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; }
+.card{ background:#fff; border:1px solid #e6ebf0; border-radius:12px; padding:16px; transition:.2s ease; }
+.card-link{ text-decoration:none; }
+.card:hover{ box-shadow:0 8px 22px rgba(15,23,42,.08); transform:translateY(-2px); }
+.card .title{ font-weight:800; color:#0f172a; margin-bottom:6px; line-height:1.3; }
+.card .meta{ font-size:12px; color:#94a3b8; margin-bottom:8px; }
+.card .desc{ color:#475569; }
+
+/* 가이드 페이지 전용 약간의 여백 보정 */
+.guide-grid{ margin-top:12px; }
 </style>
