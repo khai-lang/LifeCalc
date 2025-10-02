@@ -1,7 +1,8 @@
+{%- comment -%} === GUIDE MENU: only one link to /guide/ === {%- endcomment -%}
 {%- assign guide_index = site.pages | where: "permalink", "/guide/" | first -%}
 <li class="nav-item has-submenu">
-  <a href="{{ guide_index.url | relative_url }}">가이드</a>
+  <a href="{{ (guide_index.url | default: '/guide/') | relative_url }}">가이드</a>
   <ul class="submenu">
-    <li><a href="{{ guide_index.url | relative_url }}">가이드 글 보러가기</a></li>
+    <li><a href="{{ (guide_index.url | default: '/guide/') | relative_url }}">가이드 글 보러가기</a></li>
   </ul>
 </li>
