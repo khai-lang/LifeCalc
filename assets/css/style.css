@@ -142,3 +142,29 @@
     background: rgba(255,255,255,.12); /* 기존 hover 효과 */
   }
 }
+
+/* PC 전용: 하위 메뉴 연살구톤 */
+@media (min-width: 941px){
+  .drop .menu{
+    background:#fff8f1;
+    border:1px solid #f3e6db;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    padding:10px;
+    display:none;
+    z-index:1200;
+  }
+  .drop.open .menu{ display:block; }
+  .drop .menu a:hover{
+    background:#ffeedd;
+    border-color:#f0d4c0;
+    color:#ff6a00;
+  }
+}
+
+/* 모바일: 기존 스타일 유지 */
+@media (max-width: 940px){
+  .drop .menu{ background:transparent; border:0; box-shadow:none; }
+  .drop .menu a{ color:#fff; }
+  .drop .menu a:hover{ background:rgba(255,255,255,.12); }
+}
