@@ -18,14 +18,17 @@
 
     <!-- ✅ 홈과 동일한 헤더 구조 -->
     <header>
-      <div class="header-wrap">
-        <a class="brand" href="/"><img src="/images/logo.png" alt="LifeCalc 로고"><span>{{ site.title | default: "LifeCalc" }}</span></a>
-        <label for="nav-toggle" class="burger" aria-label="메뉴 열기">☰</label>
-        <input id="nav-toggle" type="checkbox" aria-label="메뉴 토글">
-        {% include header.html %}
-      </div>
-      <script src="/assets/js/lifecalc-ads-v2.js" defer></script>
-    </header>
+  <div class="header-wrap">
+    <a class="brand" href="/">
+      <img src="/images/logo.png" alt="LifeCalc 로고">
+      <span>{{ site.title | default: "LifeCalc" }}</span>
+    </a>
+    <label for="nav-toggle" class="burger" aria-label="메뉴 열기">☰</label>
+    <input id="nav-toggle" type="checkbox" aria-label="메뉴 토글">
+    {% include header.html %}
+  </div>
+</header>
+
 
     <main class="guide-wrap">
       <div class="grid">
