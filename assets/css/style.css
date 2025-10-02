@@ -96,3 +96,30 @@
   .sidebar{ order:-1; }
   .post-body{ font-size:17px; } /* 모바일에서 약간만 줄임 */
 }
+
+/* 드롭다운 하위 메뉴 - 통일된 배경 */
+.drop .menu {
+  background: #f9fafb;          /* 연한 회색 (본문 흰색과 구분) */
+  border: 1px solid #e5e7eb;    /* 은은한 경계선 */
+  border-radius: 12px;          /* 둥근 모서리 */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06); /* 살짝 그림자 */
+}
+
+/* 하위 메뉴 항목 */
+.drop .menu a {
+  display: block;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #2b2b2b;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin: 2px 0;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+/* hover 효과 - 좀 더 진한 회색 */
+.drop .menu a:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
