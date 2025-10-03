@@ -3,13 +3,18 @@ layout: default
 ---
 
 <main class="wrap wrap--with-rail">
-  <!-- 본문(가운데) -->
-  <div class="main-content">
-    <h1 class="page-title">{{ page.title }}</h1>
+  <div class="page-layout">
+    <!-- 왼쪽 광고 -->
+    <aside class="ad-left">
+      {% include ad-left.html %}
+    </aside>
 
-    <div class="prose">
-      {{ content }}
-    </div>
+    <!-- 본문 -->
+    <div class="main-content">
+      <h1 class="page-title">{{ page.title }}</h1>
+      <div class="prose">
+        {{ content }}
+      </div>
 
     <!-- 모바일 전용: 본문 하단에만 팁/광고 노출 -->
     <div class="promo-mobile">
