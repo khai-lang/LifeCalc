@@ -5,6 +5,8 @@ description: 간단한 문항으로 나의 정신연령을 확인하세요.
 permalink: /lifeplus/fun/mental-age/
 section: lifeplus
 parent: fun
+redirect_from:
+  - /fun/mental-age/
 ---
 
 <h1><span class="accent">정신연령</span> 계산기</h1>
