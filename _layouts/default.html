@@ -142,7 +142,7 @@
 
   < !-- 본문-->
 <main class="wrap wrap--with-rail">
-  <!-- ✅ 왼쪽 레일: 광고 전용 -->
+  <!-- ✅ 왼쪽 여백: 광고 전용 -->
   <aside class="left-rail">
     <ins class="adsbygoogle" style="display:block"
          data-ad-client="ca-pub-3758454239921831"
@@ -152,25 +152,37 @@
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </aside>
 
-  <!-- ✅ 본문: 팁/광고 전부 없음 -->
+  <!-- ✅ 본문: 광고/오늘의 팁 모두 없음 -->
   <div class="main-content">
     <h1 class="page-title">{{ page.title }}</h1>
     <div class="prose">
       {{ content }}
     </div>
+    <!-- ⚠️ 본문 내부에 있던 promo-mobile/adsbygoogle는 모두 제거 -->
   </div>
 
-  <!-- ✅ 오른쪽 레일: '오늘의 팁' + 광고 (본문이 아니라 여백) -->
+  <!-- ✅ 오른쪽 여백: 상단=오늘의 팁 박스, 하단=광고 -->
   <aside class="right-rail">
     {% include promo-tip-guide.html %}
 
     <ins class="adsbygoogle" style="display:block; margin-top:16px"
          data-ad-client="ca-pub-3758454239921831"
-         data-ad-slot="4868892684"
+         data-ad-slot="YOUR_RIGHT_SLOT_ID"
          data-ad-format="rectangle"
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </aside>
+
+  /* 모바일: 레일 숨김, 팁만 본문 하단 노출 */
+@media (max-width:860px){
+  .wrap--with-rail{ grid-template-columns:1fr; }
+  .left-rail, .right-rail{ display:none; }
+  .promo-mobile{ display:block; margin-top:14px; }
+}
+@media (min-width:861px){
+  .promo-mobile{ display:none !important; }
+}
+  
 </main>
 
 /* 모바일: 레일 숨김, 팁만 본문 하단 노출 */
