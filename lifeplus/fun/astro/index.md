@@ -5,6 +5,8 @@ description: 생년월일로 서양 별자리와 한국 12띠를 확인하세요
 permalink: /lifeplus/fun/astro/
 section: lifeplus
 parent: fun
+redirect_from:
+  - /fun/astro/
 ---
 
 # 별자리·띠 찾기
