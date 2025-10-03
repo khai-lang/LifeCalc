@@ -99,7 +99,9 @@
     .result-box.show{display:block}
     .ad-box{max-width:728px;margin:20px auto}
 
-    /* 2열 레이아웃 (본문 + 우측 레일) */
+    /* 3열 레이아웃 (좌측 레일 + 본문 + 우측 레일) */
+    /* 왼쪽 레일 고정 */
+    .left-rail{position:sticky;top:96px}
     .wrap--with-rail{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
     /* ⛳ 본문 중앙 정렬 + 가독폭 */
     .main-content{max-width:880px;margin:0 auto;padding-right:4px}
