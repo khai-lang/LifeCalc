@@ -66,9 +66,26 @@ window.PROMOS_BY_SECTION = {
     {desc:"여행자보험 보험료 추정", href:"/insurance/travel/", cta:"여행자보험"}
   ],
 
-  /* 가이드 */
+  /* 라이프플러스 */
+lifeplus: {
+  fun: [
+    {desc:"정신연령 테스트", href:"/lifeplus/fun/mental-age/", cta:"테스트하기"},
+    {desc:"별자리·띠 찾기", href:"/lifeplus/fun/astro/", cta:"찾아보기"},
+    // 허브 바로가기(원하면 주석 해제)
+    // {desc:"테스트/심리 모음", href:"/lifeplus/fun/", cta:"둘러보기"},
+  ],
+  dailyData: [
+    {desc:"환율·금시세·날씨 요약", href:"/lifeplus/daily-data/", cta:"바로 보기"},
+  ],
+  insight: [
+    {desc:"경제 뉴스 요약 & 오늘의 명언/팁", href:"/lifeplus/insight/", cta:"읽기"},
+  ],
+  challenge: [
+    {desc:"30일 챌린지 시작하기", href:"/lifeplus/challenge/", cta:"참여하기"},
+  ],
   guide: [
-    {desc:"계산 공식/해석 모음", href:"/guide/", cta:"가이드"},
+    {desc:"가이드 글 모음(블로그형)", href:"/lifeplus/guide/", cta:"가이드"},
   ]
-};
+},
+
 </script>
