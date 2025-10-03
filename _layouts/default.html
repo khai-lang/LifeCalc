@@ -140,23 +140,37 @@
     <script src="/assets/js/lifecalc-ads-v2.js" defer></script>
   </header>
 
- <!-- 본문 -->
 <main class="wrap wrap--with-rail">
-  <!-- 왼쪽 본문 (가운데 정렬 적용) -->
+  <!-- ✅ 왼쪽 레일: 광고 전용 -->
+  <aside class="left-rail">
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-3758454239921831"
+         data-ad-slot="YOUR_LEFT_SLOT_ID"
+         data-ad-format="rectangle"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </aside>
+
+  <!-- ✅ 본문: 팁/광고 전부 없음 -->
   <div class="main-content">
-    {{ content }}
+    <h1 class="page-title">{{ page.title }}</h1>
+    <div class="prose">
+      {{ content }}
+    </div>
+  </div>
 
-    /* 데스크탑: 3열(좌 레일 200px / 본문 / 우 레일 320px) */
-.wrap--with-rail{
-  display:grid;
-  grid-template-columns: 200px minmax(0,1fr) 320px;
-  gap:24px;
-  align-items:start;
-}
+  <!-- ✅ 오른쪽 레일: '오늘의 팁' + 광고 (본문이 아니라 여백) -->
+  <aside class="right-rail">
+    {% include promo-tip-guide.html %}
 
-/* 레일 고정 */
-.left-rail{ position:sticky; top:96px; }
-.right-rail{ position:sticky; top:96px; }
+    <ins class="adsbygoogle" style="display:block; margin-top:16px"
+         data-ad-client="ca-pub-3758454239921831"
+         data-ad-slot="4868892684"
+         data-ad-format="rectangle"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </aside>
+</main>
 
 /* 모바일: 레일 숨김, 팁만 본문 하단 노출 */
 @media (max-width:860px){
