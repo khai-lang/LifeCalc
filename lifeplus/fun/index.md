@@ -8,8 +8,8 @@ nav_label: 테스트/심리
 nav_order: 20
 redirect_from:
   - /fun/
+  - /fun/index.html
 ---
-
 
 <div class="grid-cards">
   <a class="card" href="/lifeplus/fun/mental-age/">
