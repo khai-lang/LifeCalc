@@ -10,7 +10,6 @@ redirect_from:
   - /fun/
 ---
 
-# 테스트/심리
 
 <div class="grid-cards">
   <a class="card" href="/lifeplus/fun/mental-age/">
