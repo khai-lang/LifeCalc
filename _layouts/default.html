@@ -144,27 +144,27 @@
   <div class="main-content">
     {{ content }}
 
-    {%- comment -%}
-      ✅ 가이드 페이지에서만 본문 ‘하단’에 팁을 한 번 보여줍니다.
-      (데스크탑에서는 CSS로 숨기고, 모바일에서만 보이도록 합니다)
-    {%- endcomment -%}
-    {% if page.layout == 'guide' or page.section == 'guide' %}
-    <div class="promo-mobile">
-      {% include promo-tip-guide.html %}
-      {# 필요하면 모바일 전용 광고도 여기에 #}
-    </div>
-    {% endif %}
-  </div>
+    /* 데스크탑: 3열(좌 레일 200px / 본문 / 우 레일 320px) */
+.wrap--with-rail{
+  display:grid;
+  grid-template-columns: 200px minmax(0,1fr) 320px;
+  gap:24px;
+  align-items:start;
+}
 
-  <!-- 오른쪽 레일(PC) -->
-  <aside class="right-rail">
-    {%- comment -%}
-      ✅ 가이드가 아닐 때만 사이드 상단에 ‘오늘의 팁’을 노출합니다.
-      (가이드는 본문에서 처리하므로 중복 방지)
-    {%- endcomment -%}
-    {% unless page.layout == 'guide' or page.section == 'guide' %}
-      {% include promo-tip-guide.html %}
-    {% endunless %}
+/* 레일 고정 */
+.left-rail{ position:sticky; top:96px; }
+.right-rail{ position:sticky; top:96px; }
+
+/* 모바일: 레일 숨김, 팁만 본문 하단 노출 */
+@media (max-width:860px){
+  .wrap--with-rail{ grid-template-columns:1fr; }
+  .left-rail, .right-rail{ display:none; }
+  .promo-mobile{ display:block; margin-top:14px; }
+}
+@media (min-width:861px){
+  .promo-mobile{ display:none !important; }
+}
 
     <!-- ✅ 사이드 AdSense 광고 (모든 페이지 공통) -->
     <ins class="adsbygoogle" style="display:block; margin-top:16px"
