@@ -69,13 +69,15 @@ window.PROMOS_BY_SECTION = {
   /* 라이프플러스 */
 lifeplus: {
   fun: [
-    {desc:"정신연령 테스트", href:"/lifeplus/fun/mental-age/", cta:"테스트하기"},
-    {desc:"별자리·띠 찾기", href:"/lifeplus/fun/astro/", cta:"찾아보기"},
-    {desc:"테스트/심리 모음", href:"/lifeplus/fun/", cta:"둘러보기"},
-    {desc:"환율·금시세·날씨 요약", href:"/lifeplus/daily-data/", cta:"바로 보기"},
-    {desc:"경제 뉴스 요약 & 오늘의 명언/팁", href:"/lifeplus/insight/", cta:"읽기"},
-    {desc:"30일 챌린지 시작하기", href:"/lifeplus/challenge/", cta:"참여하기"},
-    {desc:"가이드 글 모음(블로그형)", href:"/lifeplus/guide/", cta:"가이드"},
-   ],
+    {desc:"정신연령 테스트",     href:"{{ '/lifeplus/fun/mental-age/' | relative_url }}", cta:"테스트하기"},
+    {desc:"별자리·띠 찾기",      href:"{{ '/lifeplus/fun/astro/'       | relative_url }}", cta:"찾아보기"},
+    {desc:"테스트/심리 모음",    href:"{{ '/lifeplus/fun/'             | relative_url }}", cta:"둘러보기"},
+    {desc:"환율·금시세·날씨 요약", href:"{{ '/lifeplus/daily-data/'      | relative_url }}", cta:"바로 보기"},
+    {desc:"경제 뉴스 요약 & 오늘의 명언", href:"{{ '/lifeplus/insight/'  | relative_url }}", cta:"읽기"},
+    {desc:"30일 챌린지 시작하기", href:"{{ '/lifeplus/challenge/'       | relative_url }}", cta:"참여하기"},
+    {desc:"가이드 글 모음(블로그형)", href:"{{ '/lifeplus/guide/'       | relative_url }}", cta:"가이드"}
+  ]
+},
+
 
 </script>
