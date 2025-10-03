@@ -169,15 +169,6 @@
   .drop .menu a:hover{ background:rgba(255,255,255,.12); }
 }
 
-/* 2열 레이아웃 */
-.wrap--with-rail{
-  display:grid;
-  grid-template-columns: minmax(0,1fr) 320px; /* 본문 + 오른쪽 레일 */
-  gap:24px; align-items:start;
-}
-.main-content{ max-width:880px; margin:0 auto; padding-right:4px; }
-.right-rail{ position: sticky; top:96px; display:flex; flex-direction:column; gap:16px; }
-
 /* 모바일: 사이드 숨김, promo-mobile만 보이기 */
 .promo-mobile{ display:none; }
 @media (max-width: 860px){
@@ -192,29 +183,26 @@
   .main-content .adsbygoogle{ display:none !important; }
 }
 
-/* 본문 + 우측 레일 2열 레이아웃 */
+/* 데스크탑: 3열(좌 200px / 본문 / 우 320px) */
 .wrap--with-rail{
-  display: grid;
-  grid-template-columns: minmax(0,1fr) 320px; /* 본문, 사이드 폭 */
-  gap: 24px;
-  align-items: start;
+  display:grid;
+  grid-template-columns: 200px minmax(0,1fr) 320px;
+  gap:24px;
+  align-items:start;
 }
 
-/* 본문 폭(중앙 정렬 + 가독 폭) */
-.main-content{
-  max-width: 880px;
-  margin: 0 auto;
-  padding-right: 4px;
-}
-
-/* 사이드 레일 고정 (헤더 높이에 맞게 top 조정) */
-.right-rail{
+/* 레일 고정 위치 */
+.left-rail, .right-rail{
   position: sticky;
-  top: 96px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  top: 96px; /* 헤더 높이에 맞게 조정 */
 }
+
+/* 모바일(폭 ≤ 860px): 여백 제거, 본문만 표시 */
+@media (max-width: 860px){
+  .wrap--with-rail{ grid-template-columns: 1fr; }
+  .left-rail, .right-rail{ display:none; }
+}
+
 
 /* 모바일: 1열, 사이드 숨김, 본문 하단 대체 노출 */
 @media (max-width: 860px){
