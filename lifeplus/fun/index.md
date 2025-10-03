@@ -6,6 +6,8 @@ permalink: /lifeplus/fun/
 section: lifeplus
 nav_label: 테스트/심리
 nav_order: 20
+redirect_from:
+  - /fun/
 ---
 
 # 테스트/심리
