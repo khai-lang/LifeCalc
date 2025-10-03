@@ -75,18 +75,17 @@
     </li>
 
    <!-- 라이프+ (허브 + 5개 고정) -->
-<li class="drop{% if page.section == 'lifeplus' %} active{% endif %}">
-  <button type="button" class="nav-parent" aria-expanded="false">라이프+</button>
-  <div class="menu" role="menu" aria-label="라이프+ 하위">
-    <a href="{{ '/lifeplus/' | relative_url }}">허브</a>
-    <a href="{{ '/lifeplus/fun/' | relative_url }}">테스트/심리</a>   <!-- ← fun 메뉴 -->
-    <a href="{{ '/lifeplus/daily-data/' | relative_url }}">오늘의 데이터</a>
-    <a href="{{ '/lifeplus/insight/' | relative_url }}">오늘의 인사이트</a>
-    <a href="{{ '/lifeplus/challenge/' | relative_url }}">챌린지</a>
+   <li class="drop">
+     <button type="button" class="nav-parent" aria-expanded="false">투자 계산기</button>
+     <div class="menu" role="menu">
+       <a href="/lifeplus/">전체보기</a>
+       <a href="/lifeplus/test/">정신연령테스트-별자리</a>
+       <a href="/lifeplus/daily-data/">오늘의 데이터</a>
+       <a href="/lifeplus/insight/">오늘의 인사이트</a>
+       <a href="/lifeplus/challenge/">챌린지</a>
     <div style="margin:8px 0;border-top:1px dashed #e6ebf0"></div>
-    <a href="{{ '/lifeplus/guide/' | relative_url }}">가이드 글 보기</a>
-  </div>
-</li>
-
-    </ul>
-   </nav>
+       <a href="/guide/">가이드 글 보러가기</a>
+    </div>
+   </li>
+  </ul>
+</nav>
