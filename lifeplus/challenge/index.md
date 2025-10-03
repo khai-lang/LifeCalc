@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 30일 챌린지
-description: 재방문을 유도하는 30일 챌린지 코너
+description: 30일 챌린지 코너
 permalink: /lifeplus/challenge/
 section: lifeplus
 nav_label: 챌린지
