@@ -214,5 +214,16 @@
   .promo-mobile{ display:none !important; }
 }
 
+<라이프플러스 인사이트>
+.grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:16px}
+.card{border:1px solid #eee;border-radius:12px;padding:16px;background:#fff;transition:transform .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+.title{font-weight:700;margin-bottom:8px}
+.list{margin:0;padding-left:18px}
+.list .meta{color:#888;font-size:.9rem;margin-left:6px}
+.quote{margin:0;border-left:4px solid #eee;padding-left:12px;color:#444}
+.muted{color:#888}
+.archive{margin-top:20px}
+
 
 
