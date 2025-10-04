@@ -8,7 +8,6 @@ nav_label: 라이프+
 nav_order: 10
 ---
 
-# 라이프+
 
 <div class="grid-cards">
   <a class="card" href="{{ '/lifeplus/fun/'        | relative_url }}">
