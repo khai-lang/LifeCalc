@@ -1,0 +1,19 @@
+# 최신 항목이 위로 오도록 'date' 기준 정렬해 사용합니다.
+- date: 2025-10-04
+  headlines:
+    - { title: "미·중 경기지표 혼조…달러 강세", url: "https://example.com/a1", source: "연합" }
+    - { title: "국내 반도체 수출 회복세",        url: "https://example.com/a2", source: "매경" }
+    - { title: "원유 가격 변동성 확대",          url: "https://example.com/a3", source: "블룸버그" }
+  tip: "대출 금리 변동기엔 중도상환수수료를 꼭 확인하세요."
+  quote:
+    text: "행동은 모든 성공의 기초이다."
+    author: "파블로 피카소"
+
+# 예: 이전 날짜 아카이브
+- date: 2025-10-03
+  headlines:
+    - { title: "소비심리지수 반등", url: "https://example.com/b1", source: "한경" }
+  tip: "앱 구독은 분기 단위로 점검해 불필요한 비용을 줄이세요."
+  quote:
+    text: "꾸준함은 재능을 이긴다."
+    author: "익명"
