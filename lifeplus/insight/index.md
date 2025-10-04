@@ -8,7 +8,6 @@ nav_label: 오늘의 인사이트
 nav_order: 40
 ---
 
-# 오늘의 인사이트
 
 {% assign latest = site.data.insight | sort:'date' | reverse | first %}
 {% include insight-cards.html latest=latest %}
