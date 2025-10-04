@@ -11,7 +11,7 @@ redirect_from:
   - /fun/index.html
 ---
 
-# 테스트/심리
+
 
 <p class="lead">간단하고 재미있는 테스트로 매일 색다른 재미를 느껴보세요.</p>
 
