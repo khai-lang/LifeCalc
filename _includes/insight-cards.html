@@ -1,0 +1,57 @@
+{%- comment -%}
+입력: latest = site.data.insight | sort:'date' | reverse | first
+{%- endcomment -%}
+{%- assign latest = include.latest -%}
+
+<div class="grid-cards insight-cards">
+  <!-- 오늘의 경제 뉴스 -->
+  <section class="card">
+    <div class="title">📰 오늘의 경제 뉴스 요약</div>
+    <ul class="list">
+      {%- if latest.headlines and latest.headlines.size > 0 -%}
+        {%- for h in latest.headlines -%}
+          <li>
+            <a href="{{ h.url }}" target="_blank" rel="noopener">{{ h.title }}</a>
+            <span class="meta">· {{ h.source }}</span>
+          </li>
+        {%- endfor -%}
+      {%- else -%}
+        <li class="muted">오늘의 헤드라인을 준비 중입니다.</li>
+      {%- endif -%}
+    </ul>
+  </section>
+
+  <!-- 생활 팁 -->
+  <section class="card">
+    <div class="title">💡 생활에 도움이 되는 한 줄 팁</div>
+    <p class="desc">{% if latest.tip %}{{ latest.tip }}{% else %}<span class="muted">곧 업데이트됩니다.</span>{% endif %}</p>
+  </section>
+
+  <!-- 오늘의 명언 -->
+  <section class="card">
+    <div class="title">✨ 오늘의 명언</div>
+    <blockquote class="quote">
+      <p>“{% if latest.quote and latest.quote.text %}{{ latest.quote.text }}{% else %}준비 중입니다.{% endif %}”</p>
+      <cite>— {% if latest.quote and latest.quote.author %}{{ latest.quote.author }}{% else %}알 수 없음{% endif %}</cite>
+    </blockquote>
+  </section>
+</div>
+
+<!-- 아카이브 링크 목록 -->
+{%- assign all = site.data.insight | sort:'date' | reverse -%}
+{%- if all.size > 1 -%}
+  <div class="archive">
+    <h2>📚 지난 인사이트</h2>
+    <ul>
+      {%- for item in all offset:1 -%}
+        <li>{{ item.date }} — 
+          {%- if item.headlines and item.headlines.size > 0 -%}
+            {{ item.headlines[0].title }}
+          {%- else -%}
+            (요약 없음)
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
