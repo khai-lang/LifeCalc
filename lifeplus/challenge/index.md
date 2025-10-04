@@ -8,6 +8,12 @@ nav_label: 챌린지
 nav_order: 50
 ---
 
+<p>작은 습관을 만들어가는 도전의 시작!</p>
+
+- 🚶 매일 만보 걷기  
+- 📚 하루 20분 독서  
+- 🧘 10분 명상  
+- 🥤 물 2리터 마시기  
 
 <!-- 30일 챌린지: 붙여넣기만 하면 동작 -->
 <div id="challenge-app" class="challenge-wrap">
