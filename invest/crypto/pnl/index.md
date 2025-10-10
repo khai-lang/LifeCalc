@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 거래내역 기반 PnL 계산기 (FIFO/LIFO)
+title: 코인 수익/손실 계산기
 description: 코인 거래내역으로 실현/미실현 손익, 평단, 손익분기점, 수수료까지 한 번에 계산합니다.
 permalink: /invest/crypto/pnl/
 ---
