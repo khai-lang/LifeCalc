@@ -225,5 +225,20 @@
 .muted{color:#888}
 .archive{margin-top:20px}
 
+<전체보기 검색엔진 효율 높이기>
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+.skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#eef;border-radius:.5rem;}
+.calc-search{margin:1rem 0 1.25rem}
+.calc-search input{width:100%;padding:.8rem 1rem;border:1px solid #e3e5e8;border-radius:.75rem;font-size:1rem}
+.card-grid{list-style:none;padding-left:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.card{border:1px solid #eee;border-radius:14px;box-shadow:0 1px 2px rgba(0,0,0,.04);background:#fff}
+.card-link{display:block;padding:14px 16px;text-decoration:none}
+.card-title{display:block;font-weight:700;margin-bottom:4px}
+.card-desc{display:block;font-size:.94rem;color:#60646c}
+.card-link:focus,.card-link:hover{outline:2px solid #bcd;outline-offset:2px}
+.ad-box{margin:20px 0;min-height:120px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+
 
 
