@@ -6,7 +6,6 @@ permalink: /salary/pension-savings/
 
 ---
 
-# 연금저축 세액공제(간편)
 
 <form id="ps-form" onsubmit="event.preventDefault(); calcPS();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
