@@ -5,7 +5,6 @@ description: 무사고/사고 건수로 다음 연도 예상 등급 변화(보�
 permalink: /insurance/auto-grade/
 ---
 
-# 자동차보험 등급(할증/할인) 추정기
 
 <form id="agr" onsubmit="event.preventDefault();agrCalc();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
