@@ -14,7 +14,6 @@ redirect_from:
   - law/
 ---
 
-# 만나이 계산기
 <form id="age" onsubmit="event.preventDefault(); calcAge();" style="margin-bottom:12px;">
   <label>생년월일 <input type="date" id="dob" required></label>
   <label>기준일 <input type="date" id="ref" required></label>
