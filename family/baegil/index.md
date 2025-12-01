@@ -5,7 +5,6 @@ description: 출생일로부터 100일 되는 날짜를 계산합니다.
 permalink: family/baegil/
 ---
 
-# 백일 날짜 계산기
 <div class="card" style="max-width:720px;margin:0 auto;">
   <form onsubmit="event.preventDefault(); b100();" style="margin-bottom:12px;">
     <label>출생일 <input type="date" id="dob100" required></label>
