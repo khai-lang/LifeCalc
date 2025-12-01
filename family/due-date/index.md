@@ -5,7 +5,6 @@ description: 마지막 생리일로 임신 주수와 출산 예정일을 계산�
 permalink: family/due-date/
 ---
 
-# 출산 예정일 계산기
 <div class="card" style="max-width:720px;margin:0 auto;">
   <form onsubmit="event.preventDefault(); ddCalc();" style="margin-bottom:12px;">
     <label>마지막 생리 시작일 <input type="date" id="lmp" required></label>
