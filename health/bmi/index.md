@@ -5,7 +5,6 @@ description: 키와 몸무게로 체질량지수(BMI)를 즉시 계산하고 간
 permalink: health/bmi/
 ---
 
-# BMI 계산기
 <form id="bmi-form" onsubmit="event.preventDefault(); calcBMI();" style="margin-bottom:12px;">
   <label>키(cm) <input type="number" id="height" required></label>
   <label>몸무게(kg) <input type="number" id="weight" required></label>
