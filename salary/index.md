@@ -5,7 +5,6 @@ description: 연봉 실수령을 시작으로 4대보험·원천징수·종합�
 permalink: /salary/
 ---
 
-<h1>연봉·급여·세금 (2025)</h1>
 
 <div style="background:#f8f4ef; padding:22px; border-radius:10px; margin-bottom:32px; line-height:1.7;">
   <h2 style="margin-top:0;">연봉·급여·세금 계산 한 곳에서</h2>
