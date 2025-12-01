@@ -5,7 +5,6 @@ description: 원리금균등·원금균등 상환액을 추정합니다.
 permalink: finance/loan/
 ---
 
-# 대출 이자/원리금 계산기
 <form id="loan" onsubmit="event.preventDefault(); loanCalc();" style="margin-bottom:12px;">
   <label>대출금(만원)
     <input type="number" id="principal" required>
