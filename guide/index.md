@@ -6,7 +6,6 @@ permalink: /guide/
 section: guide
 ---
 
-<h1>가이드 모음</h1>
 <p class="muted">계산기를 이해하고 활용하는 데 필요한 각종 공식과 해석을 정리했습니다.</p>
 
 {%- comment -%}
