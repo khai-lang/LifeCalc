@@ -6,7 +6,6 @@ permalink: /realestate/property-tax/
 section: realestate
 ---
 
-# 종합부동산세 계산기
 
 <div class="card" style="max-width:760px;margin:0 auto;">
   <form onsubmit="event.preventDefault(); calcProperty();">
