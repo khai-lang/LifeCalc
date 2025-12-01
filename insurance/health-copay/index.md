@@ -5,7 +5,6 @@ description: 급여/비급여 진료비와 공제액·본인부담률로 실손 
 permalink: /insurance/health-copay/
 ---
 
-# 실손의료보험 자기부담금 계산기
 
 <form id="copay" onsubmit="event.preventDefault();copayCalc();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
