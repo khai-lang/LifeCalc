@@ -5,7 +5,6 @@ description: 기존 보유 수량/평단가와 추가 매수 계획으로 새로
 permalink: /invest/crypto/avg-cost/
 ---
 
-# 코인 평단가·추가매수 계산기
 
 <form id="cavg" onsubmit="event.preventDefault();cavgCalc();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
