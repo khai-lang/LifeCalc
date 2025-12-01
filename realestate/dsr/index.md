@@ -6,7 +6,6 @@ permalink: /finance/dsr/
 section: finance
 ---
 
-# DSR 계산기
 
 **총부채원리금상환비율(DSR)**은 연간 소득 대비 연간 원리금 상환액의 비율을 뜻합니다.  
 대출 가능 여부와 한도를 결정하는 핵심 지표입니다.
