@@ -5,7 +5,6 @@ description: 출생일 기준 오늘까지 생후 며칠/몇 개월인지 확인
 permalink: family/baby-days/
 ---
 
-# 아이 생후 N일·개월 계산기
 <div class="card" style="max-width:720px;margin:0 auto;">
   <form onsubmit="event.preventDefault(); bdCalc();" style="margin-bottom:12px;">
     <label>출생일 <input type="date" id="dob" required></label>
