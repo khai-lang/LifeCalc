@@ -70,7 +70,7 @@ section: realestate
 </style>
 
 <section class="realestate-wrap">
-  <h1>부동산·세금 계산기</h1>
+
   <p class="realestate-intro">부동산 계약 시 필수로 확인해야 할 전환율, 세금, 부대비용을 한 곳에서 계산하세요.</p>
 
   <div class="grid-cards" aria-label="부동산 계산기 링크 목록">
