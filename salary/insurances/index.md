@@ -6,7 +6,6 @@ permalink: /salary/insurances/
 
 ---
 
-# 4대보험 계산기
 
 <form id="ins-form" onsubmit="event.preventDefault(); calcIns();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
