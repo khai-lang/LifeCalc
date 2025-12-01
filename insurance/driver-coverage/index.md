@@ -5,7 +5,6 @@ description: 운전 빈도·거리·경력에 따라 권장 담보 구성을 제
 permalink: /insurance/driver-coverage/
 ---
 
-# 운전자보험 필요 담보 추정기
 
 <form id="drv" onsubmit="event.preventDefault();drvCalc();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
