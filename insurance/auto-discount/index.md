@@ -5,7 +5,6 @@ description: 기준 보험료에 마일리지/블랙박스/자녀·무사고 등
 permalink: /insurance/auto-discount/
 ---
 
-# 자동차보험 할인·특약 효과 계산기
 
 <form id="auto" onsubmit="event.preventDefault();autoCalc();">
   <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
