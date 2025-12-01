@@ -6,7 +6,6 @@ permalink: /realestate/acquisition-tax/
 section: realestate
 ---
 
-# 취득세 계산기
 
 <div class="card" style="max-width:760px;margin:0 auto;">
   <form onsubmit="event.preventDefault(); calcAcq();">
