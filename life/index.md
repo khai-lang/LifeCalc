@@ -5,7 +5,6 @@ description: 단위 변환, 날짜·기념일, 가족·육아 계산 등 일상 
 permalink: /life/
 ---
 
-# 생활 계산기 모음
 
 ## 일반
 <ul>
