@@ -7,7 +7,6 @@ permalink: health/bmr/
 
 <!-- BMR 계산기 -->
 <section id="bmr-calc" style="max-width:520px;padding:16px;border:1px solid #eee;border-radius:12px">
-  <h3 style="margin:0 0 12px">BMR 계산기</h3>
 
   <form onsubmit="event.preventDefault();calcBmr();" style="margin-bottom:16px;">
     <label>성별
