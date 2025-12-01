@@ -5,7 +5,6 @@ description: 길이·무게·온도·면적·부피 단위를 상호 변환합�
 permalink: life/unit-converter/
 ---
 
-# 단위 변환기
 <div class="card" style="max-width:760px;margin:0 auto;">
   <form onsubmit="event.preventDefault();convert();">
     <label>변환 대상
