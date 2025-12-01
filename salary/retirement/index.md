@@ -6,7 +6,6 @@ permalink: /salary/retirement/
 
 ---
 
-<h1>퇴직금 계산기</h1>
 
 <form id="rtm-form" onsubmit="event.preventDefault(); calcRtmAccurate();">
   <div class="card p-3" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
