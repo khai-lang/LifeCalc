@@ -5,7 +5,6 @@ description: D-Day, N일 뒤/전 날짜, 100일·돌을 간편 계산합니다.
 permalink: life/date/
 ---
 
-# 기념일·날짜 계산기
 <form id="date-form" onsubmit="event.preventDefault(); runDate();" style="margin-bottom:12px;">
   <label>기준 날짜 <input type="date" id="base" required></label>
   <label>N일 (+앞으로 / -과거) <input type="number" id="days" value="100" required></label>
