@@ -1,11 +1,9 @@
 ---
 layout: default
-title: 영유아 예방접종 일정표
+title: 영유아 예방접종 일정(요약)
 description: 월령별 국가예방접종(NIP) 요약. 실제 일정은 보건소/의료기관 안내를 따르세요.
 permalink: family/vaccine/
 ---
-
-# 영유아 예방접종 일정(요약)
 
 <div class="card">
   <p class="note">※ 지역·연도·백신공급 상황에 따라 달라질 수 있습니다. 반드시 보건소/소아청소년과의 최신 일정을 확인하세요.</p>
