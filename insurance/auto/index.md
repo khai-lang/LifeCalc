@@ -6,7 +6,6 @@ permalink: /insurance/auto/
 section: insurance
 ---
 
-# 자동차 보험료 계산기
 
 <div class="card" style="max-width:760px;margin:0 auto;">
   <form onsubmit="event.preventDefault(); calcAutoIns();">
