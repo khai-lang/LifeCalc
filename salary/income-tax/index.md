@@ -6,7 +6,6 @@ permalink: /salary/income-tax/
 
 ---
 
-# 종합소득세(간편 계산)
 
 <form id="it-form" onsubmit="event.preventDefault(); calcIT();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
