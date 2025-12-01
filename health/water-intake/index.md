@@ -1,6 +1,13 @@
+---
+layout: default
+title: 하루 물 섭취량 계산기
+description: 체중·활동량·환경 요인을 반영한 1일 권장 물 섭취량 계산기입니다. 물 섭취 목표와 건강관리 팁까지 제공합니다.
+permalink: /health/water-intake/
+---
+
+
 <!-- 물 섭취량 계산기 -->
 <section id="water-calc" style="max-width:520px;margin-top:18px;padding:16px;border:1px solid #eee;border-radius:12px">
-  <h3 style="margin:0 0 12px">하루 물 섭취량 계산기</h3>
   <div style="display:grid;gap:10px">
     <label>몸무게(kg)
       <input id="wtWeight" type="number" inputmode="decimal" placeholder="예: 62" required>
