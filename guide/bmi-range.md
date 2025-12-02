@@ -6,7 +6,6 @@ permalink: /guide/bmi-range/
 tags: [BMI, 체질량지수, 비만도, 건강, 계산기]
 ---
 
-<h1>BMI 범위 해석</h1>
 
 <p style="line-height:1.8; color:#334155;">
 BMI(체질량지수, Body Mass Index)는 <b>체중(kg) ÷ [신장(m)]²</b> 공식으로 산출하는 가장 기본적인 체중·건강 지표입니다.  
