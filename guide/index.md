@@ -8,13 +8,10 @@ permalink: /guide/
 <h1>📘 가이드 글 보러가기</h1>
 <p class="muted">계산기 공식, 생활·재테크 지식, 해설 가이드를 모두 모아 빠르게 찾아볼 수 있는 통합 가이드 페이지입니다.</p>
 
-<!-- 🔍 검색창 -->
 <input type="text" id="guide-search" placeholder="검색: 제목 또는 설명 입력" class="search-input">
 
-<!-- 🔖 태그 필터 -->
 <div id="tag-container" class="tag-container"></div>
 
-<!-- 🔽 정렬 옵션 -->
 <div class="sort-area">
   <select id="sort-select">
     <option value="latest">🆕 최신순</option>
@@ -22,96 +19,33 @@ permalink: /guide/
   </select>
 </div>
 
-<!-- 🗂 섹션(카테고리) 자동 생성 -->
 <div id="guide-sections"></div>
 
 <style>
-.search-input {
-  width: 100%;
-  padding: 12px 14px;
-  font-size: 15px;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  margin: 12px 0 20px;
-}
-.tag-container { margin-bottom: 16px; }
-.tag {
-  display: inline-block;
-  background: #eef2ff;
-  color: #4f46e5;
-  padding: 6px 12px;
-  border-radius: 12px;
-  font-size: 13px;
-  margin: 4px;
-  cursor: pointer;
-}
-.tag.active { background: #4f46e5; color: white; }
-
-.sort-area { margin-bottom: 20px; }
-#sort-select {
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
-}
-
-.guide-section-title {
-  font-weight: 800;
-  font-size: 22px;
-  margin: 32px 0 12px;
-  color: #1e293b;
-}
-
-.guide-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
-}
-
-.guide-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  padding: 16px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: .2s ease;
-}
-.guide-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,.08);
-  transform: translateY(-2px);
-}
-.guide-title { font-weight: 700; color: #111827; margin-bottom: 6px; }
-.guide-desc { color: #64748b; font-size: 14px; }
+/* 그대로 사용 */
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Jekyll guide 데이터 로드
+  // 🔹 Jekyll에서 guide 카테고리 글 불러오기
   const guides = [
-    {% for post in site.guide %}
+    {% for post in site.categories.guide %}
     {
       title: "{{ post.title | escape }}",
-      url: "{{ post.url }}",
-      desc: "{{ post.description | strip_html | escape }}",
-      tags: [{% for tag in post.tags %}"{{tag}}",{% endfor %}],
-      category: "{{ post.category | default: '기타' }}",
-      date: "{{ post.date | default: '' }}"
-    },
+      url: "{{ post.url | relative_url }}",
+      desc: "{{ post.description | default: post.excerpt | strip_html | strip_newlines | escape }}",
+      // front matter에 tags: [..] 없으면 빈 배열
+      tags: [{% for tag in post.tags %}"{{ tag }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+      // section 이라는 필드를 쓰고 싶다면 각 글 front matter에 section: "건강", "부동산" 등 넣기
+      category: "{{ post.section | default: '기타 가이드' }}",
+      date: "{{ post.date | date_to_xmlschema }}"
+    }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ];
 
-  const sections = {};
   const tagSet = new Set();
+  guides.forEach(g => g.tags.forEach(t => tagSet.add(t)));
 
-  // 섹션 자동 분류 + 태그 수집
-  guides.forEach(g => {
-    const c = g.category || "기타";
-    if (!sections[c]) sections[c] = [];
-    sections[c].push(g);
-
-    g.tags.forEach(t => tagSet.add(t));
-  });
-
-  // 태그 렌더링
   const tagContainer = document.getElementById("tag-container");
   tagSet.forEach(t => {
     const tagEl = document.createElement("span");
@@ -121,14 +55,13 @@ document.addEventListener("DOMContentLoaded", function () {
     tagContainer.appendChild(tagEl);
   });
 
-  // 섹션 렌더링 함수
   function renderSections(filteredGuides = guides) {
     const container = document.getElementById("guide-sections");
     container.innerHTML = "";
 
     const sectionMap = {};
     filteredGuides.forEach(g => {
-      const c = g.category || "기타";
+      const c = g.category || "기타 가이드";
       if (!sectionMap[c]) sectionMap[c] = [];
       sectionMap[c].push(g);
     });
@@ -156,10 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 초기 렌더링
+  // 초기 렌더
   renderSections();
 
-  // 검색 기능
+  // 검색
   document.getElementById("guide-search").addEventListener("input", function () {
     const keyword = this.value.toLowerCase();
     const filtered = guides.filter(g =>
@@ -169,16 +102,12 @@ document.addEventListener("DOMContentLoaded", function () {
     renderSections(filtered);
   });
 
-  // 태그 필터 기능
+  // 태그 필터
   tagContainer.addEventListener("click", function (e) {
     if (!e.target.classList.contains("tag")) return;
+    e.target.classList.toggle("active");
 
-    const tag = e.target.dataset.tag;
-    const active = e.target.classList.toggle("active");
-
-    const activeTags = [...document.querySelectorAll(".tag.active")].map(t =>
-      t.dataset.tag
-    );
+    const activeTags = [...document.querySelectorAll(".tag.active")].map(t => t.dataset.tag);
 
     let filtered = guides;
     if (activeTags.length > 0) {
@@ -189,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
     renderSections(filtered);
   });
 
-  // 정렬 기능
+  // 정렬
   document.getElementById("sort-select").addEventListener("change", function () {
     let sorted = [...guides];
     if (this.value === "title") {
@@ -199,6 +128,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     renderSections(sorted);
   });
-
 });
 </script>
