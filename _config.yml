@@ -73,3 +73,10 @@ exclude:
   - tests
   - .github
   - .sass-cache
+
+  # 가이드 글 검색 노출
+  collections:
+  guide:
+    output: true
+    permalink: /guide/:name/
+
