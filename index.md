@@ -8,7 +8,7 @@ section: home
 <!-- Hero -->
 <section class="hero">
   <div class="hero-text">
-    <h1 style="margin:0 0 6px">만나이 계산기와 생활형 계산기 모음</h1>
+    <h2 style="margin:0 0 6px">만나이 계산기와 생활형 계산기 모음</h2>
     <p class="hero-sub">연봉·세금·전월세·대출까지, 가장 자주 쓰는 계산을 한 곳에서.</p>
     <div class="hero-quick" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
       <a href="/life/age/" class="btn" style="background:#111;color:#fff">만나이 계산기 →</a>
