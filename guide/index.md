@@ -12,6 +12,7 @@ section: guide
   1) _posts/guide/ 폴더의 글을 우선 수집 (categories 누락돼도 안전)
   2) 폴더에 글이 없으면 categories: guide 로 대체
 {%- endcomment -%}
+{%- assign guides_folder = site.posts | where_exp: "p", "p.path contains '_posts/guide/'" -%}
 {%- if guides_folder and guides_folder != empty -%}
   {%- assign guides = guides_folder -%}
 {%- else -%}
