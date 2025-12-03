@@ -1,9 +1,9 @@
-layout: _pdsts/guide/
+layout: default
 title: 2025년 신혼부부 대출 계산 꿀팁 — 한도·금리·정부지원 총정리
 description: 신혼부부를 위한 2025년 최신 대출 한도 계산법과 금리 우대 조건, 주요 은행별 대출 상품별 특징, 정부 지원 프로그램까지 실전 꿀팁을 정리했습니다.
 permalink: ／guide/newlywed-loan-tips/
 categories: [guide]
-nav_exclude: true
+
 
 <section class="content-section">
   <h2>2025년 신혼부부 대출 계산 꿀팁 – 실전! 이것만 알면 대출 금리·한도 잡힌다</h2>
