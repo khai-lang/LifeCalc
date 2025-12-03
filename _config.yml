@@ -4,16 +4,13 @@ url: https://calculator.khaistory.com
 lang: ko-KR
 timezone: Asia/Seoul
 
-# 테마는 커스텀 레이아웃 사용 (null 유지)
 theme: null
 
-# GitHub Pages 허용 플러그인
 plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# 마크다운/퍼머링크
 markdown: kramdown
 permalink: /:path/
 
@@ -22,7 +19,6 @@ kramdown:
   hard_wrap: false
   toc_levels: 2..3
 
-# 전역 기본값
 defaults:
   - scope:
       path: ""
@@ -36,43 +32,36 @@ defaults:
       path: "life"
     values:
       section: life
-
   - scope:
       path: "salary"
     values:
       section: salary
-
   - scope:
       path: "realestate"
     values:
       section: realestate
-
   - scope:
       path: "invest"
     values:
       section: invest
-
   - scope:
       path: "insurance"
     values:
       section: insurance
-
   - scope:
       path: "guide"
     values:
       section: guide
 
-# SEO 설정
 logo: /assets/og-default.png
+
 social:
   links:
     - https://github.com/khaistory
 
-# SCSS 빌드
 sass:
   style: compressed
 
-# 빌드 제외 목록
 exclude:
   - node_modules
   - vendor
@@ -88,7 +77,6 @@ exclude:
   - .github
   - .sass-cache
 
-# 🔥 가이드 글(guide) 컬렉션 정상 선언
 collections:
   guide:
     output: true
