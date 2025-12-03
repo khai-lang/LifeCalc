@@ -2,9 +2,20 @@
 layout: none
 ---
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  {% include head.html %}
+</head>
+
+<body>
+
+{% include header.html %}
+
 <!-- 3열 가이드 레이아웃 -->
 <main class="wrap wrap--with-rail rail-3">
-  <!-- ⬅︎ 좌측 레일: 광고 전용 -->
+
+  <!-- 좌측 광고 -->
   <aside class="left-rail">
     <ins class="adsbygoogle"
      style="display:block"
@@ -12,12 +23,10 @@ layout: none
      data-ad-slot="7492664289"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </aside>
 
-  <!-- ⬛ 본문 -->
+  <!-- 본문 -->
   <div class="main-content">
     {% if page.title %}
       <h1 class="page-title">{{ page.title }}</h1>
@@ -27,23 +36,22 @@ layout: none
       {{ content }}
     </div>
 
-    <!-- 📱 모바일 전용: 본문 하단에 '오늘의 팁 + 광고' -->
     <div class="promo-mobile">
       {% include promo-tip-guide.html %}
 
       <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3758454239921831"
-       data-ad-slot="7492664289"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+        style="display:block"
+        data-ad-client="ca-pub-3758454239921831"
+        data-ad-slot="7492664289"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
     </div>
   </div>
 
-  <!-- ➡︎ 우측 레일: 상단=오늘의 팁, 하단=광고 -->
+  <!-- 우측 레일 -->
   <aside class="right-rail">
     {% include promo-tip-guide.html %}
 
@@ -53,13 +61,13 @@ layout: none
      data-ad-slot="7492664289"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </aside>
+
 </main>
 
-<!-- 이 레이아웃 전용 스타일(다른 페이지에 영향 최소화) -->
+{% include footer.html %}
+
 <style>
 /* 3열: 좌(200px) - 본문 - 우(320px) */
 .rail-3{
@@ -78,7 +86,7 @@ layout: none
   .rail-3 .promo-mobile{ display:none !important; }
 }
 
-/* 모바일: 좌/우 레일 숨김, 모바일용 팁만 노출 */
+/* 모바일: 좌/우 레일 숨김 */
 @media (max-width: 860px){
   .rail-3{ grid-template-columns: 1fr; }
   .rail-3 .left-rail,
@@ -86,3 +94,6 @@ layout: none
   .rail-3 .promo-mobile{ display:block; margin-top:16px; }
 }
 </style>
+
+</body>
+</html>
