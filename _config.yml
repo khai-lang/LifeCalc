@@ -1,16 +1,20 @@
+# _config.yml
 title: LifeCalc
 description: 생활 계산기 포털 — 급여·세금, 부동산·대출, 투자, 건강, 날짜/기념일
 url: https://calculator.khaistory.com
 lang: ko-KR
 timezone: Asia/Seoul
 
+# 테마는 커스텀 레이아웃 사용 (null 유지)
 theme: null
 
+# GitHub Pages 허용 플러그인 (이미 적절)
 plugins:
-  - jekyll-redirect-from
-  - jekyll-sitemap
-  - jekyll-seo-tag
+  - jekyll-redirect-from   # 옛 URL → 새 URL 301/302
+  - jekyll-sitemap         # /sitemap.xml 자동 생성
+  - jekyll-seo-tag         # 메타 태그(타이틀/OG/Twitter) 자동
 
+# 마크다운/퍼머링크
 markdown: kramdown
 permalink: /:path/
 
@@ -19,7 +23,9 @@ kramdown:
   hard_wrap: false
   toc_levels: 2..3
 
+# 전역 기본값(레이아웃/언어/섹션 자동 지정)
 defaults:
+  # 모든 페이지에 기본 레이아웃/언어
   - scope:
       path: ""
       type: "pages"
@@ -28,40 +34,31 @@ defaults:
       lang: ko-KR
       sitemap: true
 
-  - scope:
-      path: "life"
-    values:
-      section: life
-  - scope:
-      path: "salary"
-    values:
-      section: salary
-  - scope:
-      path: "realestate"
-    values:
-      section: realestate
-  - scope:
-      path: "invest"
-    values:
-      section: invest
-  - scope:
-      path: "insurance"
-    values:
-      section: insurance
-  - scope:
-      path: "guide"
-    values:
-      section: guide
+  # 섹션 값 자동 주입 (내비/빵부스러기/프로모에 활용)
+  - scope: { path: "life" }
+    values: { section: life }
+  - scope: { path: "salary" }
+    values: { section: salary }
+  - scope: { path: "realestate" }
+    values: { section: realestate }
+  - scope: { path: "invest" }
+    values: { section: invest }
+  - scope: { path: "insurance" }
+    values: { section: insurance }
+  - scope: { path: "guide" }
+    values: { section: guide }
 
+# SEO-Tag 보조(선택 이미지 등)
 logo: /assets/og-default.png
-
 social:
   links:
     - https://github.com/khaistory
 
+# SCSS 빌드(선택)
 sass:
   style: compressed
 
+# 빌드에서 제외할 경로
 exclude:
   - node_modules
   - vendor
@@ -77,7 +74,8 @@ exclude:
   - .github
   - .sass-cache
 
-collections:
+  # 가이드 글 검색 노출
+  collections:
   guide:
     output: true
     permalink: /guide/:name/
