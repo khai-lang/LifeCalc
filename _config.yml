@@ -4,7 +4,8 @@ url: https://calculator.khaistory.com
 lang: ko-KR
 timezone: Asia/Seoul
 
-theme: null
+# theme은 명시하지 않음 (GitHub Pages는 theme: null을 지원하지 않음)
+# theme: null  ← 반드시 삭제!
 
 plugins:
   - jekyll-redirect-from
@@ -22,44 +23,26 @@ kramdown:
 defaults:
   - scope:
       path: ""
-      type: pages
+      type: "pages"
     values:
       layout: default
       lang: ko-KR
       sitemap: true
 
-  - scope:
-      path: "life"
-    values:
-      section: life
-
-  - scope:
-      path: "salary"
-    values:
-      section: salary
-
-  - scope:
-      path: "realestate"
-    values:
-      section: realestate
-
-  - scope:
-      path: "invest"
-    values:
-      section: invest
-
-  - scope:
-      path: "insurance"
-    values:
-      section: insurance
-
-  - scope:
-      path: "guide"
-    values:
-      section: guide
+  - scope: { path: "life" }
+    values: { section: "life" }
+  - scope: { path: "salary" }
+    values: { section: "salary" }
+  - scope: { path: "realestate" }
+    values: { section: "realestate" }
+  - scope: { path: "invest" }
+    values: { section: "invest" }
+  - scope: { path: "insurance" }
+    values: { section: "insurance" }
+  - scope: { path: "guide" }
+    values: { section: "guide" }
 
 logo: /assets/og-default.png
-
 social:
   links:
     - https://github.com/khaistory
@@ -81,8 +64,3 @@ exclude:
   - tests
   - .github
   - .sass-cache
-
-collections:
-  guide:
-    output: true
-    permalink: /guide/:name/
