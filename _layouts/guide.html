@@ -15,19 +15,20 @@ layout: none
 <!-- 3열 가이드 레이아웃 -->
 <main class="wrap wrap--with-rail rail-3">
 
-  <!-- 좌측 광고 -->
+  <!-- ⬅︎ 좌측 광고 -->
   <aside class="left-rail">
     <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3758454239921831"
-     data-ad-slot="7492664289"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+      style="display:block"
+      data-ad-client="ca-pub-3758454239921831"
+      data-ad-slot="7492664289"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </aside>
 
-  <!-- 본문 -->
-  <div class="main-content">
+  <!-- ⬛ 본문 영역 -->
+  <article class="main-content post-body">
+
     {% if page.title %}
       <h1 class="page-title">{{ page.title }}</h1>
     {% endif %}
@@ -36,31 +37,29 @@ layout: none
       {{ content }}
     </div>
 
+    <!-- 📱 모바일용 팁 + 광고 -->
     <div class="promo-mobile">
       {% include promo-tip-guide.html %}
-
       <ins class="adsbygoogle"
         style="display:block"
         data-ad-client="ca-pub-3758454239921831"
         data-ad-slot="7492664289"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
-  </div>
 
-  <!-- 우측 레일 -->
+  </article>
+
+  <!-- ➡︎ 우측 레일 -->
   <aside class="right-rail">
     {% include promo-tip-guide.html %}
-
     <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3758454239921831"
-     data-ad-slot="7492664289"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+      style="display:block"
+      data-ad-client="ca-pub-3758454239921831"
+      data-ad-slot="7492664289"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </aside>
 
@@ -68,30 +67,47 @@ layout: none
 
 {% include footer.html %}
 
+<!-- 📌 guide.html 전용 스타일 -->
 <style>
-/* 3열: 좌(200px) - 본문 - 우(320px) */
-.rail-3{
+/* 3열: 좌측 광고 200px - 본문 - 우측 팁/광고 320px */
+.wrap--with-rail.rail-3{
   display:grid;
   grid-template-columns: 200px minmax(0,1fr) 320px;
   gap:24px;
-  align-items:start;
+  align-items:flex-start;
+  margin-top:32px;
 }
 
-/* 레일 고정 */
-.rail-3 .left-rail,
-.rail-3 .right-rail{ position:sticky; top:96px; }
-
-/* 데스크탑: 모바일용 팁 숨김 */
-@media (min-width: 861px){
-  .rail-3 .promo-mobile{ display:none !important; }
+/* 레일 sticky */
+.left-rail, .right-rail{
+  position:sticky;
+  top:96px;
 }
 
-/* 모바일: 좌/우 레일 숨김 */
+/* 본문 스타일 */
+.main-content{
+  background:#fff;
+  padding:0 4px;
+}
+
+/* ⭐ 모바일 최적화 */
 @media (max-width: 860px){
-  .rail-3{ grid-template-columns: 1fr; }
-  .rail-3 .left-rail,
-  .rail-3 .right-rail{ display:none; }
-  .rail-3 .promo-mobile{ display:block; margin-top:16px; }
+  .wrap--with-rail.rail-3{
+    grid-template-columns: 1fr;
+  }
+  .left-rail,
+  .right-rail{
+    display:none;
+  }
+  .promo-mobile{
+    margin-top:24px;
+    display:block;
+  }
+}
+
+/* 데스크탑에서 모바일용 요소 숨김 */
+@media (min-width: 861px){
+  .promo-mobile{ display:none !important; }
 }
 </style>
 
