@@ -2,44 +2,54 @@
 layout: none
 ---
 
+<!DOCTYPE html>
+<html lang="ko">
 
-{% include head.html %}
+<head>
+  {% include head.html %}
+</head>
 
-{% include header.html %}
+<body>
 
-<main class="wrap wrap--with-rail rail-3">
+  {% include header.html %}
 
-  <!-- 좌측 광고 -->
-  <aside class="left-rail">
-    {% include ads/left-rail.html %}
-  </aside>
+  <main class="wrap wrap--with-rail rail-3">
 
-  <!-- 본문 -->
-  <article class="main-content post-body">
-    {% if page.title %}
-      <h1 class="page-title">{{ page.title }}</h1>
-    {% endif %}
+    <!-- 좌측 광고 -->
+    <aside class="left-rail">
+      {% include ads/left-rail.html %}
+    </aside>
 
-    <div class="prose">
-      {{ content }}
-    </div>
+    <!-- 본문 -->
+    <article class="main-content post-body">
+      {% if page.title %}
+        <h1 class="page-title">{{ page.title }}</h1>
+      {% endif %}
 
-    <!-- 모바일 팁 -->
-    <div class="promo-mobile">
+      <div class="prose">
+        {{ content }}
+      </div>
+
+      <!-- 모바일 팁 -->
+      <div class="promo-mobile">
+        {% include promo-tip-guide.html %}
+        {% include ads/mobile-bottom.html %}
+      </div>
+    </article>
+
+    <!-- 우측 레일 -->
+    <aside class="right-rail">
       {% include promo-tip-guide.html %}
-      {% include ads/mobile-bottom.html %}
-    </div>
-  </article>
+      {% include ads/right-rail.html %}
+    </aside>
 
-  <!-- 우측 레일 -->
-  <aside class="right-rail">
-    {% include promo-tip-guide.html %}
-    {% include ads/right-rail.html %}
-  </aside>
+  </main>
 
-</main>
+  {% include footer.html %}
 
-{% include footer.html %}
+</body>
+</html>
+
 
 <style>
 /* 3열 레이아웃 */
