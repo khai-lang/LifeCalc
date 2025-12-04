@@ -4,8 +4,7 @@ url: https://calculator.khaistory.com
 lang: ko-KR
 timezone: Asia/Seoul
 
-# theme은 명시하지 않음 (GitHub Pages는 theme: null을 지원하지 않음)
-# theme: null  ← 반드시 삭제!
+theme: minima   # ← 여기 반드시 추가!!
 
 plugins:
   - jekyll-redirect-from
@@ -23,7 +22,7 @@ kramdown:
 defaults:
   - scope:
       path: ""
-      type: "pages"
+      type: pages
     values:
       layout: default
       lang: ko-KR
@@ -41,14 +40,6 @@ defaults:
     values: { section: "insurance" }
   - scope: { path: "guide" }
     values: { section: "guide" }
-
-logo: /assets/og-default.png
-social:
-  links:
-    - https://github.com/khaistory
-
-sass:
-  style: compressed
 
 exclude:
   - node_modules
