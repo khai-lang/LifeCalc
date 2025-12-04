@@ -123,6 +123,50 @@
     @media (min-width:861px){
       .promo-mobile{display:none !important}
     }
+  
+    /* --- PC 기본 레이아웃 설정 (3단 구성) --- */
+.wrap--with-rail {
+  display: grid;
+  grid-template-columns: 200px minmax(0,1fr) 260px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* PC에서 오른쪽 레일 보임 */
+.right-rail { 
+  display:block; 
+  position:sticky; 
+  top:96px; 
+}
+
+/* 왼쪽 레일 */
+.left-rail { 
+  position:sticky; 
+  top:96px; 
+}
+
+/* --- 모바일 --- */
+@media (max-width: 860px) {
+  .wrap--with-rail {
+    grid-template-columns: 1fr;
+  }
+  .left-rail,
+  .right-rail {
+    display:none !important;
+  }
+  .promo-mobile {
+    display:block !important;
+    margin-top:14px;
+  }
+}
+
+@media (min-width: 861px) {
+  .promo-mobile {
+    display:none !important;
+  }
+}
+
+    
   </style>
 </head>
 <body>
@@ -140,7 +184,7 @@
     <script src="/assets/js/lifecalc-ads-v2.js" defer></script>
   </header>
 
-  < !-- 본문-->
+<! -- 본문 -->
 <main class="wrap wrap--with-rail">
   <!-- ✅ 왼쪽 여백: 광고 전용 -->
   <aside class="left-rail">
@@ -173,28 +217,8 @@
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </aside>
 
-  /* 모바일: 레일 숨김, 팁만 본문 하단 노출 */
-@media (max-width:860px){
-  .wrap--with-rail{ grid-template-columns:1fr; }
-  .left-rail, .right-rail{ display:none; }
-  .promo-mobile{ display:block; margin-top:14px; }
-}
-@media (min-width:861px){
-  .promo-mobile{ display:none !important; }
-}
   
 </main>
-
-/* 모바일: 레일 숨김, 팁만 본문 하단 노출 */
-@media (max-width:860px){
-  .wrap--with-rail{ grid-template-columns:1fr; }
-  .left-rail, .right-rail{ display:none; }
-  .promo-mobile{ display:block; margin-top:14px; }
-}
-@media (min-width:861px){
-  .promo-mobile{ display:none !important; }
-}
-
 
   <!-- 푸터 -->
   <footer>
