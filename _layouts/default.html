@@ -1,34 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- Canonical -->
   <link rel="canonical" href="{{ page.url | absolute_url }}"/>
 
-  <!-- CSS 캐시버스터 -->
+  <!-- CSS -->
   <link rel="stylesheet" href="{{ '/assets/css/main.css?v=20251203' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ page.title | escape }}">
-  <meta property="og:description" content="{{ page.description | escape }}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:site_name" content="LifeCalc · 생활 계산기">
-  <meta property="og:image" content="https://calculator.khaistory.com/assets/og-default.png">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ page.description | default: site.description }}">
-
   {% seo %}
 
-  <!-- AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:image" content="https://calculator.khaistory.com/assets/og-default.png">
 
-  <script>
-    window.PAGE_SECTION = "{{ page.section | default: page.url | split:'/' | slice:1 | first | default:'home' }}";
-  </script>
+  <!-- Adsense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
 
   <style>
     :root {
@@ -37,18 +28,17 @@
       --max:1100px; --nav-h:72px; --radius:14px;
       --hero-h1:32px; --hero-h2:22px;
     }
-    * {box-sizing:border-box}
-    html,body {
+
+    * { box-sizing:border-box }
+    body {
       margin:0; background:var(--bg); color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;
+      font-family:system-ui,-apple-system,'Noto Sans KR',sans-serif;
     }
-    a {color:inherit; text-decoration:none}
 
-    /* 컨테이너 */
-    .wrap {max-width:var(--max); margin:0 auto; padding:0 16px}
-    main.wrap {padding:24px 16px}
+    .wrap { max-width:var(--max); margin:0 auto; padding:0 16px }
+    main.wrap { padding:24px 16px }
 
-    /* 헤더 */
+    /* Header */
     header {
       position:sticky; top:0; z-index:1000;
       background:var(--brand); color:var(--brand-ink);
@@ -59,97 +49,27 @@
       margin:0 auto; padding:0 20px;
       display:flex; align-items:center; gap:16px;
     }
+    .brand img { height:28px }
 
-    .brand {display:flex; align-items:center; gap:10px; font-weight:700}
-    .brand img {height:28px; width:auto; display:block}
-
-    /* 네비게이션 기본 */
-    nav.site-nav {margin-left:36px}
-    .nav-ul {
-      list-style:none; margin:0; padding:0;
-      display:flex; align-items:center; gap:18px; flex-wrap:nowrap;
-    }
-    .nav-ul > li > a, .nav-parent {
-      color:var(--brand-ink); padding:12px 14px; border-radius:10px;
-      background:transparent; border:0; cursor:pointer;
-      font:inherit; white-space:nowrap;
-    }
-    .nav-ul > li > a:hover, .nav-parent:hover {
-      background:rgba(255,255,255,.12)
-    }
-
-    /* 드롭다운 */
-    .drop {position:relative}
-    .drop .menu {
-      position:absolute; left:0; top:calc(100% + 8px); min-width:240px;
-      border:1px solid #f3e6db; border-radius:12px;
-      background:#fff8f1; padding:10px; display:none; z-index:1200;
-      box-shadow:0 10px 30px rgba(0,0,0,.08);
-    }
-    .drop.open .menu {display:block}
-
-    .menu a {
-      display:block; font-size:16.5px; line-height:1.35;
-      color:#2b2b2b; padding:12px 14px; border-radius:10px;
-      margin:4px 0; border:1px solid #efe2d7;
-      transition:background .2s, border-color .2s, transform .05s;
-    }
-    .menu a:hover {background:#ffeedd; border-color:#f0d4c0; transform:translateY(-1px)}
-
-    /* 모바일 네비 */
-    #nav-toggle {display:none}
-    .burger {
-      display:none; color:#fff; font-size:24px;
-      padding:6px 10px; cursor:pointer; margin-left:auto;
-    }
-    @media (max-width:940px){
-      .burger{display:block}
-      nav.site-nav {
-        display:none; position:absolute; left:0; right:0; top:var(--nav-h);
-        background:var(--brand); padding:10px 12px;
-        border-bottom:1px solid rgba(255,255,255,.15);
-      }
-      #nav-toggle:checked ~ nav.site-nav {display:block}
-
-      .nav-ul {flex-direction:column; align-items:flex-start; gap:6px}
-      .drop .menu {
-        position:static; display:none; background:transparent;
-        border:0; box-shadow:none; padding:0; margin-left:8px;
-      }
-      .drop.open .menu {display:block}
-
-      .menu a {padding:8px 10px; color:#fff; border-color:transparent}
-      .menu a:hover {background:rgba(255,255,255,.12)}
-    }
-
-    /* 3열 레이아웃 */
+    /* 3-column layout */
     .wrap--with-rail {
       display:grid;
       grid-template-columns:200px minmax(0,1fr) 260px;
-      gap:24px; align-items:start;
+      gap:24px;
+      align-items:flex-start;
     }
-    .left-rail, .right-rail {position:sticky; top:96px}
+    .left-rail, .right-rail { position:sticky; top:96px }
 
     @media (max-width:860px){
-      .wrap--with-rail {
-        grid-template-columns:1fr;
-      }
-      .left-rail, .right-rail {display:none}
-      .promo-mobile {display:block !important; margin-top:14px}
+      .wrap--with-rail { grid-template-columns:1fr }
+      .left-rail, .right-rail { display:none }
+      .promo-mobile { display:block !important; margin-top:14px }
     }
     @media (min-width:861px){
-      .promo-mobile {display:none !important}
+      .promo-mobile { display:none !important }
     }
 
-    /* 본문 */
-    .main-content {max-width:880px; margin:0 auto; padding-right:4px}
-    @media (max-width:860px){
-      .main-content{padding:0 10px}
-    }
-
-    h1{font-size:var(--hero-h1); margin:6px 0 18px}
-    h2{font-size:var(--hero-h2); margin:20px 0 10px}
-
+    .main-content { max-width:880px; margin:0 auto }
   </style>
 </head>
 
@@ -157,20 +77,19 @@
 
 <header>
   <div class="header-wrap">
-    <a class="brand" href="/"><img src="/images/logo.png" alt="LifeCalc 로고"><span>{{ site.title | default:"LifeCalc" }}</span></a>
-    <label for="nav-toggle" class="burger" aria-label="메뉴 열기">☰</label>
-    <input id="nav-toggle" type="checkbox">
-
+    <a class="brand" href="/"><img src="/images/logo.png"><span>{{ site.title }}</span></a>
     {% include header.html %}
   </div>
 </header>
 
 <main class="wrap wrap--with-rail">
 
+  <!-- Left Ads -->
   <aside class="left-rail">
     {% include ads/left-rail.html %}
   </aside>
 
+  <!-- Content -->
   <article class="main-content post-body">
     {% if page.title %}
       <h1 class="page-title">{{ page.title }}</h1>
@@ -180,12 +99,14 @@
       {{ content }}
     </div>
 
+    <!-- Mobile promo -->
     <div class="promo-mobile">
       {% include promo-tip-guide.html %}
       {% include ads/mobile-bottom.html %}
     </div>
   </article>
 
+  <!-- Right Rail -->
   <aside class="right-rail">
     {% include promo-tip-guide.html %}
     {% include ads/right-rail.html %}
@@ -193,52 +114,12 @@
 
 </main>
 
-<footer>
-  <div class="foot wrap" style="padding:12px 0; color:var(--muted); display:flex; justify-content:space-between;">
-    <div>© {{ "now" | date:"%Y" }} LifeCalc · All rights reserved.</div>
-  </div>
+<footer class="wrap" style="padding:12px 0; color:var(--muted);">
+  © {{ "now" | date:"%Y" }} LifeCalc · All rights reserved.
 </footer>
 
 {% include calc-common.html %}
 {% include common-scripts.html %}
-
-<script>
-(function(){
-  const drops=document.querySelectorAll('.drop');
-  drops.forEach(d=>{
-    d.classList.remove('open');
-    const b=d.querySelector('.nav-parent');
-    if(b) b.setAttribute('aria-expanded','false');
-  });
-
-  drops.forEach(d=>{
-    const btn=d.querySelector('.nav-parent');
-    if(!btn) return;
-    btn.addEventListener('click',(e)=>{
-      e.preventDefault();
-      drops.forEach(x=>{
-        if(x!==d){
-          x.classList.remove('open');
-          const b=x.querySelector('.nav-parent');
-          if(b) b.setAttribute('aria-expanded','false');
-        }
-      });
-      const open=d.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true':'false');
-    });
-  });
-
-  document.addEventListener('click',e=>{
-    if(!e.target.closest('.drop')){
-      drops.forEach(d=>{
-        d.classList.remove('open');
-        const b=d.querySelector('.nav-parent');
-        if(b) b.setAttribute('aria-expanded','false');
-      });
-    }
-  });
-})();
-</script>
 
 </body>
 </html>
