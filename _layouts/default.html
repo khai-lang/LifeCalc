@@ -1,296 +1,34 @@
-<!doctype html>
-<html lang="ko">
-<head>
+---
+layout: default
+---
 
-  <!-- Canonical -->
-  <link rel="canonical" href="{{ page.url | absolute_url }}"/>
+<main class="wrap wrap--with-rail" style="display:grid; grid-template-columns:200px minmax(0,1fr) 260px; gap:24px;">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css?v=20251003' | relative_url }}">
-
-  {% if page.layout == 'guide' or page.section == 'guide' %}
-  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-  {% endif %}
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ page.title | escape }}">
-  <meta property="og:description" content="{{ page.description | escape }}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:site_name" content="생활형 계산기">
-  <meta property="og:image" content="https://calculator.khaistory.com/assets/og-default.png">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  {% seo %}
-
-  <!-- AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
-
-  <script>
-    /* 페이지 섹션 값 */
-    window.PAGE_SECTION = "{{ page.section | default: page.url | split:'/' | slice:1 | first | default:'home' }}";
-  </script>
-
-  <!-- 기본 스타일 + 헤더/네비게이션 + 2열 레이아웃 -->
-  <style>
-    :root{
-      --brand:#0b4c74; --brand-ink:#fff; --accent:#ff6a00;
-      --text:#222; --muted:#6b7280; --bg:#f5f7fa; --card:#fff; --line:#e6ebf0;
-      --max:1100px; --nav-h:72px; --radius:14px;
-    }
-
-    *{box-sizing:border-box}
-
-    html,body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans KR,sans-serif;
-    }
-
-    a{text-decoration:none;color:inherit}
-
-    /* 컨테이너 */
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
-    main.wrap{padding:24px 16px}
-
-    /* 헤더 전체 바(예전처럼 파란 바) */
-    header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:var(--brand);
-      color:var(--brand-ink);
-      box-shadow:0 1px 0 rgba(0,0,0,.06);
-    }
-
-    .header-wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      height:var(--nav-h);
-      padding:0 20px;
-      display:flex;
-      align-items:center;
-      gap:16px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-    }
-    .brand img{
-      height:28px;
-      width:auto;
-      display:block;
-    }
-
-    /* 네비게이션 (가로 메뉴) */
-    nav.site-nav{margin-left:36px}
-
-    .header-wrap nav ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:flex;
-      align-items:center;
-      gap:18px;
-      flex-wrap:nowrap;
-    }
-
-    .header-wrap nav ul li a,
-    .nav-parent{
-      color:var(--brand-ink);
-      padding:12px 14px;
-      border-radius:10px;
-      background:transparent;
-      border:0;
-      cursor:pointer;
-      font:inherit;
-      white-space:nowrap;
-    }
-
-    .header-wrap nav ul li a:hover,
-    .nav-parent:hover{
-      background:rgba(255,255,255,.12);
-    }
-
-    /* 드롭다운 (2단 메뉴, 연살구톤) */
-    .drop{position:relative}
-    .drop .menu{
-      position:absolute;
-      left:0;
-      top:calc(100% + 8px);
-      min-width:240px;
-      border:1px solid #f3e6db;
-      border-radius:12px;
-      box-shadow:0 10px 30px rgba(0,0,0,.08);
-      padding:10px;
-      display:none;
-      z-index:1200;
-      background:#fff8f1;
-    }
-    .drop.open .menu{display:block}
-    .menu a{
-      display:block;
-      font-size:16.5px;
-      line-height:1.35;
-      color:#2b2b2b;
-      padding:12px 14px;
-      border-radius:10px;
-      margin:4px 0;
-      border:1px solid #efe2d7;
-      transition:background .2s,border-color .2s,transform .05s;
-    }
-    .menu a:hover{
-      background:#ffeedd;
-      border-color:#f0d4c0;
-      transform:translateY(-1px);
-    }
-
-    /* 모바일 네비게이션 */
-    #nav-toggle{display:none}
-    .burger{
-      display:none;
-      color:#fff;
-      font-size:24px;
-      padding:6px 10px;
-      cursor:pointer;
-      margin-left:auto;
-    }
-
-    @media (max-width:940px){
-      .burger{display:block}
-
-      nav.site-nav{
-        display:none;
-        position:absolute;
-        left:0;
-        right:0;
-        top:var(--nav-h);
-        background:var(--brand);
-        padding:10px 12px;
-        border-bottom:1px solid rgba(255,255,255,.15);
-      }
-
-      #nav-toggle:checked ~ nav.site-nav{display:block}
-
-      .header-wrap nav ul{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:6px;
-      }
-
-      .drop .menu{
-        position:static;
-        display:none;
-        background:transparent;
-        border:0;
-        box-shadow:none;
-        padding:0;
-        margin-left:8px;
-      }
-      .drop.open .menu{display:block}
-      .menu a{
-        padding:8px 10px;
-        color:#fff;
-        border-color:transparent;
-      }
-      .menu a:hover{background:rgba(255,255,255,.12)}
-    }
-
-    /* 본문 */
-    .main-content{max-width:880px;margin:0 auto;}
-
-    /* 2열 레이아웃 (본문 + 우측 레일) */
-    .wrap--with-rail{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) 320px;
-      gap:24px;
-      align-items:flex-start;
-    }
-
-    .left-rail{position:sticky;top:96px}
-    .right-rail{position:sticky;top:96px}
-
-    /* 모바일일 때 레일 숨김 */
-    @media (max-width:860px){
-      .wrap--with-rail{grid-template-columns:1fr}
-      .left-rail,.right-rail{display:none}
-      .promo-mobile{display:block;margin-top:14px}
-    }
-    @media (min-width:861px){
-      .promo-mobile{display:none!important}
-    }
-  </style>
-
-</head>
-<body>
-
-  <!-- 헤더 -->
-  <header>
-    <div class="header-wrap">
-      <a class="brand" href="/">
-        <img src="/images/logo.png" alt="LifeCalc 로고">
-        <span>{{ site.title | default: "LifeCalc" }}</span>
-      </a>
-
-      <label for="nav-toggle" class="burger" aria-label="메뉴 열기">☰</label>
-      <input id="nav-toggle" type="checkbox" aria-label="메뉴 토글">
-
-      {% include header.html %}
-    </div>
-  </header>
+  <!-- 좌측 광고 -->
+  <aside class="left-rail">
+    {% include ads/left-rail.html %}
+  </aside>
 
   <!-- 본문 -->
-  <main class="wrap wrap--with-rail">
+  <article class="main-content">
+    {% if page.title %}
+      <h1 class="page-title">{{ page.title }}</h1>
+    {% endif %}
 
-    <!-- 좌측 광고 (필요 없으면 aside 자체를 지워도 됩니다) -->
-    <aside class="left-rail">
-      <ins class="adsbygoogle" style="display:block"
-           data-ad-client="ca-pub-3758454239921831"
-           data-ad-slot="7492664289"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-    </aside>
-
-    <!-- 본문 내용 -->
-    <div class="main-content">
-      {% if page.title %}
-        <h1 class="page-title">{{ page.title }}</h1>
-      {% endif %}
-      <div class="prose">
-        {{ content }}
-      </div>
+    <div class="prose">
+      {{ content }}
     </div>
 
-    <!-- 오른쪽: 오늘의 팁 + 광고 -->
-    <aside class="right-rail">
+    <div class="promo-mobile" style="margin-top:16px;">
       {% include promo-tip-guide.html %}
-
-      <ins class="adsbygoogle" style="display:block; margin-top:16px"
-           data-ad-client="ca-pub-3758454239921831"
-           data-ad-slot="YOUR_RIGHT_SLOT_ID"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-    </aside>
-
-  </main>
-
-  <!-- 푸터 -->
-  <footer>
-    <div class="wrap" style="padding:12px 0;color:var(--muted);display:flex;justify-content:space-between">
-      <div>© {{ "now" | date:"%Y" }} LifeCalc · All rights reserved.</div>
+      {% include ads/mobile-bottom.html %}
     </div>
-  </footer>
+  </article>
 
-  {% include calc-common.html %}
+  <!-- 우측 패널 -->
+  <aside class="right-rail">
+    {% include promo-tip-guide.html %}
+    {% include ads/right-rail.html %}
+  </aside>
 
-</body>
-</html>
+</main>
