@@ -48,10 +48,31 @@
 </head>
 
 <body>
+  
+<header class="site-header">
+  <div class="container header-container">
 
-  {% include header.html %}
+    <a href="/" class="brand">
+      <img src="/images/logo.png" alt="LifeCalc 로고">
+      <span>LifeCalc</span>
+    </a>
 
-  <main class="wrap wrap--with-rail">
+    <!-- PC Nav -->
+    <nav class="nav pc-only">
+      {% include header.html %}
+    </nav>
+
+    <!-- Mobile Button -->
+    <label for="nav-toggle" class="mobile-menu-btn">☰</label>
+    <input id="nav-toggle" type="checkbox" hidden>
+
+    <!-- Mobile Drawer -->
+    <nav class="nav mobile-nav">
+      {% include header.html %}
+    </nav>
+
+  </div>
+</header>
 
  
   <!-- Page Content -->
