@@ -1,15 +1,33 @@
 ---
 layout: default
 ---
-<main class="page">
-  <div class="container post-wrap">
-    <article class="content post-body">
-      {{ content }}
-    </article>
 
-    <aside class="sidebar">
-      {% include sidebar/guide-tips.html %}
-      {% include ads/right-rail.html %}
-    </aside>
-  </div>
+<main class="wrap wrap--with-rail">
+  
+  <!-- 좌측 레일 (광고) -->
+  <aside class="left-rail">
+    {% include ads/left-rail.html %}
+  </aside>
+
+  <!-- 본문 -->
+  <article class="main-content post-body">
+    {% if page.title %}
+      <h1 class="page-title">{{ page.title }}</h1>
+    {% endif %}
+
+    {{ content }}
+
+    <!-- 모바일 전용 프로모션/광고 -->
+    <div class="promo-mobile">
+      {% include promo-tip-guide.html %}
+      {% include ads/mobile-bottom.html %}
+    </div>
+  </article>
+
+  <!-- 우측 레일 -->
+  <aside class="right-rail">
+    {% include promo-tip-guide.html %}
+    {% include ads/right-rail.html %}
+  </aside>
+
 </main>
