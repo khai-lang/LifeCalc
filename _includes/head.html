@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{ page.title | default: site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<!-- SEO 태그 -->
+{% seo %}
+
+<!-- 파비콘 -->
+<link rel="icon" href="/images/favicon.png">
+
+<!-- CSS -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css?v=20250101' | relative_url }}">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="LifeCalc">
+<meta property="og:title" content="{{ page.title | escape }}">
+<meta property="og:description" content="{{ page.description | escape }}">
+<meta property="og:image" content="https://calculator.khaistory.com/assets/og-default.png">
+<meta property="og:type" content="website">
+
+<!-- Google Ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
