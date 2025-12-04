@@ -5,22 +5,38 @@ layout: none
 <html lang="ko">
 <head>
   {% include head.html %}
+  <link rel="stylesheet" href="/assets/css/main.css?v=20251204">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20251204">
 </head>
 <body>
 
 {% include header.html %}
 
-<main class="page">
-  <div class="container post-wrap">
-    <article class="content post-body">
-      {{ content }}
-    </article>
+<main class="wrap wrap--with-rail rail-3">
 
-    <aside class="sidebar">
-      {% include sidebar/guide-tips.html %}
-      {% include ads/right-rail.html %}
-    </aside>
-  </div>
+  <aside class="left-rail">
+    {% include ads/left-rail.html %}
+  </aside>
+
+  <article class="main-content post-body">
+    {% if page.title %}
+      <h1 class="page-title">{{ page.title }}</h1>
+    {% endif %}
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    <div class="promo-mobile">
+      {% include promo-tip-guide.html %}
+      {% include ads/mobile-bottom.html %}
+    </div>
+  </article>
+
+  <aside class="right-rail">
+    {% include promo-tip-guide.html %}
+    {% include ads/right-rail.html %}
+  </aside>
+
 </main>
 
 {% include footer.html %}
