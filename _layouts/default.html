@@ -49,19 +49,11 @@
 
 <body>
 
-  <!-- Header -->
-  <header style="background:var(--brand); color:var(--brand-ink); position:sticky; top:0; z-index:1000;">
-    <div class="header-wrap" style="height:var(--nav-h); display:flex; align-items:center; gap:16px;">
-      <a href="/" class="brand" style="font-weight:700; display:flex; align-items:center; gap:10px;">
-        <img src="/images/logo.png" alt="LifeCalc 로고" style="height:28px;"> LifeCalc
-      </a>
-      <label for="nav-toggle" class="burger" style="margin-left:auto; cursor:pointer;">☰</label>
-      <input id="nav-toggle" type="checkbox" hidden>
+  {% include header.html %}
 
-      {% include header.html %}
-    </div>
-  </header>
+  <main class="wrap wrap--with-rail">
 
+ 
   <!-- Page Content -->
   <main class="wrap">
     {{ content }}
