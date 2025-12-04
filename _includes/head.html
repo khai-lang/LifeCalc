@@ -1,16 +1,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>{{ page.title }} | LifeCalc</title>
+<title>
+  {% if page.title %}
+    {{ page.title }} | LifeCalc
+  {% else %}
+    {{ site.title | default: "LifeCalc" }}
+  {% endif %}
+</title>
+
 <meta name="description" content="{{ page.description | default: site.description }}">
 
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 
 {% seo %}
 
-<!-- 기본 CSS -->
-<link rel="stylesheet" href="/assets/css/main.css?v=20251204">
-<link rel="stylesheet" href="/assets/css/style.css?v=20251204">
+<!-- ✅ 공통 CSS (메인 스타일) -->
+<link rel="stylesheet"
+      href="{{ '/assets/css/main.css?v=20251204' | relative_url }}">
+
+<!-- ✅ 가이드/포털용 추가 스타일 -->
+<link rel="stylesheet"
+      href="{{ '/assets/css/style.css?v=20251204' | relative_url }}">
 
 <!-- AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
+<script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+        crossorigin="anonymous"></script>
