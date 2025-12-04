@@ -1,23 +1,22 @@
----
----
 <!doctype html>
 <html lang="ko">
+
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Canonical -->
   <link rel="canonical" href="{{ page.url | absolute_url }}"/>
 
-  <!-- 기본 CSS + 캐시버스터 -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css?v=20251203' | relative_url }}">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css?v=20251003' | relative_url }}">
 
-  <!-- guide 레이아웃인 경우 추가 CSS -->
+  <!-- Guide Layout 전용 CSS -->
   {% if page.layout == 'guide' or page.section == 'guide' %}
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   {% endif %}
 
   <!-- SEO -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ page.description | default: site.description }}">
   {% seo %}
 
@@ -29,105 +28,40 @@
   <meta property="og:image" content="https://calculator.khaistory.com/assets/og-default.png">
 
   <!-- AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
-
-  <!-- JS 전역 변수 -->
-  <script>
-    window.PAGE_SECTION = "{{ page.section | default: page.url | split:'/' | slice:1 | first | default:'home' }}";
-  </script>
-
-  <!-- 전체 스타일(공용) -->
-  <style>
-    :root {
-      --brand:#0b4c74; --brand-ink:#fff; --accent:#ff6a00;
-      --text:#222; --muted:#6b7280; --bg:#f5f7fa; --card:#fff; --line:#e6ebf0;
-      --max:1100px; --nav-h:72px; --radius:14px;
-      --hero-h1:32px; --hero-h2:22px;
-    }
-
-    html,body{margin:0;background:var(--bg);color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;
-    }
-    a{color:inherit;text-decoration:none;}
-
-    /* 컨테이너 */
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 16px;}
-    main.wrap{padding:24px 16px;}
-
-    /* 3열 레이아웃 (좌측 광고 / 본문 / 우측 광고+팁) */
-    .wrap--with-rail{
-      display:grid;
-      grid-template-columns: 200px minmax(0,1fr) 260px;
-      gap:24px;
-      align-items:start;
-      margin-top:24px;
-    }
-    .left-rail,
-    .right-rail{
-      position:sticky;
-      top:96px;
-    }
-    .main-content{
-      max-width:880px;
-      margin:0 auto;
-    }
-
-    /* 모바일 */
-    @media(max-width:860px){
-      .wrap--with-rail{
-        grid-template-columns:1fr;
-      }
-      .left-rail,
-      .right-rail{
-        display:none !important;
-      }
-      .promo-mobile{
-        display:block !important;
-        margin-top:14px;
-      }
-    }
-    @media(min-width:861px){
-      .promo-mobile{
-        display:none !important;
-      }
-    }
-  </style>
-
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-  <!-- 🔹 헤더 (header.html만 포함) -->
+  <!-- Header -->
   {% include header.html %}
 
-  <!-- 🔹 본문 -->
+  <!-- 본문 -->
   <main class="wrap wrap--with-rail">
 
-    <!-- 좌측 레일(광고) -->
+    <!-- Left Rail -->
     <aside class="left-rail">
       {% include ads/left-rail.html %}
     </aside>
 
-    <!-- 본문 -->
-    <article class="main-content post-body">
-
+    <!-- Content -->
+    <div class="main-content">
       {% if page.title %}
-        <h1 class="page-title">{{ page.title }}</h1>
+      <h1 class="page-title">{{ page.title }}</h1>
       {% endif %}
-
       <div class="prose">
         {{ content }}
       </div>
 
-      <!-- 모바일 팁/광고 -->
+      <!-- Mobile Tip / Ads -->
       <div class="promo-mobile">
         {% include promo-tip-guide.html %}
         {% include ads/mobile-bottom.html %}
       </div>
+    </div>
 
-    </article>
-
-    <!-- 우측 레일(팁 + 광고) -->
+    <!-- Right Rail -->
     <aside class="right-rail">
       {% include promo-tip-guide.html %}
       {% include ads/right-rail.html %}
@@ -135,11 +69,8 @@
 
   </main>
 
-  <!-- 푸터 -->
+  <!-- Footer -->
   {% include footer.html %}
-
-  <!-- 계산 공통 스크립트 -->
-  {% include calc-common.html %}
 
 </body>
 </html>
