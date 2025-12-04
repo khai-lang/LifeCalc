@@ -1,92 +1,65 @@
+---
+layout: none
+---
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="{{ page.url | absolute_url }}"/>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css?v=20251204' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-
-  <!-- SEO -->
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  {% seo %}
-
-  <!-- OG -->
-  <meta property="og:title" content="{{ page.title }}">
-  <meta property="og:description" content="{{ page.description }}">
-  <meta property="og:image" content="https://calculator.khaistory.com/assets/og-default.png">
-
-  <!-- Adsense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831" crossorigin="anonymous"></script>
-
-  <!-- Static Variables -->
-  <script>
-    window.PAGE_SECTION = "{{ page.section | default: page.url | split:'/' | slice:1 | first | default:'home' }}";
-  </script>
-
-  <style>
-    /* 기본 스타일 */
-    :root {
-      --brand:#0b4c74; --brand-ink:#fff; --accent:#ff6a00;
-      --text:#222; --muted:#6b7280; --bg:#f5f7fa; --card:#fff;
-      --max:1100px; --nav-h:72px; --radius:14px;
-    }
-
-    html,body {
-      margin:0;
-      background:var(--bg);
-      font-family:system-ui,-apple-system,Noto Sans KR,sans-serif;
-    }
-
-    a { text-decoration:none; color:inherit; }
-    .wrap { max-width:var(--max); margin:0 auto; padding:0 16px; }
-  </style>
+  {% include head.html %}
 </head>
 
 <body>
-  
-<header class="site-header">
-  <div class="container header-container">
 
-    <a href="/" class="brand">
-      <img src="/images/logo.png" alt="LifeCalc 로고">
-      <span>LifeCalc</span>
-    </a>
+  <!-- ⭐ 헤더: 기존 정상 구조 그대로 복원 -->
+  {% include header.html %}
 
-    <!-- PC Nav -->
-    <nav class="nav pc-only">
-      {% include header.html %}
-    </nav>
+  <!-- ⭐ 3열 레이아웃: 좌측 레일 + 본문 + 우측 레일 -->
+  <main class="wrap wrap--with-rail rail-3">
 
-    <!-- Mobile Button -->
-    <label for="nav-toggle" class="mobile-menu-btn">☰</label>
-    <input id="nav-toggle" type="checkbox" hidden>
+    <!-- ⬅︎ Left Rail (광고) -->
+    <aside class="left-rail">
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-3758454239921831"
+        data-ad-slot="7492664289"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
 
-    <!-- Mobile Drawer -->
-    <nav class="nav mobile-nav">
-      {% include header.html %}
-    </nav>
+      {% include ads/left-rail.html %}
+    </aside>
 
-  </div>
-</header>
+    <!-- ⭐ Main Content -->
+    <article class="main-content post-body">
+      {% if page.title %}
+        <h1 class="page-title">{{ page.title }}</h1>
+      {% endif %}
 
- 
-  <!-- Page Content -->
-  <main class="wrap">
-    {{ content }}
+      <div class="prose">
+        {{ content }}
+      </div>
+
+      <!-- 📱 모바일 바텀 광고 -->
+      {% include ads/mobile-bottom.html %}
+    </article>
+
+    <!-- ➡ Right Rail (Tips, Insight 카드 등) -->
+    <aside class="right-rail">
+      {% include ads/right-rail.html %}
+      {% include sidebar/guide-tips.html %}
+      {% include insight-cards.html %}
+    </aside>
+
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="wrap" style="padding:12px 0; color:#6b7280; display:flex; justify-content:space-between;">
-      <span>© {{ "now" | date: "%Y" }} LifeCalc</span>
-    </div>
+  <!-- ⭐ Footer 복원 -->
+  <footer class="site-footer">
+    <p>© 2025 LifeCalc · All rights reserved.</p>
   </footer>
 
   {% include common-scripts.html %}
+
 </body>
 </html>
