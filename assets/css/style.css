@@ -1,213 +1,286 @@
 /* ==========================================================
-   LifeCalc Global Design System – 통합 스타일 (2025.12.06)
+   LifeCalc Global Styling – 통합 CSS (2025.12.06)
    ========================================================== */
 
 /* ---------------------------
-   기본 컬러 시스템
+   디자인 시스템 변수
 --------------------------- */
 :root {
-  --bg-main: #fff7ef;
-  --bg-card: #fff3e8;
-  --bg-light: #fcf9f6;
+  --bg-main: #fff7ef;       
+  --bg-card: #fff3e8;       
+  --bg-light: #fcf9f6;      
   --line-soft: #f1e5dd;
 
   --accent: #ff6a00;
   --accent-dark: #e85d00;
+
   --text: #222;
   --link: #ff6a00;
+
+  --nav-h: 64px;
+  --max-width: 1440px;
+
+  --brand: #f4d9c6;         
+  --brand-ink: #222;
+  --shadow-soft: 0 6px 18px rgba(0,0,0,0.06);
 }
 
 /* ---------------------------
-   전체 배경 / 텍스트
+   Reset / 기본값 초기화
 --------------------------- */
-body {
-  background: var(--bg-main) !important;
-  color: var(--text);
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-/* ---------------------------
-   링크 스타일
---------------------------- */
+body, div, header, nav, footer, section, article, aside {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   color: var(--link);
   text-decoration: none !important;
 }
+
 a:hover {
-  text-decoration: underline;
   color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.7;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* ---------------------------
-   3열 레이아웃
+   HEADER
 --------------------------- */
-.lc-wrap {
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--brand);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  color: var(--brand-ink);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.header-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand img {
+  height: 34px;
+}
+
+/* NAV */
+nav.site-nav {
+  margin-left: 36px;
+}
+
+.nav-ul {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav-ul > li > a,
+.nav-parent {
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.nav-ul > li > a:hover,
+.nav-parent:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+/* Dropdown */
+.drop { position: relative; }
+
+.drop .menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: var(--bg-light);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: var(--shadow-soft);
+  min-width: 240px;
+  z-index: 1200;
+}
+
+.drop.open .menu {
+  display: block;
+}
+
+.drop .menu a {
+  display: block;
+  padding: 10px 14px;
+  margin: 4px 0;
+  background: white;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+}
+
+.drop .menu a:hover {
+  background: #ffe8d6;
+  color: var(--accent);
+}
+
+/* MOBILE NAV */
+.burger { display: none; margin-left: auto; font-size: 26px; cursor: pointer; }
+
+@media (max-width: 940px) {
+  .burger { display: block; }
+
+  nav.site-nav {
+    display: none;
+    background: var(--brand);
+    padding: 16px;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0; right: 0;
+  }
+
+  #nav-toggle:checked ~ nav.site-nav { display: block; }
+
+  .nav-ul { flex-direction: column; gap: 6px; }
+
+  .drop .menu {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+  }
+
+  .drop .menu a {
+    background: transparent;
+    color: #fff;
+  }
+}
+
+/* ---------------------------
+   3 COLUMN DEFAULT LAYOUT
+--------------------------- */
+.wrap--with-rail {
   display: grid;
   grid-template-columns: 200px minmax(0,1fr) 320px;
   gap: 24px;
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 16px;
 }
 
+.left-rail,
+.right-rail {
+  position: sticky;
+  top: calc(var(--nav-h) + 20px);
+}
+
 @media (max-width: 860px) {
-  .lc-wrap {
+  .wrap--with-rail {
     grid-template-columns: 1fr;
   }
-  .lc-left,
-  .lc-right {
-    display: none;
-  }
-  .lc-tip-mobile {
-    display: block;
-    margin-top: 14px;
-  }
-}
-@media (min-width: 861px) {
-  .lc-tip-mobile {
+  .left-rail,
+  .right-rail {
     display: none !important;
   }
 }
 
 /* ---------------------------
-   본문
+   CARD / BOX / 공통 UI
 --------------------------- */
-.lc-main {
-  max-width: 760px;
+.card,
+.promo-card,
+.box,
+.calc-result,
+.result-box {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
 }
 
-.lc-title {
+.btn,
+button[type="submit"],
+.calc-btn {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--accent-dark);
+}
+
+/* ---------------------------
+   INPUT
+--------------------------- */
+input[type="number"],
+input[type="text"],
+select {
+  height: 48px;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 17px;
+  width: 100%;
+  background: #fff;
+}
+
+input[data-comma="true"] { text-align: right; }
+
+/* ---------------------------
+   MAIN CONTENT
+--------------------------- */
+.main-content {
+  max-width: 860px;
+}
+
+.page-title {
   font-size: 30px;
   font-weight: 800;
   margin: 10px 0 20px;
 }
 
-.lc-content {
+.prose {
   font-size: 17px;
   line-height: 1.8;
 }
 
-/* ---------------------------
-   카드/박스 UI (전 페이지 사용)
---------------------------- */
-.card,
-.promo-card,
-.box,
-.guide-card,
-.result-box,
-.calc-result {
-  background: var(--bg-card) !important;
-  border: 1px solid var(--line-soft) !important;
-  border-radius: 14px;
-  padding: 18px 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.05);
-}
+.prose h2 { font-size: 24px; margin: 28px 0 12px; font-weight: 800; }
+.prose h3 { font-size: 20px; margin: 22px 0 10px; font-weight: 700; }
 
 /* ---------------------------
-   입력 요소
+   GUIDE PAGE LIST
 --------------------------- */
-input[type="number"],
-input[type="text"],
-select {
-  height: 48px !important;
-  padding: 10px 14px !important;
-  border: 1px solid #ddd !important;
-  border-radius: 10px !important;
-  font-size: 17px !important;
-  background: #fff !important;
-}
-
-/* 천 단위 콤마 input align */
-input[data-comma="true"] {
-  text-align: right !important;
-}
-
-/* ---------------------------
-   버튼
---------------------------- */
-button,
-.btn,
-button[type="submit"] {
-  background: var(--accent) !important;
-  color: white !important;
-  border-radius: 8px;
-  padding: 10px 16px;
-  border: none !important;
-  cursor: pointer;
-  font-weight: 600;
-}
-button:hover {
-  background: var(--accent-dark) !important;
-}
-
-/* ---------------------------
-   드롭다운 메뉴
---------------------------- */
-.drop .menu {
-  background: var(--bg-light) !important;
-  border: 1px solid var(--line-soft) !important;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-  padding: 10px;
-}
-
-/* 메뉴 항목 */
-.drop .menu a {
-  display: block;
-  padding: 10px 14px;
-  background: #fff;
-  border-radius: 10px;
-  border: 1px solid var(--line-soft);
-  margin: 4px 0;
-}
-
-.drop .menu a:hover {
-  background: #ffe8d6;
-  color: var(--accent-dark);
-}
-
-/* ---------------------------
-   푸터
---------------------------- */
-footer {
-  background: var(--bg-light) !important;
-  text-align: center !important;
-  padding: 22px 0 !important;
-  color: #666 !important;
-  font-size: 14px;
-  margin-top: 40px;
-}
-
-/* ---------------------------
-   가이드 페이지
---------------------------- */
-.guide-container {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.guide-card {
-  margin: 20px 0;
-}
-
-.guide-btn {
-  display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 8px;
-  margin-top: 10px;
-  font-weight: 700;
-}
-
-/* ---------------------------
-   가이드 목록 페이지
---------------------------- */
-.guide-list-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .guide-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -217,25 +290,31 @@ footer {
 
 .guide-item {
   background: #fff;
+  border: 1px solid var(--line-soft);
   border-radius: 14px;
   overflow: hidden;
   text-decoration: none;
   color: var(--text);
-  border: 1px solid var(--line-soft);
 }
 
-.guide-thumb {
-  width: 100%;
-  display: block;
-}
+.guide-thumb { width: 100%; display: block; }
 
-.guide-item-info {
-  padding: 14px;
-}
+.guide-item-info { padding: 14px; }
 
 .guide-item-info h3 {
   font-size: 19px;
-  margin: 0 0 6px;
   font-weight: 700;
+  margin: 0 0 6px;
 }
 
+/* ---------------------------
+   FOOTER
+--------------------------- */
+footer {
+  background: var(--bg-light);
+  padding: 22px 0;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 40px;
+  color: #666;
+}
