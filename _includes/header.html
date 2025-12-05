@@ -1,130 +1,125 @@
-<nav class="site-nav" aria-label="주요 메뉴">
-  <ul class="nav-ul">
-    <li><a href="{{ '/' | relative_url }}">홈</a></li>
+<header>
+  <div class="header-wrap">
+    
+    <!-- 로고 -->
+    <a href="{{ '/' | relative_url }}" class="brand">
+      <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="LifeCalc">
+      <span>LifeCalc</span>
+    </a>
 
-    {% assign is_life = page.url == '/life/' or page.url contains '/life/' or page.url contains '/family/' %}
-    <li class="drop{% if is_life %} open{% endif %}">
-      <button type="button" class="nav-parent" id="nav-life" aria-controls="menu-life"
-              aria-expanded="{% if is_life %}true{% else %}false{% endif %}">생활 계산기</button>
-      <div id="menu-life" class="menu" aria-label="생활 계산기 하위">
-        <a href="{{ '/life/' | relative_url }}">전체 보기</a>
-        <a href="{{ '/life/age/' | relative_url }}">만나이 계산기</a>
-        <a href="{{ '/life/date/' | relative_url }}">기념일·날짜 계산</a>
-        <a href="{{ '/life/unit-converter/' | relative_url }}">단위 변환</a>
-        <div class="menu-sep" aria-hidden="true"></div>
-        <div class="menu-heading" aria-hidden="true">출산·육아</div>
-        <a href="{{ '/family/due-date/' | relative_url }}">출산 예정일</a>
-        <a href="{{ '/family/baby-days/' | relative_url }}">아이 생후 N일/개월</a>
-        <a href="{{ '/family/baegil/' | relative_url }}">백일 날짜</a>
-        <a href="{{ '/family/vaccine/' | relative_url }}">예방접종 일정</a>
-      </div>
-    </li>
+    <!-- 모바일용 햄버거 -->
+    <input type="checkbox" id="nav-toggle">
+    <label for="nav-toggle" class="burger">☰</label>
 
-    {% assign is_salary = page.url == '/salary/' or page.url contains '/salary/' %}
-    <li class="drop{% if is_salary %} open{% endif %}">
-      <button type="button" class="nav-parent" id="nav-salary" aria-controls="menu-salary"
-              aria-expanded="{% if is_salary %}true{% else %}false{% endif %}">급여·소득</button>
-      <div id="menu-salary" class="menu" aria-label="급여·소득 하위">
-        <a href="{{ '/salary/' | relative_url }}">연봉·급여·세금 허브</a>
-        <a href="{{ '/salary/net-pay/' | relative_url }}">연봉 실수령 계산기</a>
-        <a href="{{ '/salary/insurances/' | relative_url }}">4대보험 계산기</a>
-        <a href="{{ '/salary/withholding/' | relative_url }}">원천징수세액 계산기</a>
-        <a href="{{ '/salary/income-tax/' | relative_url }}">종합소득세 계산기</a>
-        <a href="{{ '/salary/biz-income-tax/' | relative_url }}">사업자 종합소득세</a>
-        <a href="{{ '/salary/retirement/' | relative_url }}">퇴직금 계산기</a>
-        <a href="{{ '/salary/pension-savings/' | relative_url }}">연금저축(세액공제)</a>
-      </div>
-    </li>
+    <!-- 내비게이션 -->
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <ul class="nav-ul">
 
-    {% assign is_re = page.url == '/realestate/' or page.url contains '/realestate/' or page.url contains '/finance/loan/' or page.url contains '/finance/dsr/' %}
-    <li class="drop{% if is_re %} open{% endif %}">
-      <button type="button" class="nav-parent" id="nav-re" aria-controls="menu-re"
-              aria-expanded="{% if is_re %}true{% else %}false{% endif %}">부동산·세금</button>
-      <div id="menu-re" class="menu" aria-label="부동산·세금 계산기 하위">
-        <a href="{{ '/realestate/' | relative_url }}">전체 보기</a>
-        <a href="{{ '/realestate/rent-to-jeonse/' | relative_url }}">전세↔월세 전환 계산기</a>
-        <a href="{{ '/realestate/acquisition-tax/' | relative_url }}">취득세 계산기</a>
-        <a href="{{ '/realestate/capital-gains/' | relative_url }}">양도소득세 계산기</a>
-        <a href="{{ '/realestate/property-tax/' | relative_url }}">종부세 계산기</a>
-        <div class="menu-sep" aria-hidden="true"></div>
-        <div class="menu-heading" aria-hidden="true">주택담보/대출</div>
-        <a href="{{ '/finance/loan/' | relative_url }}">대출 이자/원리금 계산기</a>
-        <a href="{{ '/finance/dsr/' | relative_url }}">DSR 계산기</a>
-      </div>
-    </li>
+        <!-- 홈 -->
+        <li><a href="{{ '/' | relative_url }}">홈</a></li>
 
-    {% assign is_health = page.url == '/health/' or page.url contains '/health/' %}
-    <li class="drop{% if is_health %} open{% endif %}">
-      <button type="button" class="nav-parent" id="nav-health" aria-controls="menu-health"
-              aria-expanded="{% if is_health %}true{% else %}false{% endif %}">건강 계산기</button>
-      <div id="menu-health" class="menu" aria-label="건강 계산기 하위">
-        <a href="{{ '/health/' | relative_url }}">전체 보기</a>
-        <a href="{{ '/health/bmi/' | relative_url }}">BMI 계산기</a>
-        <a href="{{ '/health/bmr/' | relative_url }}">BMR 계산기</a>
-        <a href="{{ '/health/water-intake/' | relative_url }}">물 섭취량</a>
-      </div>
-    </li>
+        <!-- 생활 계산기 -->
+        <li class="drop">
+          <button type="button" class="nav-parent">생활 계산기</button>
+          <div class="menu">
+            <a href="{{ '/life/' | relative_url }}">전체 보기</a>
+            <a href="{{ '/life/age/' | relative_url }}">만나이 계산기</a>
+            <a href="{{ '/life/date/' | relative_url }}">기념일·날짜 계산</a>
+            <a href="{{ '/life/unit-converter/' | relative_url }}">단위 변환</a>
 
-    {% assign is_invest = page.url == '/invest/' or page.url contains '/invest/' %}
-    <li class="drop{% if is_invest %} open{% endif %}">
-      <button type="button" class="nav-parent" id="nav-invest" aria-controls="menu-invest"
-              aria-expanded="{% if is_invest %}true{% else %}false{% endif %}">투자 계산기</button>
-      <div id="menu-invest" class="menu" aria-label="투자 계산기 하위">
-        <a href="{{ '/invest/' | relative_url }}">전체 보기</a>
-        <a href="{{ '/invest/crypto/pnl/' | relative_url }}">코인 수익/손실</a>
-        <a href="{{ '/invest/crypto/avg-cost/' | relative_url }}">코인 평단가</a>
-        <a href="{{ '/invest/crypto/dca/' | relative_url }}">코인 DCA</a>
-        <a href="{{ '/invest/stocks/pnl/' | relative_url }}">주식 수익/손실</a>
-        <a href="{{ '/invest/stocks/avg-cost/' | relative_url }}">주식 평단가</a>
-        <a href="{{ '/invest/stocks/targets/' | relative_url }}">목표가·손절가</a>
-        <a href="{{ '/invest/stocks/dividend-yield/' | relative_url }}">배당수익률</a>
-      </div>
-    </li>
+            <div class="menu-sep"></div>
+            <div class="menu-heading">출산·육아</div>
+            <a href="{{ '/family/due-date/' | relative_url }}">출산 예정일</a>
+            <a href="{{ '/family/baby-days/' | relative_url }}">아이 생후 N일/개월</a>
+            <a href="{{ '/family/baegil/' | relative_url }}">백일 날짜</a>
+            <a href="{{ '/family/vaccine/' | relative_url }}">예방접종 일정</a>
+          </div>
+        </li>
 
-    {%- assign is_lifeplus = page.url == '/lifeplus/' or page.url contains '/lifeplus/' -%}
-<li class="drop{% if is_lifeplus %} open{% endif %}">
-  <button type="button" class="nav-parent"
-          id="nav-lifeplus"
-          aria-controls="menu-lifeplus"
-          aria-expanded="{% if is_lifeplus %}true{% else %}false{% endif %}">
-    라이프+
-  </button>
-  <div id="menu-lifeplus" class="menu" aria-label="라이프+ 하위">
-    <a href="{{ '/lifeplus/'            | relative_url }}">허브</a>
-    <a href="{{ '/lifeplus/fun/'        | relative_url }}">테스트/심리</a>
-    <a href="{{ '/lifeplus/daily-data/' | relative_url }}">오늘의 데이터</a>
-    <a href="{{ '/lifeplus/insight/'    | relative_url }}">오늘의 인사이트</a>
-    <a href="{{ '/lifeplus/challenge/'  | relative_url }}">챌린지</a>
-    <div class="menu-sep" aria-hidden="true" style="margin:8px 0;border-top:1px dashed #e6ebf0"></div>
-    <a href="{{ '/lifeplus/guide/'      | relative_url }}">가이드 글 보러가기</a>
+        <!-- 급여·소득 -->
+        <li class="drop">
+          <button type="button" class="nav-parent">급여·소득</button>
+          <div class="menu">
+            <a href="{{ '/salary/' | relative_url }}">연봉·급여·세금 허브</a>
+            <a href="{{ '/salary/net-pay/' | relative_url }}">연봉 실수령 계산기</a>
+            <a href="{{ '/salary/insurances/' | relative_url }}">4대보험 계산기</a>
+            <a href="{{ '/salary/withholding/' | relative_url }}">원천징수세액 계산기</a>
+            <a href="{{ '/salary/income-tax/' | relative_url }}">종합소득세 계산기</a>
+            <a href="{{ '/salary/biz-income-tax/' | relative_url }}">사업자 종합소득세</a>
+            <a href="{{ '/salary/retirement/' | relative_url }}">퇴직금 계산기</a>
+            <a href="{{ '/salary/pension-savings/' | relative_url }}">연금저축(세액공제)</a>
+          </div>
+        </li>
+
+        <!-- 부동산 -->
+        <li class="drop">
+          <button type="button" class="nav-parent">부동산·세금</button>
+          <div class="menu">
+            <a href="{{ '/realestate/' | relative_url }}">전체 보기</a>
+            <a href="{{ '/realestate/rent-to-jeonse/' | relative_url }}">전세↔월세 전환 계산기</a>
+            <a href="{{ '/realestate/acquisition-tax/' | relative_url }}">취득세 계산기</a>
+            <a href="{{ '/realestate/capital-gains/' | relative_url }}">양도소득세 계산기</a>
+            <a href="{{ '/realestate/property-tax/' | relative_url }}">종부세 계산기</a>
+
+            <div class="menu-sep"></div>
+            <div class="menu-heading">주택담보/대출</div>
+            <a href="{{ '/finance/loan/' | relative_url }}">대출 이자/원리금 계산기</a>
+            <a href="{{ '/finance/dsr/' | relative_url }}">DSR 계산기</a>
+          </div>
+        </li>
+
+        <!-- 건강 -->
+        <li class="drop">
+          <button type="button" class="nav-parent">건강 계산기</button>
+          <div class="menu">
+            <a href="{{ '/health/' | relative_url }}">전체 보기</a>
+            <a href="{{ '/health/bmi/' | relative_url }}">BMI 계산기</a>
+            <a href="{{ '/health/bmr/' | relative_url }}">BMR 계산기</a>
+            <a href="{{ '/health/water-intake/' | relative_url }}">물 섭취량</a>
+          </div>
+        </li>
+
+        <!-- 투자 -->
+        <li class="drop">
+          <button type="button" class="nav-parent">투자 계산기</button>
+          <div class="menu">
+            <a href="{{ '/invest/' | relative_url }}">전체 보기</a>
+            <a href="{{ '/invest/crypto/pnl/' | relative_url }}">코인 수익/손실</a>
+            <a href="{{ '/invest/crypto/avg-cost/' | relative_url }}">코인 평단가</a>
+            <a href="{{ '/invest/crypto/dca/' | relative_url }}">코인 DCA</a>
+            <a href="{{ '/invest/stocks/pnl/' | relative_url }}">주식 수익/손실</a>
+            <a href="{{ '/invest/stocks/avg-cost/' | relative_url }}">주식 평단가</a>
+            <a href="{{ '/invest/stocks/targets/' | relative_url }}">목표가·손절가</a>
+            <a href="{{ '/invest/stocks/dividend-yield/' | relative_url }}">배당수익률</a>
+          </div>
+        </li>
+
+        <!-- 라이프+ -->
+        <li class="drop">
+          <button type="button" class="nav-parent">라이프+</button>
+          <div class="menu">
+            <a href="{{ '/lifeplus/' | relative_url }}">허브</a>
+            <a href="{{ '/lifeplus/fun/' | relative_url }}">테스트/심리</a>
+            <a href="{{ '/lifeplus/daily-data/' | relative_url }}">오늘의 데이터</a>
+            <a href="{{ '/lifeplus/insight/' | relative_url }}">오늘의 인사이트</a>
+            <a href="{{ '/lifeplus/challenge/' | relative_url }}">챌린지</a>
+            <div class="menu-sep"></div>
+            <a href="{{ '/lifeplus/guide/' | relative_url }}">가이드 글 보러가기</a>
+          </div>
+        </li>
+
+      </ul>
+    </nav>
   </div>
-</li>
+</header>
 
-  </ul>
-</nav>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const parents = document.querySelectorAll('.drop > .nav-parent');
-
-  parents.forEach(btn => {
-    btn.addEventListener('click', function (e) {
-      const li = e.target.closest('.drop');
-      const isOpen = li.classList.contains('open');
-
-      // 모든 드롭다운 닫기
-      document.querySelectorAll('.drop').forEach(d => d.classList.remove('open'));
-
-      // 기존에 열려 있던 메뉴가 아니면 열기
-      if (!isOpen) li.classList.add('open');
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".drop .nav-parent").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".drop");
+      parent.classList.toggle("open");
     });
-  });
-
-  // 메뉴 외부 클릭 시 닫기
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.drop')) {
-      document.querySelectorAll('.drop').forEach(d => d.classList.remove('open'));
-    }
   });
 });
 </script>
-
