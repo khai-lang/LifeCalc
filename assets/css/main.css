@@ -1,7 +1,21 @@
-/* LifeCalc Master CSS Hub */
+/* LifeCalc Master CSS Hub -------------------------------------------------- */
+/* 모든 CSS 공통파일을 한 곳에서 관리하는 최상위 집합 파일입니다. */
+/* 주의: main.css는 style.css보다 먼저 로드되므로 기본 테마는 여기에 정의합니다. */
 
+/* 1) Reset & Base */
 @import "base.css";
+
+/* 2) Layout (헤더, 푸터, 좌우 레일 등 전체 구조) */
 @import "layout.css";
+
+/* 3) Components (버튼, 카드, 폼 요소 등) */
 @import "components.css";
+
+/* 4) LifeCalc 전용 테마 색상 */
 @import "theme-lifecalc.css";
+
+/* 5) 가이드 페이지 전용 */
 @import "guide.css";
+
+/* 6) 추가 모듈 확장용 — 비워두되 유지 */
+@supports (display: grid) { }
