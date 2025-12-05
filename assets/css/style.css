@@ -244,4 +244,11 @@
   display: none !important;
 }
 
+/* 푸터 중앙 정렬 */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  color: #666;
+  font-size: 14px;
+}
 
