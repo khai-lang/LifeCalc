@@ -1,16 +1,54 @@
-<!-- 공통 HEAD -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>{{ page.title }} | LifeCalc</title>
+<title>
+  {% if page.title %}
+    {{ page.title }} | LifeCalc
+  {% else %}
+    {{ site.title | default: "LifeCalc" }}
+  {% endif %}
+</title>
+
 <meta name="description" content="{{ page.description | default: site.description }}">
 
-<!-- CSS 정상 로드 순서 -->
-<link rel="stylesheet" href="/assets/css/base.css">
-<link rel="stylesheet" href="/assets/css/layout.css">
-<link rel="stylesheet" href="/assets/css/components.css">
-<link rel="stylesheet" href="/assets/css/theme-lifecalc.css">
-<link rel="stylesheet" href="/assets/css/guide.css">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
 
-<!-- 최종 덮어쓰는 메인 CSS -->
-<link rel="stylesheet" href="/assets/css/main.css?v=20251206">
+{% seo %}
+
+<!-- Jekyll 테마 CSS -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css?v=1' | relative_url }}">
+
+<!-- ★ 가장 마지막, 가장 강한 우선순위: 사이트 전체 디자인 -->
+<link rel="stylesheet" href="{{ '/assets/css/style.css?v=20251206' | relative_url }}">
+<style>
+  /* ★ 모든 링크 밑줄 강제 제거 */
+  a { text-decoration: none !important; }
+
+  /* ★ 전체 페이지 배경 살구톤 보정 */
+  body { background: #fff7ef !important; }
+
+  /* ★ 드롭다운 메뉴 배경 강제 보정 */
+  .drop .menu {
+    background: #fff8f1 !important;
+    border: 1px solid #f3e6db !important;
+  }
+
+  /* ★ 박스/카드 배경 강제 보정 */
+  .card, .promo-card, .box {
+    background: #fff3e8 !important;
+    border: 1px solid #f3e6db !important;
+  }
+
+  /* ★ 푸터 강제 복구 */
+  footer {
+    background: #fcf9f6 !important;
+    color: #777 !important;
+    padding: 20px 0 !important;
+    text-align: center !important;
+  }
+</style>
+
+<!-- AdSense -->
+<script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+  crossorigin="anonymous"></script>
