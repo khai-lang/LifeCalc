@@ -1,44 +1,35 @@
 ---
 layout: none
 ---
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   {% include head.html %}
-
-  <!-- 🔥 필수 CSS 추가 -->
-  <link rel="stylesheet" href="/assets/css/main.css?v=20251204">
-  <link rel="stylesheet" href="/assets/css/style.css?v=20251204">
 </head>
 <body>
 
 {% include header.html %}
 
-<main class="wrap wrap--with-rail rail-3">
+<!-- 메인 콘텐츠 영역 -->
+<main class="page">
+  <div class="container post-wrap">
 
-  <aside class="left-rail">
-    {% include ads/left-rail.html %}
-  </aside>
-
-  <article class="main-content post-body">
-    {% if page.title %}
-      <h1 class="page-title">{{ page.title }}</h1>
-    {% endif %}
-    <div class="prose">
+    <!-- 본문 -->
+    <article class="content post-body">
+      {% if page.title %}
+        <h1 class="page-title">{{ page.title }}</h1>
+      {% endif %}
       {{ content }}
-    </div>
+    </article>
 
-    <div class="promo-mobile">
-      {% include promo-tip-guide.html %}
-      {% include ads/mobile-bottom.html %}
-    </div>
-  </article>
+    <!-- 오른쪽 사이드바 -->
+    <aside class="sidebar">
+      {% include sidebar/guide-tips.html %}
+      {% include ads/right-rail.html %}
+    </aside>
 
-  <aside class="right-rail">
-    {% include promo-tip-guide.html %}
-    {% include ads/right-rail.html %}
-  </aside>
-
+  </div>
 </main>
 
 {% include footer.html %}
