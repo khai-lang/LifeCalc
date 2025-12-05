@@ -1,320 +1,143 @@
-/* ==========================================================
-   LifeCalc Global Styling – 통합 CSS (2025.12.06)
-   ========================================================== */
-
-/* ---------------------------
-   디자인 시스템 변수
---------------------------- */
-:root {
-  --bg-main: #fff7ef;       
-  --bg-card: #fff3e8;       
-  --bg-light: #fcf9f6;      
-  --line-soft: #f1e5dd;
-
-  --accent: #ff6a00;
-  --accent-dark: #e85d00;
-
-  --text: #222;
-  --link: #ff6a00;
-
-  --nav-h: 64px;
-  --max-width: 1440px;
-
-  --brand: #f4d9c6;         
-  --brand-ink: #222;
-  --shadow-soft: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-/* ---------------------------
-   Reset / 기본값 초기화
---------------------------- */
-* {
-  box-sizing: border-box;
-}
-
-body, div, header, nav, footer, section, article, aside {
-  margin: 0;
-  padding: 0;
-}
-
-ul, li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: var(--link);
-  text-decoration: none !important;
-}
-
-a:hover {
-  color: var(--accent-dark);
-  text-decoration: underline;
-}
-
+/* ----------------------------------
+   1) 기본 레이아웃(제일 중요)
+---------------------------------- */
 body {
-  background: var(--bg-main);
-  color: var(--text);
-  font-size: 17px;
-  line-height: 1.7;
-  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #fafafa; /* 기존 복원 */
+  color: #222;
 }
 
-/* ---------------------------
-   HEADER
---------------------------- */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--brand);
-  height: var(--nav-h);
-  display: flex;
-  align-items: center;
-  color: var(--brand-ink);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+header,
+.site-nav,
+footer {
+  background: #ffffff !important; /* 원래대로 복원 */
+  color: #222;
 }
 
-.header-wrap {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 22px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.brand img {
-  height: 34px;
-}
-
-/* NAV */
-nav.site-nav {
-  margin-left: 36px;
-}
-
-.nav-ul {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-}
-
-.nav-ul > li > a,
-.nav-parent {
-  padding: 12px 14px;
-  border-radius: 10px;
-  font-size: 15px;
-  cursor: pointer;
-}
-
+/* 네비게이션 hover 유지 */
 .nav-ul > li > a:hover,
 .nav-parent:hover {
-  background: rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.06);
 }
 
-/* Dropdown */
-.drop { position: relative; }
 
-.drop .menu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  background: var(--bg-light);
-  border: 1px solid var(--line-soft);
+/* ----------------------------------
+   2) 카드/박스 소프트 테마 (콘텐츠만 적용)
+---------------------------------- */
+
+.card,
+.guide-card,
+.box {
+  background: #fff3e8;               /* 연살구 박스 */
+  border: 1px solid #f1e5dd;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+/* hover 효과는 부드럽게 */
+.card:hover,
+.guide-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+/* 목차 박스 */
+.toc-container {
+  background: #fff7ef;
+  border: 1px solid #f1e5dd;
   border-radius: 12px;
-  padding: 10px;
-  box-shadow: var(--shadow-soft);
-  min-width: 240px;
-  z-index: 1200;
-}
-
-.drop.open .menu {
-  display: block;
-}
-
-.drop .menu a {
-  display: block;
-  padding: 10px 14px;
-  margin: 4px 0;
-  background: white;
-  border: 1px solid var(--line-soft);
-  border-radius: 10px;
-}
-
-.drop .menu a:hover {
-  background: #ffe8d6;
-  color: var(--accent);
-}
-
-/* MOBILE NAV */
-.burger { display: none; margin-left: auto; font-size: 26px; cursor: pointer; }
-
-@media (max-width: 940px) {
-  .burger { display: block; }
-
-  nav.site-nav {
-    display: none;
-    background: var(--brand);
-    padding: 16px;
-    position: absolute;
-    top: var(--nav-h);
-    left: 0; right: 0;
-  }
-
-  #nav-toggle:checked ~ nav.site-nav { display: block; }
-
-  .nav-ul { flex-direction: column; gap: 6px; }
-
-  .drop .menu {
-    position: static;
-    background: transparent;
-    box-shadow: none;
-    border: 0;
-  }
-
-  .drop .menu a {
-    background: transparent;
-    color: #fff;
-  }
-}
-
-/* ---------------------------
-   3 COLUMN DEFAULT LAYOUT
---------------------------- */
-.wrap--with-rail {
-  display: grid;
-  grid-template-columns: 200px minmax(0,1fr) 320px;
-  gap: 24px;
-  max-width: 1440px;
-  margin: 0 auto;
   padding: 16px;
 }
 
-.left-rail,
-.right-rail {
-  position: sticky;
-  top: calc(var(--nav-h) + 20px);
-}
-
-@media (max-width: 860px) {
-  .wrap--with-rail {
-    grid-template-columns: 1fr;
-  }
-  .left-rail,
-  .right-rail {
-    display: none !important;
-  }
-}
-
-/* ---------------------------
-   CARD / BOX / 공통 UI
---------------------------- */
-.card,
-.promo-card,
-.box,
-.calc-result,
-.result-box {
-  background: var(--bg-card);
-  border: 1px solid var(--line-soft);
+/* 프로모(Tip/Insight) 박스 */
+.promo-card {
+  background: #fff7ef;
+  border: 1px solid #f1e5dd;
   border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+  padding: 16px;
 }
+
+
+/* ----------------------------------
+   3) 버튼(기존 브랜드 컬러 유지)
+---------------------------------- */
 
 .btn,
-button[type="submit"],
+.btn-orange,
 .calc-btn {
-  background: var(--accent);
+  background: #ff6a00 !important;
   color: #fff !important;
-  padding: 10px 16px;
   border-radius: 8px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
+  padding: 10px 16px;
 }
 
-.btn:hover {
-  background: var(--accent-dark);
+.btn:hover,
+.btn-orange:hover,
+.calc-btn:hover {
+  background: #e55d00 !important;
 }
 
-/* ---------------------------
-   INPUT
---------------------------- */
+
+/* ----------------------------------
+   4) 본문 가독성
+---------------------------------- */
+.prose {
+  line-height: 1.75;
+  font-size: 18px;
+}
+
+.prose h2 {
+  margin-top: 38px;
+}
+
+.prose h3 {
+  margin-top: 26px;
+}
+
+
+/* ----------------------------------
+   5) 링크(기존 유지)
+---------------------------------- */
+
+.prose a,
+.card a {
+  color: #ff6a00;
+  text-decoration: none;
+}
+
+.prose a:hover,
+.card a:hover {
+  text-decoration: underline;
+  color: #e55d00;
+}
+
+
+/* ----------------------------------
+   6) 계산기 input
+---------------------------------- */
+
 input[type="number"],
 input[type="text"],
 select {
-  height: 48px;
-  padding: 10px 14px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 17px;
   width: 100%;
-  background: #fff;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #fff; /* 기존 유지 */
 }
 
-input[data-comma="true"] { text-align: right; }
 
-/* ---------------------------
-   MAIN CONTENT
---------------------------- */
-.main-content {
-  max-width: 860px;
-}
+/* ----------------------------------
+   7) 결과 박스
+---------------------------------- */
 
-.page-title {
-  font-size: 30px;
-  font-weight: 800;
-  margin: 10px 0 20px;
-}
-
-.prose {
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.prose h2 { font-size: 24px; margin: 28px 0 12px; font-weight: 800; }
-.prose h3 { font-size: 20px; margin: 22px 0 10px; font-weight: 700; }
-
-/* ---------------------------
-   GUIDE PAGE LIST
---------------------------- */
-.guide-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
+.result-box,
+.output-box,
+.calc-result {
+  background: #fff7ef;
+  border: 1px solid #f1e5dd;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 600;
   margin-top: 20px;
-}
-
-.guide-item {
-  background: #fff;
-  border: 1px solid var(--line-soft);
-  border-radius: 14px;
-  overflow: hidden;
-  text-decoration: none;
-  color: var(--text);
-}
-
-.guide-thumb { width: 100%; display: block; }
-
-.guide-item-info { padding: 14px; }
-
-.guide-item-info h3 {
-  font-size: 19px;
-  font-weight: 700;
-  margin: 0 0 6px;
-}
-
-/* ---------------------------
-   FOOTER
---------------------------- */
-footer {
-  background: var(--bg-light);
-  padding: 22px 0;
-  text-align: center;
-  font-size: 14px;
-  margin-top: 40px;
-  color: #666;
 }
