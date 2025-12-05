@@ -1,1 +1,10 @@
+// 숫자 입력 시 자동 콤마
+document.querySelectorAll("input[type='number'], .number").forEach(function(el){
+  el.addEventListener("input", function(e){
+    let value = e.target.value.replace(/,/g, "");
+    if (!isNaN(value) && value.length > 0) {
+      e.target.value = Number(value).toLocaleString();
+    }
+  });
+});
 
