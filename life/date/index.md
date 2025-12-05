@@ -1,58 +1,63 @@
 ---
 layout: default
 title: 기념일·날짜 계산기
-description: D-Day, N일 뒤/전 날짜, 100일·돌을 간편 계산합니다.
+description: 두 날짜 사이의 차이(며칠 전/며칠 후), D-Day, 기념일(100일/1년 등)을 계산합니다.
 permalink: life/date/
 ---
 
-<form id="date-form" onsubmit="event.preventDefault(); runDate();" style="margin-bottom:12px;">
-  <label>기준 날짜 <input type="date" id="base" required></label>
-  <label>N일 (+앞으로 / -과거) <input type="number" id="days" value="100" required></label>
+<form id="datediff" onsubmit="event.preventDefault(); calcDiff();" style="margin-bottom:16px;">
+  <label>
+    시작 날짜
+    <input type="date" id="start" required>
+  </label>
+
+  <label>
+    종료 날짜
+    <input type="date" id="end" required>
+  </label>
+
   <button type="submit" class="btn">계산</button>
 </form>
 
-<!-- 결과 박스: 전역 .result-box 사용 -->
+<!-- 결과 박스 -->
 <div id="date-out" class="result-box"></div>
 
 <script>
-// YYYY-MM-DD로 포맷 (로컬 기준)
-function fmt(date){
-  const y = date.getFullYear();
-  const m = String(date.getMonth()+1).padStart(2,'0');
-  const d = String(date.getDate()).padStart(2,'0');
-  return `${y}-${m}-${d}`;
-}
-
-// 페이지 로드 시 기준 날짜를 오늘로
-(function(){
-  const base = document.getElementById('base');
-  if(!base.value){
-    const t = new Date();
-    base.value = fmt(t);
-  }
-})();
-
-function runDate(){
-  const baseVal = document.getElementById('base').value;
-  const n = parseInt(document.getElementById('days').value, 10);
+// 날짜 차이 계산
+function calcDiff(){
+  const s = document.getElementById('start').value;
+  const e = document.getElementById('end').value;
   const out = document.getElementById('date-out');
 
-  if(!baseVal || Number.isNaN(n)){
-    out.classList.add('show');
-    out.innerHTML = '⚠️ 기준 날짜와 N일을 정확히 입력해주세요.';
+  if(!s || !e){
+    out.classList.add("show");
+    out.innerHTML = "⚠️ 날짜를 모두 선택해주세요.";
     return;
   }
 
-  const d = new Date(baseVal);
-  d.setDate(d.getDate() + n);
+  const start = new Date(s);
+  const end = new Date(e);
 
-  out.classList.add('show');
-  out.innerHTML = `📅 <strong>결과:</strong> ${fmt(d)} <br><small style="color:#64748b">(${n >= 0 ? '+'+n : n}일 기준)</small>`;
+  const diffMs = end - start;
+  const diffDay = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  const dday = diffDay > 0 ? `D+${diffDay}` :
+               diffDay < 0 ? `D${diffDay}` : "D-DAY";
+
+  out.classList.add("show");
+  out.innerHTML = `
+    📅 <strong>두 날짜 차이:</strong> ${diffDay.toLocaleString()}일<br>
+    🎉 <strong>D-Day 기준:</strong> ${dday}
+  `;
 }
 </script>
 
-## 예시
-- 오늘 기준 100일: N=100 입력 → 결과 날짜 표시
+## 계산 공식
+- 날짜 차이 = `(종료일 - 시작일) ÷ 24시간`
+- D-Day 표기:  
+  • 종료일이 미래 → D+n  
+  • 종료일이 과거 → D-n  
+  • 같은 날 → D-DAY
 
 <br><br><br>
 <div class="ad-box">
