@@ -244,45 +244,140 @@
   display: none !important;
 }
 
-/* 푸터 중앙 정렬 */
-footer {
-  text-align: center;
-  padding: 30px 0;
-  color: #666;
-  font-size: 14px;
+/* ============================================
+   🔶 LifeCalc B-Style (살구/베이지 포털형)
+   ============================================ */
+
+/* ---------------------------
+   🎨 배경/카드 컬러 시스템
+--------------------------- */
+:root {
+  --bg-main: #fff7ef;         /* 페이지 배경 */
+  --bg-card: #fff3e8;         /* 카드/박스 */
+  --bg-light: #fcf9f6;        /* 연한 베이지 */
+  --line-soft: #f1e5dd;       /* 부드러운 경계선 */
+
+  --accent: #ff6a00;          /* 기본 버튼/포인트 */
+  --accent-dark: #e85d00;     /* 버튼 hover */
+  --link: #ff6a00;            /* 링크 기본 색상 */
+  --text-main: #222;
 }
 
-/* 기본 버튼 스타일 */
-.btn {
-  background: var(--accent); /* 오렌지 */
+/* 전체 배경 */
+body {
+  background: var(--bg-main) !important;
+  color: var(--text-main);
+}
+
+/* ---------------------------
+   🎨 카드 / 박스 스타일
+--------------------------- */
+.card,
+.promo-card,
+.box {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--line-soft) !important;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  padding: 16px 20px;
+}
+
+/* ---------------------------
+   🎨 링크 / 버튼 개선
+--------------------------- */
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+.btn,
+button[type="submit"],
+.calc-btn {
+  background: var(--accent) !important;
   color: #fff !important;
   border-radius: 8px;
-  padding: 10px 18px;
-  transition: 0.25s;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 0;
+  font-size: 15px;
 }
 
-.btn:hover {
-  background: #e85d00;
-  color: #fff !important;
+.btn:hover,
+button[type="submit"]:hover {
+  background: var(--accent-dark) !important;
 }
 
-.prose a,
-.card a {
-  text-decoration: none;
-  color: #0b4c74;
-  font-weight: 500;
+/* ---------------------------
+   📌 입력 칸 개선
+--------------------------- */
+input[type="number"],
+input[type="text"],
+select {
+  height: 48px !important;
+  padding: 10px 14px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 10px !important;
+  font-size: 17px !important;
+  background: #fff !important;
+  box-sizing: border-box;
 }
 
-.prose a:hover,
-.card a:hover {
-  text-decoration: underline;  
-  color: #ff6a00;
+/* placeholder 색 */
+input::placeholder {
+  color: #b8b8b8;
 }
 
-.card {
-  background: #fff9f4;
-  border: 1px solid #f6e7da;
-  border-radius: 14px;
+
+/* ---------------------------
+   🔢 숫자 입력 – 천단위 콤마 자동 적용
+--------------------------- */
+input[data-comma="true"] {
+  text-align: right !important;
+}
+
+/* JS 없이 CSS로 스타일만 적용 → 콤마 기능은 JS 필요 */
+
+.drop .menu {
+  background: var(--bg-light) !important;
+  border: 1px solid var(--line-soft);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.drop .menu a {
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  margin: 4px 0;
+  border-radius: 10px;
+}
+
+.drop .menu a:hover {
+  background: #ffe8d6;
+  border-color: #f3d4bf;
+}
+
+footer {
+  text-align: center !important;
+  padding: 20px 0;
+  color: #777;
+  background: var(--bg-light);
+}
+
+.category-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
   padding: 20px;
+  transition: 0.15s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
 }
 
