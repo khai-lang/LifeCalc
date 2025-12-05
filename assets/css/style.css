@@ -266,3 +266,23 @@ footer {
   color: #fff !important;
 }
 
+.prose a,
+.card a {
+  text-decoration: none;
+  color: #0b4c74;
+  font-weight: 500;
+}
+
+.prose a:hover,
+.card a:hover {
+  text-decoration: underline;  
+  color: #ff6a00;
+}
+
+.card {
+  background: #fff9f4;
+  border: 1px solid #f6e7da;
+  border-radius: 14px;
+  padding: 20px;
+}
+
