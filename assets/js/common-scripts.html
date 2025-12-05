@@ -1,10 +1,36 @@
-// 숫자 입력 시 자동 콤마
-document.querySelectorAll("input[type='number'], .number").forEach(function(el){
-  el.addEventListener("input", function(e){
-    let value = e.target.value.replace(/,/g, "");
-    if (!isNaN(value) && value.length > 0) {
+<!-- input 자동 콤마 처리 (data-comma="true" 대상만 적용) -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const commaInputs = document.querySelectorAll("input[data-comma='true']");
+
+  commaInputs.forEach(el => {
+    el.addEventListener("input", function (e) {
+      let value = e.target.value.replace(/,/g, "");
+
+      // 빈 값이면 그대로 두기
+      if (value === "") {
+        e.target.value = "";
+        return;
+      }
+
+      // 숫자가 아니면 입력 막기
+      if (isNaN(value)) return;
+
+      // 숫자를 콤마 포맷으로 변경
       e.target.value = Number(value).toLocaleString();
-    }
+    });
+
+    // 포커스 시 콤마 제거 (사용자가 수정하기 편하도록)
+    el.addEventListener("focus", function (e) {
+      e.target.value = e.target.value.replace(/,/g, "");
+    });
+
+    // 포커스 아웃 시 다시 콤마 적용
+    el.addEventListener("blur", function (e) {
+      if (!isNaN(e.target.value) && e.target.value !== "") {
+        e.target.value = Number(e.target.value).toLocaleString();
+      }
+    });
   });
 });
-
+</script>
