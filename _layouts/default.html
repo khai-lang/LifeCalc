@@ -12,14 +12,15 @@ layout: none
   {% include header.html %}
 
   <main class="wrap wrap--with-rail rail-3">
-  
-    <!-- 좌측 광고 -->
+
+    <!-- 좌측 광고 (PC 전용) -->
     <aside class="left-rail">
       {% include ads/left-rail.html %}
     </aside>
 
     <!-- 본문 -->
     <article class="main-content post-body">
+
       {% if page.title %}
         <h1 class="page-title">{{ page.title }}</h1>
       {% endif %}
@@ -28,14 +29,15 @@ layout: none
         {{ content }}
       </div>
 
-      <!-- 모바일 팁 -->
+      <!-- 모바일 전용 팁 -->
       <div class="promo-mobile">
         {% include promo-tip-guide.html %}
         {% include ads/mobile-bottom.html %}
       </div>
+
     </article>
 
-    <!-- 우측 레일 -->
+    <!-- 우측 레일 (PC 전용) -->
     <aside class="right-rail">
       {% include promo-tip-guide.html %}
       {% include ads/right-rail.html %}
