@@ -1,116 +1,119 @@
 ---
 layout: default
-title: 단위 변환 계산기
-description: 길이·무게·면적·부피 등 주요 단위를 간편하게 변환합니다.
+title: 단위 변환기
+description: 길이·무게·온도·면적·부피 단위를 상호 변환합니다.
 permalink: life/unit-converter/
 ---
 
-<form id="unit-form" onsubmit="event.preventDefault(); convertUnit();" style="margin-bottom:16px;">
+<div class="card" style="
+  max-width:760px;
+  margin:0 auto;
+  background:#FFF3E8;
+  padding:20px;
+  border-radius:12px;
+  border:1px solid #f1e0d6;
+">
 
-  <label>
-    변환 값 입력
-    <input type="text" id="unit-value" data-comma="true" placeholder="숫자 입력" required>
-  </label>
+  <form onsubmit="event.preventDefault();convert();">
+    <label>변환 대상
+      <select id="type">
+        <option value="length">길이</option>
+        <option value="weight">무게</option>
+        <option value="temp">온도</option>
+        <option value="area">면적</option>
+        <option value="volume">부피</option>
+      </select>
+    </label>
 
-  <label>
-    변환 종류 선택
-    <select id="unit-type" required>
-      <option value="length">길이 (m ↔ cm ↔ mm ↔ km)</option>
-      <option value="weight">무게 (kg ↔ g ↔ mg ↔ t)</option>
-      <option value="area">면적 (㎡ ↔ ㎠ ↔ ㎟ ↔ 평)</option>
-      <option value="volume">부피 (L ↔ mL ↔ ㎥)</option>
-    </select>
-  </label>
+    <label>입력 단위
+      <select id="from"></select>
+    </label>
 
-  <button type="submit" class="btn">변환</button>
-</form>
+    <label>값
+      <input type="number" id="val" step="any" placeholder="숫자 입력" required>
+    </label>
 
-<div id="unit-out" class="result-box"></div>
+    <label>출력 단위
+      <select id="to"></select>
+    </label>
+
+    <button type="submit" class="btn">변환</button>
+  </form>
+
+  <div id="out" class="result-box"></div>
+</div>
 
 <script>
-function convertUnit(){
-  const raw = document.getElementById('unit-value').value.replace(/,/g,'');
-  const type = document.getElementById('unit-type').value;
-  const out = document.getElementById('unit-out');
+const $ = (id) => document.getElementById(id);
+const trimZeros = (s) => s.replace(/(\.\d*?[1-9])0+$/,'$1').replace(/\.0+$/,'');
 
-  if(!raw || isNaN(raw)){
-    out.classList.add("show");
-    out.innerHTML = "⚠️ 숫자를 정확히 입력해주세요.";
+const UNITS = {
+  length: { m:1, cm:0.01, mm:0.001, km:1000, inch:0.0254, ft:0.3048, yd:0.9144, mile:1609.344 },
+  weight: { kg:1, g:0.001, mg:0.000001, t:1000, lb:0.45359237, oz:0.028349523125 },
+  area:   { "m²":1, "cm²":0.0001, "mm²":1e-6, "km²":1e6, "ha":10000, "a":100, "ft²":0.09290304, "yd²":0.83612736 },
+  volume: { "m³":1, "L":0.001, "mL":1e-6, "gal(US)":0.003785411784, "qt(US)":0.000946352946,
+            "pt(US)":0.000473176473, "cup(US)":0.000236588236, "fl oz(US)":2.95735295625e-5 }
+};
+const TEMP = ["°C","°F","K"];
+
+const typeSel = $('type');
+const fromSel = $('from');
+const toSel   = $('to');
+const valEl   = $('val');
+const outBox  = $('out');
+
+function fillUnits(){
+  const t = typeSel.value;
+  fromSel.innerHTML = '';
+  toSel.innerHTML   = '';
+  const options = (t === 'temp') ? TEMP : Object.keys(UNITS[t]);
+  options.forEach(u => {
+    const o1 = document.createElement('option');
+    o1.value = o1.textContent = u;
+    fromSel.appendChild(o1);
+
+    const o2 = document.createElement('option');
+    o2.value = o2.textContent = u;
+    toSel.appendChild(o2);
+  });
+  toSel.selectedIndex = (toSel.options.length > 1) ? 1 : 0;
+}
+typeSel.addEventListener('change', fillUnits);
+fillUnits();
+
+function convertTemp(v, from, to){
+  let c = (from === '°C') ? v :
+          (from === '°F') ? (v - 32) / 1.8 :
+          v - 273.15;
+  if (to === '°C') return c;
+  if (to === '°F') return c * 1.8 + 32;
+  return c + 273.15;
+}
+
+function convert(){
+  const t  = typeSel.value;
+  const f  = fromSel.value;
+  const to = toSel.value;
+  const v  = parseFloat(valEl.value);
+
+  if (!Number.isFinite(v)) {
+    outBox.classList.add('show');
+    outBox.innerHTML = '⚠️ 값을 정확히 입력해주세요.';
     return;
   }
 
-  const v = parseFloat(raw);
-  let result = "";
-
-  /* ---------------------
-     ① 길이 변환
-     --------------------- */
-  if(type === "length"){
-    result = `
-      <strong>길이 변환 결과</strong><br>
-      ${v} m = ${(v * 100).toLocaleString()} cm<br>
-      ${v} m = ${(v * 1000).toLocaleString()} mm<br>
-      ${v} m = ${(v / 1000).toLocaleString()} km
-    `;
+  let res;
+  if (t === 'temp'){
+    res = convertTemp(v, f, to);
+  } else {
+    const base = v * UNITS[t][f];
+    res = base / UNITS[t][to];
   }
 
-  /* ---------------------
-     ② 무게 변환
-     --------------------- */
-  if(type === "weight"){
-    result = `
-      <strong>무게 변환 결과</strong><br>
-      ${v} kg = ${(v * 1000).toLocaleString()} g<br>
-      ${v} kg = ${(v * 1_000_000).toLocaleString()} mg<br>
-      ${v} kg = ${(v / 1000).toLocaleString()} t
-    `;
-  }
+  const vStr = trimZeros((+v.toFixed(6)).toString());
+  const rStr = trimZeros((+res.toFixed(6)).toString());
 
-  /* ---------------------
-     ③ 면적 변환
-     --------------------- */
-  if(type === "area"){
-    result = `
-      <strong>면적 변환 결과</strong><br>
-      ${v} ㎡ = ${(v * 100).toLocaleString()} ㎠<br>
-      ${v} ㎡ = ${(v * 10_000).toLocaleString()} ㎟<br>
-      ${v} ㎡ = ${(v * 0.3025).toLocaleString()} 평
-    `;
-  }
-
-  /* ---------------------
-     ④ 부피 변환
-     --------------------- */
-  if(type === "volume"){
-    result = `
-      <strong>부피 변환 결과</strong><br>
-      ${v} L = ${(v * 1000).toLocaleString()} mL<br>
-      ${v} L = ${(v / 1000).toLocaleString()} ㎥
-    `;
-  }
-
-  out.classList.add("show");
-  out.innerHTML = result;
+  outBox.classList.add('show');
+  outBox.innerHTML = `🔁 <strong>결과:</strong> ${vStr} ${f} = <strong>${rStr} ${to}</strong>`;
 }
 </script>
-
-
-## 사용 가능한 단위
-- **길이**: m, cm, mm, km  
-- **무게**: kg, g, mg, t  
-- **면적**: ㎡, ㎠, ㎟, 평  
-- **부피**: L, mL, ㎥  
-
-
-<br><br><br>
-<div class="ad-box">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3758454239921831"
-       data-ad-slot="1398373115"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
