@@ -367,3 +367,82 @@ a:hover {
   color: #0a58ca; /* 부드러운 파랑톤 */
 }
 
+/* ============================
+   ✔ 스타일 재정비 Patch (최종)
+   ============================ */
+
+/* 링크 스타일 1회 정의로 정리 */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s, text-decoration .2s;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0a58ca;
+}
+
+/* 카드 공통 스타일 업그레이드 */
+.card {
+  background: #ffffff;
+  border: 1px solid #e6e2da;
+  border-radius: 14px;
+  padding: 20px 22px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+/* 강조 카드 (카테고리/영역 구분용) */
+.card-beige {
+  background: #f7efe6;
+  border: 1px solid #ecdac9;
+}
+
+/* 오늘의 팁 / 우측 박스 자연스럽게 통일 */
+.promo-card {
+  background: #f7efe6 !important;
+  border: 1px solid #ecdac9;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* 헤더 정렬 개선 */
+.brand img {
+  height: 30px;
+  margin-right: 6px;
+}
+
+.nav-ul > li > a:hover,
+.nav-parent:hover {
+  background: rgba(255,255,255,0.14);
+}
+
+/* 상단 Hero 섹션 카드 */
+.hero-card {
+  background: #f7efe6;
+  border: 1px solid #ecdac9;
+  padding: 24px 26px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.05);
+}
+
+/* 전체 배경색 통일 */
+body {
+  background: #f8f4ef !important; /* LifeCalc 고급 베이지톤 */
+}
+
+/* 푸터 정리 */
+.site-footer {
+  background: #0b4c74;
+  color: #fff;
+  padding: 30px 0;
+  margin-top: 40px;
+}
+
+.site-footer .footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0.85;
+  font-size: 14px;
+}
+
