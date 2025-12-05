@@ -1,2 +1,241 @@
-/* deprecated */
+/* ==========================================================
+   LifeCalc Global Design System – 통합 스타일 (2025.12.06)
+   ========================================================== */
+
+/* ---------------------------
+   기본 컬러 시스템
+--------------------------- */
+:root {
+  --bg-main: #fff7ef;
+  --bg-card: #fff3e8;
+  --bg-light: #fcf9f6;
+  --line-soft: #f1e5dd;
+
+  --accent: #ff6a00;
+  --accent-dark: #e85d00;
+  --text: #222;
+  --link: #ff6a00;
+}
+
+/* ---------------------------
+   전체 배경 / 텍스트
+--------------------------- */
+body {
+  background: var(--bg-main) !important;
+  color: var(--text);
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ---------------------------
+   링크 스타일
+--------------------------- */
+a {
+  color: var(--link);
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: underline;
+  color: var(--accent-dark);
+}
+
+/* ---------------------------
+   3열 레이아웃
+--------------------------- */
+.lc-wrap {
+  display: grid;
+  grid-template-columns: 200px minmax(0,1fr) 320px;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+@media (max-width: 860px) {
+  .lc-wrap {
+    grid-template-columns: 1fr;
+  }
+  .lc-left,
+  .lc-right {
+    display: none;
+  }
+  .lc-tip-mobile {
+    display: block;
+    margin-top: 14px;
+  }
+}
+@media (min-width: 861px) {
+  .lc-tip-mobile {
+    display: none !important;
+  }
+}
+
+/* ---------------------------
+   본문
+--------------------------- */
+.lc-main {
+  max-width: 760px;
+}
+
+.lc-title {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 10px 0 20px;
+}
+
+.lc-content {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ---------------------------
+   카드/박스 UI (전 페이지 사용)
+--------------------------- */
+.card,
+.promo-card,
+.box,
+.guide-card,
+.result-box,
+.calc-result {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--line-soft) !important;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+/* ---------------------------
+   입력 요소
+--------------------------- */
+input[type="number"],
+input[type="text"],
+select {
+  height: 48px !important;
+  padding: 10px 14px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 10px !important;
+  font-size: 17px !important;
+  background: #fff !important;
+}
+
+/* 천 단위 콤마 input align */
+input[data-comma="true"] {
+  text-align: right !important;
+}
+
+/* ---------------------------
+   버튼
+--------------------------- */
+button,
+.btn,
+button[type="submit"] {
+  background: var(--accent) !important;
+  color: white !important;
+  border-radius: 8px;
+  padding: 10px 16px;
+  border: none !important;
+  cursor: pointer;
+  font-weight: 600;
+}
+button:hover {
+  background: var(--accent-dark) !important;
+}
+
+/* ---------------------------
+   드롭다운 메뉴
+--------------------------- */
+.drop .menu {
+  background: var(--bg-light) !important;
+  border: 1px solid var(--line-soft) !important;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  padding: 10px;
+}
+
+/* 메뉴 항목 */
+.drop .menu a {
+  display: block;
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--line-soft);
+  margin: 4px 0;
+}
+
+.drop .menu a:hover {
+  background: #ffe8d6;
+  color: var(--accent-dark);
+}
+
+/* ---------------------------
+   푸터
+--------------------------- */
+footer {
+  background: var(--bg-light) !important;
+  text-align: center !important;
+  padding: 22px 0 !important;
+  color: #666 !important;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+/* ---------------------------
+   가이드 페이지
+--------------------------- */
+.guide-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.guide-card {
+  margin: 20px 0;
+}
+
+.guide-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+/* ---------------------------
+   가이드 목록 페이지
+--------------------------- */
+.guide-list-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.guide-item {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--line-soft);
+}
+
+.guide-thumb {
+  width: 100%;
+  display: block;
+}
+
+.guide-item-info {
+  padding: 14px;
+}
+
+.guide-item-info h3 {
+  font-size: 19px;
+  margin: 0 0 6px;
+  font-weight: 700;
+}
 
