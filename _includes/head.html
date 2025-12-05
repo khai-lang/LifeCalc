@@ -15,11 +15,14 @@
 
 {% seo %}
 
-<!-- ✅ 공통 CSS (Master CSS Hub: base.css + layout.css + components.css + theme + guide.css 포함) -->
-<link rel="stylesheet"
-      href="{{ '/assets/css/main.css?v=20251206' | relative_url }}">
-
-<!-- ❌ style.css는 제거했습니다 (main.css가 모든 스타일을 관리함) -->
+<!-- ✅ 공통 CSS (순서 중요) -->
+<link rel="stylesheet" href="{{ '/assets/css/base.css?v=20251205' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/layout.css?v=20251205' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/components.css?v=20251205' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/guide.css?v=20251205' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/main.css?v=20251205' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css?v=20251205' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/theme-lifecalc.css?v=20251205' | relative_url }}">
 
 <!-- AdSense -->
 <script async
