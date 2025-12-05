@@ -1,0 +1,74 @@
+/* ================================
+   LifeCalc CSS — BASE
+   Reset + Typography + Variables
+   ================================ */
+
+/* 1. Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. CSS Variables — Theme Core */
+:root {
+  --brand: #0b4c74;       /* 상단 네비 컬러 */
+  --brand-ink: #ffffff;
+
+  --accent: #ff6a00;       /* 버튼, 강조 포인트 */
+  --accent-hover: #e55d00;
+
+  --bg: #f5f7fa;           /* 전체 배경 */
+  --bg-soft: #fff8f1;      /* 살구톤 박스 */
+  --bg-card: #ffffff;      
+
+  --line: #e6ebf0;         
+  --line-soft: #f3e6db;    
+
+  --text: #222;
+  --text-muted: #6b7280;
+
+  --radius: 14px;
+  --max-width: 1100px;
+
+  --nav-h: 72px;
+
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* 3. Base Body */
+html, body {
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto,
+    "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  line-height: 1.55;
+}
+
+/* 4. Images */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 5. Links — neutral 기본 */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.15s ease;
+}
+
+a:hover {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+
+/* 6. Wrapper */
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* // BASE END */
