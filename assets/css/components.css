@@ -1,0 +1,192 @@
+/* ============================================
+   LifeCalc — COMPONENTS
+   카드 / 버튼 / 입력 / 검색 / 인사이트 카드
+   ============================================ */
+
+/* 카드 공통 */
+.card {
+  background: #ffffff;
+  border: 1px solid #e6e2da;
+  border-radius: 14px;
+  padding: 20px 22px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+/* 강조 카드 (카테고리/영역 구분용) */
+.card-beige {
+  background: #f7efe6;
+  border: 1px solid #ecdac9;
+}
+
+/* 카테고리 카드 (홈 섹션용) */
+.category-card {
+  background: #fff3e8;
+  border: 1px solid #f1e5dd;
+  border-radius: 16px;
+  padding: 20px;
+  transition: 0.15s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+}
+
+/* 라이프플러스 인사이트 카드 그리드 */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.grid-cards .card {
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.grid-cards .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.title { font-weight: 700; margin-bottom: 8px; }
+.list { margin: 0; padding-left: 18px; }
+.list .meta { color:#888; font-size:.9rem; margin-left:6px; }
+.quote { margin:0; border-left:4px solid #eee; padding-left:12px; color:#444; }
+.muted { color:#888; }
+
+/* 버튼 공통 */
+.btn,
+button[type="submit"],
+.calc-btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #ff6a00;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .25s ease, transform .05s ease;
+}
+
+.btn:hover,
+button[type="submit"]:hover,
+.calc-btn:hover {
+  background: #e55d00;
+  transform: translateY(-1px);
+}
+
+.promo-card .btn-orange {
+  display:inline-block;
+  padding:7px 14px;
+  border-radius:8px;
+  background:#f97316;
+  color:#fff !important;
+  font-weight:600;
+  text-decoration:none;
+}
+.promo-card .btn-orange:hover {
+  background:#ea580c;
+}
+
+/* 입력, 셀렉트 스타일 */
+input[type="number"],
+input[type="text"],
+input[type="tel"],
+select {
+  height: 48px;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 17px;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+input::placeholder {
+  color: #b8b8b8;
+}
+
+/* 계산기에서 천단위 콤마를 쓰는 입력칸 */
+input[data-comma="true"] {
+  text-align: right;
+}
+
+/* 검색 박스 (전체보기/계산기 목록) */
+.calc-search {
+  margin: 1rem 0 1.25rem;
+}
+.calc-search input {
+  width: 100%;
+  padding: .8rem 1rem;
+  border: 1px solid #e3e5e8;
+  border-radius: .75rem;
+  font-size: 1rem;
+}
+
+/* 카드 그리드 (전체보기 목록) */
+.card-grid {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.card-grid .card {
+  border: 1px solid #eee;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  background: #fff;
+  padding: 0;
+}
+
+.card-link {
+  display:block;
+  padding:14px 16px;
+  text-decoration:none;
+}
+
+.card-title {
+  display:block;
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.card-desc {
+  display:block;
+  font-size:.94rem;
+  color:#60646c;
+}
+
+.card-link:focus,
+.card-link:hover {
+  outline:2px solid #bcd;
+  outline-offset:2px;
+}
+
+/* 광고 박스(placeholder) */
+.ad-box {
+  margin: 20px 0;
+  min-height: 120px;
+}
+
+/* 스크린리더 전용 숨김 텍스트 */
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  border:0;
+}
