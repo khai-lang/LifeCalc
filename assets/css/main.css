@@ -1,0 +1,46 @@
+/* Reset */
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 기본 레이아웃 */
+.page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container.post-wrap {
+  display: flex;
+  gap: 24px;
+}
+
+/* 본문 */
+.content.post-body {
+  flex: 1;
+  background: #fff;
+}
+
+/* 사이드바 */
+.sidebar {
+  width: 280px;
+}
+
+/* 헤더 기본 */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+}
+
+/* 링크 */
+a {
+  color: #1570ef;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
