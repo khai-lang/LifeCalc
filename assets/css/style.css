@@ -1,143 +1,382 @@
-/* ----------------------------------
-   1) 기본 레이아웃(제일 중요)
----------------------------------- */
+/* 가이드 공통 레이아웃 */
+.guide-wrap { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.guide-wrap .grid { display: grid; grid-template-columns: 1fr 320px; gap: 32px; }
+@media (max-width: 1024px) {
+  .guide-wrap .grid { grid-template-columns: 1fr; }
+}
+
+/* 본문 폭/가독성(계산기 본문과 같은 느낌) */
+.guide-content { max-width: 760px; }
+.page-title { margin: 8px 0 20px; font-size: 28px; font-weight: 700; }
+
+/* 타이포 */
+.prose { font-size: 17px; line-height: 1.8; letter-spacing: 0; color: #1b1f23; }
+.prose h2 { margin: 28px 0 12px; font-size: 22px; font-weight: 700; }
+.prose h3 { margin: 22px 0 8px; font-size: 19px; font-weight: 700; }
+.prose p, .prose ul, .prose ol { margin: 10px 0; }
+.prose ul { padding-left: 1.2em; list-style: disc; }
+.prose ol { padding-left: 1.2em; list-style: decimal; }
+.prose hr { border: 0; border-top: 1px solid #e8ecef; margin: 24px 0; }
+
+/* 사이드 영역 */
+.guide-aside { position: sticky; top: 84px; height: fit-content; }
+
+.guide-list { margin: 12px 0 0; padding: 0; list-style: none; }
+.guide-list li { padding: 14px 0; border-top: 1px solid #e8ecef; }
+.guide-list li:first-child { border-top: 0; }
+.guide-item-title { font-weight: 700; text-decoration: none; }
+.muted { color:#6b7280; font-size: 14px; margin:6px 0 0; }
+
+/* =========================
+   Post Typography (Guide/Blog)
+   ========================= */
+:root{
+  --post-text:#0f172a;     /* 본문 */
+  --post-muted:#64748b;    /* 보조 */
+  --post-border:#eef2f7;   /* 경계선 */
+  --post-link:#0ea5e9;     /* 링크 */
+}
+
+/* 레이아웃 */
+.post-wrap{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 280px;
+  gap:24px;
+  max-width:1100px;
+  margin:0 auto;
+  padding:16px;
+}
+
+/* 본문 타이포그래피 */
+.post-body{
+  color:var(--post-text);
+  font-size:18px;           /* ← 글자 크기 키움 */
+  line-height:1.75;         
+}
+
+/* 제목 체계 */
+.post-body h1{ font-size:34px; line-height:1.25; margin:0 0 12px; font-weight:800; }
+.post-body h2{ font-size:26px; line-height:1.35; margin:28px 0 12px; font-weight:800; }
+.post-body h3{ font-size:22px; line-height:1.4;  margin:24px 0 8px;  font-weight:700; }
+.post-body h4{ font-size:18px; line-height:1.4;  margin:16px 0 6px;  font-weight:700; }
+
+/* 본문 요소 */
+.post-body p{ margin:14px 0; }
+.post-body ul, .post-body ol{ padding-left:1.2rem; margin:12px 0; }
+.post-body li{ margin:6px 0; }
+.post-body blockquote{
+  margin:16px 0; padding:12px 16px; 
+  background:#f8fafc; border-left:4px solid var(--post-border); color:#334155;
+  border-radius:8px;
+}
+.post-body a{ color:var(--post-link); text-decoration:underline; text-underline-offset:2px; }
+.post-body hr{ border:none; border-top:1px solid var(--post-border); margin:24px 0; }
+.post-body table{ width:100%; border-collapse:collapse; margin:12px 0; font-size:16px; }
+.post-body th, .post-body td{ border:1px solid var(--post-border); padding:8px 10px; }
+.post-body code, .post-body pre{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  background:#f8fafc; border:1px solid var(--post-border); border-radius:8px;
+}
+.post-body code{ padding:2px 6px; }
+.post-body pre{ padding:12px; overflow:auto; }
+
+/* 목차(TOC) 박스 – kramdown {:toc} */
+.post-body nav.toc, .post-body .toc{
+  border:1px solid var(--post-border); border-radius:12px; padding:16px; margin:16px 0;
+  background:#fff;
+}
+.post-body .toc ul{ list-style:none; padding-left:0; }
+.post-body .toc li{ margin:6px 0; }
+.post-body .toc a{ text-decoration:none; color:#0f172a; }
+.post-body .toc a:hover{ color:var(--post-link); }
+
+/* 반응형 */
+@media (max-width: 980px){
+  .post-wrap{ grid-template-columns:1fr; }
+  .sidebar{ order:-1; }
+  .post-body{ font-size:17px; } /* 모바일에서 약간만 줄임 */
+}
+
+/* === PC 버전: 연살구톤 적용 === */
+@media (min-width: 941px) {
+  .drop .menu {
+    background: #fff8f1;          /* 연살구톤 */
+    border: 1px solid #f3e6db;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  }
+  .drop .menu a {
+    display: block;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #2b2b2b;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin: 2px 0;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .drop .menu a:hover {
+    background: #ffeedd;      /* hover 시 진한 살구 */
+    border-color: #f0d4c0;
+  }
+}
+
+/* === 모바일 버전: 기존 스타일 유지 === */
+@media (max-width: 940px) {
+  .drop .menu {
+    position: static;
+    display: none;
+    background: transparent;     /* 원래 투명/브랜드 배경 */
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    margin-left: 8px;
+  }
+  .drop.open .menu { display: block; }
+  .drop .menu a {
+    padding: 8px 10px;
+    color: #fff;                /* 모바일은 흰 글씨 */
+    border-color: transparent;
+  }
+  .drop .menu a:hover {
+    background: rgba(255,255,255,.12); /* 기존 hover 효과 */
+  }
+}
+
+/* PC 전용: 하위 메뉴 연살구톤 */
+@media (min-width: 941px){
+  .drop .menu{
+    background:#fff8f1;
+    border:1px solid #f3e6db;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    padding:10px;
+    display:none;
+    z-index:1200;
+  }
+  .drop.open .menu{ display:block; }
+  .drop .menu a:hover{
+    background:#ffeedd;
+    border-color:#f0d4c0;
+    color:#ff6a00;
+  }
+}
+
+/* 모바일: 기존 스타일 유지 */
+@media (max-width: 940px){
+  .drop .menu{ background:transparent; border:0; box-shadow:none; }
+  .drop .menu a{ color:#fff; }
+  .drop .menu a:hover{ background:rgba(255,255,255,.12); }
+}
+
+/* 모바일: 사이드 숨김, promo-mobile만 보이기 */
+.promo-mobile{ display:none; }
+@media (max-width: 860px){
+  .wrap--with-rail{ grid-template-columns: 1fr; }
+  .right-rail{ display:none; }
+  .promo-mobile{ display:block; margin-top:14px; }
+}
+
+/* ✅ 안전장치: 데스크탑에서 본문 내부 팁/광고는 숨김 (가이드 본문 중복 차단) */
+@media (min-width: 861px){
+  .main-content .promo-card,
+  .main-content .adsbygoogle{ display:none !important; }
+}
+
+/* 데스크탑: 3열(좌 200px / 본문 / 우 320px) */
+.wrap--with-rail{
+  display:grid;
+  grid-template-columns: 200px minmax(0,1fr) 320px;
+  gap:24px;
+  align-items:start;
+}
+
+/* 레일 고정 위치 */
+.left-rail, .right-rail{
+  position: sticky;
+  top: 96px; /* 헤더 높이에 맞게 조정 */
+}
+
+/* 모바일(폭 ≤ 860px): 여백 제거, 본문만 표시 */
+@media (max-width: 860px){
+  .wrap--with-rail{ grid-template-columns: 1fr; }
+  .left-rail, .right-rail{ display:none; }
+}
+
+
+/* 모바일: 1열, 사이드 숨김, 본문 하단 대체 노출 */
+@media (max-width: 860px){
+  .wrap--with-rail{ grid-template-columns: 1fr; }
+  .right-rail{ display: none; }
+  .promo-mobile{ display:block; margin-top:14px; }
+}
+@media (min-width: 861px){
+  .promo-mobile{ display:none !important; }
+}
+
+<라이프플러스 인사이트>
+.grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:16px}
+.card{border:1px solid #eee;border-radius:12px;padding:16px;background:#fff;transition:transform .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+.title{font-weight:700;margin-bottom:8px}
+.list{margin:0;padding-left:18px}
+.list .meta{color:#888;font-size:.9rem;margin-left:6px}
+.quote{margin:0;border-left:4px solid #eee;padding-left:12px;color:#444}
+.muted{color:#888}
+.archive{margin-top:20px}
+
+<전체보기 검색엔진 효율 높이기>
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+.skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;background:#eef;border-radius:.5rem;}
+.calc-search{margin:1rem 0 1.25rem}
+.calc-search input{width:100%;padding:.8rem 1rem;border:1px solid #e3e5e8;border-radius:.75rem;font-size:1rem}
+.card-grid{list-style:none;padding-left:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.card{border:1px solid #eee;border-radius:14px;box-shadow:0 1px 2px rgba(0,0,0,.04);background:#fff}
+.card-link{display:block;padding:14px 16px;text-decoration:none}
+.card-title{display:block;font-weight:700;margin-bottom:4px}
+.card-desc{display:block;font-size:.94rem;color:#60646c}
+.card-link:focus,.card-link:hover{outline:2px solid #bcd;outline-offset:2px}
+.ad-box{margin:20px 0;min-height:120px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+.ads-right-rail {
+  width: 0 !important;
+  display: none !important;
+}
+
+/* ============================================
+   🔶 LifeCalc B-Style (살구/베이지 포털형)
+   ============================================ */
+
+/* ---------------------------
+   🎨 배경/카드 컬러 시스템
+--------------------------- */
+:root {
+  --bg-main: #fff7ef;         /* 페이지 배경 */
+  --bg-card: #fff3e8;         /* 카드/박스 */
+  --bg-light: #fcf9f6;        /* 연한 베이지 */
+  --line-soft: #f1e5dd;       /* 부드러운 경계선 */
+
+  --accent: #ff6a00;          /* 기본 버튼/포인트 */
+  --accent-dark: #e85d00;     /* 버튼 hover */
+  --link: #ff6a00;            /* 링크 기본 색상 */
+  --text-main: #222;
+}
+
+/* 전체 배경 */
 body {
-  background: #fafafa; /* 기존 복원 */
-  color: #222;
+  background: var(--bg-main) !important;
+  color: var(--text-main);
 }
 
-header,
-.site-nav,
-footer {
-  background: #ffffff !important; /* 원래대로 복원 */
-  color: #222;
-}
-
-/* 네비게이션 hover 유지 */
-.nav-ul > li > a:hover,
-.nav-parent:hover {
-  background: rgba(0,0,0,0.06);
-}
-
-
-/* ----------------------------------
-   2) 카드/박스 소프트 테마 (콘텐츠만 적용)
----------------------------------- */
-
+/* ---------------------------
+   🎨 카드 / 박스 스타일
+--------------------------- */
 .card,
-.guide-card,
+.promo-card,
 .box {
-  background: #fff3e8;               /* 연살구 박스 */
-  border: 1px solid #f1e5dd;
+  background: var(--bg-card) !important;
+  border: 1px solid var(--line-soft) !important;
   border-radius: 14px;
-  padding: 20px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  padding: 16px 20px;
 }
 
-/* hover 효과는 부드럽게 */
-.card:hover,
-.guide-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-
-/* 목차 박스 */
-.toc-container {
-  background: #fff7ef;
-  border: 1px solid #f1e5dd;
-  border-radius: 12px;
-  padding: 16px;
-}
-
-/* 프로모(Tip/Insight) 박스 */
-.promo-card {
-  background: #fff7ef;
-  border: 1px solid #f1e5dd;
-  border-radius: 14px;
-  padding: 16px;
-}
-
-
-/* ----------------------------------
-   3) 버튼(기존 브랜드 컬러 유지)
----------------------------------- */
-
-.btn,
-.btn-orange,
-.calc-btn {
-  background: #ff6a00 !important;
-  color: #fff !important;
-  border-radius: 8px;
-  padding: 10px 16px;
-}
-
-.btn:hover,
-.btn-orange:hover,
-.calc-btn:hover {
-  background: #e55d00 !important;
-}
-
-
-/* ----------------------------------
-   4) 본문 가독성
----------------------------------- */
-.prose {
-  line-height: 1.75;
-  font-size: 18px;
-}
-
-.prose h2 {
-  margin-top: 38px;
-}
-
-.prose h3 {
-  margin-top: 26px;
-}
-
-
-/* ----------------------------------
-   5) 링크(기존 유지)
----------------------------------- */
-
-.prose a,
-.card a {
-  color: #ff6a00;
+/* ---------------------------
+   🎨 링크 / 버튼 개선
+--------------------------- */
+a {
+  color: var(--link);
   text-decoration: none;
 }
 
-.prose a:hover,
-.card a:hover {
+a:hover {
+  color: var(--accent-dark);
   text-decoration: underline;
-  color: #e55d00;
 }
 
+.btn,
+button[type="submit"],
+.calc-btn {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 0;
+  font-size: 15px;
+}
 
-/* ----------------------------------
-   6) 계산기 input
----------------------------------- */
+.btn:hover,
+button[type="submit"]:hover {
+  background: var(--accent-dark) !important;
+}
 
+/* ---------------------------
+   📌 입력 칸 개선
+--------------------------- */
 input[type="number"],
 input[type="text"],
 select {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  background: #fff; /* 기존 유지 */
+  height: 48px !important;
+  padding: 10px 14px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 10px !important;
+  font-size: 17px !important;
+  background: #fff !important;
+  box-sizing: border-box;
+}
+
+/* placeholder 색 */
+input::placeholder {
+  color: #b8b8b8;
 }
 
 
-/* ----------------------------------
-   7) 결과 박스
----------------------------------- */
+/* ---------------------------
+   🔢 숫자 입력 – 천단위 콤마 자동 적용
+--------------------------- */
+input[data-comma="true"] {
+  text-align: right !important;
+}
 
-.result-box,
-.output-box,
-.calc-result {
-  background: #fff7ef;
-  border: 1px solid #f1e5dd;
-  padding: 16px;
-  border-radius: 12px;
-  font-weight: 600;
-  margin-top: 20px;
+/* JS 없이 CSS로 스타일만 적용 → 콤마 기능은 JS 필요 */
+
+.drop .menu {
+  background: var(--bg-light) !important;
+  border: 1px solid var(--line-soft);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.drop .menu a {
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  margin: 4px 0;
+  border-radius: 10px;
+}
+
+.drop .menu a:hover {
+  background: #ffe8d6;
+  border-color: #f3d4bf;
+}
+
+footer {
+  text-align: center !important;
+  padding: 20px 0;
+  color: #777;
+  background: var(--bg-light);
+}
+
+.category-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  padding: 20px;
+  transition: 0.15s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
 }
