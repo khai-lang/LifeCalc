@@ -7,32 +7,41 @@ layout: none
 <head>
   {% include head.html %}
 </head>
+
 <body>
+  {% include header.html %}
 
-{% include header.html %}
+  <main class="wrap wrap--with-rail rail-3">
 
-<!-- 메인 콘텐츠 영역 -->
-<main class="page">
-  <div class="container post-wrap">
+    <!-- 좌측 광고 -->
+    <aside class="left-rail">
+      {% include ads/left-rail.html %}
+    </aside>
 
     <!-- 본문 -->
-    <article class="content post-body">
+    <article class="main-content post-body">
       {% if page.title %}
         <h1 class="page-title">{{ page.title }}</h1>
       {% endif %}
-      {{ content }}
+
+      <div class="prose">
+        {{ content }}
+      </div>
+
+      <div class="promo-mobile">
+        {% include promo-tip-guide.html %}
+        {% include ads/mobile-bottom.html %}
+      </div>
     </article>
 
-    <!-- 오른쪽 사이드바 -->
-    <aside class="sidebar">
-      {% include sidebar/guide-tips.html %}
+    <!-- 우측 레일 -->
+    <aside class="right-rail">
+      {% include promo-tip-guide.html %}
       {% include ads/right-rail.html %}
     </aside>
 
-  </div>
-</main>
+  </main>
 
-{% include footer.html %}
-
+  {% include footer.html %}
 </body>
 </html>
