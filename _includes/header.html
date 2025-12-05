@@ -102,3 +102,29 @@
 
   </ul>
 </nav>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const parents = document.querySelectorAll('.drop > .nav-parent');
+
+  parents.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      const li = e.target.closest('.drop');
+      const isOpen = li.classList.contains('open');
+
+      // 모든 드롭다운 닫기
+      document.querySelectorAll('.drop').forEach(d => d.classList.remove('open'));
+
+      // 기존에 열려 있던 메뉴가 아니면 열기
+      if (!isOpen) li.classList.add('open');
+    });
+  });
+
+  // 메뉴 외부 클릭 시 닫기
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.drop')) {
+      document.querySelectorAll('.drop').forEach(d => d.classList.remove('open'));
+    }
+  });
+});
+</script>
+
