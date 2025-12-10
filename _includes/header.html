@@ -1,18 +1,17 @@
-<header>
+<header class="site-header">
   <div class="header-wrap">
-    
+
     <!-- 로고 -->
     <a href="{{ '/' | relative_url }}" class="logo">
-  <img src="{{ '/images/logo.png' | relative_url }}" alt="LifeCalc 로고" style="height:40px;">
-</a>
+      <img src="{{ '/images/logo.png' | relative_url }}" alt="LifeCalc 로고">
+    </a>
 
-
-    <!-- 모바일용 햄버거 -->
-    <input type="checkbox" id="nav-toggle">
+    <!-- 모바일: 햄버거 -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <label for="nav-toggle" class="burger">☰</label>
 
     <!-- 내비게이션 -->
-    <nav class="site-nav" aria-label="주요 메뉴">
+    <nav class="site-nav">
       <ul class="nav-ul">
 
         <!-- 홈 -->
@@ -20,7 +19,7 @@
 
         <!-- 생활 계산기 -->
         <li class="drop">
-          <button type="button" class="nav-parent">생활 계산기</button>
+          <button class="nav-parent">생활 계산기</button>
           <div class="menu">
             <a href="{{ '/life/' | relative_url }}">전체 보기</a>
             <a href="{{ '/life/age/' | relative_url }}">만나이 계산기</a>
@@ -38,7 +37,7 @@
 
         <!-- 급여·소득 -->
         <li class="drop">
-          <button type="button" class="nav-parent">급여·소득</button>
+          <button class="nav-parent">급여·소득</button>
           <div class="menu">
             <a href="{{ '/salary/' | relative_url }}">연봉·급여·세금 허브</a>
             <a href="{{ '/salary/net-pay/' | relative_url }}">연봉 실수령 계산기</a>
@@ -53,7 +52,7 @@
 
         <!-- 부동산 -->
         <li class="drop">
-          <button type="button" class="nav-parent">부동산·세금</button>
+          <button class="nav-parent">부동산·세금</button>
           <div class="menu">
             <a href="{{ '/realestate/' | relative_url }}">전체 보기</a>
             <a href="{{ '/realestate/rent-to-jeonse/' | relative_url }}">전세↔월세 전환 계산기</a>
@@ -63,14 +62,14 @@
 
             <div class="menu-sep"></div>
             <div class="menu-heading">주택담보/대출</div>
-            <a href="{{ '/finance/loan/' | relative_url }}">대출 이자/원리금 계산기</a>
+            <a href="{{ '/finance/loan/' | relative_url }}">대출 계산기</a>
             <a href="{{ '/finance/dsr/' | relative_url }}">DSR 계산기</a>
           </div>
         </li>
 
         <!-- 건강 -->
         <li class="drop">
-          <button type="button" class="nav-parent">건강 계산기</button>
+          <button class="nav-parent">건강 계산기</button>
           <div class="menu">
             <a href="{{ '/health/' | relative_url }}">전체 보기</a>
             <a href="{{ '/health/bmi/' | relative_url }}">BMI 계산기</a>
@@ -81,7 +80,7 @@
 
         <!-- 투자 -->
         <li class="drop">
-          <button type="button" class="nav-parent">투자 계산기</button>
+          <button class="nav-parent">투자 계산기</button>
           <div class="menu">
             <a href="{{ '/invest/' | relative_url }}">전체 보기</a>
             <a href="{{ '/invest/crypto/pnl/' | relative_url }}">코인 수익/손실</a>
@@ -96,7 +95,7 @@
 
         <!-- 라이프+ -->
         <li class="drop">
-          <button type="button" class="nav-parent">라이프+</button>
+          <button class="nav-parent">라이프+</button>
           <div class="menu">
             <a href="{{ '/lifeplus/' | relative_url }}">허브</a>
             <a href="{{ '/lifeplus/fun/' | relative_url }}">테스트/심리</a>
@@ -110,15 +109,25 @@
 
       </ul>
     </nav>
+
   </div>
 </header>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".drop .nav-parent").forEach(btn => {
+  // 모바일 햄버거
+  const navToggle = document.getElementById("nav-toggle");
+
+  // 모든 dropdown 버튼
+  document.querySelectorAll(".nav-parent").forEach(btn => {
     btn.addEventListener("click", () => {
-      const parent = btn.closest(".drop");
-      parent.classList.toggle("open");
+      const li = btn.closest("li");
+
+      // 데스크탑: hover 기반 → 클릭 시 아무것도 안 함
+      if (window.innerWidth > 940) return;
+
+      // 모바일: 열고 닫기 토글
+      li.classList.toggle("open");
     });
   });
 });
