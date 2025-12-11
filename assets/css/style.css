@@ -271,3 +271,12 @@ select {
   .wrap--with-rail { grid-template-columns: 1fr; }
   .left-rail, .right-rail { display: none; }
 }
+
+.footer-area {
+  background: var(--bg-light); /* 연한 베이지 */
+  padding: 20px 0;
+  text-align: center;
+  color: #777;
+  border-top: 1px solid var(--line-soft); /* 얇은 연베이지 라인 */
+  font-size: 14px;
+}
