@@ -3,6 +3,13 @@
    살구/베이지 기반 포털형 + PC/모바일 정상작동 메뉴
    ============================================ */
 
+:root {
+  --bg-light: #f8f9fa;
+  --line-soft: #e5e5e5;
+  --muted: #666666;
+}
+
+
 /* ---------------------------
    🎨 컬러 시스템 (전역 변수)
 --------------------------- */
@@ -272,11 +279,17 @@ select {
   .left-rail, .right-rail { display: none; }
 }
 
-.footer-area {
-  background: var(--bg-light); /* 연한 베이지 */
+.site-footer {
+  width: 100%;
+  background: var(--bg-light);
+  border-top: 1px solid var(--line-soft);
   padding: 20px 0;
+  margin-top: 40px;
+}
+
+.footer-inner {
   text-align: center;
-  color: #777;
-  border-top: 1px solid var(--line-soft); /* 얇은 연베이지 라인 */
+  color: var(--muted);
   font-size: 14px;
 }
+
