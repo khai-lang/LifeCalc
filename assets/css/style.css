@@ -1,53 +1,61 @@
 /* ============================================
-   🔶 LifeCalc Unified Style (Final Integrated)
-   살구/베이지 기반 포털형 + PC/모바일 정상작동 메뉴
-   ============================================ */
-
-:root {
-  --bg-light: #f8f9fa;
-  --line-soft: #e5e5e5;
-  --muted: #666666;
-}
-
+   🔶 LifeCalc STABLE Unified Style (FINAL)
+   – 살구/베이지 기반 테마
+   – PC/모바일 메뉴 정상 작동
+   – 계산기/가이드/홈/3열 레이아웃 완전 통합
+============================================ */
 
 /* ---------------------------
-   🎨 컬러 시스템 (전역 변수)
+   🎨 Global Color Variables
 --------------------------- */
 :root {
-  --bg-main: #fff7ef;         /* 전체 배경 */
-  --bg-card: #fff3e8;         /* 카드/박스 */
-  --bg-light: #fcf9f6;        /* 연한 베이지 */
-  --line-soft: #f1e5dd;       /* 부드러운 경계 */
+  --bg-main: #fff7ef;
+  --bg-light: #fcf9f6;
+  --bg-card: #fff3e8;
 
-  --accent: #ff6a00;          /* 버튼/링크 포인트 */
-  --accent-dark: #e85d00;     
-
-  --menu-bg: #fff8f1;         /* PC 하위메뉴 배경 */
-  --menu-hover: #ffeedd;      /* hover */
-  --menu-border: #f3e6db;
-
+  --line-soft: #f1e5dd;
   --text-main: #222;
   --text-muted: #64748b;
+
+  --accent: #ff6a00;
+  --accent-dark: #e85d00;
+
+  --menu-bg: #fff8f1;
+  --menu-hover: #ffeedd;
+  --menu-border: #f3e6db;
+
+  --radius: 12px;
 }
 
-/* 전체 배경 */
+/* ---------------------------
+   🎨 Base
+--------------------------- */
+
 body {
-  background: var(--bg-main) !important;
+  background: var(--bg-main);
   color: var(--text-main);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* 푸터 밀어내기 */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 /* ============================================
-   🟧 헤더 + 내비게이션
+   🟧 HEADER + NAVIGATION
 ============================================ */
 
-/* 헤더 래퍼 */
 .header-wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 18px;
+  padding: 14px 20px;
   background: #fff;
   border-bottom: 1px solid #eee;
   position: sticky;
@@ -55,82 +63,78 @@ body {
   z-index: 2000;
 }
 
-/* 로고 */
 .logo img {
   height: 40px;
 }
 
-/* 햄버거 버튼 */
+/* 기본 nav 숨김(모바일용 제어) */
 #nav-toggle { display: none; }
 .burger {
   display: none;
-  font-size: 30px;
+  font-size: 28px;
   cursor: pointer;
   user-select: none;
 }
 
-/* NAV 공통 */
 .site-nav { display: flex; }
 .nav-ul {
   list-style: none;
   display: flex;
+  gap: 16px;
   padding: 0;
   margin: 0;
-  gap: 14px;
 }
 
-.nav-ul > li {
-  position: relative;
-}
+.nav-ul > li { position: relative; }
 
 .nav-ul > li > a,
 .nav-parent {
   padding: 10px 12px;
   font-weight: 600;
-  color: #333;
   cursor: pointer;
   background: transparent;
   border: 0;
+  color: #333;
 }
 
-/* PC 하위 메뉴 */
+/* 🟫 PC 하위 메뉴 */
 .drop .menu {
   position: absolute;
   top: 46px;
   left: 0;
   display: none;
-  min-width: 220px;
-  z-index: 1000;
 
+  min-width: 220px;
   background: var(--menu-bg);
   border: 1px solid var(--menu-border);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  border-radius: var(--radius);
   padding: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
 }
 
 .drop .menu a {
   display: block;
-  font-size: 16px;
-  color: #2b2b2b;
-  padding: 10px 14px;
-  border-radius: 8px;
-  margin: 2px 0;
-  transition: background .2s;
   background: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #222;
+  padding: 10px 14px;
+  margin: 4px 0;
   border: 1px solid var(--line-soft);
+  transition: 0.2s;
 }
 
 .drop .menu a:hover {
   background: var(--menu-hover);
   border-color: #f0d4c0;
-  color: #ff6a00;
+  color: var(--accent);
 }
 
 /* open 상태 */
 .drop.open .menu { display: block; }
 
-/* 모바일 메뉴 전용 */
+/* =============== MOBILE NAV =============== */
+
 @media (max-width: 940px) {
   .burger { display: block; }
 
@@ -146,11 +150,11 @@ body {
 
   .nav-ul {
     flex-direction: column;
-    gap: 0;
+    gap: 6px;
   }
 
   .drop .menu {
-    static: position;
+    position: static;
     display: none;
     background: transparent;
     border: 0;
@@ -159,43 +163,39 @@ body {
   }
 
   .drop.open .menu { display: block; }
-
   .drop .menu a {
-    color: #fff;
     background: transparent;
-    padding: 8px 10px;
+    border: 0;
+    color: #fff;
   }
 
   .drop .menu a:hover {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,.15);
   }
 }
 
 /* ============================================
-   🟧 가이드 레이아웃
+   🟧 GUIDE PAGE LAYOUT
 ============================================ */
 
 .guide-wrap { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
-.guide-wrap .grid { display: grid; grid-template-columns: 1fr 320px; gap: 32px; }
+
+.guide-wrap .grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+}
+
 @media (max-width: 1024px) {
   .guide-wrap .grid { grid-template-columns: 1fr; }
 }
 
 .guide-content { max-width: 760px; }
-.page-title { margin: 8px 0 20px; font-size: 28px; font-weight: 700; }
+.page-title { font-size: 28px; font-weight: 700; margin: 8px 0 20px; }
 
 /* ============================================
-   🟧 본문 타이포그래피
+   🟧 MAIN CONTENT TYPOGRAPHY
 ============================================ */
-
-.post-wrap {
-  display: grid;
-  grid-template-columns: minmax(0,1fr) 280px;
-  gap: 24px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 16px;
-}
 
 .post-body {
   font-size: 18px;
@@ -203,48 +203,59 @@ body {
   color: var(--text-main);
 }
 
-.post-body h1 { font-size: 34px; margin-bottom: 12px; font-weight: 800; }
-.post-body h2 { font-size: 26px; margin: 28px 0 12px; font-weight: 800; }
-.post-body h3 { font-size: 22px; margin: 24px 0 8px; font-weight: 700; }
+.post-body h1 {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
 
-.post-body p { margin: 14px 0; }
+.post-body h2 {
+  font-size: 26px;
+  margin: 28px 0 12px;
+  font-weight: 800;
+}
+
+.post-body h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 24px 0 8px;
+}
 
 .post-body blockquote {
   background: #f8fafc;
   border-left: 4px solid var(--line-soft);
   padding: 12px 16px;
-  border-radius: 8px;
+  border-radius: 10px;
   color: #334155;
 }
 
 /* ============================================
-   🟧 카드/박스/버튼
+   🟧 CARDS / BUTTONS
 ============================================ */
-.card, .promo-card, .box {
-  background: var(--bg-card) !important;
+
+.card, .promo-card {
+  background: var(--bg-card);
   border: 1px solid var(--line-soft);
-  border-radius: 14px;
+  border-radius: var(--radius);
   padding: 16px 20px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
 }
 
-.btn, button[type="submit"], .calc-btn {
-  background: var(--accent) !important;
+.btn, button[type="submit"] {
+  background: var(--accent);
+  border-radius: 8px;
   color: #fff !important;
   padding: 10px 16px;
-  border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
   border: 0;
   cursor: pointer;
 }
 
-.btn:hover {
-  background: var(--accent-dark) !important;
-}
+.btn:hover { background: var(--accent-dark); }
 
 /* ============================================
-   🟧 입력칸
+   🟧 INPUTS
 ============================================ */
 
 input[type="number"],
@@ -259,37 +270,42 @@ select {
 }
 
 /* ============================================
-   🟧 3열 레이아웃
+   🟧 3-COLUMN LAYOUT (좌 광고 – 본문 – 우 광고)
 ============================================ */
 
 .wrap--with-rail {
   display: grid;
-  grid-template-columns: 200px minmax(0,1fr) 320px;
+  grid-template-columns: 200px minmax(0,880px) 320px;
   gap: 24px;
+  align-items: start;
 }
 
-.left-rail, .right-rail {
+.left-rail,
+.right-rail {
   position: sticky;
   top: 96px;
 }
 
-/* 모바일 */
+/* 모바일에서 광고 제거 */
 @media (max-width: 860px) {
   .wrap--with-rail { grid-template-columns: 1fr; }
   .left-rail, .right-rail { display: none; }
 }
 
+/* ============================================
+   🟧 FOOTER — 항상 아래 중앙 정렬
+============================================ */
+
 .site-footer {
   width: 100%;
   background: var(--bg-light);
   border-top: 1px solid var(--line-soft);
-  padding: 20px 0;
+  padding: 22px 0;
   margin-top: 40px;
 }
 
 .footer-inner {
   text-align: center;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 14px;
 }
-
