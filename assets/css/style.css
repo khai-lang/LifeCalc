@@ -56,7 +56,7 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
-  background: #fff;
+  background: #0b5a7a;
   border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
@@ -94,7 +94,7 @@ main {
   cursor: pointer;
   background: transparent;
   border: 0;
-  color: #333;
+  color:  #fff;
 }
 
 /* 🟫 PC 하위 메뉴 */
