@@ -13,12 +13,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LifeCalc">
 
-<meta property="og:title" content="{% if page.title %}{{ page.title }} | LifeCalc{% else %}LifeCalc | 생활·세금·건강 계산기 모음{% endif %}">
-<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}생활, 급여, 세금, 건강, 투자 계산기를 한곳에 모은 LifeCalc{% endif %}">
+<meta property="og:title"
+      content="{% if page.title %}{{ page.title }} | LifeCalc{% else %}LifeCalc | 생활·세금·건강 계산기{% endif %}">
+
+<meta property="og:description"
+      content="{% if page.description %}{{ page.description }}{% else %}생활, 급여, 세금, 건강 계산기를 한곳에 모은 LifeCalc{% endif %}">
 
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 
-<!-- ✅ 핵심: 이미지 자동 처리 -->
 {% if page.og_image %}
 <meta property="og:image" content="{{ page.og_image | absolute_url }}">
 {% else %}
