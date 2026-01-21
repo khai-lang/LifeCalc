@@ -309,3 +309,11 @@ select {
   color: var(--text-muted);
   font-size: 14px;
 }
+
+/* === 메뉴 기존 밑줄 완전 제거 === */
+.nav-ul > li > a,
+.nav-parent {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
