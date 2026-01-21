@@ -9,6 +9,23 @@
   {% endif %}
 </title>
 
+<!-- Open Graph 기본 설정 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LifeCalc">
+
+<meta property="og:title" content="{% if page.title %}{{ page.title }} | LifeCalc{% else %}LifeCalc | 생활·세금·건강 계산기 모음{% endif %}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}생활, 급여, 세금, 건강, 투자 계산기를 한곳에 모은 LifeCalc{% endif %}">
+
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+
+<!-- ✅ 핵심: 이미지 자동 처리 -->
+{% if page.og_image %}
+<meta property="og:image" content="{{ page.og_image | absolute_url }}">
+{% else %}
+<meta property="og:image" content="{{ '/assets/images/lifecalc-og.png' | absolute_url }}">
+{% endif %}
+
+
 <meta name="description" content="{{ page.description | default: site.description }}">
 
 <link rel="canonical" href="{{ page.url | absolute_url }}">
