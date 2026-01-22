@@ -336,66 +336,46 @@ header::after,
 }
 
 /* ===============================
-   HEADER 메뉴 최종 안정화
-   - 폰트 크기
-   - 알약형 테두리
-   - 홈 메뉴 위치 정렬
+   HEADER 메뉴 최종 스타일 (구조 대응)
    =============================== */
 
-/* li를 정렬 기준으로 고정 */
-.site-header .nav-ul > li {
+/* 메뉴 li 정렬 */
+.nav-ul > li {
   display: flex;
   align-items: center;
 }
 
-/* 홈(a) + 드롭다운(button) 공통 */
-.site-header .nav-ul > li > a,
-.site-header .nav-parent {
+/* 모든 메뉴 공통 (홈 포함) */
+.nav-ul > li > a,
+.nav-parent {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  /* 버튼 체급 */
-  height: 40px;                 /* ← 기존 38px → 안정적으로 40px */
+  height: 40px;
   padding: 0 18px;
 
-  /* 🔴 폰트 */
-  font-size: 17px;              /* ← 체감 확실히 커짐 */
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.2px;
 
-  /* 색상 */
   color: #ffffff;
   background: transparent;
 
-/* === 메뉴 알약 테두리 + 정렬 통일(홈 포함) === */
-.nav-ul > li > a,
-.nav-parent {
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  border-radius: 999px;        /* 알약 형태 */
-  padding: 8px 14px;           /* 테두리 생기면 살짝 줄이는 게 예쁨 */
-  line-height: 1;              /* 글자 수직 정렬 안정화 */
-}
+  border: 2px solid #ffffff;
+  border-radius: 999px;
 
-
-
-  /* 🔴 홈 위치 문제 해결 핵심 */
   line-height: 1;
   vertical-align: middle;
-
   white-space: nowrap;
-  cursor: pointer;
 
-  /* 기본 스타일 제거 (a / button 차이 제거) */
   text-decoration: none;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
-/* hover 효과 */
-.site-header .nav-ul > li > a:hover,
-.site-header .nav-parent:hover {
+/* hover */
+.nav-ul > li > a:hover,
+.nav-parent:hover {
   background: rgba(255, 255, 255, 0.18);
 }
-
-
-
