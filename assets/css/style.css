@@ -9,22 +9,20 @@
    🎨 Global Color Variables
 --------------------------- */
 :root {
-  /* Background hierarchy */
-  --bg-main: #faf7f3;      /* 본문 (가장 연함) */
-  --bg-submenu: #f3ede5;   /* 하위 메뉴 (본문보다 진함) */
-  --bg-card: #f6e9db;      /* 우측 박스 / 강조 카드 */
+  --bg-main: #fff7ef;
+  --bg-light: #fcf9f6;
+  --bg-card: #fff3e8;
 
-  /* Lines & text */
-  --line-soft: rgba(0,0,0,0.08);
+  --line-soft: #f1e5dd;
   --text-main: #222;
   --text-muted: #64748b;
 
-  /* Accent */
   --accent: #ff6a00;
   --accent-dark: #e85d00;
 
-  /* Menu */
-  --menu-hover: #f6e9db;
+  --menu-bg: #fff8f1;
+  --menu-hover: #ffeedd;
+  --menu-border: #f3e6db;
 
   --radius: 12px;
 }
@@ -34,16 +32,10 @@
 --------------------------- */
 
 body {
-  body {
   background: var(--bg-main);
   color: var(--text-main);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
 
   /* 푸터 밀어내기 */
   display: flex;
@@ -65,31 +57,26 @@ main {
   align-items: center;
   padding: 14px 20px;
   background: #0b5a7a;
+  border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
   z-index: 2000;
 }
 
-/* 흰 줄 완전 차단 */
-header,
-.site-header,
-.header-wrap {
-  border: none !important;
-  box-shadow: none !important;
-}
-header::before,
-header::after,
-.site-header::before,
-.site-header::after,
-.header-wrap::before,
-.header-wrap::after {
-  content: none !important;
-  display: none !important;
+.logo img {
+  height: 40px;
 }
 
-/* NAV */
+/* 기본 nav 숨김(모바일용 제어) */
+#nav-toggle { display: none; }
+.burger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
 .site-nav { display: flex; }
-
 .nav-ul {
   list-style: none;
   display: flex;
@@ -98,47 +85,17 @@ header::after,
   margin: 0;
 }
 
-.nav-ul > li {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+.nav-ul > li { position: relative; }
 
-/* 메인 메뉴 */
 .nav-ul > li > a,
 .nav-parent {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 40px;
-  padding: 0 18px;
-
-  font-size: 17px;
+  padding: 10px 12px;
   font-weight: 600;
-  letter-spacing: -0.2px;
-
-  color: #fff;
-  background: transparent;
-
-  border: 2px solid #fff;
-  border-radius: 999px;
-
-  line-height: 1;
-  text-decoration: none;
-  box-sizing: border-box;
   cursor: pointer;
+  background: transparent;
+  border: 0;
+  color:  #fff;
 }
-
-/* 메인 메뉴 hover → 하위 메뉴 연결 */
-.nav-ul > li > a:hover,
-.nav-ul > li.open > a,
-.nav-parent:hover {
-  background: var(--menu-hover);
-  color: #0b5a7a;
-  border-color: var(--menu-hover);
-}
-
 
 /* 🟫 PC 하위 메뉴 */
 .drop .menu {
@@ -148,36 +105,33 @@ header::after,
   display: none;
 
   min-width: 220px;
+  background: var(--menu-bg);
+  border: 1px solid var(--menu-border);
+  border-radius: var(--radius);
   padding: 10px;
-
-  background: var(--bg-submenu);
-  border: 1px solid var(--line-soft);
-  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
 }
 
-/* 하위 메뉴 항목 */
 .drop .menu a {
   display: block;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #222;
   padding: 10px 14px;
   margin: 4px 0;
-
-  font-size: 15.5px;
-  color: var(--text-main);
-
-  background: transparent;
-  border-radius: 10px;
-  text-decoration: none;
+  border: 1px solid var(--line-soft);
+  transition: 0.2s;
 }
 
-/* hover */
 .drop .menu a:hover {
-  background: rgba(0,0,0,0.04);
+  background: var(--menu-hover);
+  border-color: #f0d4c0;
+  color: var(--accent);
 }
 
-/* open */
-.drop.open .menu {
-  display: block;
-}
+/* open 상태 */
+.drop.open .menu { display: block; }
 
 /* =============== MOBILE NAV =============== */
 
