@@ -374,8 +374,16 @@ header::after,
   cursor: pointer;
 }
 
-/* hover */
+/* ===============================
+   메인 메뉴 hover → 하위 메뉴 색상 연결
+   =============================== */
+
 .nav-ul > li > a:hover,
-.nav-parent:hover {
-  background: rgba(255, 255, 255, 0.18);
+.nav-ul > li > a:focus,
+.nav-ul > li.open > a,
+.nav-parent:hover,
+.nav-parent:focus {
+  background: #f6e9db;   /* 하위 메뉴와 같은 베이지 톤 */
+  color: #0b5a7a;        /* 네이비 글자 */
+  border-color: #f6e9db;
 }
