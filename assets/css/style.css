@@ -311,6 +311,32 @@ select {
 }
 
 /* ======================================
+   HEADER 흰색 줄 완전 차단 (최종)
+   ====================================== */
+
+/* 모든 헤더 계층 선/그림자 제거 */
+header,
+.site-header,
+.header-wrap {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* 헤더 가상요소까지 완전 제거 */
+header::before,
+header::after,
+.site-header::before,
+.site-header::after,
+.header-wrap::before,
+.header-wrap::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* ======================================
    HEADER / MENU 최종 확정 코드
    - 폰트 크기
    - 알약형 테두리
