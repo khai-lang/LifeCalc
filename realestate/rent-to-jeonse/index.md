@@ -54,51 +54,48 @@ section: realestate
 
 
     <!-- 월세 → 전세 -->
-    <fieldset id="boxR2J" style="border:0;padding:0;margin:0;display:none">
-      <h2 style="margin:6px 0 8px">월세 → 전세</h2>
+<fieldset id="boxR2J" style="border:0;padding:0;margin:0;display:none">
+  <h2 style="margin:6px 0 8px">월세 → 전세</h2>
 
-      <label for="rent">월세(원)</label>
-      <input
-        type="text"
-        id="rent"
-        inputmode="numeric"
-        placeholder="예: 800,000"
-        oninput="formatNumberInput(this)"
-      >
+  <label for="rent">월세(원)</label>
+  <input
+    type="text"
+    id="rent"
+    inputmode="numeric"
+    placeholder="예: 800,000"
+    oninput="formatNumberInput(this)"
+  >
 
-      <label for="rate2">전환율(연 %)</label>
-      <input
-        type="number"
-        id="rate2"
-        step="0.01"
-        inputmode="decimal"
-        placeholder="예: 4.0"
-      >
+  <label for="rate2">전환율(연 %)</label>
+  <input
+    type="number"
+    id="rate2"
+    step="0.01"
+    inputmode="decimal"
+    placeholder="예: 4.0"
+  >
 
-      <label for="deposit0">기존 보증금(원)</label>
-      <input
-        type="text"
-        id="deposit0"
-        inputmode="numeric"
-        value="0"
-        placeholder="예: 10,000,000"
-        oninput="formatNumberInput(this)"
-      >
+  <label for="deposit0">기존 보증금(원)</label>
+  <input
+    type="text"
+    id="deposit0"
+    inputmode="numeric"
+    value="0"
+    placeholder="예: 10,000,000"
+    oninput="formatNumberInput(this)"
+  >
 
-      <label for="mfee2">관리비(월, 원) <small style="color:#6b7280">(월세에 관리비 포함 시 입력)</small></label>
-      <input
-        type="text"
-        id="mfee2"
-        inputmode="numeric"
-        value="0"
-        oninput="formatNumberInput(this)"
-      >
-    </fieldset>
+  <label for="mfee2">관리비(월, 원)</label>
+  <input
+    type="text"
+    id="mfee2"
+    inputmode="numeric"
+    value="0"
+    placeholder="예: 50,000"
+    oninput="formatNumberInput(this)"
+  >
+</fieldset>
 
-    <div style="margin-top:12px">
-      <button id="calcBtn" class="btn" type="submit">전세→월세 계산</button>
-    </div>
-  </form>
 
   <!-- 결과 -->
   <div id="result" class="result-box" style="margin-top:12px;"></div>
