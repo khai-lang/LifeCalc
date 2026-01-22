@@ -368,9 +368,20 @@ header::after,
   color: #ffffff;
   background: transparent;
 
-  /* 🔴 알약형 테두리 */
-  border: 2px solid #ffffff;    /* ← 1.5px → 2px로 가시성 확보 */
-  border-radius: 999px;
+ /* 2. 홈 포함 모든 메뉴를 알약형 테두리로 */
+.site-header .nav-ul > li > a,
+.site-header .nav-parent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #ffffff !important;
+  border-radius: 999px !important;
+
+  padding: 8px 14px !important;
+  line-height: 1 !important;
+}
+
 
   /* 🔴 홈 위치 문제 해결 핵심 */
   line-height: 1;
