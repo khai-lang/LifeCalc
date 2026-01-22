@@ -1,12 +1,57 @@
 <script>
-// 입력 필드 숫자 포맷 (천단위 콤마 표시)
-function formatNumberInput(el){
-  let value = el.value.replace(/[^0-9]/g,'');
-  if(value === "") { el.value = ""; return; }
-  el.value = Number(value).toLocaleString();
-}
-// 콤마 제거 후 숫자값으로 반환
-function getNumberValue(id){
-  return Number(document.getElementById(id).value.replace(/,/g,'')) || 0;
-}
+  // ✅ 콤마 포맷 (소수점 1개 허용)
+  function formatNumberInput(el) {
+    if (!el) return;
+
+    // 현재 값
+    let raw = (el.value || "").toString();
+
+    // 콤마 제거
+    raw = raw.replace(/,/g, "");
+
+    // 숫자와 점(.)만 남기기
+    raw = raw.replace(/[^\d.]/g, "");
+
+    // 점(.)이 여러 개면 첫 번째만 살리고 제거
+    const firstDot = raw.indexOf(".");
+    if (firstDot !== -1) {
+      const intPart = raw.slice(0, firstDot).replace(/\./g, "");
+      const decPart = raw.slice(firstDot + 1).replace(/\./g, "");
+      raw = intPart + "." + decPart;
+    }
+
+    // 정수/소수 분리
+    const parts = raw.split(".");
+    const intStr = parts[0] || "";
+    const decStr = parts.length > 1 ? parts[1] : "";
+
+    // 정수부 콤마
+    const intFormatted =
+      intStr === "" ? "" : Number(intStr).toLocaleString("en-US");
+
+    // 최종 합치기
+    el.value = parts.length > 1 ? `${intFormatted}.${decStr}` : intFormatted;
+  }
+
+  // ✅ 값 읽기 (콤마 제거 + 소수점 허용)
+  function getNumberValue(id) {
+    const el = document.getElementById(id);
+    if (!el) return 0;
+
+    const v = (el.value || "")
+      .toString()
+      .replace(/,/g, "")
+      .trim();
+
+    const num = Number(v);
+    return Number.isFinite(num) ? num : 0;
+  }
+
+  // ✅ (선택) class="comma"가 붙은 input은 자동으로 콤마 적용
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("input.comma").forEach((inp) => {
+      inp.addEventListener("input", () => formatNumberInput(inp));
+    });
+  });
 </script>
+
