@@ -311,33 +311,22 @@ select {
 }
 
 /* ======================================
-   HEADER 최종 정리 (라인 없음 / 버튼형 메뉴)
+   HEADER / MENU 최종 확정 코드
+   - 폰트 크기
+   - 알약형 테두리
+   - 홈 메뉴 위치 통일
    ====================================== */
 
-/* 헤더 자체: 선, 그림자 완전 제거 */
-header,
-.site-header,
-.header-wrap {
-  border: none;
-  box-shadow: none;
-}
-
-/* 헤더 배경 */
-.header-wrap {
-  background: #0b5a7a;
-  padding: 14px 20px;
-}
-
-/* 네비게이션 */
-.site-header .nav-ul {
+/* 메뉴 정렬 기준 */
+.site-header .nav-ul > li {
   display: flex;
-  gap: 10px;
+  align-items: center;
 }
 
-/* 메뉴 버튼 공통 (홈 + 드롭다운 버튼) */
+/* 모든 메뉴 버튼 (홈 a + 드롭다운 button) */
 .site-header .nav-ul > li > a,
 .site-header .nav-parent {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -354,12 +343,14 @@ header,
   border: 1.5px solid #ffffff;
   border-radius: 999px;
 
-  cursor: pointer;
+  line-height: 1;
   white-space: nowrap;
+  cursor: pointer;
 }
 
-/* hover 효과 (채워지는 느낌만) */
+/* hover 효과 */
 .site-header .nav-ul > li > a:hover,
 .site-header .nav-parent:hover {
   background: rgba(255, 255, 255, 0.18);
 }
+
