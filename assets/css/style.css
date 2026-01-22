@@ -369,18 +369,14 @@ header::after,
   background: transparent;
 
 /* === 메뉴 알약 테두리 + 정렬 통일(홈 포함) === */
-.site-header .nav-ul > li > a,
-.site-header .nav-parent {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1.5px solid #fff !important;
-  border-radius: 999px !important;
-
-  padding: 8px 14px !important;
-  line-height: 1 !important;
+.nav-ul > li > a,
+.nav-parent {
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;        /* 알약 형태 */
+  padding: 8px 14px;           /* 테두리 생기면 살짝 줄이는 게 예쁨 */
+  line-height: 1;              /* 글자 수직 정렬 안정화 */
 }
+
 
 
   /* 🔴 홈 위치 문제 해결 핵심 */
