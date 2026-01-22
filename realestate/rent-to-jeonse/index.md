@@ -21,36 +21,37 @@ section: realestate
     </select>
 
     <!-- 전세 → 월세 -->
-    <fieldset id="boxJ2R" style="border:0;padding:0;margin:0">
-      <h2 style="margin:6px 0 8px">전세 → 월세</h2>
+<fieldset id="boxJ2R" style="border:0;padding:0;margin:0">
+  <h2 style="margin:6px 0 8px">전세 → 월세</h2>
 
-      <label for="jeonse">전세 보증금(원)</label>
-      <input
-        type="text"
-        id="jeonse"
-        inputmode="numeric"
-        placeholder="예: 200,000,000"
-        oninput="formatNumberInput(this)"
-      >
+  <label for="jeonse">전세 보증금(원)</label>
+  <input
+    type="text"
+    id="jeonse"
+    inputmode="numeric"
+    placeholder="예: 200,000,000"
+    oninput="formatNumberInput(this)"
+  >
 
-      <label for="rate">전환율(연 %)</label>
-      <input
-        type="number"
-        id="rate"
-        step="0.01"
-        inputmode="decimal"
-        placeholder="예: 4.0"
-      >
+  <label for="rate">전환율(연 %)</label>
+  <input
+    type="number"
+    id="rate"
+    step="0.01"
+    inputmode="decimal"
+    placeholder="예: 4.0"
+  >
 
-      <label for="mfee">관리비(월, 원) <small style="color:#6b7280">(선택)</small></label>
-      <input
-        type="text"
-        id="mfee"
-        inputmode="numeric"
-        value="0"
-        oninput="formatNumberInput(this)"
-      >
-    </fieldset>
+  <label for="mfee">관리비(월, 원)</label>
+  <input
+    type="text"
+    id="mfee"
+    inputmode="numeric"
+    value="0"
+    oninput="formatNumberInput(this)"
+  >
+</fieldset>
+
 
     <!-- 월세 → 전세 -->
     <fieldset id="boxR2J" style="border:0;padding:0;margin:0;display:none">
