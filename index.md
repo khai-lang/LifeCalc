@@ -330,7 +330,7 @@ section: home
 .quick-group{
   margin: 14px 0 18px;
   padding: 12px 12px;
-  background:#eef0ea;
+  background:#fffdf6;
   border:1px solid #f2e3d4;
   border-radius: 16px;
 }
