@@ -14,7 +14,7 @@ section: home
       <a href="/life/age/" class="btn" style="background:#111;color:#fff">만나이 계산기 →</a>
       <a href="/salary/net-pay/" class="btn">연봉 실수령</a>
       <a href="/realestate/rent-to-jeonse/" class="btn">전세↔월세</a>
-      <a href="/realestate/loan/" class="btn">대출 이자</a>
+      <a href="/finance/loan/" class="btn">대출 이자</a>
     </div>
   </div>
 </section>
@@ -39,7 +39,7 @@ section: home
     </div>
     <div class="intro-card">
       <div class="k">📈 투자</div>
-      <div class="v">평균단가 · 수익률 · 복리/배당 시뮬레이션으로 전략 점검</div>
+      <div class="v">평균단가 · 수익률 · 배당 시뮬레이션으로 전략 점검</div>
     </div>
   </div>
 
@@ -98,7 +98,7 @@ section: home
   <div class="icon">📈</div>
   <div class="title">투자 계산기</div>
   <div class="desc">
-평균단가·수익률·복리 계산으로
+평균단가·수익률·배당 계산으로
 투자 전략을 미리 시뮬레이션
 </div>
   </a>
@@ -109,7 +109,7 @@ section: home
     <div class="desc">BMI, BMR, 물 섭취량</div>
   </a>
 
-  <a class="card card-link" href="/invest/">
+  <a class="card card-link" href="invest/crypto/">
     <div class="icon">₿</div>
     <div class="title">코인 계산기</div>
     <div class="desc">수익률, DCA, APR↔APY, IL</div>
@@ -149,7 +149,7 @@ section: home
     <p class="quick-desc">연봉을 ‘실수령 기준’으로 현실화합니다.</p>
     <div class="btn-grid">
       <a class="pill pill-primary" href="/salary/net-pay/">연봉 실수령</a>
-      <a class="pill" href="/salary/withholding/">원천징수세 계산기</a>
+      <a class="pill" href="/salary/withholding/">원천징수세액</a>
       <a class="pill" href="/salary/insurances/">4대보험 계산기</a>
     </div>
   </div>
@@ -330,7 +330,7 @@ section: home
 .quick-group{
   margin: 14px 0 18px;
   padding: 12px 12px;
-  background:#fff5ea;
+  background:#eef0ea;
   border:1px solid #f2e3d4;
   border-radius: 16px;
 }
