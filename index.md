@@ -138,9 +138,9 @@ section: home
     <p class="quick-desc">집 계약/대출 전에 월 부담을 먼저 확인해요.</p>
     <div class="btn-grid">
       <a class="pill pill-primary" href="/realestate/rent-to-jeonse/">전세↔월세</a>
-      <a class="pill" href="/realestate/loan/">대출 계산기</a>
-      <a class="pill" href="/realestate/dsr/">DSR 계산기</a>
-      <a class="pill" href="/realestate/acquisition-tax/">취득세</a>
+      <a class="pill" href="/finance/loan/">대출 계산기</a>
+      <a class="pill" href="/finance/dsr/">DSR 계산기</a>
+      <a class="pill" href="/realestate/acquisition-tax/">취득세 계산기</a>
     </div>
   </div>
 
@@ -149,7 +149,7 @@ section: home
     <p class="quick-desc">연봉을 ‘실수령 기준’으로 현실화합니다.</p>
     <div class="btn-grid">
       <a class="pill pill-primary" href="/salary/net-pay/">연봉 실수령</a>
-      <a class="pill" href="/salary/withholding/">원천징수</a>
+      <a class="pill" href="/salary/withholding/">원천징수세액 계산기</a>
       <a class="pill" href="/salary/insurances/">4대보험 계산기</a>
     </div>
   </div>
