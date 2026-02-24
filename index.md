@@ -19,6 +19,35 @@ section: home
   </div>
 </section>
 
+<!-- Authority Intro (SEO + 신뢰 + 체류시간) -->
+<section class="intro">
+  <h2 style="margin:0 0 8px">LifeCalc는 “실생활 계산을 빠르게 끝내는” 계산기 포털입니다</h2>
+  <p style="margin:0 0 10px" class="intro-sub">
+    전월세 전환, 대출 이자·DSR, 연봉 실수령액, 세금, BMI 같은 생활형 계산을
+    <strong>공식 기반</strong>으로 간단히 확인할 수 있도록 정리했습니다.
+    필요한 항목만 입력하면 결과가 즉시 계산되며, 각 카테고리 허브에서 관련 계산기를 한 번에 찾을 수 있어요.
+  </p>
+
+  <div class="intro-grid">
+    <div class="intro-card">
+      <div class="k">🏠 부동산/대출</div>
+      <div class="v">전세↔월세 전환 · 대출 이자 · DSR로 월 부담을 먼저 계산</div>
+    </div>
+    <div class="intro-card">
+      <div class="k">💰 급여/세금</div>
+      <div class="v">실수령액 · 4대보험 · 원천징수 기준으로 연봉을 현실화</div>
+    </div>
+    <div class="intro-card">
+      <div class="k">📈 투자</div>
+      <div class="v">평균단가 · 수익률 · 복리/배당 시뮬레이션으로 전략 점검</div>
+    </div>
+  </div>
+
+  <p class="intro-note">
+    ※ 계산 결과는 입력값과 가정에 따라 달라질 수 있으며, 의사결정 전에는 공공기관/금융기관 기준과 함께 확인하는 것을 권장합니다.
+  </p>
+</section>
+
 <!-- 카테고리 -->
 <h2>카테고리</h2>
 <div class="grid-cards">
@@ -71,17 +100,29 @@ section: home
   </a>
 </div>
 
-<!-- 추천 계산기: 버튼형(상단과 중복 최소화) -->
 <h2>추천 계산기</h2>
+
+<h3 class="mini">🏠 전월세·대출 빠른 계산</h3>
 <div class="btn-grid">
-  <a class="pill" href="/realestate/capital-gains/">양도세 계산</a>
-  <a class="pill" href="/realestate/acquisition-tax/">취득세 계산</a>
-  <a class="pill" href="/realestate/dsr/">DSR 계산</a>
-  <a class="pill" href="/health/bmi/">BMI</a>
+  <a class="pill" href="/realestate/rent-to-jeonse/">전세↔월세</a>
+  <a class="pill" href="/realestate/loan/">대출 이자</a>
+  <a class="pill" href="/realestate/dsr/">DSR</a>
+  <a class="pill" href="/realestate/acquisition-tax/">취득세</a>
+</div>
+
+<h3 class="mini">💰 급여·세금 핵심</h3>
+<div class="btn-grid">
+  <a class="pill" href="/salary/net-pay/">연봉 실수령</a>
+  <a class="pill" href="/salary/withholding/">원천징수</a>
+  <a class="pill" href="/salary/insurance/">4대보험</a>
+</div>
+
+<h3 class="mini">📈 투자/코인</h3>
+<div class="btn-grid">
+  <a class="pill" href="/invest/stocks/avg-cost/">주식 평균단가</a>
   <a class="pill" href="/crypto/profit/">코인 수익률</a>
-  <a class="pill" href="/insurance/auto/">자동차 보험료</a>
-  <a class="pill" href="/life/age/">만나이</a>
-  <a class="pill" href="/life/date/">날짜 계산</a>
+  <a class="pill" href="/invest/compound-interest/">복리</a>
+  <a class="pill" href="/invest/dividend/">배당</a>
 </div>
 
 <!-- 페이지 전용 보조 스타일 -->
