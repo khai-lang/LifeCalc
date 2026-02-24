@@ -5,7 +5,6 @@ description: 매수가·수량·현재가·수수료/거래세(선택)로 주식
 permalink: /invest/stocks/pnl/
 ---
 
-# 주식 수익/손실 계산기
 
 <form id="spnl" onsubmit="event.preventDefault();spnlCalc();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
