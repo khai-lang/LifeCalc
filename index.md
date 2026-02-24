@@ -311,6 +311,78 @@ section: home
   background:#0b4c74;              /* LifeCalc 톤에 맞춘 포인트 */
   border-color:#0b4c74;
 }
+
+/* ✅ Quick Routes: 가독성/정렬 강화 */
+.quick{
+  margin-top: 10px;
+}
+.quick-title{
+  margin: 0 0 6px;
+  font-size: 24px;
+  letter-spacing: -0.3px;
+}
+.quick-lead{
+  margin: 0 0 14px;
+  color:#6b7280;
+  font-size: 15px;
+}
+
+.quick-group{
+  margin: 14px 0 18px;
+  padding: 12px 12px;
+  background:#ffffff;
+  border:1px solid #eef2f6;
+  border-radius: 16px;
+}
+
+.quick-h3{
+  margin: 0 0 6px;
+  font-size: 17px;         /* ✅ h3 키움 */
+  font-weight: 900;
+}
+.quick-desc{
+  margin: 0 0 10px;
+  color:#6b7280;
+  font-size: 14px;         /* ✅ 설명 가독성 */
+  line-height: 1.6;
+}
+
+/* 버튼: 크기/눌림감 강화 */
+.btn-grid{
+  display:grid;
+  gap:10px;
+  grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+}
+
+.pill{
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+  padding:12px 14px;       /* ✅ 버튼 키움 */
+  border:1px solid #e6ebf0;
+  border-radius:999px;
+  background:#fff;
+  color:#222;
+  font-weight:900;
+  transition:background .15s, transform .05s, border-color .15s, box-shadow .15s;
+  min-height:44px;         /* ✅ 터치 영역 확보 */
+}
+.pill:hover{
+  background:#f5f7fa;
+  transform:translateY(-1px);
+  border-color:#d9e2ea;
+  box-shadow:0 8px 16px rgba(0,0,0,.06);
+}
+
+.pill-primary{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+.pill-primary:hover{
+  background:#0b4c74;
+  border-color:#0b4c74;
+}  
+  
   
 </style>
 
