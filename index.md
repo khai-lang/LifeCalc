@@ -109,7 +109,7 @@ section: home
     <div class="desc">BMI, BMR, 물 섭취량</div>
   </a>
 
-  <a class="card card-link" href="/crypto/">
+  <a class="card card-link" href="/invest/">
     <div class="icon">₿</div>
     <div class="title">코인 계산기</div>
     <div class="desc">수익률, DCA, APR↔APY, IL</div>
@@ -149,7 +149,7 @@ section: home
     <p class="quick-desc">연봉을 ‘실수령 기준’으로 현실화합니다.</p>
     <div class="btn-grid">
       <a class="pill pill-primary" href="/salary/net-pay/">연봉 실수령</a>
-      <a class="pill" href="/salary/withholding/">원천징수세액 계산기</a>
+      <a class="pill" href="/salary/withholding/">원천징수세 계산기</a>
       <a class="pill" href="/salary/insurances/">4대보험 계산기</a>
     </div>
   </div>
@@ -330,8 +330,8 @@ section: home
 .quick-group{
   margin: 14px 0 18px;
   padding: 12px 12px;
-  background:#ffffff;
-  border:1px solid #eef2f6;
+  background:#fff5ea;
+  border:1px solid #f2e3d4;
   border-radius: 16px;
 }
 
