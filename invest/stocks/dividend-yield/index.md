@@ -5,8 +5,6 @@ description: 주가와 주당 배당금으로 배당수익률과 투자원가수
 permalink: /invest/stocks/dividend-yield/
 ---
 
-# 배당수익률 · 투자원가수익률(YoC) 계산기
-
 <form id="div" onsubmit="event.preventDefault();divCalc();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
     <label>현재 주가(원) <input type="number" id="price" required></label>
