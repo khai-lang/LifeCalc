@@ -48,6 +48,31 @@ section: home
   </p>
 </section>
 
+<!-- 🔥 인기 계산기 -->
+<h2>🔥 가장 많이 사용하는 계산기</h2>
+
+<div class="popular-grid">
+  <a class="popular-card" href="/life/age/">
+    <strong>만나이 계산기</strong>
+    <span>가장 많이 사용하는 기본 계산</span>
+  </a>
+
+  <a class="popular-card" href="/salary/net-pay/">
+    <strong>연봉 실수령액</strong>
+    <span>세후 월급 바로 확인</span>
+  </a>
+
+  <a class="popular-card" href="/realestate/rent-to-jeonse/">
+    <strong>전세↔월세 계산</strong>
+    <span>실제 주거 비용 비교</span>
+  </a>
+
+  <a class="popular-card" href="/invest/stocks/avg-cost/">
+    <strong>주식 평균단가</strong>
+    <span>물타기 전략 계산</span>
+  </a>
+</div>
+
 <!-- 카테고리 -->
 <h2>카테고리</h2>
 <div class="grid-cards">
@@ -200,6 +225,39 @@ section: home
 .intro-card .v{ color:#6b7280; font-size:.95rem; line-height:1.6; }
 .intro-note{ margin:0; color:#6b7280; font-size:.92rem; }
 .mini{ margin:8px 0 8px; font-size:1.02rem; color:#111; }
+
+  /* 인기 계산기 */
+.popular-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+  margin:12px 0 20px;
+}
+
+.popular-card{
+  display:block;
+  padding:16px;
+  border-radius:14px;
+  background:#fffdf6;
+  border:2px solid #f0e2c8;
+  transition:.15s;
+}
+
+.popular-card strong{
+  display:block;
+  font-size:16px;
+  margin-bottom:4px;
+}
+
+.popular-card span{
+  font-size:13px;
+  color:#6b7280;
+}
+
+.popular-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(0,0,0,.08);
+}
   
 </style>
 
