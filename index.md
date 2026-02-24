@@ -135,7 +135,9 @@ section: home
 
 <h3 class="mini">🏠 전월세·대출 빠른 계산</h3>
 <div class="btn-grid">
-  <a class="pill" href="/realestate/rent-to-jeonse/">전세↔월세</a>
+  <h3 class="mini">🏠 전월세·대출 빠른 계산</h3>
+<p class="section-desc">집 계약/대출 전에 월 부담을 먼저 확인해요.</p>
+  <a class="pill pill-primary" href="/realestate/rent-to-jeonse/">전세↔월세</a>
 <a class="pill" href="/realestate/loan/">대출 계산기</a>
 <a class="pill" href="/realestate/dsr/">DSR 계산기</a>
 <a class="pill" href="/realestate/acquisition-tax/">취득세 계산기</a>
@@ -143,17 +145,20 @@ section: home
 
 <h3 class="mini">💰 급여·세금 핵심</h3>
 <div class="btn-grid">
-  <a class="pill" href="/salary/net-pay/">연봉 실수령</a>
+  <h3 class="mini">💰 급여·세금 핵심</h3>
+<p class="section-desc">연봉을 ‘실수령 기준’으로 현실화합니다.</p>
+  <a class="pill pill-primary" href="/salary/net-pay/">연봉 실수령</a>
 <a class="pill" href="/salary/withholding/">원천징수세액 계산기</a>
 <a class="pill" href="/salary/insurances/">4대보험 계산기</a>
 </div>
 
 <h3 class="mini">📈 투자/코인</h3>
 <div class="btn-grid">
-  <a class="pill" href="/invest/stocks/avg-cost/">주식 평균단가</a>
-  <a class="pill" href="/crypto/profit/">코인 수익률</a>
-  <a class="pill" href="/invest/crypto/pnl/">코인 수익/손실</a>
-  <a class="pill" href="/invest/stocks/dividend-yield/">배당수익률</a>
+  <h3 class="mini">📈 투자 핵심 계산</h3>
+<p class="section-desc">평단·손익·배당을 빠르게 체크해요.</p>
+  <a class="pill pill-primary" href="/invest/stocks/avg-cost/">주식 평균단가</a>
+<a class="pill" href="/invest/crypto/pnl/">코인 수익/손실</a>
+<a class="pill" href="/invest/stocks/dividend-yield/">배당수익률</a>
 </div>
 
 <!-- 페이지 전용 보조 스타일 -->
@@ -271,6 +276,37 @@ section: home
   color:#6b7280;
   font-size:14px;
 }  
+
+/* ✅ 추천 계산기 버튼: 클릭 유도 강화 */
+.pill{
+  display:block;
+  text-align:center;
+  padding:11px 14px;               /* 약간 키움 */
+  border:1px solid #e6ebf0;
+  border-radius:999px;
+  background:#fff;
+  color:#222;
+  font-weight:800;                  /* 강조 */
+  transition:background .15s, transform .05s, border-color .15s, box-shadow .15s;
+}
+
+.pill:hover{
+  background:#f5f7fa;
+  transform:translateY(-1px);
+  border-color:#d9e2ea;
+  box-shadow:0 8px 16px rgba(0,0,0,.06);
+}
+
+/* ⭐ 핵심: 대표 버튼(한 묶음당 1개만) */
+.pill-primary{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+.pill-primary:hover{
+  background:#0b4c74;              /* LifeCalc 톤에 맞춘 포인트 */
+  border-color:#0b4c74;
+}
   
 </style>
 
