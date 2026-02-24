@@ -29,7 +29,18 @@ permalink: /salary/
   <a class="btn ghost" href="/lifeplus/">가이드/인사이트 더 보기</a>
 </div>
 
-<!-- ✅ (수익) 추천: 여기 아래에 허브용 광고 1개 배치가 가장 무난합니다 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <h2 style="margin-top:18px;">어떤 계산기를 먼저 써야 하나요?</h2>
 <div class="card p-3" style="margin:10px 0;">
