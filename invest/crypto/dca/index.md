@@ -5,7 +5,6 @@ description: 매월 고정금액을 적립했을 때 누적 수량과 평균매�
 permalink: /invest/crypto/dca/
 ---
 
-# 코인 DCA(적립식) 수익률 계산기
 
 <form id="cdca" onsubmit="event.preventDefault();cdcaCalc();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
