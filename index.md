@@ -97,7 +97,10 @@ section: home
   <a class="card card-link" href="/invest/">
   <div class="icon">📈</div>
   <div class="title">투자 계산기</div>
-  <div class="desc">평균단가, 수익률, 복리, 배당, 목표수익</div>
+  <div class="desc">
+평균단가·수익률·복리 계산으로
+투자 전략을 미리 시뮬레이션
+</div>
   </a>
 
   <a class="card card-link" href="/health/">
@@ -125,29 +128,32 @@ section: home
   </a>
 </div>
 
-<h2>추천 계산기</h2>
+<h2>🏠 상황별 빠른 계산</h2>
+<p class="section-desc">
+집 계약, 연봉 협상, 투자 전 반드시 확인하는 계산기입니다.
+</p>
 
 <h3 class="mini">🏠 전월세·대출 빠른 계산</h3>
 <div class="btn-grid">
   <a class="pill" href="/realestate/rent-to-jeonse/">전세↔월세</a>
-  <a class="pill" href="/realestate/loan/">대출 이자</a>
-  <a class="pill" href="/realestate/dsr/">DSR</a>
-  <a class="pill" href="/realestate/acquisition-tax/">취득세</a>
+<a class="pill" href="/realestate/loan/">대출 계산기</a>
+<a class="pill" href="/realestate/dsr/">DSR 계산기</a>
+<a class="pill" href="/realestate/acquisition-tax/">취득세 계산기</a>
 </div>
 
 <h3 class="mini">💰 급여·세금 핵심</h3>
 <div class="btn-grid">
   <a class="pill" href="/salary/net-pay/">연봉 실수령</a>
-  <a class="pill" href="/salary/withholding/">원천징수</a>
-  <a class="pill" href="/salary/insurance/">4대보험</a>
+<a class="pill" href="/salary/withholding/">원천징수세액 계산기</a>
+<a class="pill" href="/salary/insurance/">4대보험 계산기</a>
 </div>
 
 <h3 class="mini">📈 투자/코인</h3>
 <div class="btn-grid">
   <a class="pill" href="/invest/stocks/avg-cost/">주식 평균단가</a>
   <a class="pill" href="/crypto/profit/">코인 수익률</a>
-  <a class="pill" href="/invest/compound-interest/">복리</a>
-  <a class="pill" href="/invest/dividend/">배당</a>
+  <a class="pill" href="/invest/crypto/pnl/">코인 수익/손실</a>
+  <a class="pill" href="/invest/stocks/dividend-yield/">배당수익률</a>
 </div>
 
 <!-- 페이지 전용 보조 스타일 -->
@@ -258,6 +264,13 @@ section: home
   transform:translateY(-2px);
   box-shadow:0 10px 22px rgba(0,0,0,.08);
 }
+
+.section-desc{
+  margin-top:-6px;
+  margin-bottom:10px;
+  color:#6b7280;
+  font-size:14px;
+}  
   
 </style>
 
