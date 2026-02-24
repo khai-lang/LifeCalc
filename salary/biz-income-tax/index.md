@@ -111,7 +111,7 @@ section: salary
 </div>
 
 <style>
-  .card{border:1px solid #eef1f4;border-radius:14px;background:#fff}
+  .card{border:1px solid #eef1f4;border-radius:14px;background:F5EDE4}
   .card.p{padding:16px}
   .btn{display:inline-block;background:#0ea5e9;color:#fff;border:none;border-radius:10px;padding:10px 16px;font-weight:700}
   .btn:hover{filter:brightness(0.95)}
