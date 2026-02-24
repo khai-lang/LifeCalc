@@ -128,36 +128,42 @@ section: home
   </a>
 </div>
 
-<h2>🏠 상황별 빠른 계산</h2>
-<p class="section-desc">
-집 계약, 연봉 협상, 투자 전 반드시 확인하는 계산기입니다.
-</p>
+<!-- ✅ Quick Routes (정상 HTML 블록: 태그 노출 오류 방지) -->
+<section class="quick">
+  <h2 class="quick-title">🏠 상황별 빠른 계산</h2>
+  <p class="quick-lead">집 계약, 연봉 협상, 투자 전 꼭 확인하는 계산기입니다.</p>
 
-<h3 class="mini">🏠 전월세·대출 빠른 계산</h3
-<p class="section-desc">집 계약/대출 전에 월 부담을 먼저 확인해요.</p>                                 
-<div class="btn-grid">
-  <a class="pill pill-primary" href="/realestate/rent-to-jeonse/">전세↔월세</a>
-<a class="pill" href="/realestate/loan/">대출 계산기</a>
-<a class="pill" href="/realestate/dsr/">DSR 계산기</a>
-<a class="pill" href="/realestate/acquisition-tax/">취득세 계산기</a>
-</div>
+  <div class="quick-group">
+    <h3 class="quick-h3">🏠 전월세·대출 빠른 계산</h3>
+    <p class="quick-desc">집 계약/대출 전에 월 부담을 먼저 확인해요.</p>
+    <div class="btn-grid">
+      <a class="pill pill-primary" href="/realestate/rent-to-jeonse/">전세↔월세</a>
+      <a class="pill" href="/realestate/loan/">대출 계산기</a>
+      <a class="pill" href="/realestate/dsr/">DSR 계산기</a>
+      <a class="pill" href="/realestate/acquisition-tax/">취득세</a>
+    </div>
+  </div>
 
-<h3 class="mini">💰 급여·세금 핵심</h3>
-<p class="section-desc">연봉을 ‘실수령 기준’으로 현실화합니다.</p>
-<div class="btn-grid">
-  <h3 class="mini">💰 급여·세금 핵심</h3>
-  <a class="pill pill-primary" href="/salary/net-pay/">연봉 실수령</a>
-<a class="pill" href="/salary/withholding/">원천징수세액 계산기</a>
-<a class="pill" href="/salary/insurances/">4대보험 계산기</a>
-</div>
+  <div class="quick-group">
+    <h3 class="quick-h3">💰 급여·세금 핵심</h3>
+    <p class="quick-desc">연봉을 ‘실수령 기준’으로 현실화합니다.</p>
+    <div class="btn-grid">
+      <a class="pill pill-primary" href="/salary/net-pay/">연봉 실수령</a>
+      <a class="pill" href="/salary/withholding/">원천징수</a>
+      <a class="pill" href="/salary/insurances/">4대보험 계산기</a>
+    </div>
+  </div>
 
-<h3 class="mini">📈 투자/코인</h3>
-<p class="section-desc">평단·손익·배당을 빠르게 체크해요.</p>
-<div class="btn-grid">
-  <a class="pill pill-primary" href="/invest/stocks/avg-cost/">주식 평균단가</a>
-<a class="pill" href="/invest/crypto/pnl/">코인 수익/손실</a>
-<a class="pill" href="/invest/stocks/dividend-yield/">배당수익률</a>
-</div>
+  <div class="quick-group">
+    <h3 class="quick-h3">📈 투자 핵심 계산</h3>
+    <p class="quick-desc">평단·손익·배당을 빠르게 체크해요.</p>
+    <div class="btn-grid">
+      <a class="pill pill-primary" href="/invest/stocks/avg-cost/">주식 평균단가</a>
+      <a class="pill" href="/invest/crypto/pnl/">코인 수익/손실</a>
+      <a class="pill" href="/invest/stocks/dividend-yield/">배당수익률</a>
+    </div>
+  </div>
+</section>
 
 <!-- 페이지 전용 보조 스타일 -->
 <style>
