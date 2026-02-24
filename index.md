@@ -40,6 +40,12 @@ section: home
     <div class="desc">전세↔월세, 양도세, 취득세, 종부세</div>
   </a>
 
+  <a class="card card-link" href="/invest/">
+  <div class="icon">📈</div>
+  <div class="title">투자 계산기</div>
+  <div class="desc">평균단가, 수익률, 복리, 배당, 목표수익</div>
+  </a>
+
   <a class="card card-link" href="/health/">
     <div class="icon">⚕️</div>
     <div class="title">건강 계산기</div>
