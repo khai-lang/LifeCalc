@@ -175,6 +175,32 @@ section: home
   @media (max-width:860px){
     .hero{ flex-direction:column; }
   }
+ 
+  /* Authority Intro */
+.intro{
+  background:#eef0ea;               /* 종이+세이지 느낌 */
+  border:1px solid #e6ebf0;
+  border-radius:var(--radius);
+  padding:18px 16px;
+  margin:12px 0 18px;
+}
+.intro-sub{ color:#374151; line-height:1.75; }
+.intro-grid{
+  display:grid; gap:10px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin:12px 0 10px;
+}
+.intro-card{
+  background:#fff;
+  border:1px solid #eef2f6;
+  border-radius:14px;
+  padding:12px 12px;
+}
+.intro-card .k{ font-weight:800; margin-bottom:4px; }
+.intro-card .v{ color:#6b7280; font-size:.95rem; line-height:1.6; }
+.intro-note{ margin:0; color:#6b7280; font-size:.92rem; }
+.mini{ margin:8px 0 8px; font-size:1.02rem; color:#111; }
+  
 </style>
 
 <!-- WebSite: 사이트 검색이 있다면 SearchAction의 target URL 쿼리 파라미터만 맞춰주세요 -->
