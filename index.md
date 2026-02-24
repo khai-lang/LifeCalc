@@ -133,10 +133,9 @@ section: home
 집 계약, 연봉 협상, 투자 전 반드시 확인하는 계산기입니다.
 </p>
 
-<h3 class="mini">🏠 전월세·대출 빠른 계산</h3>
+<h3 class="mini">🏠 전월세·대출 빠른 계산</h3
+<p class="section-desc">집 계약/대출 전에 월 부담을 먼저 확인해요.</p>                                 
 <div class="btn-grid">
-  <h3 class="mini">🏠 전월세·대출 빠른 계산</h3>
-<p class="section-desc">집 계약/대출 전에 월 부담을 먼저 확인해요.</p>
   <a class="pill pill-primary" href="/realestate/rent-to-jeonse/">전세↔월세</a>
 <a class="pill" href="/realestate/loan/">대출 계산기</a>
 <a class="pill" href="/realestate/dsr/">DSR 계산기</a>
@@ -144,18 +143,17 @@ section: home
 </div>
 
 <h3 class="mini">💰 급여·세금 핵심</h3>
+<p class="section-desc">연봉을 ‘실수령 기준’으로 현실화합니다.</p>
 <div class="btn-grid">
   <h3 class="mini">💰 급여·세금 핵심</h3>
-<p class="section-desc">연봉을 ‘실수령 기준’으로 현실화합니다.</p>
   <a class="pill pill-primary" href="/salary/net-pay/">연봉 실수령</a>
 <a class="pill" href="/salary/withholding/">원천징수세액 계산기</a>
 <a class="pill" href="/salary/insurances/">4대보험 계산기</a>
 </div>
 
 <h3 class="mini">📈 투자/코인</h3>
-<div class="btn-grid">
-  <h3 class="mini">📈 투자 핵심 계산</h3>
 <p class="section-desc">평단·손익·배당을 빠르게 체크해요.</p>
+<div class="btn-grid">
   <a class="pill pill-primary" href="/invest/stocks/avg-cost/">주식 평균단가</a>
 <a class="pill" href="/invest/crypto/pnl/">코인 수익/손실</a>
 <a class="pill" href="/invest/stocks/dividend-yield/">배당수익률</a>
