@@ -5,8 +5,6 @@ description: 진입가와 목표/손절 비율(R)로 목표가·손절가와 손
 permalink: /invest/stocks/targets/
 ---
 
-# 주식 목표가·손절가 계산기
-
 <form id="tgt" onsubmit="event.preventDefault();tgtCalc();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
     <label>진입가(원) <input type="number" id="ent" required></label>
