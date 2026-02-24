@@ -5,8 +5,6 @@ description: 기존 보유 수량/평단가, 추가 매수 계획으로 새로�
 permalink: /invest/stocks/avg-cost/
 ---
 
-# 주식 평단가·물타기 계산기
-
 <form id="savg" onsubmit="event.preventDefault();savgCalc();">
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
     <label>보유 수량 <input type="number" id="q1" required></label>
