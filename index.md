@@ -145,7 +145,7 @@ section: home
 <div class="btn-grid">
   <a class="pill" href="/salary/net-pay/">연봉 실수령</a>
 <a class="pill" href="/salary/withholding/">원천징수세액 계산기</a>
-<a class="pill" href="/salary/insurance/">4대보험 계산기</a>
+<a class="pill" href="/salary/insurances/">4대보험 계산기</a>
 </div>
 
 <h3 class="mini">📈 투자/코인</h3>
