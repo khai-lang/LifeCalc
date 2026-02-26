@@ -387,3 +387,76 @@ header::after,
   color: #0b5a7a;        /* 네이비 글자 */
   border-color: #f6e9db;
 }
+
+/* =========================
+   Mobile Nav Toggle (FIX)
+========================= */
+
+/* 기본: 데스크탑에서는 햄버거 숨김 */
+.burger { display:none; }
+
+/* 모바일: 메뉴는 기본 숨김 → 체크되면 표시 */
+@media (max-width: 940px){
+  .burger{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;height:44px;
+    font-size:26px;
+    cursor:pointer;
+    user-select:none;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;
+    background:transparent;
+    z-index:1002;
+  }
+
+  /* 체크박스는 화면에서 숨기되 기능은 유지 */
+  .nav-toggle{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+  }
+
+  /* 모바일에서는 기본 메뉴 숨김 */
+  .site-nav{
+    display:none;
+    position:absolute;
+    top:64px;            /* 헤더 높이에 맞게 조정 가능 */
+    left:12px;
+    right:12px;
+    background:#0b4c74;  /* 사이트 톤에 맞게 */
+    border-radius:16px;
+    padding:10px;
+    z-index:1001;
+  }
+
+  /* ✅ 핵심: 체크되면 메뉴 보여주기 */
+  #nav-toggle:checked ~ .site-nav{
+    display:block;
+  }
+
+  /* 메뉴 리스트 세로 정렬 */
+  .nav-ul{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin:0;
+    padding:8px;
+  }
+
+  .nav-ul > li > a,
+  .nav-parent{
+    width:100%;
+    text-align:left;
+  }
+
+  /* 드롭다운 메뉴: 모바일 기본 숨김 */
+  .drop .menu{ display:none; }
+
+  /* ✅ JS가 붙여주는 open 클래스로 펼치기 */
+  .drop.open .menu{ display:block; }
+}
+
+
