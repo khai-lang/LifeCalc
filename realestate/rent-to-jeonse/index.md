@@ -165,7 +165,6 @@ section: realestate
   .rentconv-form input,
   .rentconv-form select{ height:44px !important; font-size:15px !important; }
 }
-</style>
   
 </style>
 
