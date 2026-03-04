@@ -72,7 +72,6 @@ section: realestate
 @media (min-width: 861px){ .promo-mobile{ display:none; } }
 @media (max-width: 860px){ .promo-mobile{ display:block; } }
 
-<style>
 /* ================================
    ✅ Rent↔Jeonse Form Polish (page-only)
    - 라벨/입력 1열 정렬
