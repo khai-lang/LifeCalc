@@ -13,7 +13,7 @@ section: realestate
 
 
 <div class="card" style="max-width:820px;margin:0 auto;">
-  <form onsubmit="event.preventDefault(); calcRentConv();" aria-label="전세·월세 전환 계산">
+ <form class="rentconv-form" onsubmit="event.preventDefault(); calcRentConv();" aria-label="전세·월세 전환 계산">
     <label for="mode"><strong>계산 모드</strong></label>
     <select id="mode" onchange="syncMode()" style="margin-bottom:10px">
       <option value="J2R">전세 → 월세</option>
@@ -71,6 +71,102 @@ section: realestate
 /* 결과 아래 팁: 데스크톱 숨김, 모바일 표시 */
 @media (min-width: 861px){ .promo-mobile{ display:none; } }
 @media (max-width: 860px){ .promo-mobile{ display:block; } }
+
+<style>
+/* ================================
+   ✅ Rent↔Jeonse Form Polish (page-only)
+   - 라벨/입력 1열 정렬
+   - 입력 높이/여백 통일
+   - 카드 안 가독성 개선
+================================ */
+
+/* 공통 grid/flex가 폼에 걸려도 이 페이지는 1열 고정 */
+.rentconv-form{ 
+  display:block !important;
+}
+
+.rentconv-form fieldset{
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+}
+
+/* 제목 간격 통일 */
+.rentconv-form h2{
+  margin:10px 0 12px !important;
+  line-height:1.25;
+}
+
+/* 라벨은 항상 위, 입력은 아래 */
+.rentconv-form label{
+  display:block !important;
+  margin:14px 0 6px !important;
+  font-weight:800;
+  color:#111;
+}
+
+/* small(선택) 문구 정렬/톤 */
+.rentconv-form label small{
+  font-weight:700;
+  font-size:13px;
+  vertical-align:middle;
+  margin-left:6px;
+}
+
+/* 인풋/셀렉트: 폭/높이/패딩/테두리 통일 */
+.rentconv-form input,
+.rentconv-form select{
+  display:block !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+  height:46px !important;
+  padding:10px 12px !important;
+  border:1px solid #e5e7eb !important;
+  border-radius:12px !important;
+  background:#fff !important;
+  font-size:16px !important;
+  color:#111 !important;
+  outline:none;
+}
+
+/* 포커스 시 강조(접근성 + UX) */
+.rentconv-form input:focus,
+.rentconv-form select:focus{
+  border-color:#ff6a00 !important;
+  box-shadow:0 0 0 3px rgba(255,106,0,.15) !important;
+}
+
+/* placeholder 톤 */
+.rentconv-form input::placeholder{
+  color:#9ca3af;
+}
+
+/* 셀렉트 아래 여백 */
+.rentconv-form #mode{
+  margin-bottom:10px !important;
+}
+
+/* 버튼 영역 */
+.rentconv-form #calcBtn{
+  padding:12px 16px !important;
+  border-radius:12px !important;
+  font-weight:900 !important;
+}
+
+/* 결과 박스가 있다면(기존 class 유지) 보기 좋게 */
+.result-box{
+  border-radius:14px;
+}
+
+/* 모바일에서 카드 내부 패딩/글자 약간 조정 */
+@media (max-width: 480px){
+  .card{ padding:16px !important; }
+  .rentconv-form input,
+  .rentconv-form select{ height:44px !important; font-size:15px !important; }
+}
+</style>
+  
 </style>
 
 <script>
