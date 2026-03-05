@@ -156,31 +156,49 @@ function calcNetpay(){
   const taxable = Math.max(0, grossMonth - nontax - insSum);
   const {tax, local} = approxWithholding(taxable, deps);
   const netMonth = grossMonth - insSum - tax - local;
+  const totalDeduct = insSum + tax + local;
+  const netYear = netMonth * 12;
 
   const out = document.getElementById('np-out');
   out.classList.add('show');
-  out.innerHTML = `
-    <div class="card p-3">
-      <div class="title">결과</div>
-      <div class="desc">
-        <ul>
-          <li><strong>월 실수령(근사):</strong> ${fmtKR(netMonth)} 원</li>
-          <li><strong>연 실수령(근사):</strong> ${fmtKR(netMonth*12)} 원</li>
-        </ul>
-        <details style="margin-top:8px">
-          <summary>상세(4대보험/세금)</summary>
-          <ul>
-            <li>국민연금: ${fmtKR(npPay)} 원</li>
-            <li>건강보험: ${fmtKR(hiPay)} 원</li>
-            <li>장기요양: ${fmtKR(ltcPay)} 원</li>
-            <li>고용보험: ${fmtKR(eiPay)} 원</li>
-            <li>소득세(근사): ${fmtKR(tax)} 원</li>
-            <li>지방소득세: ${fmtKR(local)} 원</li>
-          </ul>
-        </details>
+out.innerHTML = `
+  <div class="card p-3">
+    <div class="title">결과</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+      <div class="card p-3">
+        <div class="desc"><b>월 실수령(근사)</b></div>
+        <div style="font-size:22px;font-weight:900;margin-top:6px">${fmtKR(netMonth)} 원</div>
+      </div>
+      <div class="card p-3">
+        <div class="desc"><b>연 실수령(근사)</b></div>
+        <div style="font-size:22px;font-weight:900;margin-top:6px">${fmtKR(netYear)} 원</div>
       </div>
     </div>
-  `;
+
+    <div class="card p-3" style="margin-top:10px">
+      <div class="desc" style="font-weight:900;margin-bottom:6px">공제 상세</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div>국민연금</div><div style="text-align:right">${fmtKR(npPay)} 원</div>
+        <div>건강보험</div><div style="text-align:right">${fmtKR(hiPay)} 원</div>
+        <div>장기요양</div><div style="text-align:right">${fmtKR(ltcPay)} 원</div>
+        <div>고용보험</div><div style="text-align:right">${fmtKR(eiPay)} 원</div>
+        <div>소득세(근사)</div><div style="text-align:right">${fmtKR(tax)} 원</div>
+        <div>지방소득세</div><div style="text-align:right">${fmtKR(local)} 원</div>
+      </div>
+
+      <hr style="margin:10px 0">
+      <div style="display:flex;justify-content:space-between;font-weight:900">
+        <div>총 공제액</div>
+        <div style="color:#ff6a00">${fmtKR(totalDeduct)} 원</div>
+      </div>
+    </div>
+
+    <div class="muted" style="margin-top:10px">
+      ※ 본 계산기는 간이세액을 단순 근사합니다. 실제 원천징수와 차이가 날 수 있습니다.
+    </div>
+  </div>
+`;
 }
 
 /* ====== 환산 탭 스크립트 ====== */
