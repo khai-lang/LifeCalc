@@ -23,8 +23,8 @@ permalink: /salary/net-pay/
       <input type="number" id="dependents" value="1" min="1">
     </label>
     <label>추가 비과세/공제(월, 원)
-      <input type="number" id="nontaxMonthly" value="0">
-    </label>
+      <input type="number" id="nontaxMonthly" value="0" placeholder="예: 식대 200000">
+</label>
   </div>
 
   <details id="rateDetails" style="margin:10px 0">
@@ -113,7 +113,7 @@ const clamp0 = n => Math.max(0, Number(n)||0);
 // ✅ 로드 실패 시 최소 fallback(예시 값) — JSON이 있으면 이 값은 거의 쓰지 않습니다.
 const FALLBACK_RATES = {
   np: 0.045,
-  hi: 0.035,
+  hi: 0.03545,
   ltc: 0.1295,
   ei: 0.009
 };
