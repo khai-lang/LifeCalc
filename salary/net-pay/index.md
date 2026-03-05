@@ -51,6 +51,31 @@ permalink: /salary/net-pay/
 
 <div id="np-out" class="result-box"></div>
 
+<!-- ✅ 연봉별 실수령 표 (자동 생성) -->
+<section class="card p-3" style="max-width:980px;margin:14px auto;">
+  <div class="title">연봉별 실수령 표(자동)</div>
+
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px">
+    <label>시작(만원)
+      <input id="tblStart" type="number" value="2500">
+    </label>
+    <label>끝(만원)
+      <input id="tblEnd" type="number" value="8000">
+    </label>
+    <label>간격(만원)
+      <input id="tblStep" type="number" value="500">
+    </label>
+    <label style="display:flex;align-items:flex-end">
+      <button class="btn ghost" type="button" id="tblBtn">표 다시 만들기</button>
+    </label>
+  </div>
+
+  <div id="tblOut" style="margin-top:12px;overflow:auto"></div>
+  <div class="muted" style="margin-top:8px">
+    ※ 표는 “현재 입력된 부양가족/비과세/요율” 기준으로 생성됩니다.
+  </div>
+</section>
+
 <hr>
 
 <!-- 탭 네비 -->
@@ -231,10 +256,79 @@ function calcNetpay(){
 
   if (!annual){ alert('연봉(세전)을 입력해 주세요.'); return; }
 
-  const grossYear = annual + bonus;
-  const grossMonth= grossYear/12;
+  const grossYear  = annual + bonus;
+  const grossMonth = grossYear / 12;
 
   const {np,hi,ltc,ei} = getRates();
+
+  // ✅ (여기에 지아님 기존 계산/출력 코드 계속...)
+  // document.getElementById('np-out').innerHTML = `...`;
+
+  // ✅ 표도 같이 갱신
+  buildNetPayTable();
+}
+
+
+// ✅ ✅ ✅ calcNetpay 바깥에 있어야 합니다!
+function buildNetPayTable(){
+  const deps   = Math.max(1, clamp0(document.getElementById('dependents').value));
+  const nontax = clamp0(document.getElementById('nontaxMonthly').value);
+  const bonus  = clamp0(document.getElementById('annualBonus').value);
+
+  const startMan = clamp0(document.getElementById('tblStart').value);
+  const endMan   = clamp0(document.getElementById('tblEnd').value);
+  const stepMan  = Math.max(1, clamp0(document.getElementById('tblStep').value));
+
+  const start = startMan * 10000;
+  const end   = endMan * 10000;
+  const step  = stepMan * 10000;
+
+  const {np,hi,ltc,ei} = getRates();
+
+  const rows = [];
+  for (let a = start; a <= end; a += step){
+    const grossMonth = (a + bonus) / 12;
+
+    // ✅ 4대보험(지아님 실수령 계산기와 동일 로직으로 맞추세요)
+    const npPay = Math.round(grossMonth * np);
+    const hiPay = Math.round(grossMonth * hi);
+    const ltcPay= Math.round(hiPay * ltc);
+    const eiPay = Math.round(grossMonth * ei);
+    const insSum = npPay + hiPay + ltcPay + eiPay;
+
+    const taxable = Math.max(0, grossMonth - nontax - insSum);
+    const {tax, local} = approxWithholding(taxable, deps);
+
+    const netMonth = grossMonth - (insSum + tax + local);
+
+    rows.push({ annual: a, netMonthly: netMonth });
+  }
+
+  const out = document.getElementById("tblOut");
+  if (!out) return;
+
+  out.innerHTML = `
+    <table style="width:100%;border-collapse:collapse;min-width:520px">
+      <thead>
+        <tr>
+          <th style="text-align:left;border-bottom:1px solid #eee;padding:10px 8px">연봉(세전)</th>
+          <th style="text-align:right;border-bottom:1px solid #eee;padding:10px 8px">월 실수령(근사)</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map(x => `
+          <tr>
+            <td style="border-bottom:1px solid #f3f3f3;padding:10px 8px">${fmtKR(x.annual)} 원</td>
+            <td style="border-bottom:1px solid #f3f3f3;padding:10px 8px;text-align:right;font-weight:900">${fmtKR(x.netMonthly)} 원</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+  `;
+}
+
+// 버튼 연결
+document.getElementById("tblBtn").addEventListener("click", buildNetPayTable);
 
   // 4대보험 (상/하한은 단순화)
   const npPay = Math.round(grossMonth * np);
