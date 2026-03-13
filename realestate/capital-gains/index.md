@@ -28,10 +28,36 @@ section: realestate
 }
 
 .cgt-card h2{
-  margin: 0 0 20px;
+  margin: 0 0 18px;
   font-size: 22px;
   font-weight: 800;
   color: #1f2d3d;
+}
+
+/* 구분 탭 */
+.asset-tabs{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.asset-tab{
+  height: 46px;
+  border: 1px solid #ccb9a4;
+  border-radius: 12px;
+  background: #fffaf6;
+  color: #5a4635;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.asset-tab.active{
+  background: #ff7a00;
+  color: #fff;
+  border-color: #ff7a00;
 }
 
 .cgt-grid{
@@ -86,10 +112,6 @@ section: realestate
   cursor: pointer;
 }
 
-.cgt-btn:hover{
-  filter: brightness(0.96);
-}
-
 .result-box{
   margin-top: 18px;
   padding: 16px 18px;
@@ -103,6 +125,13 @@ section: realestate
 
 .result-box.show{
   display: block;
+}
+
+.cgt-note{
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6a5b4d;
 }
 
 .cgt-links{
@@ -127,12 +156,12 @@ section: realestate
 }
 
 @media (max-width: 768px){
-  .cgt-grid{
+  .asset-tabs{
     grid-template-columns: 1fr;
   }
 
-  .cgt-actions{
-    margin-top: 2px;
+  .cgt-grid{
+    grid-template-columns: 1fr;
   }
 
   .cgt-btn{
@@ -143,13 +172,22 @@ section: realestate
 
 <div class="cgt-wrap">
   <p class="cgt-desc">
-    부동산 매매 시 발생하는 <strong>양도차익</strong>을 기준으로 납부해야 하는 세금을 자동으로 계산합니다.<br>
-    취득가액, 양도가액, 보유기간 등을 입력하세요. <span style="color:#666;">(단순화된 계산이므로 참고용입니다)</span>
+    부동산 매매 시 발생하는 <strong>양도차익</strong>을 기준으로 예상 세액을 계산합니다.
+    자산 구분, 취득가액, 양도가액, 보유기간을 입력해 참고용으로 확인해 보세요.
   </p>
 
   <div class="cgt-card">
     <form onsubmit="event.preventDefault(); calcCGT();" aria-label="양도소득세 계산기">
       <h2>양도세 계산</h2>
+
+      <!-- 자산 구분 탭 -->
+      <div class="asset-tabs" role="tablist" aria-label="자산 구분">
+        <button type="button" class="asset-tab active" data-type="land" onclick="setAssetType(this)">토지</button>
+        <button type="button" class="asset-tab" data-type="house" onclick="setAssetType(this)">주택</button>
+        <button type="button" class="asset-tab" data-type="etc" onclick="setAssetType(this)">기타</button>
+      </div>
+
+      <input type="hidden" id="assetType" value="land">
 
       <div class="cgt-grid">
         <div class="cgt-field">
@@ -174,6 +212,9 @@ section: realestate
     </form>
 
     <div id="cgtResult" class="result-box"></div>
+    <div class="cgt-note">
+      ※ 현재 버전은 참고용 단순 계산기입니다. 실제 세율은 1세대 1주택 여부, 조정대상지역, 보유특별공제, 필요경비, 기본공제 등 조건에 따라 달라질 수 있습니다.
+    </div>
   </div>
 </div>
 
@@ -181,18 +222,46 @@ section: realestate
 (function(){
   'use strict';
 
+  window.setAssetType = function(btn){
+    const tabs = document.querySelectorAll('.asset-tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('assetType').value = btn.dataset.type;
+  };
+
   window.calcCGT = function(){
+    const assetType = document.getElementById('assetType').value;
     const buy = CalcCommon.num('buyPrice');
     const sell = CalcCommon.num('sellPrice');
     const years = CalcCommon.num('years');
 
     const gain = Math.max(0, sell - buy);
-    const deduction = years >= 3 ? Math.round(gain * 0.10) : 0; // 예시
+
+    let deductionRate = 0;
+    let taxRate = 0.22;
+    let assetLabel = '';
+
+    if(assetType === 'land'){
+      assetLabel = '토지';
+      deductionRate = years >= 3 ? 0.10 : 0;
+      taxRate = 0.22;
+    }else if(assetType === 'house'){
+      assetLabel = '주택';
+      deductionRate = years >= 3 ? 0.12 : 0;
+      taxRate = 0.20;
+    }else{
+      assetLabel = '기타';
+      deductionRate = years >= 3 ? 0.08 : 0;
+      taxRate = 0.22;
+    }
+
+    const deduction = Math.round(gain * deductionRate);
     const taxable = Math.max(0, gain - deduction);
-    const tax = Math.round(taxable * 0.22); // 예시
+    const tax = Math.round(taxable * taxRate);
 
     const el = document.getElementById('cgtResult');
     el.innerHTML = `
+      자산 구분: <b>${assetLabel}</b><br>
       양도차익: <b>${CalcCommon.money(gain)}</b> 원<br>
       장기보유 공제: <b>${CalcCommon.money(deduction)}</b> 원<br>
       과세표준: <b>${CalcCommon.money(taxable)}</b> 원<br>
