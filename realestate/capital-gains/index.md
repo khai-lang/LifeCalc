@@ -6,6 +6,9 @@ permalink: /realestate/capital-gains/
 section: realestate
 ---
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+
 <style>
 .cgt-page{
   max-width: 860px;
@@ -29,288 +32,327 @@ section: realestate
   letter-spacing: -0.3px;
   color: #13293d;
 }
-.cgt-hero p{margin:0;color:#374151;}
+.cgt-hero p{
+  margin: 0;
+  color: #374151;
+}
 .cgt-badge{
-  display:inline-block;
-  margin-bottom:12px;
-  padding:7px 12px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid #dbc9b7;
-  font-size:13px;
-  font-weight:800;
-  color:#6b4f34;
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #dbc9b7;
+  font-size: 13px;
+  font-weight: 800;
+  color: #6b4f34;
 }
 .cgt-summary{
-  background:#fffaf5;
-  border:1px solid #eadfce;
-  border-radius:18px;
-  padding:18px 18px 16px;
-  margin:0 0 24px;
+  background: #fffaf5;
+  border: 1px solid #eadfce;
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  margin: 0 0 24px;
 }
 .cgt-card{
-  background:#f5ebdf;
-  border:1px solid #e2d2c0;
-  border-radius:22px;
-  padding:24px 20px;
-  box-shadow:0 12px 28px rgba(0,0,0,.04);
-  margin-bottom:26px;
+  background: #f5ebdf;
+  border: 1px solid #e2d2c0;
+  border-radius: 22px;
+  padding: 24px 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.04);
+  margin-bottom: 26px;
 }
 .cgt-card h2{
-  margin:0 0 18px;
-  font-size:28px;
-  line-height:1.3;
-  color:#13293d;
+  margin: 0 0 18px;
+  font-size: 28px;
+  line-height: 1.3;
+  color: #13293d;
 }
 .cgt-mini{
-  margin:-6px 0 18px;
-  color:#5b6470;
-  font-size:15px;
+  margin: -6px 0 18px;
+  color: #5b6470;
+  font-size: 15px;
 }
 .rule-version{
-  margin-top:10px;
-  font-size:13px;
-  color:#6b7280;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #6b7280;
 }
 .cgt-tabs{
-  display:grid;
-  grid-template-columns:repeat(4, minmax(0, 1fr));
-  gap:10px;
-  margin-bottom:18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
 }
 .cgt-tab{
-  height:46px;
-  border:1px solid #d0bca8;
-  border-radius:12px;
-  background:#fffaf6;
-  font-size:15px;
-  font-weight:800;
-  color:#644c36;
-  cursor:pointer;
+  height: 46px;
+  border: 1px solid #d0bca8;
+  border-radius: 12px;
+  background: #fffaf6;
+  font-size: 15px;
+  font-weight: 800;
+  color: #644c36;
+  cursor: pointer;
 }
 .cgt-tab.active{
-  background:#ff7a00;
-  color:#fff;
-  border-color:#ff7a00;
+  background: #ff7a00;
+  color: #fff;
+  border-color: #ff7a00;
 }
 .cgt-grid{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:14px 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
 }
 .cgt-field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 .cgt-field label{
-  font-size:15px;
-  font-weight:800;
-  color:#243447;
-  line-height:1.4;
+  font-size: 15px;
+  font-weight: 800;
+  color: #243447;
+  line-height: 1.4;
 }
 .cgt-field input,
 .cgt-field select{
-  width:100%;
-  height:48px;
-  padding:0 14px;
-  border:1px solid #d5c6b5;
-  border-radius:12px;
-  background:#fff;
-  box-sizing:border-box;
-  font-size:16px;
-  color:#111827;
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d5c6b5;
+  border-radius: 12px;
+  background: #fff;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #111827;
 }
 .cgt-field small{
-  display:block;
-  margin-top:2px;
-  color:#6b7280;
-  font-size:13px;
-  line-height:1.55;
+  display: block;
+  margin-top: 2px;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.55;
 }
-.cgt-full{grid-column:1 / -1;}
+.cgt-full{
+  grid-column: 1 / -1;
+}
 .cgt-checks{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:10px 16px;
-  margin-top:4px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 16px;
+  margin-top: 4px;
 }
 .cgt-check{
-  background:rgba(255,255,255,.55);
-  border:1px solid #e4d8ca;
-  border-radius:14px;
-  padding:12px 14px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid #e4d8ca;
+  border-radius: 14px;
+  padding: 12px 14px;
 }
 .cgt-check label{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:15px;
-  font-weight:700;
-  color:#243447;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #243447;
 }
 .cgt-check input[type="checkbox"]{
-  width:18px;
-  height:18px;
-  accent-color:#ff7a00;
+  width: 18px;
+  height: 18px;
+  accent-color: #ff7a00;
 }
 .cgt-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
 }
 .cgt-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:132px;
-  height:48px;
-  padding:0 18px;
-  border:0;
-  border-radius:12px;
-  background:#ff7a00;
-  color:#fff;
-  font-size:16px;
-  font-weight:800;
-  cursor:pointer;
-  text-decoration:none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  height: 48px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 12px;
+  background: #ff7a00;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
 }
-.cgt-btn.secondary{background:#1f5c7a;}
+.cgt-btn.secondary{
+  background: #1f5c7a;
+}
 .cgt-btn.light{
-  background:#fff;
-  color:#1f4f67;
-  border:1px solid #cfdfe8;
+  background: #fff;
+  color: #1f4f67;
+  border: 1px solid #cfdfe8;
 }
 .result-box{
-  display:none;
-  margin-top:18px;
-  padding:18px;
-  border-radius:16px;
-  background:rgba(255,255,255,.72);
-  border:1px solid #e6d8c9;
+  display: none;
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid #e6d8c9;
 }
-.result-box.show{display:block;}
+.result-box.show{
+  display: block;
+}
 .result-title{
-  margin:0 0 10px;
-  font-size:20px;
-  font-weight:900;
-  color:#13293d;
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #13293d;
 }
 .result-list{
-  margin:0;
-  padding:0;
-  list-style:none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .result-list li{
-  display:flex;
-  justify-content:space-between;
-  gap:14px;
-  padding:8px 0;
-  border-bottom:1px dashed #dacdbf;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #dacdbf;
 }
-.result-list li:last-child{border-bottom:0;}
+.result-list li:last-child{
+  border-bottom: 0;
+}
 .result-note{
-  margin-top:12px;
-  padding:12px 14px;
-  border-radius:12px;
-  background:#fff7ef;
-  border:1px solid #eed8c4;
-  font-size:14px;
-  color:#6a4e35;
-  line-height:1.7;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fff7ef;
+  border: 1px solid #eed8c4;
+  font-size: 14px;
+  color: #6a4e35;
+  line-height: 1.7;
 }
 .info-box{
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:18px;
-  padding:22px 20px;
-  margin:0 0 22px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 22px 20px;
+  margin: 0 0 22px;
 }
 .info-box h2{
-  margin:0 0 12px;
-  font-size:26px;
-  line-height:1.3;
-  color:#13293d;
+  margin: 0 0 12px;
+  font-size: 26px;
+  line-height: 1.3;
+  color: #13293d;
 }
 .info-box h3{
-  margin:24px 0 8px;
-  font-size:20px;
-  color:#1f4f67;
+  margin: 24px 0 8px;
+  font-size: 20px;
+  color: #1f4f67;
 }
 .soft-box{
-  background:#f9fafb;
-  border:1px solid #eceff3;
-  border-radius:16px;
-  padding:16px;
-  margin:14px 0;
+  background: #f9fafb;
+  border: 1px solid #eceff3;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 14px 0;
 }
 .tip-box{
-  background:#fef6ec;
-  border:1px solid #f4d9b7;
-  border-radius:16px;
-  padding:16px;
-  margin:14px 0;
+  background: #fef6ec;
+  border: 1px solid #f4d9b7;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 14px 0;
 }
 .link-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:14px 0 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 4px;
 }
 .link-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:44px;
-  padding:0 16px;
-  border-radius:12px;
-  background:#0f5b78;
-  color:#fff !important;
-  text-decoration:none !important;
-  font-weight:800;
-  font-size:15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: #0f5b78;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-weight: 800;
+  font-size: 15px;
 }
-.link-btn.alt{background:#ff7a00;}
+.link-btn.alt{
+  background: #ff7a00;
+}
 .related-links{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:12px;
-  margin-top:14px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
 }
 .related-links a{
-  display:block;
-  text-decoration:none;
-  background:#D9E5FF;
-  border:1px solid #dbe5ec;
-  border-radius:16px;
-  padding:16px 14px;
-  color:#12344d;
-  font-weight:800;
+  display: block;
+  text-decoration: none;
+  background: #ff7a00;
+  border: 1px solid #ff7a00;
+  border-radius: 16px;
+  padding: 16px 14px;
+  color: #fff;
+  font-weight: 800;
+  transition: all 0.2s ease;
 }
-.ad-slot{
-  margin:24px 0;
-  padding:22px 18px;
-  border:1px dashed #cbd5e1;
-  border-radius:16px;
-  text-align:center;
-  font-size:14px;
-  color:#64748b;
-  background:#fafcff;
+.related-links a:hover{
+  background: #e96f00;
+  border-color: #e96f00;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(255, 122, 0, 0.22);
+}
+.faq-item{
+  border-top: 1px solid #e8ecf1;
+  padding: 16px 0;
+}
+.faq-item:first-child{
+  border-top: 0;
+  padding-top: 4px;
+}
+.faq-q{
+  font-weight: 900;
+  color: #13293d;
+  margin-bottom: 6px;
+}
+.cgt-ad{
+  margin: 28px 0;
+  padding: 18px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #fff;
 }
 @media (max-width:768px){
-  .cgt-page{font-size:16px;}
-  .cgt-hero h1{font-size:28px;}
+  .cgt-page{
+    font-size: 16px;
+  }
+  .cgt-hero h1{
+    font-size: 28px;
+  }
   .cgt-tabs,
   .cgt-grid,
   .cgt-checks,
-  .related-links{grid-template-columns:1fr;}
-  .result-list li{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:4px;
+  .related-links{
+    grid-template-columns: 1fr;
   }
-  .cgt-actions .cgt-btn{width:100%;}
+  .result-list li{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .cgt-actions .cgt-btn{
+    width: 100%;
+  }
 }
 </style>
 
@@ -326,8 +368,8 @@ section: realestate
 
   <section class="cgt-summary">
     <strong>한눈에 보기</strong><br>
-    이 계산기는 규칙 파일을 따로 불러오는 구조라서, 세율이나 공제 기준이 바뀌면
-    계산기 본문 전체를 수정하지 않고도 규칙 파일만 교체해 반영할 수 있습니다.
+    이 계산기는 취득가액과 양도가액뿐 아니라 필요경비, 기본공제, 보유기간, 중과 가능성까지 함께 고려해
+    보다 현실적인 양도소득세 흐름을 참고용으로 확인할 수 있도록 구성했습니다.
   </section>
 
   <section class="cgt-card">
@@ -402,49 +444,107 @@ section: realestate
 
       <div class="cgt-actions">
         <button type="submit" class="cgt-btn">계산하기</button>
-        <a class="cgt-btn light" href="https://www.nts.go.kr" target="_blank" rel="noopener">국세청 안내</a>
         <a class="cgt-btn secondary" href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&menuCd=search&searchInfo2503143553" target="_blank" rel="noopener">홈택스 모의계산</a>
+        <a class="cgt-btn light" href="https://www.nts.go.kr" target="_blank" rel="noopener">국세청 안내</a>
       </div>
     </form>
 
     <div id="cgtResult" class="result-box"></div>
   </section>
 
- <div class="cgt-ad">
-  <div class="cgt-ad-label">ADVERTISEMENT</div>
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3758454239921831"
-       data-ad-slot="7492664289"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+  <div class="cgt-ad">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3758454239921831"
+         data-ad-slot="7492664289"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <section class="info-box">
-    <h2>자동 반영 구조란?</h2>
+    <h2>양도소득세 계산 전 꼭 확인할 점</h2>
     <p>
-      기존에는 세율, 공제율, 기본공제를 계산기 코드 안에 직접 넣는 방식이 많았습니다.
-      하지만 이 방식은 세법 기준이 바뀔 때마다 HTML과 스크립트를 함께 수정해야 해서 관리가 번거롭습니다.
-      지금 구조는 <strong>규칙 파일(JSON)</strong>에서 숫자와 기준을 읽어오므로,
-      나중에 계산 기준이 바뀌어도 핵심 데이터만 바꾸면 계산기 전체에 자동 반영됩니다.
+      양도소득세는 단순히 양도가액에서 취득가액만 빼는 방식으로 끝나지 않습니다.
+      필요경비, 장기보유특별공제, 기본공제, 자산 종류, 미등기 여부, 비사업용 토지 여부, 다주택 중과 가능성 등에 따라
+      결과가 달라질 수 있습니다.
     </p>
 
-    <h3>예를 들어 이렇게 바뀌면</h3>
+    <h3>필요경비를 입력해야 더 정확합니다</h3>
     <div class="soft-box">
-      - 기본공제가 250만원에서 다른 금액으로 변경<br>
-      - 누진세율 구간이 조정됨<br>
-      - 장기보유특별공제율이 바뀜<br>
-      - 중과 가산율 기준이 변경됨
+      취득세, 중개보수, 법무사 비용, 등기비용 등 실제 인정 가능한 비용을 반영하면
+      양도차익이 줄어들 수 있어 예상 세액도 더 현실적으로 확인할 수 있습니다.
     </div>
 
-    <p>
-      위와 같은 경우, 계산기 화면을 다시 짤 필요 없이
-      <strong>/assets/data/capital-gains-rules.json</strong> 파일만 수정하면 됩니다.
-    </p>
+    <h3>기본공제와 특례 조건도 중요합니다</h3>
+    <div class="soft-box">
+      일반적으로 기본공제와 장기보유특별공제가 반영될 수 있지만,
+      미등기 자산이나 다주택 중과 대상 여부에 따라 계산 흐름이 달라질 수 있습니다.
+      따라서 이 계산기는 참고용으로 활용하고, 실제 신고 전에는 공식 안내를 다시 확인하는 것이 안전합니다.
+    </div>
+
+    <h3>계산 기준은 나중에 바뀌어도 반영할 수 있습니다</h3>
+    <div class="tip-box">
+      이 페이지는 계산식과 세율표를 직접 코드에 고정하지 않고 별도 규칙 파일을 읽어오는 구조로 설계할 수 있습니다.
+      그래서 기본공제, 누진세율, 장기보유특별공제율, 중과 보정값이 바뀌더라도
+      핵심 데이터만 수정해 계산기에 반영하기가 더 쉽습니다.
+    </div>
+
+    <div class="link-row">
+      <a class="link-btn alt" href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&menuCd=search&searchInfo2503143553" target="_blank" rel="noopener">홈택스 양도세 모의계산 바로가기</a>
+      <a class="link-btn" href="https://www.nts.go.kr" target="_blank" rel="noopener">국세청 안내 보기</a>
+    </div>
   </section>
+
+  <div class="cgt-ad">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3758454239921831"
+         data-ad-slot="7492664289"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <section class="info-box">
+    <h2>자주 묻는 질문</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. 양도소득세 기본공제는 얼마인가요?</div>
+      <div>일반적인 기준에서는 기본공제 250만원이 많이 활용되지만, 미등기 자산 등은 적용이 달라질 수 있습니다.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. 필요경비를 입력하면 세금이 줄어들 수 있나요?</div>
+      <div>네. 인정 가능한 필요경비를 반영하면 양도차익이 줄어들 수 있어 예상 세액도 낮아질 수 있습니다.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. 이 계산기 결과를 그대로 신고해도 되나요?</div>
+      <div>아니요. 이 페이지는 참고용 계산기입니다. 실제 신고 전에는 홈택스 모의계산과 공식 기준을 반드시 다시 확인하세요.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. 특례 및 중과 항목은 왜 체크하나요?</div>
+      <div>1세대 1주택, 다주택 중과, 조정대상지역, 비사업용 토지 등은 실제 세액에 큰 영향을 줄 수 있어 참고 경고와 보정 계산에 활용됩니다.</div>
+    </div>
+  </section>
+
+  <div class="cgt-ad">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3758454239921831"
+         data-ad-slot="7492664289"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <section class="info-box">
     <h2>함께 보면 좋은 계산기</h2>
