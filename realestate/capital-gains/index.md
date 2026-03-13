@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 양도소득세 계산기 | 부동산 양도세·필요경비·기본공제 계산
+title: 도소득세 계산기 | 부동산 양도세·필요경비·기본공제 계산
 description: 부동산 양도소득세 계산기입니다. 취득가액, 양도가액, 필요경비, 기본공제, 보유기간, 특례·중과 조건을 반영해 양도세를 참고용으로 계산해보세요.
 permalink: /realestate/capital-gains/
 section: realestate
@@ -373,7 +373,7 @@ section: realestate
   </section>
 
   <section class="cgt-card">
-    <h2>양도세 계산</h2>
+    <h2>부동산 양도세 계산</h2>
     <p class="cgt-mini">규칙 파일 기반 자동 반영 구조입니다.</p>
     <div id="ruleVersion" class="rule-version">적용 기준 불러오는 중...</div>
 
