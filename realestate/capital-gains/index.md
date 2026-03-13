@@ -500,9 +500,9 @@ section: realestate
     </div>
 
     <div class="link-row">
-      <a class="link-btn alt" href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&menuCd=UTERNAAU62" target="_blank" rel="noopener">홈택스 양도세 모의계산 바로가기</a>
-      <a class="link-btn" href="https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7709&mi=2310" target="_blank" rel="noopener">국세청 세액계산 흐름도 보기</a>
-      <a class="link-btn" href="https://www.nts.go.kr/tax/sub/1.1.2.%EC%8B%A0%EA%B3%A0%EB%82%A9%EB%B6%80%EA%B8%B0%ED%95%9C.html" target="_blank" rel="noopener">양도세 신고·납부기한 보기</a>
+      <a class="link-btn alt" href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&menuCd=search&searchInfo2503143553  rel="noopener">홈택스 양도세 모의계산 바로가기</a>
+      <a class="link-btn" href="https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7709&mi=2310"  rel="noopener">국세청 세액계산 흐름도 보기</a>
+      <a class="link-btn" href="https://www.nts.go.kr/tax/sub/1.1.2.%EC%8B%A0%EA%B3%A0%EB%82%A9%EB%B6%80%EA%B8%B0%ED%95%9C.html"  rel="noopener">양도세 신고·납부기한 보기</a>
     </div>
   </section>
 
