@@ -444,8 +444,8 @@ section: realestate
 
       <div class="cgt-actions">
         <button type="submit" class="cgt-btn">계산하기</button>
-        <a class="cgt-btn secondary" href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&menuCd=search&searchInfo2503143553" target="_blank" rel="noopener">홈택스 모의계산</a>
-        <a class="cgt-btn light" href="https://www.nts.go.kr" target="_blank" rel="noopener">국세청 안내</a>
+        <a class="cgt-btn secondary" href="https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml&menuCd=search&searchInfo2503143553"  rel="noopener">홈택스 모의계산</a>
+        <a class="cgt-btn light" href="https://www.nts.go.kr" rel="noopener">국세청 안내</a>
       </div>
     </form>
 
