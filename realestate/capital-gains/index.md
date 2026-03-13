@@ -281,7 +281,7 @@ section: realestate
 .related-links a{
   display:block;
   text-decoration:none;
-  background:#f7fafc;
+  background:#ff7a00;
   border:1px solid #dbe5ec;
   border-radius:16px;
   padding:16px 14px;
