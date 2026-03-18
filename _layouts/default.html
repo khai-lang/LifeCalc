@@ -40,7 +40,7 @@ layout: none
       --card:#fff;
       --line:#e6ebf0;
 
-      --max:1100px;
+      --max:1320px;
       --nav-h:72px;
       --radius:14px;
     }
@@ -168,11 +168,11 @@ layout: none
     /* 3단 레이아웃 */
     .wrap--with-rail{
       display:grid;
-      grid-template-columns:200px minmax(0,880px) 260px;
-      gap:24px;
+      grid-template-columns:160px minmax(0,880px) 220px;
+      gap:20px;
       width:100%;
       max-width:var(--max);
-      padding:24px 16px;
+      padding:20px 12px;
       align-items:start;
     }
 
@@ -202,6 +202,15 @@ layout: none
       margin-top:40px;
     }
     .footer-inner{max-width:var(--max);margin:0 auto}
+
+  (메인 페이지 넓이 수정 시 추가>
+   .main-content,
+   .prose{
+    width:100%;
+    max-width:none;
+    min-width:0;
+   }  
+    
   </style>
 </head>
 
