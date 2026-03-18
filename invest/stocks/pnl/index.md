@@ -279,7 +279,7 @@ permalink: /invest/stocks/pnl/
 
 <div class="stock-pnl-wrap">
   <section class="stock-pnl-hero">
-    <h1 class="stock-pnl-title">주식 수익/손실 계산기</h1>
+    <h2 class="stock-pnl-title">주식 수익/손실 계산기</h2>
     <p class="stock-pnl-desc">
       매수가, 수량, 현재가, 매수/매도 수수료, 거래세를 반영해 실제에 가까운 손익과 수익률을 계산할 수 있습니다.
       단순 평가손익뿐 아니라 매도 후 예상 금액까지 함께 확인해 보세요.
