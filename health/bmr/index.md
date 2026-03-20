@@ -7,7 +7,7 @@ permalink: /health/bmr/
 
 <section class="lifecalc-page bmr-page">
   <div class="bmr-container">
-    <h1 class="bmr-title">BMR(기초대사량) 계산기</h1>
+    <h2 class="bmr-title">BMR(기초대사량) 계산기</h2>
     <p class="bmr-desc">
       Mifflin-St Jeor 공식을 기준으로 <strong>기초대사량(BMR)</strong>과
       <strong>유지 칼로리(TDEE)</strong>를 계산합니다.
