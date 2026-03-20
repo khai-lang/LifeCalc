@@ -8,7 +8,7 @@ permalink: /health/bmi/
 <section class="calorie-page">
   <div class="calorie-container">
 
-    <h1 class="calorie-title">칼로리 계산기</h1>
+    <h2 class="calorie-title">칼로리 계산기</h2>
     <p class="calorie-desc">
       성별, 나이, 키, 몸무게, 활동수준, 목표를 입력하면
       <strong>하루 권장 섭취 칼로리</strong>를 계산할 수 있습니다.
