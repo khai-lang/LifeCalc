@@ -2,7 +2,7 @@
 layout: default
 title: 칼로리 계산기 | 하루 권장 섭취 칼로리 계산
 description: 성별, 나이, 키, 몸무게, 활동수준, 목표에 따라 하루 권장 칼로리를 계산해보세요.
-permalink: /health/calorie/
+permalink: /health/bmi/
 ---
 
 <section class="calorie-page">
