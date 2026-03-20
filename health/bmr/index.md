@@ -401,8 +401,18 @@ permalink: /health/bmr/
     즉, 다이어트나 체중 증가를 계획할 때는 BMR이 아니라 <strong>TDEE를 기준으로 섭취 칼로리를 조절</strong>해야 합니다.
   </p>
 
-  <!-- 광고 위치 -->
-  <div class="adsense-placeholder">광고 영역</div>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
   <h2>다이어트 칼로리 계산 방법</h2>
 
@@ -444,8 +454,18 @@ permalink: /health/bmr/
     특히 근육량이 증가하면 같은 체중이라도 더 많은 에너지를 소비하게 됩니다.
   </p>
 
-  <!-- 광고 위치 -->
-  <div class="adsense-placeholder">광고 영역</div>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
   <h2>자주 묻는 질문 (FAQ)</h2>
 
