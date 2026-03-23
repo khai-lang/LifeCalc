@@ -28,6 +28,43 @@ permalink: /invest/stocks/targets/
     </ul>
   </section>
 
+  <style>
+  .calc-wrap{
+    position:relative;
+    z-index:2;
+  }
+
+  .calc-wrap h1{
+    position:relative;
+    z-index:3;
+    display:block;
+    margin:0 0 10px;
+    line-height:1.3;
+    background:none !important;
+  }
+
+  .calc-wrap header{
+    position:relative;
+    z-index:3;
+    background:none !important;
+  }
+
+  .calc-wrap section,
+  .calc-wrap form,
+  .calc-wrap .card,
+  .calc-wrap .result-box,
+  .calc-wrap nav{
+    position:relative;
+    z-index:2;
+  }
+
+  /* 혹시 공통 스타일에서 이상한 배경/겹침이 들어오는 경우 방지 */
+  .calc-wrap *::before,
+  .calc-wrap *::after{
+    box-sizing:border-box;
+  }
+</style>
+
   <form id="tgt" onsubmit="event.preventDefault();tgtCalc();" class="card" style="padding:18px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
       <label style="display:grid;gap:6px;font-weight:600;">
