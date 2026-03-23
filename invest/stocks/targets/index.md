@@ -5,29 +5,7 @@ description: 진입가, 목표 수익률, 손절 폭, 수량을 입력하면 목
 permalink: /invest/stocks/targets/
 ---
 
-<section class="calc-wrap" style="max-width:920px;margin:0 auto">
-  <header style="margin-bottom:18px;position:relative;z-index:3;background:transparent;">
-  <h2 style="font-size:clamp(1.8rem,2.8vw,2.4rem);line-height:1.3;margin:0 0 10px;font-weight:800;background:none;">
-    주식 목표가·손절가 계산기
-  </h2>
-  <p style="margin:0;color:#475569;line-height:1.75;background:none;">
-    진입가와 목표 수익률, 손절 폭을 기준으로 목표가, 손절가, 손익비(R:R), 그리고 수량 입력 시 예상 이익·예상 손실까지 한 번에 계산합니다.
-    단기 매매, 스윙, 분할매수 후 기준가 점검에 활용하기 좋습니다.
-  </p>
-</header>
-
-  <!-- 요약 박스 -->
-  <section class="card" style="padding:18px;border:1px solid #e5e7eb;border-radius:16px;background:#f8fafc;margin-bottom:18px">
-    <div style="font-weight:800;margin-bottom:8px;">한눈에 보는 계산 기준</div>
-    <ul style="margin:0;padding-left:18px;line-height:1.8;color:#334155;">
-      <li><strong>목표가</strong> = 진입가 × (1 + 목표 수익률)</li>
-      <li><strong>손절가</strong> = 진입가 × (1 - 손절 폭)</li>
-      <li><strong>손익비(R:R)</strong> = 목표 수익률 ÷ 손절 폭</li>
-      <li><strong>예상 이익/손실</strong> = 가격 차이 × 수량</li>
-    </ul>
-  </section>
-
-  <style>
+ <style>
   .calc-wrap{
     position:relative;
     z-index:2;
@@ -64,6 +42,27 @@ permalink: /invest/stocks/targets/
   }
 </style>
 
+
+  <header style="margin-bottom:18px">
+  <p style="margin:0;color:#475569;line-height:1.75;">
+    진입가와 목표 수익률, 손절 폭을 기준으로 <strong>목표가</strong>, <strong>손절가</strong>, 
+    <strong>손익비(R:R)</strong>, 그리고 수량 입력 시 <strong>예상 이익·예상 손실</strong>까지 한 번에 계산합니다.
+    단기 매매, 스윙, 분할매수 후 기준가 점검에 활용하기 좋습니다.
+  </p>
+</header>
+
+  <!-- 요약 박스 -->
+  <section class="card" style="padding:18px;border:1px solid #e5e7eb;border-radius:16px;background:#f8fafc;margin-bottom:18px">
+    <div style="font-weight:800;margin-bottom:8px;">한눈에 보는 계산 기준</div>
+    <ul style="margin:0;padding-left:18px;line-height:1.8;color:#334155;">
+      <li><strong>목표가</strong> = 진입가 × (1 + 목표 수익률)</li>
+      <li><strong>손절가</strong> = 진입가 × (1 - 손절 폭)</li>
+      <li><strong>손익비(R:R)</strong> = 목표 수익률 ÷ 손절 폭</li>
+      <li><strong>예상 이익/손실</strong> = 가격 차이 × 수량</li>
+    </ul>
+  </section>
+
+ 
   <form id="tgt" onsubmit="event.preventDefault();tgtCalc();" class="card" style="padding:18px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
       <label style="display:grid;gap:6px;font-weight:600;">
