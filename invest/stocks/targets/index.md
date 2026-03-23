@@ -7,9 +7,9 @@ permalink: /invest/stocks/targets/
 
 <section class="calc-wrap" style="max-width:920px;margin:0 auto">
   <header style="margin-bottom:18px;position:relative;z-index:3;background:transparent;">
-  <h1 style="font-size:clamp(1.8rem,2.8vw,2.4rem);line-height:1.3;margin:0 0 10px;font-weight:800;background:none;">
+  <h2 style="font-size:clamp(1.8rem,2.8vw,2.4rem);line-height:1.3;margin:0 0 10px;font-weight:800;background:none;">
     주식 목표가·손절가 계산기
-  </h1>
+  </h2>
   <p style="margin:0;color:#475569;line-height:1.75;background:none;">
     진입가와 목표 수익률, 손절 폭을 기준으로 목표가, 손절가, 손익비(R:R), 그리고 수량 입력 시 예상 이익·예상 손실까지 한 번에 계산합니다.
     단기 매매, 스윙, 분할매수 후 기준가 점검에 활용하기 좋습니다.
