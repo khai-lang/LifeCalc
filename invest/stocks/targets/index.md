@@ -44,11 +44,11 @@ permalink: /invest/stocks/targets/
 
 
   <header style="margin-bottom:18px">
-  <p style="margin:0;color:#475569;line-height:1.75;">
-    진입가와 목표 수익률, 손절 폭을 기준으로 <strong>목표가</strong>, <strong>손절가</strong>, 
-    <strong>손익비(R:R)</strong>, 그리고 수량 입력 시 <strong>예상 이익·예상 손실</strong>까지 한 번에 계산합니다.
-    단기 매매, 스윙, 분할매수 후 기준가 점검에 활용하기 좋습니다.
-  </p>
+  <div style="margin-bottom:18px;color:#475569;line-height:1.75;">
+  진입가와 목표 수익률, 손절 폭을 기준으로 <strong>목표가</strong>, <strong>손절가</strong>,
+  <strong>손익비(R:R)</strong>, 그리고 수량 입력 시 <strong>예상 이익·예상 손실</strong>까지 한 번에 계산합니다.
+  단기 매매, 스윙, 분할매수 후 기준가 점검에 활용하기 좋습니다.
+</div>
 </header>
 
   <!-- 요약 박스 -->
@@ -103,8 +103,21 @@ permalink: /invest/stocks/targets/
       손익비가 높다고 항상 좋은 매매는 아닙니다. 실제 매매에서는 수수료, 세금, 슬리피지, 분할매수·분할매도 전략도 함께 고려하세요.
     </p>
   </form>
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
-  <!-- ⭐ 자동 광고 또는 수동 광고 삽입 권장 위치 1 -->
+ 
   <div aria-hidden="true" style="margin:18px 0;"></div>
 
   <div id="tgt-out" class="result-box" style="margin-top:18px;display:none;"></div>
