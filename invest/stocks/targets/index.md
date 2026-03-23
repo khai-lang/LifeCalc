@@ -15,7 +15,7 @@ permalink: /invest/stocks/targets/
   </div>
 
   <!-- 요약 박스 -->
-  <section class="card" style="padding:18px;border:1px solid #e5e7eb;border-radius:16px;background:#f8fafc;margin-bottom:18px">
+  <section class="card" style="padding:18px;border:1px solid #e5e7eb;border-radius:16px;background:#e5e7eb;margin-bottom:18px">
     <div style="font-weight:800;margin-bottom:8px;">한눈에 보는 계산 기준</div>
     <ul style="margin:0;padding-left:18px;line-height:1.8;color:#334155;">
       <li><strong>목표가</strong> = 진입가 × (1 + 목표 수익률)</li>
@@ -25,7 +25,7 @@ permalink: /invest/stocks/targets/
     </ul>
   </section>
 
-  <form id="tgt" onsubmit="event.preventDefault();tgtCalc();" class="card" style="padding:18px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;">
+  <form id="tgt" onsubmit="event.preventDefault();tgtCalc();" class="card" style="padding:18px;border:1px solid #e5e7eb;border-radius:16px;background:#ffffff;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
       <label style="display:grid;gap:6px;font-weight:600;">
         <span>진입가(원)</span>
