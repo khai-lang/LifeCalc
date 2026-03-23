@@ -25,7 +25,7 @@ permalink: /invest/stocks/targets/
     </ul>
   </section>
 
-  <form id="tgt" onsubmit="event.preventDefault();tgtCalc();" class="card" style="padding:18px;border:1px solid #e5e7eb;border-radius:16px;background:#ffffff;">
+  <form id="tgt" onsubmit="event.preventDefault();tgtCalc();" class="card" style="padding:18px;border:1px solid #e5e7eb;border-radius:16px;background:#fff3e8;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
       <label style="display:grid;gap:6px;font-weight:600;">
         <span>진입가(원)</span>
