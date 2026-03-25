@@ -250,26 +250,46 @@ layout: none
 </footer>
 
 <script>
-(function(){
+document.addEventListener('DOMContentLoaded', function () {
   const drops = document.querySelectorAll('.drop');
-  drops.forEach(d=>{ d.classList.remove('open'); });
+  const navToggle = document.getElementById('nav-toggle');
 
-  drops.forEach(d=>{
-    const btn=d.querySelector('.nav-parent');
-    if(!btn) return;
-    btn.addEventListener('click',e=>{
+  // 초기화
+  drops.forEach(d => d.classList.remove('open'));
+
+  drops.forEach(drop => {
+    const btn = drop.querySelector('.nav-parent');
+    if (!btn) return;
+
+    btn.addEventListener('click', function (e) {
+      if (window.innerWidth > 940) return; // 데스크톱은 클릭 제어 안 함
+
       e.preventDefault();
-      drops.forEach(x=>{if(x!==d)x.classList.remove('open');});
-      d.classList.toggle('open');
+      e.stopPropagation();
+
+      drops.forEach(other => {
+        if (other !== drop) other.classList.remove('open');
+      });
+
+      drop.classList.toggle('open');
     });
   });
 
-  document.addEventListener('click',e=>{
-    if(!e.target.closest('.drop')){
-      drops.forEach(d=>d.classList.remove('open'));
+  // 메뉴 바깥 클릭 시 닫기
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.site-nav')) {
+      drops.forEach(d => d.classList.remove('open'));
     }
   });
-})();
+
+  // 화면 커지면 모바일 열린 메뉴 초기화
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 940) {
+      drops.forEach(d => d.classList.remove('open'));
+      if (navToggle) navToggle.checked = false;
+    }
+  });
+});
 </script>
 
 {% include calc-common.html %}
