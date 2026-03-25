@@ -113,22 +113,3 @@
   </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // 모바일 햄버거
-  const navToggle = document.getElementById("nav-toggle");
-
-  // 모든 dropdown 버튼
-  document.querySelectorAll(".nav-parent").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const li = btn.closest("li");
-
-      // 데스크탑: hover 기반 → 클릭 시 아무것도 안 함
-      if (window.innerWidth > 940) return;
-
-      // 모바일: 열고 닫기 토글
-      li.classList.toggle("open");
-    });
-  });
-});
-</script>
