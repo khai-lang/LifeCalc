@@ -554,3 +554,18 @@ header::after,
   }
 }
 
+/* =========================
+   계산기 폼 공통 레이아웃
+========================= */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* 모바일에서는 1열 */
+@media (max-width: 940px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
