@@ -569,3 +569,113 @@ header::after,
     grid-template-columns: 1fr;
   }
 }
+
+/* 모바일 버전 하위 메뉴 색상 수정 */
+/* =========================
+   모바일 메뉴 가독성 최종 수정
+========================= */
+@media (max-width: 940px) {
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 12px;
+    right: 12px;
+    background: #0b4c74;
+    border-radius: 18px;
+    padding: 12px;
+    z-index: 1001;
+    box-shadow: 0 14px 30px rgba(0,0,0,.22);
+  }
+
+  #nav-toggle:checked ~ .site-nav {
+    display: block;
+  }
+
+  .nav-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-ul > li > a,
+  .nav-parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 54px;
+    padding: 0 18px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.10);
+    border: 2px solid rgba(255,255,255,.75);
+    color: #ffffff !important;
+    font-size: 17px;
+    font-weight: 800;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+  .nav-ul > li > a:hover,
+  .nav-parent:hover,
+  .nav-ul > li > a:focus,
+  .nav-parent:focus {
+    background: rgba(255,255,255,.16);
+    color: #ffffff !important;
+  }
+
+  .drop .menu {
+    position: static;
+    display: none;
+    margin-top: 10px;
+    padding: 14px 14px 10px;
+    background: #f7efe7;
+    border: 1px solid #eadbcd;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+    min-width: 0;
+  }
+
+  .drop.open .menu {
+    display: block;
+  }
+
+  .drop .menu a {
+    display: block;
+    padding: 12px 14px;
+    margin: 6px 0;
+    border-radius: 12px;
+    background: #fffaf5;
+    border: 1px solid #efe1d3;
+    color: #17324a !important;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.45;
+    text-decoration: none;
+    opacity: 1 !important;
+  }
+
+  .drop .menu a:hover,
+  .drop .menu a:focus {
+    background: #fff1e2;
+    color: #0b4c74 !important;
+  }
+
+  .menu-heading {
+    color: #b86b1f !important;
+    font-size: 13px;
+    font-weight: 800;
+    margin: 12px 6px 8px;
+    opacity: 1 !important;
+  }
+
+  .menu-sep {
+    height: 1px;
+    background: #e6d6c8;
+    margin: 10px 4px;
+  }
+}
