@@ -661,3 +661,130 @@ header::after,
     margin: 10px 4px;
   }
 }
+
+/* =========================
+   MOBILE NAV - PC 스타일 맞춤 + 잘림 방지
+========================= */
+@media (max-width: 940px) {
+  .header-wrap {
+    position: relative;
+    overflow: visible;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 12px;
+    right: 12px;
+    width: auto;
+    background: #0b4c74;
+    border-radius: 18px;
+    padding: 12px 12px 20px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.22);
+    z-index: 2000;
+
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #nav-toggle:checked ~ .site-nav {
+    display: block;
+  }
+
+  .nav-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: visible;
+  }
+
+  .nav-ul > li {
+    display: block;
+    overflow: visible;
+  }
+
+  .nav-ul > li > a,
+  .nav-parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 54px;
+    padding: 0 18px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.10);
+    border: 2px solid rgba(255,255,255,.75);
+    color: #fff !important;
+    font-size: 17px;
+    font-weight: 800;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+  /* 하위 메뉴 박스 */
+  .drop .menu {
+    position: static;
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: #fff8f1;           /* PC와 유사한 연살구 */
+    border: 1px solid #f3e6db;
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    max-height: 38vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .drop.open .menu {
+    display: block;
+  }
+
+  /* 하위 메뉴 항목 */
+  .drop .menu a {
+    display: block;
+    padding: 12px 14px;
+    margin: 6px 0;
+    border-radius: 10px;
+    background: #ffffff;           /* PC처럼 밝은 카드 */
+    border: 1px solid #efe2d7;
+    color: #17324a !important;     /* 진한 남색 */
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-decoration: none;
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  .drop .menu a:hover,
+  .drop .menu a:focus {
+    background: #ffeedd;           /* PC hover 느낌 */
+    border-color: #f0d4c0;
+    color: #0b4c74 !important;
+  }
+
+  .menu-heading {
+    color: #b86b1f !important;
+    font-size: 13px;
+    font-weight: 800;
+    margin: 12px 6px 8px;
+  }
+
+  .menu-sep {
+    height: 1px;
+    background: #e8d9cb;
+    margin: 10px 4px;
+  }
+}
