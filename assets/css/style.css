@@ -133,29 +133,7 @@ main {
 /* open 상태 */
 .drop.open .menu { display: block; }
 
-/* =============== MOBILE NAV =============== */
 
-@media (max-width: 940px) {
-  .site-nav {
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-
-    padding-bottom: 20px;
-  }
-}
-  .drop .menu {
-    max-height: 42vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .drop .menu a {
-    padding: 10px 12px;
-    margin: 4px 0;
-    font-size: 15px;
-  }
-}
 /* ============================================
    🟧 GUIDE PAGE LAYOUT
 ============================================ */
@@ -663,12 +641,18 @@ header::after,
 }
 
 /* =========================
-   MOBILE NAV - PC 스타일 맞춤 + 잘림 방지
+   MOBILE NAV FINAL
+   - 잘림 방지
+   - PC 스타일 톤 맞춤
 ========================= */
 @media (max-width: 940px) {
   .header-wrap {
     position: relative;
     overflow: visible;
+  }
+
+  .burger {
+    display: block;
   }
 
   .site-nav {
@@ -678,6 +662,7 @@ header::after,
     left: 12px;
     right: 12px;
     width: auto;
+    margin-top: 0;
     background: #0b4c74;
     border-radius: 18px;
     padding: 12px 12px 20px;
@@ -727,13 +712,12 @@ header::after,
     box-sizing: border-box;
   }
 
-  /* 하위 메뉴 박스 */
   .drop .menu {
     position: static;
     display: none;
     margin-top: 10px;
     padding: 10px;
-    background: #fff8f1;           /* PC와 유사한 연살구 */
+    background: #fff8f1;
     border: 1px solid #f3e6db;
     border-radius: 14px;
     box-shadow: 0 10px 24px rgba(0,0,0,.10);
@@ -751,15 +735,14 @@ header::after,
     display: block;
   }
 
-  /* 하위 메뉴 항목 */
   .drop .menu a {
     display: block;
     padding: 12px 14px;
     margin: 6px 0;
     border-radius: 10px;
-    background: #ffffff;           /* PC처럼 밝은 카드 */
+    background: #ffffff;
     border: 1px solid #efe2d7;
-    color: #17324a !important;     /* 진한 남색 */
+    color: #17324a !important;
     font-size: 16px;
     font-weight: 700;
     line-height: 1.4;
@@ -770,7 +753,7 @@ header::after,
 
   .drop .menu a:hover,
   .drop .menu a:focus {
-    background: #ffeedd;           /* PC hover 느낌 */
+    background: #ffeedd;
     border-color: #f0d4c0;
     color: #0b4c74 !important;
   }
