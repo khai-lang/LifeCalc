@@ -530,7 +530,6 @@ header::after,
   }
 }
 
-/* 모바일 버전 하위 메뉴 색상 수정 */
 /* =========================
    모바일 메뉴 가독성 최종 수정
 ========================= */
@@ -642,8 +641,7 @@ header::after,
 
 /* =========================
    MOBILE NAV FINAL
-   - 잘림 방지
-   - PC 스타일 톤 맞춤
+   상단 고정 하위메뉴 패널 방식
 ========================= */
 @media (max-width: 940px) {
   .header-wrap {
@@ -668,7 +666,6 @@ header::after,
     padding: 12px 12px 20px;
     box-shadow: 0 14px 30px rgba(0,0,0,.22);
     z-index: 2000;
-
     max-height: calc(100vh - 120px);
     overflow-y: auto;
     overflow-x: visible;
@@ -677,6 +674,57 @@ header::after,
 
   #nav-toggle:checked ~ .site-nav {
     display: block;
+  }
+
+  /* 상단 고정 하위메뉴 패널 */
+  .mobile-submenu-panel {
+    display: none;
+    margin-bottom: 12px;
+    padding: 10px;
+    background: #fff8f1;
+    border: 1px solid #f3e6db;
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  }
+
+  .mobile-submenu-panel.active {
+    display: block;
+  }
+
+  .mobile-submenu-panel .menu-heading {
+    color: #b86b1f;
+    font-size: 13px;
+    font-weight: 800;
+    margin: 12px 6px 8px;
+  }
+
+  .mobile-submenu-panel .menu-sep {
+    height: 1px;
+    background: #e8d9cb;
+    margin: 10px 4px;
+  }
+
+  .mobile-submenu-panel a {
+    display: block;
+    padding: 12px 14px;
+    margin: 6px 0;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #efe2d7;
+    color: #17324a !important;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-decoration: none;
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  .mobile-submenu-panel a:hover,
+  .mobile-submenu-panel a:focus {
+    background: #ffeedd;
+    border-color: #f0d4c0;
+    color: #0b4c74 !important;
   }
 
   .nav-ul {
@@ -712,62 +760,12 @@ header::after,
     box-sizing: border-box;
   }
 
+  .drop.open > .nav-parent {
+    background: rgba(255,255,255,.18);
+  }
+
+  /* 모바일에서는 기존 아래 펼침 비활성화 */
   .drop .menu {
-    position: static;
-    display: none;
-    margin-top: 10px;
-    padding: 10px;
-    background: #fff8f1;
-    border: 1px solid #f3e6db;
-    border-radius: 14px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.10);
-    min-width: 0;
-    width: 100%;
-    box-sizing: border-box;
-
-    max-height: 38vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .drop.open .menu {
-    display: block;
-  }
-
-  .drop .menu a {
-    display: block;
-    padding: 12px 14px;
-    margin: 6px 0;
-    border-radius: 10px;
-    background: #ffffff;
-    border: 1px solid #efe2d7;
-    color: #17324a !important;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.4;
-    text-decoration: none;
-    white-space: normal;
-    word-break: keep-all;
-  }
-
-  .drop .menu a:hover,
-  .drop .menu a:focus {
-    background: #ffeedd;
-    border-color: #f0d4c0;
-    color: #0b4c74 !important;
-  }
-
-  .menu-heading {
-    color: #b86b1f !important;
-    font-size: 13px;
-    font-weight: 800;
-    margin: 12px 6px 8px;
-  }
-
-  .menu-sep {
-    height: 1px;
-    background: #e8d9cb;
-    margin: 10px 4px;
+    display: none !important;
   }
 }
