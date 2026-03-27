@@ -136,44 +136,26 @@ main {
 /* =============== MOBILE NAV =============== */
 
 @media (max-width: 940px) {
-  .burger { display: block; }
-
   .site-nav {
-    display: none;
-    width: 100%;
-  }
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
-  #nav-toggle:checked ~ .site-nav {
-    display: block;
-    margin-top: 12px;
-  }
-
-  .nav-ul {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .drop .menu {
-    position: static;
-    display: none;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    padding-left: 12px;
-  }
-
-  .drop.open .menu { display: block; }
-  .drop .menu a {
-    background: transparent;
-    border: 0;
-    color: #fff;
-  }
-
-  .drop .menu a:hover {
-    background: rgba(255,255,255,.15);
+    padding-bottom: 20px;
   }
 }
+  .drop .menu {
+    max-height: 42vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
+  .drop .menu a {
+    padding: 10px 12px;
+    margin: 4px 0;
+    font-size: 15px;
+  }
+}
 /* ============================================
    🟧 GUIDE PAGE LAYOUT
 ============================================ */
