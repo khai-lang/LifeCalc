@@ -246,39 +246,61 @@ layout: none
 document.addEventListener('DOMContentLoaded', function () {
   const drops = document.querySelectorAll('.drop');
   const navToggle = document.getElementById('nav-toggle');
+  const submenuPanel = document.getElementById('mobile-submenu-panel');
 
-  // 초기화
   drops.forEach(d => d.classList.remove('open'));
 
   drops.forEach(drop => {
     const btn = drop.querySelector('.nav-parent');
-    if (!btn) return;
+    const menu = drop.querySelector('.menu');
+    if (!btn || !menu) return;
 
     btn.addEventListener('click', function (e) {
-      if (window.innerWidth > 940) return; // 데스크톱은 클릭 제어 안 함
+      if (window.innerWidth > 940) return;
 
       e.preventDefault();
       e.stopPropagation();
 
-      drops.forEach(other => {
-        if (other !== drop) other.classList.remove('open');
-      });
+      const isOpen = drop.classList.contains('open');
 
-      drop.classList.toggle('open');
+      drops.forEach(other => other.classList.remove('open'));
+
+      if (!submenuPanel) return;
+
+      if (isOpen) {
+        submenuPanel.innerHTML = '';
+        submenuPanel.classList.remove('active');
+        return;
+      }
+
+      drop.classList.add('open');
+      submenuPanel.innerHTML = menu.innerHTML;
+      submenuPanel.classList.add('active');
+
+      submenuPanel.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     });
   });
 
-  // 메뉴 바깥 클릭 시 닫기
   document.addEventListener('click', function (e) {
     if (!e.target.closest('.site-nav')) {
       drops.forEach(d => d.classList.remove('open'));
+      if (submenuPanel) {
+        submenuPanel.innerHTML = '';
+        submenuPanel.classList.remove('active');
+      }
     }
   });
 
-  // 화면 커지면 모바일 열린 메뉴 초기화
   window.addEventListener('resize', function () {
     if (window.innerWidth > 940) {
       drops.forEach(d => d.classList.remove('open'));
+      if (submenuPanel) {
+        submenuPanel.innerHTML = '';
+        submenuPanel.classList.remove('active');
+      }
       if (navToggle) navToggle.checked = false;
     }
   });
