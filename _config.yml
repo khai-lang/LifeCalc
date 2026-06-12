@@ -6,6 +6,9 @@ timezone: Asia/Seoul
 
 theme: minima   # ← 여기 반드시 추가!!
 
+# Google Analytics 설정
+google_analytics: G-XD8HVXBZYE 
+
 plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
