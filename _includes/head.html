@@ -9,7 +9,6 @@
   {% endif %}
 </title>
 
-<!-- Open Graph 기본 설정 -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LifeCalc">
 
@@ -27,17 +26,14 @@
 <meta property="og:image" content="{{ '/images/og-lifecalc.png' | absolute_url }}">
 {% endif %}
 
-
 <meta name="description" content="{{ page.description | default: site.description }}">
 
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 
 {% seo %}
 
-<!-- Jekyll 테마 CSS -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css?v=1' | relative_url }}">
 
-<!-- ★ 가장 마지막, 가장 강한 우선순위: 사이트 전체 디자인 -->
 <link rel="stylesheet" href="{{ '/assets/css/style.css?v=20251206' | relative_url }}">
 <style>
   /* ★ 모든 링크 밑줄 강제 제거 */
@@ -67,7 +63,15 @@
   }
 </style>
 
-<!-- AdSense -->
 <script async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
   crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XD8HVXBZYE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XD8HVXBZYE');
+</script>
