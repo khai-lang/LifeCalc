@@ -143,7 +143,7 @@ categories: [guide]
     <div class="button-group">
       <a href="https://nhuf.molit.go.kr/" target="_blank" class="btn-link-orange-main">주택도시기금 공식 홈페이지</a>
       <a href="https://www.hf.go.kr/" target="_blank" class="btn-link-orange-sub">한국주택금융공사 바로가기</a>
-      <a href="https://calculator.khaistory.com/realestate/loan/" target="_blank" class="btn-link-orange-calc">신혼부부 대출 계산기 활용하기</a>
+      <a href="https://calculator.khaistory.com/finance/loan/">신혼부부 대출 계산기 활용하기</a>
     </div>
     
     <p class="closing-text">정부 지원 대출은 예산 소진 상황이나 정책 기조에 따라 수시로 세부 금리가 변동될 수 있습니다. 계약서 작성 전 공식 포털을 통해 사전 자격 심사를 받아보시는 것을 강력히 권장합니다.</p>
