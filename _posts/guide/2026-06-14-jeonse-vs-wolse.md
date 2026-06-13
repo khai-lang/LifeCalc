@@ -2,7 +2,7 @@
 layout: guide
 title: "전세 vs 월세, 2026년엔 뭐가 진짜 유리할까? — 전환율·금리·손익 완전 정리"
 description: "2026년 기준금리 2.5% 환경에서 전세와 월세 중 어느 쪽이 유리한지 전월세 전환율, 대출 이자, 기회비용을 기준으로 비교합니다. 상황별 유불리 판단 가이드 포함."
-permalink:/jeonse-vs-wolse-2026/
+permalink: /jeonse-vs-wolse-2026/
 canonical: https://calculator.khaistory.com/guide/jeonse-vs-wolse-2026/
 og_title: "전세 vs 월세 2026 — 금리·전환율로 유불리 완전 정리"
 og_description: "2026년 기준금리 기준, 전세와 월세 중 어느 쪽이 더 유리한지 비용 비교와 상황별 판단 가이드를 제공합니다."
