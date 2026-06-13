@@ -1,0 +1,422 @@
+---
+layout: default
+title: DSR 40% 뜻과 계산법 — 2026년 내 대출 한도 직접 구하기
+description: DSR(총부채원리금상환비율) 40% 규제의 뜻과 계산 방법을 쉽게 설명합니다. 연소득별 최대 대출 한도 표, 전세대출 DSR 포함 여부, 한도 늘리는 방법까지 2026년 기준으로 정리했습니다.
+permalink: guide/dsr-2026/
+canonical: https://calculator.khaistory.com/guide/dsr-2026/
+og_title: DSR 40% 뜻과 계산법 — 2026년 대출 한도 직접 구하기
+og_description: DSR이란 무엇인지, 내 대출 한도를 직접 계산하는 방법, 연소득별 한도 표까지 2026년 기준 완전 정리.
+---
+
+<section class="cgt-guide-container">
+
+  <!-- 메인 타이틀 박스 -->
+  <div class="cgt-hero-card">
+    <h2>DSR 40% 뜻과 계산법</h2>
+    <p class="hero-sub">2026년 내 대출 한도 직접 구하기</p>
+  </div>
+
+  <div class="cgt-content-card bg-light-variant text-center">
+    <p class="intro-text">💡 은행에서 "DSR이 40% 넘어서 대출이 안 됩니다"라는 말, 들어봤다면 이 글이 도움이 됩니다. DSR이 뭔지, 어떻게 계산하는지, 한도를 어떻게 늘릴 수 있는지 순서대로 설명합니다.</p>
+  </div>
+
+  <!-- [추천 광고 위치 1: 상단 디스플레이/네이티브 광고] -->
+  <div class="cgt-ads-wrapper">
+    <!-- 여기에 구글 애드센스 코드 붙여넣기 -->
+  </div>
+
+  <!-- 섹션 1 -->
+  <div class="cgt-content-card">
+    <h3>1. DSR이란?</h3>
+    <p>DSR(Debt Service Ratio)은 <strong>총부채원리금상환비율</strong>로, 내 연소득 중 얼마를 빚 갚는 데 쓰고 있는지를 나타내는 비율입니다.</p>
+    <div class="formula-box">
+      DSR = 연간 모든 대출 원리금 상환액 합계 ÷ 연소득 × 100
+    </div>
+    <p><strong>실전 예시:</strong> 연소득 5,000만 원인 직장인이 주담대와 신용대출을 합쳐 연간 2,000만 원을 갚고 있다면?<br>
+    → <span class="highlight-text">DSR = 2,000만 ÷ 5,000만 × 100 = 40%</span></p>
+    <p>현재 <strong>은행권 신규 대출 DSR 40% 규제</strong>가 철저하게 시행 중입니다. 즉, 신규 대출 후 DSR이 40%를 초과하면 은행에서 대출이 거절됩니다.</p>
+  </div>
+
+  <!-- 섹션 2 -->
+  <div class="cgt-content-card no-padding-mobile">
+    <h3>2. DSR 계산에 포함되는 대출</h3>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>포함 O</th>
+            <th>포함 X (일부 예외)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>주택담보대출 원리금<br>신용대출 원리금<br>자동차 할부 원리금<br>카드론 원리금<br>보험 약관 대출</td>
+            <td>전세자금대출 이자 (1주택자 일부 포함*)<br>학자금 대출 (일부 유예)<br>중소기업 정책대출 (일부)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">* 2025년 10월 이후 1주택자의 전세대출 이자 상환분이 DSR에 포함되기 시작했습니다. 본인이 집을 갖고 전세로 다른 곳에 거주 중이라면 전세대출 이자도 DSR 계산에 들어갑니다.</p>
+  </div>
+
+  <!-- [추천 광고 위치 2: 중간 콘텐츠 사이 인피드 광고] -->
+  <div class="cgt-ads-wrapper">
+    <!-- 여기에 구글 애드센스 코드 붙여넣기 -->
+  </div>
+
+  <!-- 섹션 3 -->
+  <div class="cgt-content-card no-padding-mobile">
+    <h3>3. 연소득별 DSR 40% 기준 최대 대출 한도</h3>
+    <p class="table-intro">※ 조건: 기존 대출 없음, 30년 만기, 원리금균등상환, 연 금리 4.0% 가정</p>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>연소득</th>
+            <th>연간 원리금 한도 (DSR 40%)</th>
+            <th>최대 대출 가능액 (약)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>3,000만 원</td><td>1,200만 원/년</td><td>약 <strong>2억 5,000만 원</strong></td></tr>
+          <tr><td>4,000만 원</td><td>1,600만 원/년</td><td>약 <strong>2억 7,300만 원</strong></td></tr>
+          <tr><td>5,000만 원</td><td>2,000만 원/년</td><td>약 <strong>3억 4,200만 원</strong></td></tr>
+          <tr><td>6,000만 원</td><td>2,400만 원/년</td><td>약 <strong>4억 1,000만 원</strong></td></tr>
+          <tr><td>7,000만 원</td><td>2,800만 원/년</td><td>약 <strong>4억 7,800만 원</strong></td></tr>
+          <tr><td>8,000만 원</td><td>3,200만 원/년</td><td>약 <strong>5억 4,600만 원</strong></td></tr>
+          <tr><td>1억 원</td><td>4,000만 원/년</td><td>약 <strong>6억 8,000만 원</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">⚠️ 기존 대출이 있으면 한도가 줄어듭니다. 예를 들어 신용대출 연 240만 원 상환 중이라면, 연소득 5000만 원 기준 최대 주담대 한도는 약 3억에서 약 2억 6000만 원으로 줄어듭니다.</p>
+  </div>
+
+  <!-- 섹션 4 -->
+  <div class="cgt-content-card">
+    <h3>4. 실제 DSR 계산 예시</h3>
+    <p class="example-title">📋 상황: 연소득 6,000만 원 / 기존 신용대출 월 30만 원 상환 중 / 주담대 3억 원 추가 희망 (30년, 4%)</p>
+    <ul class="accent-list">
+      <li><strong>STEP 1 — 기존 대출 연간 원리금:</strong> 신용대출 30만 원 × 12 = 360만 원/년</li>
+      <li><strong>STEP 2 — 신규 주담대 연간 원리금:</strong> 3억 × 4% / 12 ÷ (1 − (1+4%/12)^-360) ≈ 월 143만 원 → 연 1,716만 원</li>
+      <li><strong>STEP 3 — 최종 DSR 수치:</strong> (360만 + 1,716만) ÷ 6,000만 × 100 = <strong>34.6%</strong> → <span class="highlight-text" style="background-color:#d1fae5; color:#065f46;">40% 이하 대출 가능</span></li>
+    </ul>
+    <p style="margin-top: 15px;"><strong>만약 주담대를 4억으로 올리면?</strong><br>
+    월 원리금 약 191만 원 → 연 2,292만 원 | (360만 + 2,292만) ÷ 6,000만 × 100 = <strong>44.2%</strong> → <strong style="color:#dc2626;">40% 초과 대출 불가</strong></p>
+  </div>
+
+  <!-- 섹션 5 -->
+  <div class="cgt-content-card">
+    <h3>5. DSR 한도를 높이는 방법</h3>
+    <ul>
+      <li><strong>소득 증빙 강화:</strong> DSR은 인정 소득 기준입니다. 부업, 임대, 배당 소득 등 추가 증빙 자료를 제출하면 인정 소득 분모가 커져 한도가 늘어납니다.</li>
+      <li><strong>기존 소액 대출 상환:</strong> 신용대출, 카드론, 자동차 할부 등 소액 대출을 주담대 신청 전에 미리 상환하면 DSR 한도를 확보할 수 있습니다.</li>
+      <li><strong>대출 만기 연장:</strong> 대출 기간을 20년에서 30~40년으로 늘리면 월 원리금이 줄어 DSR 비율이 대폭 낮아집니다. (단, 총 이자는 늘어남)</li>
+      <li><strong>정책 대출 활용:</strong> 디딤돌대출, 보금자리론 등 일부 정부 지원 정책 대출은 DSR 규제 예외 또는 완화 적용을 받으므로 최우선으로 검토하세요.</li>
+    </ul>
+  </div>
+
+  <!-- 섹션 6 -->
+  <div class="cgt-content-card no-padding-mobile">
+    <h3>6. DSR vs LTV vs DTI 헷갈리는 대출 규제 정리</h3>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>용어</th>
+            <th>뜻</th>
+            <th>기준</th>
+            <th>한도</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>DSR</strong></td><td>총부채원리금상환비율</td><td>연소득 대비 모든 대출 원리금</td><td>은행권 40%</td></tr>
+          <tr><td><strong>LTV</strong></td><td>담보인정비율</td><td>집값 대비 대출 한도</td><td>지역별 50~70%</td></tr>
+          <tr><td><strong>DTI</strong></td><td>총부채상환비율</td><td>연소득 대비 주담대 원리금 + 기타 이자</td><td>60% (일부 지역)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note"><strong>DSR이 가장 강력한 규제</strong>입니다. LTV와 DTI 기준을 여유롭게 통과해도 최종 DSR 단계에서 한도가 막히는 경우가 대다수입니다.</p>
+  </div>
+
+  <!-- [추천 광고 위치 3: FAQ 전 멀티플렉스/일치하는 콘텐츠 광고] -->
+  <div class="cgt-ads-wrapper">
+    <!-- 여기에 구글 애드센스 코드 붙여넣기 -->
+  </div>
+
+  <!-- 섹션 7 (자주 묻는 질문) -->
+  <div class="cgt-content-card">
+    <h3>7. 자주 묻는 질문 (FAQ)</h3>
+    <ul class="faq-list" style="list-style-type: none; padding-left: 0;">
+      <li style="margin-bottom: 15px;">
+        <strong style="color: #ff6f20;">Q. DSR 40% 초과하면 대출이 완전히 불가능한가요?</strong><br>
+        A. 제1금융권 은행 신규 대출은 원칙적으로 불가능합니다. 다만 기존 대출의 단순 만기 연장이나 특정 정부 정책 대출은 예외 조항이 적용될 수 있습니다.
+      </li>
+      <li style="margin-bottom: 15px;">
+        <strong style="color: #ff6f20;">Q. 전세자금대출도 DSR에 포함되나요?</strong><br>
+        A. 2025년 10월부터 1주택자(자가 주택을 보유한 채 타지역에 전세 거주)의 전세자금대출 이자 상환액은 DSR에 산입됩니다. 무주택자의 전세대출은 아직 제외 대상입니다.
+      </li>
+      <li>
+        <strong style="color: #ff6f20;">Q. 부부 공동 명의로 대출하면 어떻게 되나요?</strong><br>
+        A. 공동 명의 진행 시 부부 합산 소득으로 계산할 수 있어 유익합니다. 단, 두 사람 각각이 보유하고 있는 모든 기존 대출 원리금도 합산되어 반영됩니다.
+      </li>
+    </ul>
+  </div>
+
+  <!-- 섹션 8 (오렌지 테마 적용 링크 버튼 그룹) -->
+  <div class="cgt-content-card text-center">
+    <h3>8. 내 대출 한도 직접 계산해보기</h3>
+    <p>아래 링크된 전용 금융 계산기를 활용하시면 복잡한 우대금리와 소득 구간별 DSR 통과 여부를 즉시 모의 계산해 볼 수 있습니다.</p>
+    
+    <div class="button-group">
+      <a href="https://calculator.khaistory.com/finance/dsr/" target="_blank" class="btn-link-orange-main">DSR 계산기 바로가기</a>
+      <a href="https://calculator.khaistory.com/finance/loan/" target="_blank" class="btn-link-orange-calc">대출 월 상환액 계산하기</a>
+    </div>
+    
+    <div class="related-guides" style="margin-top: 25px; border-top: 1px dashed #eae1d4; padding-top: 15px;">
+      <span style="font-size: 0.9rem; color:#8c7355; font-weight: bold;">추천 관련 가이드:</span><br>
+      <a href="https://calculator.khaistory.com/guide/jeonse-vs-wolse-2026/" style="color:#ff6f20; text-decoration: none; font-size: 0.9rem;">전세 vs 월세 유불리 비교</a> · 
+      <a href="https://calculator.khaistory.com/guide/loan-refinancing/" style="color:#ff6f20; text-decoration: none; font-size: 0.9rem;">대출 갈아타기 체크리스트</a> · 
+      <a href="https://calculator.khaistory.com/guide/acquisition-tax-2026/" style="color:#ff6f20; text-decoration: none; font-size: 0.9rem;">취득세 완벽 정리</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- 구조화 데이터 스크립트 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DSR 40% 뜻과 계산법 — 2026년 내 대출 한도 직접 구하기",
+  "description": "DSR 총부채원리금상환비율의 뜻, 계산 방법, 연소득별 대출 한도, 한도 늘리는 방법을 2026년 기준으로 설명합니다.",
+  "datePublished": "2026-06-14",
+  "dateModified": "2026-06-14",
+  "author": { "@type": "Organization", "name": "LifeCalc" },
+  "publisher": { "@type": "Organization", "name": "LifeCalc", "url": "https://calculator.khaistory.com" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "DSR이란 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DSR(총부채원리금상환비율)은 연소득 대비 모든 대출의 연간 원리금 상환액 합계 비율입니다. 은행권은 신규 대출 시 DSR 40% 이하만 허용합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "연봉 5000만원이면 대출 한도가 얼마인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "기존 대출이 없을 때 DSR 40% 기준으로, 30년 만기 금리 4% 가정 시 약 3억 4000만원까지 대출이 가능합니다. 기존 대출이 있으면 한도가 줄어듭니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "DSR 한도를 높이는 방법은 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "부업·임대·배당 소득 증빙으로 인정 소득을 늘리거나, 소액 기존 대출을 미리 상환하거나, 대출 만기를 늘려 월 원리금을 줄이는 방법이 있습니다. 정책 대출 활용도 고려해보세요."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://calculator.khaistory.com/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://calculator.khaistory.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "DSR 40% 뜻과 계산법 2026", "item": "https://calculator.khaistory.com/guide/dsr-2026/" }
+  ]
+}
+</script>
+
+<!-- CSS 스타일 정의 -->
+<style>
+  .cgt-guide-container {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1f2937;
+    line-height: 1.8;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  /* 수동 광고 컨테이너 패딩 구조 */
+  .cgt-ads-wrapper {
+    margin: 10px auto 25px auto;
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .cgt-hero-card {
+    background: linear-gradient(135deg, #f8efe5 0%, #f3e7d9 100%);
+    border: 1px solid #e3d4c5;
+    border-radius: 22px;
+    padding: 32px 24px;
+    margin-bottom: 24px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  }
+  .cgt-hero-card h2 {
+    font-size: 2.2rem;
+    color: #3f2d20;
+    margin: 0 0 10px 0;
+    font-weight: 800;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: #8c7355;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .cgt-content-card {
+    background: #ffffff;
+    border: 1px solid #f1eae1;
+    border-radius: 18px;
+    padding: 28px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 18px rgba(140, 115, 85, 0.04);
+  }
+  .bg-light-variant {
+    background-color: #faf7f2;
+    border-color: #eaddcd;
+  }
+
+  .cgt-content-card h3 {
+    font-size: 1.35rem;
+    color: #3f2d20;
+    margin-top: 0;
+    margin-bottom: 18px;
+    border-left: 4px solid #8c7355;
+    padding-left: 10px;
+  }
+
+  .formula-box {
+    background-color: #f7ede2;
+    border: 1px dashed #cfbda8;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: #4a3525;
+    border-radius: 10px;
+    margin: 15px 0;
+  }
+  
+  .cgt-content-card ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .cgt-content-card li {
+    margin-bottom: 10px;
+  }
+
+  .highlight-text {
+    background-color: #fce8db;
+    color: #ea580c;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+  }
+  th, td {
+    border: 1px solid #eae1d4;
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  thead {
+    background-color: #f6efe5;
+    color: #4a3728;
+    font-weight: bold;
+  }
+  tbody tr:nth-child(even) {
+    background-color: #faf8f5;
+  }
+  .table-note {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 8px;
+  }
+  .table-intro {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin-bottom: 6px;
+  }
+
+  /* 요구사항 반영: 오렌지 테마 링크 버튼 디자인 */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 28px 0 20px 0;
+  }
+  
+  .btn-link-orange-main, .btn-link-orange-calc {
+    text-decoration: none;
+    padding: 14px 28px;
+    color: white;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.15);
+  }
+
+  .btn-link-orange-main {
+    background-color: #ff6f20;
+  }
+  .btn-link-orange-main:hover {
+    background-color: #e6550d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 85, 13, 0.3);
+  }
+
+  .btn-link-orange-calc {
+    background-color: #ff8343;
+  }
+  .btn-link-orange-calc:hover {
+    background-color: #f97316;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
+  }
+
+  .text-center { text-align: center; }
+
+  @media (max-width: 600px) {
+    .no-padding-mobile { padding: 20px 12px; }
+    .button-group { flex-direction: column; gap: 10px; }
+    .btn-link-orange-main, .btn-link-orange-calc { 
+      width: 100%; 
+      text-align: center; 
+      box-sizing: border-box; 
+    }
+  }
+</style>
