@@ -1,11 +1,11 @@
 ---
 layout: guide
-title: "2026년 양도소득세 계산 꿀팁 — 세율·장기보유특별공제·비과세 조건 총정리"
-description: "부동산 매매 전 꼭 알아야 할 2026년 최신 양도소득세 세율표, 장기보유특별공제 계산법, 1세대 1주택 비과세 혜택과 계산기 활용법까지 실전 가이드를 정리했습니다."
-permalink: "/guide/yangdo-tax-tips/"
-canonical: "https://calculator.khaistory.com/guide/yangdo-tax-tips/"
-og_title: "2026년 양도소득세 유불리 완전 정리 — 세금 줄이는 실전 꿀팁"
-og_description: "복잡한 양도소득세 기본 개념부터 다주택자 중과세 완화, 필요경비 인정 항목까지 한눈에 비교하고 쉽게 계산해 보세요."
+title: "전세 vs 월세, 2026년엔 뭐가 진짜 유리할까? — 전환율·금리·손익 완전 정리"
+description: "2026년 기준금리 2.5% 환경에서 전세와 월세 중 어느 쪽이 유리한지 전월세 전환율, 대출 이자, 기회비용을 기준으로 비교합니다. 상황별 유불리 판단 가이드 포함."
+permalink: guide/jeonse-vs-wolse-2026/
+canonical: https://calculator.khaistory.com/guide/jeonse-vs-wolse-2026/
+og_title: "전세 vs 월세 2026 — 금리·전환율로 유불리 완전 정리"
+og_description: "2026년 기준금리 기준, 전세와 월세 중 어느 쪽이 더 유리한지 비용 비교와 상황별 판단 가이드를 제공합니다."
 categories: [guide]
 ---
 
