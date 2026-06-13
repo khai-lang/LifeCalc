@@ -17,6 +17,19 @@ categories: [guide]
     <p class="hero-sub">바뀐 소득 기준과 한도, 나에게 맞는 대출 찾기</p>
   </div>
 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
   <!-- 섹션 1 -->
   <div class="cgt-content-card">
     <h3>1. 2026년 신혼부부 대출, 무엇이 달라졌을까요?</h3>
@@ -38,6 +51,19 @@ categories: [guide]
       <li><strong>대출 한도:</strong> 최대 <strong>4억 원</strong> 한도 이내</li>
     </ul>
   </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
   <!-- 섹션 3 -->
   <div class="cgt-content-card">
@@ -97,6 +123,17 @@ categories: [guide]
       <li><strong>다자녀 및 출산 가구:</strong> 대출 기간 중 출산 시 자녀당 추가 금리 인하 및 한도 우대 혜택 적용</li>
     </ul>
   </div>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="9799475726"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
   <!-- 섹션 6 (오렌지 테마 적용 링크 버튼 그룹) -->
   <div class="cgt-content-card text-center">
