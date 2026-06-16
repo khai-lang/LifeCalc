@@ -32,7 +32,43 @@
 
 {% seo %}
 
-<link rel="stylesheet" href="{{ '/assets/css/style.css?v=20260616_center_fix' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css?v=20251206_v3' | relative_url }}">
+
+<style>
+  /* ========================================================
+     👑 [마스터 치트키] 헤더 가로폭 및 본문 라인 일치 정렬
+     ======================================================== */
+  header, .site-header {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .header-wrap {
+    display: flex !important;
+    /* 하단 3열 레이아웃 경계선과 로고/메뉴 라인을 칼같이 일치 */
+    justify-content: space-between !important; 
+    align-items: center !important;
+    
+    /* 3열 레이아웃 전체폭(200+880+320+여백)과 정확히 일치 */
+    max-width: 1424px !important; 
+    margin: 0 auto !important;
+    width: 100% !important;
+    
+    /* 혹시 모를 좌우 치우침 패딩 방지 및 초기화 */
+    float: none !important;
+    position: sticky !important;
+    top: 0 !important;
+  }
+
+  /* 로고와 메뉴바가 쓸데없이 가로를 100% 차지하는 버그 방지 */
+  .header-wrap .logo,
+  .header-wrap .site-nav {
+    flex: none !important;
+    width: auto !important;
+  }
+</style>
 
 <style>
   /* ★ 모든 링크 밑줄 강제 제거 */
