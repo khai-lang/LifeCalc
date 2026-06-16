@@ -32,36 +32,45 @@
 
 {% seo %}
 
+<link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 
 <style>
-  /* ========================================================
-     👑 [마스터 치트키] 헤더 가로폭 및 본문 라인 일치 정렬
-     ======================================================== */
+  /* 1. 최상위 헤더 배경을 네이비(#0b5a7a)로 전체 화면 가득 채우기 */
   header, .site-header {
     width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    background: #0b5a7a !important;
+    display: block !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
+  /* 2. [핵심] 사이드 부분(광고 영역)만큼 양옆에 강제로 넉넉한 여백(Padding)을 부여 */
   .header-wrap {
     display: flex !important;
-    /* 하단 3열 레이아웃 경계선과 로고/메뉴 라인을 칼같이 일치 */
-    justify-content: space-between !important; 
+    justify-content: space-between !important; /* 로고와 메뉴를 정렬된 구역의 양끝으로 배정 */
     align-items: center !important;
     
-    /* 3열 레이아웃 전체폭(200+880+320+여백)과 정확히 일치 */
-    max-width: 1424px !important; 
-    margin: 0 auto !important;
     width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    background: #0b5a7a !important;
     
-    /* 혹시 모를 좌우 치우침 패딩 방지 및 초기화 */
-    float: none !important;
-    position: sticky !important;
-    top: 0 !important;
+    /* ★ 수치 조정 구역: 
+       화면이 클 때 양옆 사이드 광고판 라인과 정렬을 맞추기 위해 
+       좌우 패딩 여백을 12%~15% 정도로 넉넉하게 밀어 넣습니다.
+    */
+    padding: 14px 12% !important; 
+    box-sizing: border-box !important;
   }
 
-  /* 로고와 메뉴바가 쓸데없이 가로를 100% 차지하는 버그 방지 */
+  /* 3. 모바일 화면(940px 이하)이 되면 양옆 여백을 다시 기본값으로 복구 */
+  @media (max-width: 940px) {
+    .header-wrap {
+      padding: 12px 16px !important;
+    }
+  }
+
+  /* 4. 자식 요소 크기 꼬임 방지 */
   .header-wrap .logo,
   .header-wrap .site-nav {
     flex: none !important;
