@@ -32,36 +32,27 @@
 
 {% seo %}
 
-<link rel="stylesheet" href="{{ '/assets/css/main.css?v=1' | relative_url }}">
-
-<link rel="stylesheet" href="{{ '/assets/css/style.css?v=20251206_v2' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css?v=20251206_v3' | relative_url }}">
 
 <style>
   /* ★ 모든 링크 밑줄 강제 제거 */
   a { text-decoration: none !important; }
 
-  /* ========================================================
-     ★ [추가] 헤더 영역 전체 가운데 정렬 및 간격 60px 강제 적용
-     ======================================================== */
+  /* ★ [핵심] 헤더 영역 전체 가운데 정렬 및 간격 60px 강제 고정 */
   .header-wrap {
-    max-width: var(--max);
-    width: 100%;
-    margin: 0 auto;
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important; /* 전체 가운데 정렬 강제 */
-    padding: 0 20px;
-    gap: 60px !important;               /* 로고와 메뉴 사이 여백 60px로 확대 */
+    justify-content: center !important; /* 전체 가운데 정렬 */
+    gap: 60px !important;               /* 로고와 메뉴 사이 여백 확대 */
   }
 
-  /* 혹시 내부 메뉴바가 오른쪽으로 밀어내고 있다면 이를 해제 */
+  /* 메뉴바가 우측으로 밀리는 버그 방지 */
   .header-wrap .site-nav,
   .header-wrap .nav-ul {
     margin-left: 0 !important;
     margin-right: 0 !important;
     flex-grow: 0 !important;
   }
-  /* ======================================================== */
 
   /* ★ 전체 페이지 배경 살구톤 보정 */
   body { background: #fff7ef !important; }
