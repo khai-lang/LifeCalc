@@ -53,7 +53,7 @@ main {
 
 .header-wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* [변경] 양끝 정렬을 '가운데 정렬'로 수정 */
   align-items: center;
   padding: 14px 20px;
   background: #0b5a7a;
@@ -61,6 +61,7 @@ main {
   position: sticky;
   top: 0;
   z-index: 2000;
+  gap: 60px;               /* [추가] 로고와 메뉴 사이의 여백을 60px로 지정 */
 }
 
 .logo img {
