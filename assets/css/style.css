@@ -53,7 +53,8 @@ main {
 
 .header-wrap {
   display: flex;
-  justify-content: space-between; /* 양끝 정렬로 복구하여 본문 라인에 맞춤 */
+  /* 아래쪽 3열 광고/본문 라인과 좌우 시작선을 칼같이 맞추기 위해 양끝 정렬 설정 */
+  justify-content: space-between; 
   align-items: center;
   padding: 14px 20px;
   background: #0b5a7a;
@@ -62,9 +63,9 @@ main {
   top: 0;
   z-index: 2000;
 
-  /* [추가] 아래쪽 3열 레이아웃 폭(200 + 880 + 320 + gap)과 정렬 라인을 통일 */
+  /* [핵심] 전체 사이트의 대형 3열 레이아웃 폭과 상단 헤더 폭을 일치시킵니다 */
   max-width: 1424px; 
-  margin: 0 auto;    /* 화면 정중앙 배치 */
+  margin: 0 auto;    /* 넓은 화면에서도 헤더 전체가 정중앙에 오도록 배치 */
   width: 100%;
 }
 
