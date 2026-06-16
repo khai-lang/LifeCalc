@@ -69,30 +69,42 @@ layout: none
     a{text-decoration:none;color:inherit}
     *{box-sizing:border-box}
 
-    /* ================================
-       HEADER
-    ================================= */
-    header {
+/* ========================================================
+   HEADER (75번째 줄 부근부터 95번째 줄까지 덮어쓰기)
+   ======================================================== */
+header {
   background: var(--brand);
   color: var(--brand-ink);
   height: var(--nav-h);
   display: flex;
+  
+  /* [★ 핵심 수정] 부모 박스 수준에서 자식들을 무조건 정중앙으로 모읍니다 */
+  justify-content: center; 
+  
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 1px 0 rgba(0,0,0,.08);
 }
-    .header-wrap{
-      max-width:var(--max);
-      width:100%;
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content: center; /* 1. 이 줄을 새로 추가하여 전체 가운데 정렬 */
-      padding:0 20px;
-      gap:60px;
-    }
+
+.header-wrap {
+  /* [★ 핵심 수정] 아래쪽 본문(880px) 영역과 균형을 맞추기 위해 최대 가로폭을 제한 */
+  max-width: 1100px; 
+  width: 100%;
+  margin: 0 auto; /* 부모 안에서 한 번 더 중앙 정렬 보장 */
+  
+  display: flex;
+  align-items: center;
+  
+  /* 로고와 메뉴바를 이 구역 안에서 옹기종기 모으기 */
+  justify-content: center; 
+  
+  padding: 0 20px;
+  
+  /* 💡 로고와 메뉴 사이의 간격입니다. 넓히고 싶다면 이 숫자를 키우세요 */
+  gap: 80px; 
+}
 
     /* ================================
        NAVIGATION
