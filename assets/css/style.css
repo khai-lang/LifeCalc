@@ -53,7 +53,7 @@ main {
 
 .header-wrap {
   display: flex;
-  justify-content: center; /* [변경] 양끝 정렬을 '가운데 정렬'로 수정 */
+  justify-content: space-between; /* 양끝 정렬로 복구하여 본문 라인에 맞춤 */
   align-items: center;
   padding: 14px 20px;
   background: #0b5a7a;
@@ -61,7 +61,11 @@ main {
   position: sticky;
   top: 0;
   z-index: 2000;
-  gap: 60px;               /* [추가] 로고와 메뉴 사이의 여백을 60px로 지정 */
+
+  /* [추가] 아래쪽 3열 레이아웃 폭(200 + 880 + 320 + gap)과 정렬 라인을 통일 */
+  max-width: 1424px; 
+  margin: 0 auto;    /* 화면 정중앙 배치 */
+  width: 100%;
 }
 
 .logo img {
