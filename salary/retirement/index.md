@@ -1,121 +1,141 @@
 ---
-layout:default
-title: "2026년 퇴직금 계산법 완전 정리 — 퇴직소득세까지 세후 실수령 계산"
-description: "2026년 퇴직금 계산 공식(평균임금 방식), 퇴직소득세 계산, 세후 실수령액까지 한 번에 정리합니다. DB형·DC형 비교와 IRP 절세 전략 포함."
-permalink: /guide/retirement-pay-2026/
-canonical: https://calculator.khaistory.com/guide/retirement-pay-2026/
-og_title: "2026년 퇴직금 계산법 — 퇴직소득세·실수령 완전 정리"
-og_description: "퇴직금 계산 공식, 퇴직소득세, 세후 실수령액, IRP 절세 전략까지. 2026년 기준 완전 정리."
-
+layout: default
+title: "퇴직금 계산기 2026 — 퇴직소득세 공제 후 실수령까지"
+description: "2026년 기준 퇴직금과 퇴직소득세를 계산해 세후 실수령액까지 한 번에 확인하세요."
+permalink: /salary/retirement/
+canonical: https://calculator.khaistory.com/salary/retirement/
 ---
-
-<section class="ret-guide-container">
-
-  <div class="ret-hero-card">
-    <h2>2026년 퇴직금 계산법 완전 정리</h2>
-    <p class="hero-sub">퇴직소득세까지 빼면 실제로 얼마 받나 — 세후 실수령까지 한 번에</p>
-  </div>
-
-  <div class="ret-content-card">
-    <h3>1. 퇴직금 계산 공식</h3>
-    <p><span class="highlight-text">퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365)</span></p>
-    <ul>
-      <li><strong>1일 평균임금:</strong> 퇴직 전 3개월 임금 총액 ÷ 해당 기간 일수(통상 92일)</li>
-      <li><strong>재직일수:</strong> 입사일부터 퇴직일까지 총 일수 (1년 = 365일)</li>
-      <li>퇴직금은 <strong>1년 이상 근무</strong>한 근로자에게만 발생합니다</li>
-    </ul>
-    <p class="example-title">💡 예시) 월 급여 350만원, 5년 근무 후 퇴직<br>
-    평균임금 = (350×3 + 0) ÷ 92 = 약 114,130원/일<br>
-    퇴직금 = 114,130 × 30 × (1,825 ÷ 365) = 약 <strong>17,119,565원</strong></p>
-  </div>
-
-  <div class="ret-content-card bg-light-variant">
-    <h3>2. 퇴직소득세 — 세전과 세후가 왜 다른가</h3>
-    <p>퇴직금에는 <strong>퇴직소득세</strong>가 부과됩니다. 근속연수가 길수록 공제가 커져 세 부담이 줄어드는 구조입니다.</p>
-    <ul class="accent-list">
-      <li><strong>근속연수공제:</strong> 5년 이하 1년당 100만원, 5~10년 200만원, 10~20년 250만원, 20년 초과 300만원 공제</li>
-      <li><strong>환산급여공제:</strong> 퇴직소득금액을 연 환산한 후 구간별 추가 공제</li>
-      <li><strong>산출세액 환원:</strong> 근속연수 ÷ 12를 곱해 최종 퇴직소득세 산출</li>
-    </ul>
-    <div class="table-responsive">
-      <table>
-        <thead><tr><th>퇴직금 (세전)</th><th>근속연수</th><th>퇴직소득세</th><th>세후 실수령</th></tr></thead>
-        <tbody>
-          <tr><td>1,000만원</td><td>3년</td><td>약 0원</td><td>약 1,000만원</td></tr>
-          <tr><td>3,000만원</td><td>5년</td><td>약 12만원</td><td>약 2,988만원</td></tr>
-          <tr><td>5,000만원</td><td>10년</td><td>약 48만원</td><td>약 4,952만원</td></tr>
-          <tr><td>1억원</td><td>15년</td><td>약 310만원</td><td>약 9,690만원</td></tr>
-          <tr><td>2억원</td><td>20년</td><td>약 1,100만원</td><td>약 1억 8,900만원</td></tr>
-        </tbody>
-      </table>
+<section class="ret-wrap">
+<div class="ret-notice">퇴직금은 <strong>평균임금 × 30일 × (재직일수 ÷ 365)</strong>로 계산합니다. 퇴직소득세는 2026년 세법 기준 근사치입니다.</div>
+<nav class="ret-tabs"><button class="ret-tab active" onclick="retTab('calc')">퇴직금 계산</button><button class="ret-tab" onclick="retTab('info')">DB형 vs DC형</button></nav>
+<div id="ret-calc" class="ret-panel">
+  <div class="ret-form">
+    <div class="ret-row2">
+      <div class="ret-field"><label>입사일</label><input type="date" id="ret-join" onchange="autoCalcDays()"></div>
+      <div class="ret-field"><label>퇴사일</label><input type="date" id="ret-leave" onchange="autoCalcDays()"></div>
     </div>
-    <p style="font-size:.82rem;color:#8c7355;margin-top:8px">※ 근사치입니다. 정확한 계산은 아래 계산기를 이용하세요.</p>
-  </div>
-
-  <div class="ret-content-card">
-    <h3>3. IRP로 퇴직소득세 30~40% 아끼는 법</h3>
-    <ul>
-      <li>퇴직금을 <strong>IRP(개인형 퇴직연금)</strong>으로 수령하면 퇴직소득세를 연금 수령 시점으로 이연할 수 있습니다.</li>
-      <li>이연 후 <strong>연금으로 나눠 받으면</strong> 퇴직소득세의 30%(55세~69세) 또는 40%(70세 이상) 감면 혜택이 있습니다.</li>
-      <li>퇴직금 수령 시 회사에 IRP 계좌 번호를 제출하면 자동으로 IRP로 이전됩니다.</li>
-    </ul>
-  </div>
-
-  <div class="ret-content-card bg-light-variant">
-    <h3>4. DB형 vs DC형 — 어떤 게 내게 유리한가</h3>
-    <div class="table-responsive">
-      <table>
-        <thead><tr><th>구분</th><th>DB형 (확정급여형)</th><th>DC형 (확정기여형)</th></tr></thead>
-        <tbody>
-          <tr><td>퇴직금 산정 기준</td><td>퇴직 직전 평균임금</td><td>매년 연간 급여의 1/12 적립</td></tr>
-          <tr><td>운용 책임</td><td>회사</td><td>근로자</td></tr>
-          <tr><td>유리한 경우</td><td>장기 근속, 연봉 상승 예상</td><td>잦은 이직, 투자 자신</td></tr>
-          <tr><td>중도인출</td><td>불가</td><td>특정 사유 시 가능</td></tr>
-        </tbody>
-      </table>
+    <div id="ret-days-display" class="ret-days-display" style="display:none"><span id="ret-days-text"></span></div>
+    <div class="ret-divider">평균임금 기준 — 퇴직 전 3개월</div>
+    <div class="ret-row3">
+      <div class="ret-field"><label>3개월 전 월급</label><input type="text" id="ret-m1" inputmode="numeric" placeholder="3,500,000" oninput="fmtR(this)"></div>
+      <div class="ret-field"><label>2개월 전 월급</label><input type="text" id="ret-m2" inputmode="numeric" placeholder="3,500,000" oninput="fmtR(this)"></div>
+      <div class="ret-field"><label>퇴직 월 월급</label><input type="text" id="ret-m3" inputmode="numeric" placeholder="3,500,000" oninput="fmtR(this)"></div>
     </div>
+    <div class="ret-field"><label>3개월 중 상여금 합계 <span class="ret-opt">선택</span></label><input type="text" id="ret-bonus" inputmode="numeric" placeholder="0" oninput="fmtR(this)"></div>
+    <div class="ret-field"><label>재직연수 <span class="ret-opt">입사·퇴사일 입력 시 자동</span></label><input type="number" id="ret-years" placeholder="예: 5.5" step="0.1" min="0"><div class="ret-hint">1년 미만 근무는 퇴직금이 발생하지 않습니다</div></div>
+    <button class="ret-btn" onclick="calcRet()">퇴직금 계산하기</button>
   </div>
-
-  <div class="ret-content-card text-center">
-    <h3>5. 내 퇴직금 바로 계산하기</h3>
-    <div class="button-group">
-      <a href="https://calculator.khaistory.com/salary/retirement/" class="btn-link-main">퇴직금 계산기 (세후 포함)</a>
-      <a href="https://calculator.khaistory.com/salary/pension-savings/" class="btn-link-ext">연금저축·IRP 세액공제 계산</a>
+  <div id="ret-result" style="display:none" class="ret-result">
+    <div class="ret-hero">
+      <div class="ret-hero-row">
+        <div><div class="ret-hero-label">퇴직금 (세전)</div><div class="ret-hero-num" id="ret-gross">—</div></div>
+        <div class="ret-hero-arrow">→</div>
+        <div><div class="ret-hero-label">세후 실수령액</div><div class="ret-hero-num ret-hero-net" id="ret-net">—</div></div>
+      </div>
     </div>
-    <p class="closing-text">퇴직 전 반드시 퇴직소득세까지 계산해 실수령액을 확인하고, IRP 이전 여부를 결정하세요.</p>
+    <div class="ret-detail-grid">
+      <div class="ret-dcard"><div class="ret-dcard-label">재직기간</div><div class="ret-dcard-val" id="rd-period">—</div></div>
+      <div class="ret-dcard"><div class="ret-dcard-label">1일 평균임금</div><div class="ret-dcard-val" id="rd-daily">—</div></div>
+      <div class="ret-dcard"><div class="ret-dcard-label">퇴직소득세</div><div class="ret-dcard-val ret-minus" id="rd-tax">—</div></div>
+      <div class="ret-dcard"><div class="ret-dcard-label">지방소득세</div><div class="ret-dcard-val ret-minus" id="rd-local">—</div></div>
+    </div>
+    <div class="ret-tip"><strong>절세 팁:</strong> IRP로 수령하면 퇴직소득세 납부를 연금 수령 시점까지 이연하고, 연금으로 나눠 받으면 퇴직소득세의 <strong>30~40% 감면</strong> 혜택이 있습니다.</div>
   </div>
-
+</div>
+<div id="ret-info" class="ret-panel" style="display:none">
+  <div class="ret-compare-cards">
+    <div class="ret-ccard ret-db"><div class="ret-ccard-title">DB형 (확정급여형)</div><ul><li>퇴직 시 <strong>최종 평균임금 기준</strong> 지급</li><li>연봉 상승분이 퇴직금에 반영</li><li>운용 책임 → <strong>회사</strong></li><li>장기 근속·연봉 상승 예상 시 유리</li><li>중도인출 불가</li></ul></div>
+    <div class="ret-ccard ret-dc"><div class="ret-ccard-title">DC형 (확정기여형)</div><ul><li>매년 <strong>연간 임금의 1/12</strong> 적립</li><li>운용 성과에 따라 수령액 변동</li><li>운용 책임 → <strong>근로자</strong></li><li>이직이 잦거나 투자 수익 기대 시 유리</li><li>특정 조건 시 중도인출 가능</li></ul></div>
+  </div>
+  <div class="ret-tip" style="margin-top:16px"><strong>선택 기준:</strong> 연봉 상승이 꾸준히 예상되면 DB형, 이직이 잦거나 직접 운용 자신 있다면 DC형이 유리합니다.</div>
+</div>
+<nav class="ret-related"><a href="/salary/">← 허브로</a><a href="/salary/net-pay/">연봉 실수령</a><a href="/salary/pension-savings/">연금저축 세액공제</a></nav>
 </section>
-
 <style>
-.ret-guide-container{font-family:'Noto Sans KR',sans-serif;color:#1f2937;line-height:1.8;max-width:860px;margin:0 auto;padding:10px}
-.ret-hero-card{background:linear-gradient(135deg,#f8efe5,#f3e7d9);border:1px solid #e3d4c5;border-radius:22px;padding:32px 24px;margin-bottom:24px;text-align:center}
-.ret-hero-card h2{font-size:2.2rem;color:#3f2d20;margin:0 0 10px;font-weight:800}
-.hero-sub{font-size:1.15rem;color:#8c7355;margin:0;font-weight:500}
-.ret-content-card{background:#fff;border:1px solid #f1eae1;border-radius:18px;padding:28px 24px;margin-bottom:24px;box-shadow:0 6px 18px rgba(140,115,85,.04)}
-.bg-light-variant{background-color:#faf7f2;border-color:#eaddcd}
-.ret-content-card h3{font-size:1.35rem;color:#3f2d20;margin-top:0;margin-bottom:18px;border-left:4px solid #8c7355;padding-left:10px}
-.ret-content-card p{color:#374151;margin-bottom:12px}
-.ret-content-card ul{margin:0;padding-left:20px}
-.ret-content-card li{margin-bottom:10px;color:#374151}
-.highlight-text{background:#fce8db;color:#c2410c;padding:6px 12px;border-radius:8px;font-weight:700;font-size:1rem;display:inline-block;margin-bottom:12px}
-.example-title{font-size:.88rem;color:#8c7355;background:#fdf4ec;border:1px solid #f0dcc8;border-radius:8px;padding:12px 14px;margin-top:12px;line-height:1.7}
-.table-responsive{overflow-x:auto}
-table{width:100%;border-collapse:collapse;margin-top:12px}
-th,td{border:1px solid #eae1d4;padding:12px;text-align:center;font-size:.92rem}
-thead{background:#f6efe5;color:#4a3728;font-weight:bold}
-tbody tr:nth-child(even){background:#faf8f5}
-.accent-list{list-style:none;padding-left:0!important}
-.accent-list li{padding:12px 16px;background:#fdf9f6;border:1px solid #ede3d8;border-radius:10px;margin-bottom:10px!important;color:#374151}
-.button-group{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin:24px 0}
-.btn-link-main,.btn-link-ext{text-decoration:none;padding:14px 28px;color:#fff;border-radius:12px;font-weight:700;font-size:1rem;display:inline-block}
-.btn-link-main{background:#c2410c}.btn-link-main:hover{background:#ea580c}
-.btn-link-ext{background:#785a43}.btn-link-ext:hover{background:#5c4331}
-.closing-text{font-size:.95rem;color:#6b7280;margin-top:20px}
-.text-center{text-align:center}
-@media(max-width:600px){.ret-hero-card h2{font-size:1.6rem}.button-group{flex-direction:column}.btn-link-main,.btn-link-ext{width:100%;text-align:center;box-sizing:border-box}}
+.ret-wrap{font-family:'Noto Sans KR',sans-serif;max-width:720px;margin:0 auto;padding:0 0 40px;color:#1f2937;line-height:1.7}
+.ret-notice{background:#faf7f2;border:1px solid #eaddcd;border-radius:10px;padding:10px 14px;font-size:.83rem;color:#8c7355;margin-bottom:20px}
+.ret-tabs{display:flex;gap:4px;border-bottom:2px solid #f0e8de;margin-bottom:24px}
+.ret-tab{background:none;border:none;padding:10px 18px;font-size:.92rem;color:#8c7355;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;font-family:inherit}
+.ret-tab.active{color:#c2410c;border-bottom-color:#c2410c;font-weight:600}
+.ret-form{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
+.ret-field{display:flex;flex-direction:column;gap:5px}
+.ret-field label{font-size:.85rem;font-weight:600;color:#3f2d20}
+.ret-opt{font-size:.75rem;color:#9ca3af;font-weight:400}
+.ret-hint{font-size:.76rem;color:#9ca3af}
+.ret-field input{border:1px solid #ddd4c8;border-radius:8px;padding:10px 12px;font-size:.95rem;color:#1f2937;font-family:inherit;background:#fff;width:100%;box-sizing:border-box}
+.ret-field input:focus{outline:none;border-color:#c2410c;box-shadow:0 0 0 3px rgba(194,65,12,.08)}
+.ret-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ret-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.ret-divider{font-size:.8rem;font-weight:700;color:#8c7355;border-top:1px solid #f1eae1;padding-top:12px}
+.ret-days-display{background:#f6efe5;border-radius:8px;padding:8px 12px;font-size:.85rem;color:#3f2d20;font-weight:600}
+.ret-btn{background:#c2410c;color:#fff;border:none;border-radius:10px;padding:13px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;width:100%}
+.ret-btn:hover{background:#ea580c}
+.ret-result{animation:retFade .3s ease}
+@keyframes retFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ret-hero{background:linear-gradient(135deg,#f8efe5,#f3e7d9);border:1px solid #e3d4c5;border-radius:16px;padding:24px;margin-bottom:14px}
+.ret-hero-row{display:flex;align-items:center;justify-content:space-around;gap:16px;flex-wrap:wrap}
+.ret-hero-label{font-size:.82rem;color:#8c7355;font-weight:600;margin-bottom:4px;text-align:center}
+.ret-hero-num{font-size:1.7rem;font-weight:800;color:#3f2d20;text-align:center}
+.ret-hero-net{color:#c2410c}
+.ret-hero-arrow{font-size:1.5rem;color:#eaddcd}
+.ret-detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.ret-dcard{background:#fff;border:1px solid #f1eae1;border-radius:10px;padding:10px 12px;text-align:center}
+.ret-dcard-label{font-size:.72rem;color:#9ca3af;margin-bottom:4px}
+.ret-dcard-val{font-size:.9rem;font-weight:700;color:#3f2d20}
+.ret-minus{color:#c2410c}
+.ret-tip{background:#fff;border-left:3px solid #8c7355;border-radius:0 8px 8px 0;padding:10px 14px;font-size:.83rem;color:#6b7280;line-height:1.6}
+.ret-tip strong{color:#3f2d20}
+.ret-compare-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ret-ccard{border-radius:14px;padding:18px 16px}
+.ret-db{background:#fdf4ec;border:1px solid #f5dfd0}
+.ret-dc{background:#f0f7f4;border:1px solid #c8e6da}
+.ret-ccard-title{font-size:1rem;font-weight:800;color:#3f2d20;margin-bottom:12px}
+.ret-ccard ul{padding-left:18px;font-size:.85rem;color:#374151}
+.ret-ccard li{margin-bottom:7px}
+.ret-related{display:flex;flex-wrap:wrap;gap:8px;padding-top:20px;border-top:1px solid #f1eae1;margin-top:28px}
+.ret-related a{font-size:.83rem;color:#785a43;text-decoration:none;border:1px solid #eaddcd;border-radius:20px;padding:5px 14px;background:#faf7f2}
+.ret-related a:hover{background:#f3e7d9}
+@media(max-width:600px){.ret-row2,.ret-row3{grid-template-columns:1fr}.ret-detail-grid{grid-template-columns:1fr 1fr}.ret-compare-cards{grid-template-columns:1fr}.ret-hero-num{font-size:1.4rem}}
 </style>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"퇴직금 계산 공식이 뭔가요?","acceptedAnswer":{"@type":"Answer","text":"퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365)입니다. 1일 평균임금은 퇴직 전 3개월 임금 총액을 해당 기간 일수(약 92일)로 나눠 계산합니다."}},{"@type":"Question","name":"퇴직소득세는 얼마나 되나요?","acceptedAnswer":{"@type":"Answer","text":"퇴직소득세는 근속연수에 따른 공제 후 계산되며, 장기 근속일수록 공제가 커 세 부담이 줄어듭니다. IRP로 수령 후 연금으로 나눠 받으면 30~40% 추가 감면 혜택이 있습니다."}},{"@type":"Question","name":"DB형과 DC형 중 어느 게 유리한가요?","acceptedAnswer":{"@type":"Answer","text":"연봉 상승이 예상되고 장기 근속할 경우 DB형(퇴직 시 최종 평균임금 기준)이 유리합니다. 이직이 잦거나 직접 투자를 선호하면 DC형이 유리합니다."}}]}
+<script>
+function fmtR(el){const r=el.value.replace(/[^0-9]/g,'');el.value=r?parseInt(r).toLocaleString('ko-KR'):'';el.dataset.raw=r;}
+function gR(id){const el=document.getElementById(id);return parseInt((el.dataset&&el.dataset.raw)||el.value.replace(/[^0-9]/g,'')||'0')||0;}
+function fmtW(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
+function retTab(t){['calc','info'].forEach(x=>{document.getElementById('ret-'+x).style.display=x===t?'':'none';});document.querySelectorAll('.ret-tab').forEach((b,i)=>b.classList.toggle('active',['calc','info'][i]===t));}
+function autoCalcDays(){
+  const j=document.getElementById('ret-join').value,l=document.getElementById('ret-leave').value;
+  if(!j||!l)return;
+  const days=Math.round((new Date(l)-new Date(j))/(86400000));
+  if(days<0)return;
+  document.getElementById('ret-days-display').style.display='';
+  document.getElementById('ret-days-text').textContent='재직기간: '+days.toLocaleString()+'일 (약 '+(days/365).toFixed(2)+'년)';
+  document.getElementById('ret-years').value=(days/365).toFixed(2);
+}
+function calcRetTax(gross,yrs){
+  const y=Math.max(1,Math.floor(yrs));
+  let td=y<=5?y*1000000:y<=10?5000000+(y-5)*2000000:y<=20?15000000+(y-10)*2500000:40000000+(y-20)*3000000;
+  const ri=Math.max(0,gross-td);
+  const ann=ri/y*12;
+  let ad=ann<=8000000?ann:ann<=70000000?8000000+(ann-8000000)*.6:ann<=140000000?45200000+(ann-70000000)*.55:ann<=300000000?83700000+(ann-140000000)*.45:155700000+(ann-300000000)*.35;
+  const tb=Math.max(0,ann-ad);
+  let t=tb<=14000000?tb*.06:tb<=50000000?840000+(tb-14000000)*.15:tb<=88000000?6240000+(tb-50000000)*.24:tb<=150000000?15360000+(tb-88000000)*.35:tb<=300000000?37060000+(tb-150000000)*.38:tb<=500000000?94060000+(tb-300000000)*.40:174060000+(tb-500000000)*.42;
+  return Math.max(0,Math.round(t/12*y));
+}
+function calcRet(){
+  const m1=gR('ret-m1'),m2=gR('ret-m2'),m3=gR('ret-m3'),bonus=gR('ret-bonus');
+  const yrs=parseFloat(document.getElementById('ret-years').value)||0;
+  if(!m1&&!m2&&!m3){alert('월 급여를 입력해 주세요.');return;}
+  if(yrs<1){alert('퇴직금은 1년 이상 근무 시 발생합니다.');return;}
+  const daily=(m1+m2+m3+bonus)/92;
+  const gross=Math.round(daily*30*(yrs*365/365));
+  const tax=calcRetTax(gross,yrs);
+  const local=Math.round(tax*.1);
+  document.getElementById('ret-result').style.display='';
+  document.getElementById('ret-gross').textContent=fmtW(gross);
+  document.getElementById('ret-net').textContent=fmtW(Math.max(0,gross-tax-local));
+  document.getElementById('rd-period').textContent=Math.round(yrs*365).toLocaleString()+'일 ('+yrs+'년)';
+  document.getElementById('rd-daily').textContent=fmtW(Math.round(daily));
+  document.getElementById('rd-tax').textContent=fmtW(tax);
+  document.getElementById('rd-local').textContent=fmtW(local);
+}
 </script>
