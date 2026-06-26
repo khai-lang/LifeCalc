@@ -1,12 +1,12 @@
 ---
-layout: guide
+layout:default
 title: "2026년 퇴직금 계산법 완전 정리 — 퇴직소득세까지 세후 실수령 계산"
 description: "2026년 퇴직금 계산 공식(평균임금 방식), 퇴직소득세 계산, 세후 실수령액까지 한 번에 정리합니다. DB형·DC형 비교와 IRP 절세 전략 포함."
 permalink: /guide/retirement-pay-2026/
 canonical: https://calculator.khaistory.com/guide/retirement-pay-2026/
 og_title: "2026년 퇴직금 계산법 — 퇴직소득세·실수령 완전 정리"
 og_description: "퇴직금 계산 공식, 퇴직소득세, 세후 실수령액, IRP 절세 전략까지. 2026년 기준 완전 정리."
-categories: [guide]
+categories: [salary]
 ---
 
 <section class="ret-guide-container">
