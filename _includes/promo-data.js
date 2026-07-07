@@ -21,11 +21,12 @@ window.PROMOS_BY_SECTION = {
   salary: [
     {desc:"급여·세금 허브(빠른 길잡이)",               href:"{{ '/salary/'                     | relative_url }}", cta:"허브 보기"},
     {desc:"연봉 실수령액 계산",                         href:"{{ '/salary/net-pay/'             | relative_url }}", cta:"실수령 계산"},
+    {desc:"연봉인상 시뮬레이터",                           href:"{{ '/salary/raise/'         | relative_url }}", cta:"연봉인상"},
     {desc:"4대보험 부담액 계산",                         href:"{{ '/salary/insurances/'          | relative_url }}", cta:"4대보험"},
-    {desc:"원천징수세액 계산",                           href:"{{ '/salary/withholding/'         | relative_url }}", cta:"원천징수"},
     {desc:"종합소득세 계산",                             href:"{{ '/salary/income-tax/'          | relative_url }}", cta:"종소세"},
     {desc:"사업자 종합소득세 계산",                      href:"{{ '/salary/biz-income-tax/'      | relative_url }}", cta:"사업자 종소세"},
     {desc:"퇴직금 계산",                                 href:"{{ '/salary/retirement/'          | relative_url }}", cta:"퇴직금"},
+    {desc:"실업급여 계산",                           href:"{{ '/salary/unemployment/'         | relative_url }}", cta:"실업급여"},
     {desc:"연금저축(세액공제) 효과",                     href:"{{ '/salary/pension-savings/'     | relative_url }}", cta:"연금저축"}
   ],
 
