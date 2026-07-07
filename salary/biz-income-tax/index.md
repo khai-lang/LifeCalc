@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 사업자 종합소득세 계산기 (간편·근사형) 2025
+title: 사업자 종합소득세 계산기 (간편·근사형) 2026
 description: 매출·필요경비·소득공제(인적공제 등)를 입력하면 과세표준과 산출세액, 세액공제, 지방소득세까지 근사 계산합니다.
 permalink: /salary/biz-income-tax/
 section: salary
@@ -24,8 +24,8 @@ section: salary
     <label>
       과세연도
       <select id="year">
-        <option value="2025" selected>2025</option>
-        <option value="2024">2024</option>
+        <option value="2026" selected>2025</option>
+        <option value="2025">2025</option>
       </select>
     </label>
 
