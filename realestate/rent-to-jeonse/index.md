@@ -1,5 +1,5 @@
 ---
-canonical:"https://calculator.khaistory.com/realestate/rent-to-jeonse/"
+canonical: "https://calculator.khaistory.com/realestate/rent-to-jeonse/"
 meta-description: "2026년 전월세 전환율 완전정리. 법정 전환율 계산 공식(기준금리+2%p), 전세→월세·월세→전세 환산 방법, 갱신계약과 신규계약의 차이, 법정 상한 초과 시 대응법까지 확인하세요." 
 meta-generator: "Jekyll v3.10.0" 
 meta-og:description: "전월세 전환율 계산법과 2026년 기준 법정 상한, 전세·월세 환산 공식을 정리했습니다." 
@@ -282,7 +282,7 @@ meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율
   border: 1px solid #e3d4c5; background: #faf7f2; color: #785a43;
   font-weight: 600; font-size: 14px; cursor: pointer; transition: all .15s;
 }
-.rtj-tab-active { background: #c2410c; color: #fff; border-color: #c2410c; }
+.rtj-tab-active { background:#ff7a00; color: #fff; border-color: #c2410c; }
 
 .rtj-panel { display: none; }
 .rtj-panel-active { display: block; }
@@ -305,7 +305,7 @@ meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율
 .rtj-hint { font-size: 12.5px; color: #9c8a76; margin: 6px 0 0; line-height: 1.5; }
 
 .rtj-btn-main {
-  width: 100%; background: #c2410c; color: #fff; border: none; border-radius: 12px;
+  width: 100%; background: #ff7a00; color: #fff; border: none; border-radius: 12px;
   padding: 14px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 6px;
 }
 .rtj-btn-main:hover { background: #a8380a; }
