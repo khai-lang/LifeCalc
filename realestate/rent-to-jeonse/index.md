@@ -274,8 +274,8 @@ meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율
   margin-bottom: 24px;
 }
 .rtj-eyebrow { color: #8c7355; font-size: 13px; font-weight: 700; letter-spacing: .04em; margin: 0 0 6px; }
-.rtj-title { color: #c2410c; font-size: 28px; margin: 0 0 10px; }
-.rtj-subtitle { color: #6b5a49; font-size: 15px; line-height: 1.6; margin: 0; }
+.rtj-title { color: #ff7a00; font-size: 28px; margin: 0 0 10px; }
+.rtj-subtitle { color: #1f5c7a; font-size: 15px; line-height: 1.6; margin: 0; }
 
 .rtj-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
 .rtj-tab {
