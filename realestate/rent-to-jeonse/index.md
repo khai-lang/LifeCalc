@@ -18,12 +18,6 @@ meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율
   <p class="rtj-subtitle">전세 ↔ 월세 환산은 물론, 어느 쪽이 더 유리한지 손익분기점까지 확인하세요.<br>2026년 법정 전월세 전환율 <strong>연 5.0%</strong>가 기본값으로 적용되어 있습니다.</p>
 </div>
 
-<div class="rtj-tabs" role="tablist">
-  <button class="rtj-tab rtj-tab-active" data-tab="jeonseToMonthly" role="tab" aria-selected="true">전세 → 월세</button>
-  <button class="rtj-tab" data-tab="monthlyToJeonse" role="tab" aria-selected="false">월세 → 전세</button>
-  <button class="rtj-tab" data-tab="breakeven" role="tab" aria-selected="false">전세 vs 월세 손익분기점</button>
-</div>
-
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
      crossorigin="anonymous"></script>
 <!-- 계산기 광고 -->
@@ -37,6 +31,11 @@ meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+<div class="rtj-tabs" role="tablist">
+  <button class="rtj-tab rtj-tab-active" data-tab="jeonseToMonthly" role="tab" aria-selected="true">전세 → 월세</button>
+  <button class="rtj-tab" data-tab="monthlyToJeonse" role="tab" aria-selected="false">월세 → 전세</button>
+  <button class="rtj-tab" data-tab="breakeven" role="tab" aria-selected="false">전세 vs 월세 손익분기점</button>
+</div>
 
 <!-- 탭 1: 전세 → 월세 -->
 <section class="rtj-panel rtj-panel-active" id="panel-jeonseToMonthly">
