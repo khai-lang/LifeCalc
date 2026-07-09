@@ -24,6 +24,20 @@ meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율
   <button class="rtj-tab" data-tab="breakeven" role="tab" aria-selected="false">전세 vs 월세 손익분기점</button>
 </div>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
 <!-- 탭 1: 전세 → 월세 -->
 <section class="rtj-panel rtj-panel-active" id="panel-jeonseToMonthly">
   <div class="rtj-card">
@@ -174,6 +188,19 @@ meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율
   <p>2026년 기준 법정 전월세 전환율(주거용)은 연 5.0%이며, 이는 임대인이 요구할 수 있는 상한선입니다. 실제 계약 시에는 이보다 낮은 전환율이 적용될 수도 있습니다.</p>
   <a class="rtj-btn-sub" href="/guide/rent-to-jeonse-guide-2026/">전세 vs 월세 유불리 가이드 전체 보기 →</a>
 </section>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <section class="rtj-card">
   <h3>자주 묻는 질문</h3>
