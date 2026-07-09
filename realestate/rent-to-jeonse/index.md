@@ -310,14 +310,14 @@ meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율
 }
 .rtj-btn-main:hover { background: #a8380a; }
 .rtj-btn-sub {
-  display: inline-block; background: #785a43; color: #fff; text-decoration: none;
+  display: inline-block; background: #1f5c7a ; color: #fff; text-decoration: none;
   padding: 10px 16px; border-radius: 10px; font-size: 14px; font-weight: 600; margin-top: 10px;
 }
 
 .rtj-result { margin-top: 22px; padding-top: 20px; border-top: 1px dashed #e3d4c5; }
 .rtj-result-main { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
 .rtj-result-label { font-size: 13px; color: #8c7355; }
-.rtj-result-value { font-size: 30px; font-weight: 800; color: #c2410c; }
+.rtj-result-value { font-size: 20px; font-weight: 800; color: #1f5c7a; }
 .rtj-result-sub { display: grid; gap: 8px; }
 .rtj-result-sub div { display: flex; justify-content: space-between; font-size: 14px; color: #6b5a49; background: #fce8db; padding: 10px 12px; border-radius: 8px; }
 .rtj-result-sub strong { color: #4a3d30; }
