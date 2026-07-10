@@ -347,7 +347,7 @@ permalink: "/invest/crypto/pnl/"
   align-items: center; 
 }
 
-/* 모든 버튼 공통 스타일 */
+/* 1. 모든 버튼 공통 스타일 */
 .ledger-btn {
   padding: 10px 18px; 
   border-radius: 10px; 
@@ -359,31 +359,34 @@ permalink: "/invest/crypto/pnl/"
   transition: all 0.2s ease;
 }
 
-/* 마우스 올렸을 때 (Hover) */
+/* 2. 일반 버튼에 마우스 올렸을 때 (주황색 강조) */
 .ledger-btn:hover {
-  background: #ff7a00;     /* 주황색 배경 */
-  color: #ffffff;          /* 흰색 글자 */
+  background: #ff7a00;     
+  color: #ffffff;          
   border-color: #ff7a00;
 }
 
-/* '계산하기' 전용 스타일 (항상 강조됨) */
+/* 3. '계산하기' 전용 스타일 */
 .ledger-btn-main { 
-  background: #ff7a00;     /* 기본부터 주황색 */
-  color: #ffffff;          /* 흰색 글자 */
+  background: #ff7a00;     
+  color: #ffffff;          
   border-color: #ff7a00; 
-  padding: 12px 24px;      /* 버튼 크기를 더 크게 */
+  padding: 12px 24px;      
   font-size: 15px;
 }
 
-/* 초기화 버튼의 예외적인 호버 색상 (필요시 선택) */
-.ledger-btn-danger:hover {
-  background: #b3261e;     /* 빨간색 강조 */
-  border-color: #b3261e;
-  color: #ffffff;
+/* 4. 초기화 버튼 (평상시) */
+.ledger-btn-danger {
+  color: #b3261e;
+  border-color: #e8b9b3;
+  background: #ffffff;
 }
 
-.ledger-btn-danger:hover { 
-  background: #fff5f5; 
+/* 5. 초기화 버튼 (마우스 올렸을 때 - 빨간색 강조) */
+.ledger-btn-danger:hover {
+  background: #b3261e;     
+  border-color: #b3261e;
+  color: #ffffff;
 }
   #pnl-ledger .kpi{
     display:grid; grid-template-columns:repeat(4,minmax(160px,1fr)); gap:12px; margin-top:20px;
