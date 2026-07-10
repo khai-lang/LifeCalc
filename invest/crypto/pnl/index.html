@@ -269,7 +269,7 @@ permalink: "/invest/crypto/pnl/"
   .cp-recommend-slot {
     min-height: 90px; border: 1px dashed #dcc9b3; border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    color: #0054FF; font-size: 0.95rem;
+    color: #b7a58c; font-size: 0.85rem;
   }
 
   .cp-related-list { list-style: none; padding: 0; margin: 0; }
@@ -389,7 +389,7 @@ permalink: "/invest/crypto/pnl/"
 
 #pnl-ledger .kpi .card {
   padding: 14px; 
-  background: linear-gradient(135deg, #1f5c7a, #5c4633); 
+  background: linear-gradient(135deg, #785a43, #5c4633); 
   border: 1px solid #eaddcd; 
   border-radius: 14px; 
   overflow: hidden;
@@ -456,7 +456,7 @@ permalink: "/invest/crypto/pnl/"
 
   $("addRow").onclick = () => { addRow(); cpSaveState(); };
 
-  const STORAGE_KEY = "pnlLedgerData_v1";
+  const STORAGE_KEY = "coinPnlLedgerData_v1";
 
   function serializeRows(){
     const rows = [...txBody.querySelectorAll("tr")];
