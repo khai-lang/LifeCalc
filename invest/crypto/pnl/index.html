@@ -393,14 +393,22 @@ permalink: "/invest/crypto/pnl/"
   border: 1px solid #eaddcd; 
   border-radius: 14px; 
   overflow: hidden;
-  color: #ffffff; /* 카드 전체 글자색 흰색 */
+  /* 카드 내부의 모든 텍스트 기본 색상을 흰색으로 지정 */
+  color: #ffffff !important; 
 }
 
+/* 상단 라벨(힌트) 텍스트를 확실하게 흰색으로 지정 */
+#pnl-ledger .kpi .card .hint {
+  color: #ffffff !important;
+  opacity: 0.9; /* 약간 투명도를 주면 더 세련되어 보입니다 */
+}
+
+/* 데이터 값(마지막 div) 부분도 확실하게 흰색으로 지정 */
 #pnl-ledger .kpi .card div:last-child { 
   font-weight: 800; 
   line-height: 1.5; 
   word-break: break-word; 
-  color: #ffffff; /* 데이터 값 흰색 */
+  color: #ffffff !important; 
   margin-top: 4px; 
 }
 
