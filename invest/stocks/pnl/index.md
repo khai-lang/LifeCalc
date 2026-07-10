@@ -1,482 +1,806 @@
 ---
-layout: default
-title: 주식 수익/손실 계산기
-description: 매수가·수량·현재가·매수/매도 수수료·거래세를 반영해 주식 손익과 수익률을 계산합니다.
-permalink: /invest/stocks/pnl/
+layout: "default"
+title: "주식 PnL 계산기 - FIFO/LIFO·수수료+거래세 반영 실현+미실현손익 | LifeCalc"
+description: "여러 번 나눠 매수/매도한 주식 거래내역을 FIFO/LIFO 방식으로 계산합니다. 실현손익, 미실현손익, 평단가, 손익분기점, 매매수수료·거래세까지 한 번에 확인하세요."
+permalink: "/invest/stocks/pnl/"
 ---
 
-<style>
-/* =========================
-   Stock PnL Calculator
-   LifeCalc style refined
-========================= */
-.stock-pnl-wrap{
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 8px 0 24px;
-}
+<a class="skip-link" href="#cp-calculator">계산기로 바로가기</a>
 
-.stock-pnl-hero{
-  margin-bottom: 18px;
-}
+<nav class="cp-breadcrumb" aria-label="브레드크럼">
+  <a href="/">홈</a> <span aria-hidden="true">›</span>
+  <a href="/invest/">투자 계산기</a> <span aria-hidden="true">›</span>
+  <span aria-current="page">주식 PnL 계산기</span>
+</nav>
 
-.stock-pnl-title{
-  font-size: 2rem;
-  line-height: 1.3;
-  font-weight: 800;
-  color: #1f2937;
-  margin: 0 0 10px;
-  letter-spacing: -0.02em;
-}
+<section class="cp-hero">
+  <h1>주식 PnL 계산기 <span style="font-size:.6em;opacity:.75;font-weight:600;">FIFO/LIFO · 수수료+거래세 포함</span></h1>
+  <p class="cp-hero-desc">
+    주식 투자에서 "결국 얼마 벌었지?"는 단순히 매수가·매도가만 비교해서는 정확히 알 수 없습니다.
+    여러 번 나눠 매수하고 일부만 매도한 경우라면 더더욱 그렇습니다. 이 계산기는
+    <strong>거래내역을 원하는 만큼 그대로 입력</strong>하면 <strong>FIFO(선입선출)</strong> 또는
+    <strong>LIFO(후입선출)</strong> 방식으로 매도 시점의 <strong>실현손익</strong>을 계산하고,
+    아직 팔지 않은 잔여 수량에 대한 <strong>미실현손익</strong>과 <strong>평단가</strong>,
+    <strong>수수료+거래세 포함 손익분기점</strong>까지 한 번에 보여줍니다. 입력한 거래내역은
+    브라우저에 <strong>자동 저장</strong>되어 다시 방문해도 남아있으며, <strong>CSV 업로드</strong>로
+    여러 건의 거래를 한 번에 불러올 수도 있습니다. (국내 주식은 안정적인 무료 실시간 시세 API가
+    마땅치 않아, 이번 버전에서는 실시간 시세 자동입력은 제공하지 않습니다. 현재가는 증권사 MTS에서
+    확인 후 직접 입력해주세요.)
+  </p>
+</section>
 
-.stock-pnl-desc{
-  font-size: 1rem;
-  color: #4b5563;
-  line-height: 1.7;
-  margin: 0;
-}
+<section id="cp-calculator" class="cp-card">
+  <h2>거래내역 기반 손익 계산</h2>
+  <p class="cp-sub-desc">아래 표에 매수/매도 거래를 한 줄씩 추가하세요. 매도 행의 수수료 칸에는 <b>매매수수료+거래세를 합산한 비율(%)</b>을 입력하면 더 정확합니다. 날짜는 표시용이며, 계산은 체결가·수량·수수료를 기준으로 진행됩니다.</p>
 
-.stock-pnl-card{
-  background: #f7efe6;
-  border: 1px solid #eadccf;
-  border-radius: 20px;
-  padding: 22px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.stock-pnl-card *,
-.stock-pnl-wrap *{
-  box-sizing: border-box;
-}
-
-.stock-pnl-grid{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.stock-pnl-field{
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  min-width: 0;
-}
-
-.stock-pnl-field label{
-  font-size: 0.96rem;
-  font-weight: 700;
-  color: #374151;
-  line-height: 1.45;
-}
-
-.stock-pnl-field input{
-  width: 100%;
-  min-width: 0;
-  height: 48px;
-  border: 1px solid #d8c8b7;
-  border-radius: 12px;
-  background: #fff;
-  padding: 0 14px;
-  font-size: 1rem;
-  color: #111827;
-  outline: none;
-  transition: border-color .2s ease, box-shadow .2s ease;
-}
-
-.stock-pnl-field input:focus{
-  border-color: #ff7a00;
-  box-shadow: 0 0 0 4px rgba(255, 122, 0, 0.12);
-}
-
-.stock-pnl-help{
-  margin-top: 14px;
-  padding: 14px 16px;
-  background: #fff8f1;
-  border: 1px solid #f1ddca;
-  border-radius: 14px;
-  color: #5b6472;
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-.stock-pnl-action{
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.stock-pnl-btn{
-  appearance: none;
-  border: 0;
-  cursor: pointer;
-  border-radius: 12px;
-  height: 48px;
-  padding: 0 18px;
-  font-size: 1rem;
-  font-weight: 800;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none !important;
-  transition: transform .15s ease, opacity .15s ease, background .2s ease;
-}
-
-.stock-pnl-btn:hover{
-  transform: translateY(-1px);
-}
-
-.stock-pnl-btn.primary{
-  background: #ff6a00;
-  color: #fff;
-}
-
-.stock-pnl-btn.secondary{
-  background: #fff;
-  color: #ff6a00;
-  border: 1px solid #ffcfad;
-}
-
-.stock-pnl-out{
-  display: none;
-  margin-top: 18px;
-}
-
-.stock-pnl-out.show{
-  display: block;
-}
-
-.stock-pnl-result-grid{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.stock-pnl-result-card{
-  background: #fffaf5;
-  border: 1px solid #eadbc9;
-  border-radius: 16px;
-  padding: 18px;
-  min-width: 0;
-}
-
-.stock-pnl-result-label{
-  font-size: 0.92rem;
-  color: #6b7280;
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-
-.stock-pnl-result-value{
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #111827;
-  line-height: 1.4;
-  word-break: break-word;
-}
-
-.stock-pnl-result-value.positive{
-  color: #0f766e;
-}
-
-.stock-pnl-result-value.negative{
-  color: #c2410c;
-}
-
-.stock-pnl-summary{
-  margin-top: 14px;
-  background: #fff;
-  border: 1px solid #eadbc9;
-  border-radius: 16px;
-  padding: 18px;
-}
-
-.stock-pnl-summary h2{
-  margin: 0 0 10px;
-  font-size: 1.05rem;
-  color: #1f2937;
-}
-
-.stock-pnl-summary ul{
-  margin: 0;
-  padding-left: 18px;
-  color: #4b5563;
-  line-height: 1.8;
-}
-
-.stock-pnl-links{
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.stock-pnl-guide{
-  margin-top: 22px;
-  background: #fff;
-  border: 1px solid #ece5dc;
-  border-radius: 18px;
-  padding: 20px;
-}
-
-.stock-pnl-guide h2{
-  margin: 0 0 12px;
-  font-size: 1.15rem;
-  color: #1f2937;
-}
-
-.stock-pnl-guide p,
-.stock-pnl-guide li{
-  color: #4b5563;
-  line-height: 1.8;
-}
-
-.stock-pnl-guide ul{
-  margin: 0;
-  padding-left: 18px;
-}
-
-@media (max-width: 900px){
-  .stock-pnl-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .stock-pnl-result-grid{
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px){
-  .stock-pnl-card{
-    padding: 16px;
-    border-radius: 16px;
-  }
-
-  .stock-pnl-title{
-    font-size: 1.55rem;
-  }
-
-  .stock-pnl-grid{
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .stock-pnl-btn{
-    width: 100%;
-  }
-
-  .stock-pnl-links{
-    flex-direction: column;
-  }
-
-  .stock-pnl-links a{
-    width: 100%;
-  }
-}
-</style>
-
-<div class="stock-pnl-wrap">
-  <section class="stock-pnl-hero">
-    <h2 class="stock-pnl-title">주식 수익/손실 계산기</h2>
-    <p class="stock-pnl-desc">
-      매수가, 수량, 현재가, 매수/매도 수수료, 거래세를 반영해 실제에 가까운 손익과 수익률을 계산할 수 있습니다.
-      단순 평가손익뿐 아니라 매도 후 예상 금액까지 함께 확인해 보세요.
-    </p>
-  </section>
-
-  <div class="stock-pnl-card">
-    <form id="spnl" onsubmit="event.preventDefault(); spnlCalc();">
-      <div class="stock-pnl-grid">
-        <div class="stock-pnl-field">
-          <label for="s_buy">매수가(원)</label>
-          <input type="number" id="s_buy" inputmode="decimal" placeholder="예: 50000" required>
-        </div>
-
-        <div class="stock-pnl-field">
-          <label for="s_qty">수량</label>
-          <input type="number" id="s_qty" inputmode="decimal" placeholder="예: 10" required>
-        </div>
-
-        <div class="stock-pnl-field">
-          <label for="s_now">현재가(원)</label>
-          <input type="number" id="s_now" inputmode="decimal" placeholder="예: 56000" required>
-        </div>
-
-        <div class="stock-pnl-field">
-          <label for="s_fbuy">매수 수수료(%)</label>
-          <input type="number" id="s_fbuy" step="0.01" inputmode="decimal" value="0.015">
-        </div>
-
-        <div class="stock-pnl-field">
-          <label for="s_fsell">매도 수수료(%)</label>
-          <input type="number" id="s_fsell" step="0.01" inputmode="decimal" value="0.015">
-        </div>
-
-        <div class="stock-pnl-field">
-          <label for="s_tax">거래세(매도, %)</label>
-          <input type="number" id="s_tax" step="0.01" inputmode="decimal" value="0.23">
-        </div>
+  <div id="pnl-ledger">
+    <div class="grid">
+      <div>
+        <label for="currentPrice">평가 기준 현재가</label>
+        <input id="currentPrice" type="number" step="any" placeholder="예: 25000">
       </div>
-
-      <div class="stock-pnl-help">
-        입력한 거래세와 수수료는 참고용입니다. 실제 적용 수수료·세율은 증권사, 시장, 종목 유형에 따라 달라질 수 있으니
-        최종 투자 판단 전에는 반드시 실제 거래 조건을 다시 확인하세요.
+      <div>
+        <label for="feeMode">수수료 입력 방식</label>
+        <select id="feeMode">
+          <option value="rate" selected>비율(%)</option>
+          <option value="flat">정액</option>
+        </select>
       </div>
-
-      <div class="stock-pnl-action">
-        <button type="submit" class="stock-pnl-btn primary">계산하기</button>
-        <button type="button" class="stock-pnl-btn secondary" onclick="spnlReset()">초기화</button>
-      </div>
-    </form>
-
-    <div id="spnl-out" class="stock-pnl-out" aria-live="polite"></div>
-  </div>
-
-  <div class="stock-pnl-links">
-    <a class="stock-pnl-btn primary" href="/invest/stocks/avg-cost/">주식 평단가·물타기 계산</a>
-    <a class="stock-pnl-btn secondary" href="/invest/crypto/pnl/">코인 수익/손실 계산</a>
-  </div>
-
-  <section class="stock-pnl-guide">
-    <h2>계산 기준 안내</h2>
-    <ul>
-      <li>총 매수원가는 <strong>매수가 × 수량 + 매수 수수료</strong>를 반영합니다.</li>
-      <li>현재 평가금액(매도 후)은 <strong>현재가 × 수량 - 매도 수수료 - 거래세</strong> 기준으로 계산합니다.</li>
-      <li>손익은 매도 후 예상 금액에서 총 매수원가를 뺀 값이며, 수익률은 총 매수원가 대비 비율입니다.</li>
-      <li>국내주식, 해외주식, ETF, 세금 체계가 각각 다를 수 있으므로 참고 계산용으로 활용하세요.</li>
-    </ul>
-  </section>
-</div>
-
-<script>
-function ff(n){
-  return Math.round(n).toLocaleString('ko-KR');
-}
-
-function spnlCalc(){
-  const b = Number(document.getElementById('s_buy').value) || 0;
-  const q = Number(document.getElementById('s_qty').value) || 0;
-  const n = Number(document.getElementById('s_now').value) || 0;
-  const fbuy = (Number(document.getElementById('s_fbuy').value) || 0) / 100;
-  const fsell = (Number(document.getElementById('s_fsell').value) || 0) / 100;
-  const tax = (Number(document.getElementById('s_tax').value) || 0) / 100;
-
-  if (!(b > 0 && q > 0 && n > 0)) {
-    alert('매수가, 수량, 현재가는 0보다 크게 입력해 주세요.');
-    return;
-  }
-
-  const grossBuy = b * q;
-  const buyFee = grossBuy * fbuy;
-  const cost = grossBuy + buyFee;
-
-  const grossSell = n * q;
-  const sellFee = grossSell * fsell;
-  const sellTax = grossSell * tax;
-  const proceed = grossSell - sellFee - sellTax;
-
-  const profit = proceed - cost;
-  const roi = cost > 0 ? (profit / cost) * 100 : 0;
-
-  const out = document.getElementById('spnl-out');
-  out.classList.add('show');
-
-  const profitClass = profit > 0 ? 'positive' : (profit < 0 ? 'negative' : '');
-  const roiText = `${roi >= 0 ? '+' : ''}${roi.toFixed(2)}%`;
-  const profitText = `${profit >= 0 ? '+' : ''}${ff(profit)} 원`;
-
-  out.innerHTML = `
-    <div class="stock-pnl-result-grid">
-      <div class="stock-pnl-result-card">
-        <div class="stock-pnl-result-label">총 매수원가</div>
-        <div class="stock-pnl-result-value">${ff(cost)} 원</div>
-      </div>
-      <div class="stock-pnl-result-card">
-        <div class="stock-pnl-result-label">현재 평가금액(매도 후)</div>
-        <div class="stock-pnl-result-value">${ff(proceed)} 원</div>
-      </div>
-      <div class="stock-pnl-result-card">
-        <div class="stock-pnl-result-label">손익 / 수익률</div>
-        <div class="stock-pnl-result-value ${profitClass}">${profitText}<br>${roiText}</div>
+      <div>
+        <label for="invMethod">재고평가 방식</label>
+        <select id="invMethod">
+          <option value="FIFO" selected>FIFO (선입선출)</option>
+          <option value="LIFO">LIFO (후입선출)</option>
+        </select>
       </div>
     </div>
 
-    <div class="stock-pnl-summary">
-      <h2>계산 요약</h2>
-      <ul>
-        <li>매수 금액: ${ff(grossBuy)} 원</li>
-        <li>매수 수수료: ${ff(buyFee)} 원</li>
-        <li>매도 예상 금액: ${ff(grossSell)} 원</li>
-        <li>매도 수수료: ${ff(sellFee)} 원</li>
-        <li>거래세: ${ff(sellTax)} 원</li>
+    <div class="table-wrap">
+      <table id="txTable">
+        <colgroup>
+          <col class="col-date"><col class="col-side"><col class="col-price">
+          <col class="col-qty"><col class="col-fee"><col class="col-note"><col class="col-del">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>날짜</th><th>유형</th><th>체결가</th><th>수량</th>
+            <th>수수료+거래세(%, 또는 정액)</th><th>비고</th><th>삭제</th>
+          </tr>
+        </thead>
+        <tbody id="txBody"></tbody>
+      </table>
+    </div>
+
+    <div class="toolbar">
+      <button id="addRow" class="btn ledger-btn" type="button">+ 행 추가</button>
+      <button id="calc" class="btn ledger-btn ledger-btn-main" type="button">계산하기</button>
+      <button id="csvUploadBtn" class="btn ledger-btn" type="button">CSV 업로드</button>
+      <button id="csvTemplateBtn" class="btn ledger-btn" type="button">템플릿 다운로드</button>
+      <button id="resetLedger" class="btn ledger-btn ledger-btn-danger" type="button">초기화</button>
+      <input type="file" id="csvFile" accept=".csv" style="display:none">
+    </div>
+    <p class="hint" id="autosaveStatus" style="margin-top:8px"></p>
+
+    <div class="kpi">
+      <div class="card"><div class="hint">미실현 손익(평가손익)</div><div id="unrealized">-</div></div>
+      <div class="card"><div class="hint">실현 손익</div><div id="realized">-</div></div>
+      <div class="card"><div class="hint">보유 수량 / 평단</div><div id="position">-</div></div>
+      <div class="card"><div class="hint">손익분기점(수수료 포함)</div><div id="breakeven">-</div></div>
+    </div>
+
+    <div class="guide-box">
+      <h4>입력 가이드</h4>
+      <ul class="hint guide-list">
+        <li>수수료가 <b>비율(%)</b>이면 0.015% → <b>0.015</b>로 입력합니다. 매도 행에는 거래세(예: 0.18%)까지 합산해서 입력하세요.</li>
+        <li><b>정액</b>이면 거래당 실제 수수료+세금 합산 금액을 입력합니다.</li>
+        <li>FIFO/LIFO는 <b>실현손익</b> 계산에 영향을 주며, 미실현손익은 남은 재고 기준으로 계산됩니다.</li>
+        <li>손익분기점은 보유 재고 기준으로 왕복 수수료를 고려해 표시합니다.</li>
+        <li>거래세율은 시장 구분·정책 변경에 따라 달라질 수 있으므로, 실제 신고·계산 시에는 최신 세율을 확인해 입력하세요.</li>
+        <li>입력한 거래내역은 이 브라우저에 자동 저장되어, 페이지를 새로고침하거나 다시 방문해도 유지됩니다.</li>
+        <li><b>CSV 업로드</b>는 "템플릿 다운로드"로 받은 양식(날짜,유형,체결가,수량,수수료,비고)에 맞춰 작성한 파일을 사용하세요. 증권사에서 내려받은 원본 CSV는 컬럼명이 다를 수 있어 그대로 인식되지 않을 수 있습니다.</li>
       </ul>
     </div>
-  `;
+  </div>
+</section>
+
+<!-- AD SLOT 1: 계산기 직후, 활용 가이드 진입 전 -->
+<div class="ad-box">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3758454239921831"
+       data-ad-slot="TODO_SLOT_ID_INVEST_STOCKPNL_1"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+</div>
+
+<section class="cp-card cp-card-light">
+  <h3>실전 활용 가이드</h3>
+  <p>
+    예를 들어 A종목을 7만2천 원에 30주, 이후 6만8천 원에 20주를 나눠 매수한 뒤
+    7만5천 원에 25주만 매도했다면, 단순히 "평균 매수가 대비 얼마 올랐나"로는 정확한 손익을 알 수 없습니다.
+    이럴 때 FIFO 방식은 먼저 산 물량부터 매도한 것으로 간주하고, LIFO는 나중에 산 물량부터 매도한 것으로
+    간주해 실현손익이 달라집니다. 매도 시에는 매매수수료 외에 <strong>증권거래세</strong>가 추가로 붙으므로,
+    매도 행에는 수수료와 거래세를 합산한 비율을 입력하는 것이 정확도를 높이는 핵심입니다.
+  </p>
+  <p>
+    계산 결과의 <strong>미실현손익</strong>은 "평가 기준 현재가" 입력값을 기준으로 아직 보유 중인 잔여
+    수량에 대해 자동으로 계산되며, <strong>실현손익</strong>은 실제로 매도를 완료한 거래에 대해서만
+    반영됩니다. 원하는 목표 평단가에 도달하기 위한 추가 매수량이 궁금하다면
+    <a href="/invest/stocks/avg-cost/">주식 평단가·물타기 계산기</a>를, 매매 전 목표가·손절가 기준을
+    먼저 세우고 싶다면 <a href="/invest/stocks/targets/">목표가·손절가 계산기</a>를 함께 활용해 보세요.
+  </p>
+  <p class="cp-note">
+    ※ 매매수수료율과 증권거래세율은 증권사·시장 구분·정책 변경에 따라 달라질 수 있는 값입니다.
+    이 계산기는 입력한 비율을 그대로 적용한 세전 손익 기준이므로, 정확한 계산을 위해서는 반드시
+    본인이 이용하는 증권사의 실제 수수료율과 최신 거래세율을 확인해 입력하시길 권장합니다.
+  </p>
+</section>
+
+<!-- COUPANG PLACEHOLDER: 투자 관련 도서/플래너 등 자연스러운 연결 지점 (실제 링크는 추후 삽입) -->
+<section class="cp-card cp-card-light cp-recommend">
+  <h3>함께 보면 좋은 자료</h3>
+  <p class="cp-recommend-desc">여러 번 나눠 매매한 기록을 체계적으로 남기고 싶다면 매매일지·투자 플래너를 함께 활용해 보세요.</p>
+  <div class="cp-recommend-slot" data-partner="coupang" data-category="투자플래너/매매일지">
+    <!-- 쿠팡파트너스 링크 삽입 위치 -->
+  </div>
+</section>
+
+<section class="cp-card">
+  <h3>관련 계산기</h3>
+  <ul class="cp-related-list">
+    <li><a href="/invest/stocks/avg-cost/">주식 평단가·물타기 계산기</a></li>
+    <li><a href="/invest/stocks/targets/">목표가·손절가 계산기</a></li>
+    <li><a href="/invest/stocks/dividend-yield/">배당수익률(YoC) 계산기</a></li>
+    <li><a href="/invest/crypto/pnl/">코인 PnL 계산기</a></li>
+  </ul>
+</section>
+
+<section class="cp-card" id="cp-faq">
+  <h3>자주 묻는 질문</h3>
+
+  <div class="cp-faq-item">
+    <h4>여러 번 나눠서 매수·매도했다면 어떻게 계산하나요?</h4>
+    <p>표에 행을 추가해 실제 거래한 만큼 매수·매도 내역을 그대로 입력하면 됩니다. FIFO 또는 LIFO 방식을
+    선택하면 어떤 물량부터 매도된 것으로 처리할지에 따라 실현손익과 남은 평단가가 자동으로 계산됩니다.</p>
+  </div>
+  <div class="cp-faq-item">
+    <h4>FIFO와 LIFO 중 무엇을 선택해야 하나요?</h4>
+    <p>실제 세무·회계 처리 기준에 맞추는 것이 원칙입니다. 정확한 신고·계산 기준은 상황에 따라 다를 수
+    있으므로 필요 시 세무 전문가와 상담하시길 권장합니다.</p>
+  </div>
+  <div class="cp-faq-item">
+    <h4>수수료와 거래세는 어떻게 입력하나요?</h4>
+    <p>매도 행의 수수료 칸에 매매수수료율과 증권거래세율을 합산한 값을 입력하면 됩니다. 예를 들어
+    수수료 0.015%, 거래세 0.18%라면 0.195로 입력하세요. 값을 비워두면 0으로 계산됩니다.</p>
+  </div>
+  <div class="cp-faq-item">
+    <h4>미실현손익은 어떻게 계산되나요?</h4>
+    <p>상단의 "평가 기준 현재가"를 입력하면, 아직 매도하지 않고 남아있는 보유 수량에 대해 현재가 기준
+    평가금액과 매수원가(수수료 포함)의 차액으로 계산됩니다. 현재가는 이용 중인 증권사 MTS에서
+    확인해 직접 입력해주세요.</p>
+  </div>
+  <div class="cp-faq-item">
+    <h4>계산 결과는 배당소득세 등 다른 세금도 반영되나요?</h4>
+    <p>아니요, 이 계산기는 매매수수료·거래세만 반영한 매매차익 기준입니다. 배당소득에 대한 세금은
+    <a href="/invest/stocks/dividend-yield/">배당수익률(YoC) 계산기</a>를 참고해주세요.</p>
+  </div>
+  <div class="cp-faq-item">
+    <h4>입력한 거래내역이 저장되나요?</h4>
+    <p>네, 입력하는 즉시 사용 중인 브라우저에 자동 저장됩니다. 새로고침하거나 나중에 다시 방문해도
+    그대로 남아있으며, "초기화" 버튼을 누르면 저장된 내용을 지우고 예시 데이터로 되돌릴 수 있습니다.
+    다만 저장 위치가 브라우저이므로 다른 기기나 다른 브라우저에서는 보이지 않습니다.</p>
+  </div>
+  <div class="cp-faq-item">
+    <h4>증권사에서 받은 거래내역 파일을 그대로 업로드할 수 있나요?</h4>
+    <p>"템플릿 다운로드"로 받은 양식(날짜, 유형, 체결가, 수량, 수수료, 비고)에 맞춰 정리한 CSV만
+    정확히 인식됩니다. 증권사 원본 파일은 컬럼 구성이 다를 수 있어, 템플릿에 값을 옮겨 담은 뒤
+    업로드하시는 것을 권장합니다.</p>
+  </div>
+  <div class="cp-faq-item">
+    <h4>모바일에서도 사용할 수 있나요?</h4>
+    <p>네, 반응형으로 제작되어 스마트폰에서도 동일하게 이용 가능합니다.</p>
+  </div>
+</section>
+
+<!-- AD SLOT 2: FAQ 하단, 페이지 최하단 -->
+<div class="ad-box">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3758454239921831"
+       data-ad-slot="TODO_SLOT_ID_INVEST_STOCKPNL_2"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+</div>
+
+<small>마지막 업데이트: {{ site.time | date: "%Y-%m-%d" }}</small>
+
+<style>
+  .cp-breadcrumb { font-size: 0.85rem; color: #8c7355; margin-bottom: 1rem; }
+  .cp-breadcrumb a { color: #8c7355; text-decoration: none; }
+  .cp-breadcrumb a:hover { text-decoration: underline; }
+
+  .cp-hero {
+    background: linear-gradient(135deg, #f8efe5, #f3e7d9);
+    border: 1px solid #e3d4c5;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  .cp-hero h1 { margin-top: 0; color: #785a43; }
+  .cp-hero-desc { line-height: 1.7; color: #5c4a38; }
+
+  .cp-card {
+    background: #fff;
+    border: 1px solid #f1eae1;
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .cp-card-light { background: #faf7f2; border-color: #eaddcd; }
+  .cp-card h3 { border-left: 4px solid #8c7355; padding-left: 10px; }
+  .cp-sub-desc { color: #8c7355; font-size: 0.92rem; margin-top: -6px; margin-bottom: 16px; }
+  .cp-note { font-size: 0.85rem; color: #8c7355; }
+
+  .cp-recommend-desc { font-size: 0.9rem; color: #8c7355; }
+  .cp-recommend-slot {
+    min-height: 90px; border: 1px dashed #dcc9b3; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: #b7a58c; font-size: 0.85rem;
+  }
+
+  .cp-related-list { list-style: none; padding: 0; margin: 0; }
+  .cp-related-list li { margin-bottom: 8px; }
+  .cp-related-list a { color: #c2410c; text-decoration: none; font-weight: 500; }
+  .cp-related-list a:hover { text-decoration: underline; }
+
+  .cp-faq-item { margin-bottom: 16px; }
+  .cp-faq-item h4 { margin-bottom: 6px; color: #785a43; }
+  .cp-faq-item p { margin: 0; line-height: 1.6; color: #5c4a38; }
+
+  /* =========================
+     Coin PnL Ledger - Scoped UI Fix
+  ========================= */
+  #pnl-ledger{ box-sizing:border-box; }
+  #pnl-ledger *{ box-sizing:border-box; }
+
+  #pnl-ledger .grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+  }
+  #pnl-ledger .cp-live-field{
+    background:#faf7f2; border:1px dashed #dcc9b3; border-radius:12px; padding:14px; margin-bottom:16px;
+  }
+  #pnl-ledger .cp-live-field label{ display:block; font-weight:700; color:#5c4a38; margin-bottom:8px; }
+  #pnl-ledger .cp-live-row{ display:flex; gap:8px; flex-wrap:wrap; }
+  #pnl-ledger .cp-live-row select{
+    flex:1; min-width:140px; padding:10px 12px; border:1px solid #e3d4c5;
+    border-radius:10px; font-size:0.95rem; background:#fff;
+  }
+  #pnl-ledger .cp-btn-live{
+    background:#785a43; color:#fff; border:none; border-radius:10px;
+    padding:10px 14px; font-size:0.85rem; font-weight:600; cursor:pointer; white-space:nowrap;
+  }
+  #pnl-ledger .cp-btn-live:hover{ opacity:0.9; }
+  #pnl-ledger .cp-btn-live:disabled{ opacity:0.6; cursor:wait; }
+  #pnl-ledger .cp-hint{ font-size:0.85rem; color:#8c7355; margin:8px 0 0; }
+
+  #pnl-ledger .grid label{ display:block; font-weight:700; line-height:1.45; color:#5c4a38; }
+  #pnl-ledger .grid input,
+  #pnl-ledger .grid select{
+    display:block; width:100%; min-width:0; margin-top:6px;
+    padding:9px 10px; border:1px solid #e3d4c5; border-radius:10px; font-size:0.95rem;
+  }
+
+  #pnl-ledger .hint{ font-size:.9em; opacity:.85; color:#5c4a38; }
+
+  #pnl-ledger .table-wrap{ width:100%; overflow-x:auto; margin-top:16px; border-radius:12px; border:1px solid #eaddcd; }
+  #pnl-ledger table{ width:100%; min-width:960px; border-collapse:collapse; table-layout:fixed; }
+  #pnl-ledger th, #pnl-ledger td{ padding:8px; vertical-align:middle; }
+  #pnl-ledger th{ text-align:center; font-weight:800; white-space:nowrap; background:#faf7f2; color:#785a43; }
+  #pnl-ledger td{ text-align:center; }
+
+  #pnl-ledger col.col-date{ width:120px; }
+  #pnl-ledger col.col-side{ width:96px; }
+  #pnl-ledger col.col-price{ width:140px; }
+  #pnl-ledger col.col-qty{ width:140px; }
+  #pnl-ledger col.col-fee{ width:170px; }
+  #pnl-ledger col.col-note{ width:auto; }
+  #pnl-ledger col.col-del{ width:84px; }
+
+  #pnl-ledger td input, #pnl-ledger td select, #pnl-ledger td button{
+    width:100%; min-width:0; max-width:100%; margin:0;
+    padding:6px 8px; border:1px solid #e3d4c5; border-radius:8px;
+  }
+  #pnl-ledger td input[type="text"]{ text-align:left; }
+  #pnl-ledger .row-delete{ white-space:nowrap; }
+
+/* 1. 모든 버튼 공통 스타일 */
+.ledger-btn {
+  padding: 10px 18px; 
+  border-radius: 10px; 
+  border: 1px solid #e3d4c5;
+  background: #ffffff !important; /* 배경을 흰색으로 강제 */
+  color: #785a43 !important;      /* 글자색을 갈색으로 강제 (이게 핵심입니다) */
+  font-weight: 600; 
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-function spnlReset(){
-  document.getElementById('spnl').reset();
-  document.getElementById('s_fbuy').value = '0.015';
-  document.getElementById('s_fsell').value = '0.015';
-  document.getElementById('s_tax').value = '0.23';
-
-  const out = document.getElementById('spnl-out');
-  out.classList.remove('show');
-  out.innerHTML = '';
+/* 2. 일반 버튼에 마우스 올렸을 때 */
+.ledger-btn:hover {
+  background: #ff7a00 !important;     
+  color: #ffffff !important;          
+  border-color: #ff7a00 !important;
 }
+
+/* 3. '계산하기' 전용 스타일 */
+.ledger-btn-main { 
+  background: #ff7a00 !important;     
+  color: #ffffff !important;          
+  border-color: #ff7a00 !important; 
+  padding: 12px 24px;      
+  font-size: 15px;
+}
+
+/* 4. 초기화 버튼 (빨간색 계열) */
+.ledger-btn-danger {
+  color: #b3261e !important;    /* 빨간색 글자 강제 */
+  border-color: #e8b9b3 !important;
+  background: #ffffff !important;
+}
+
+/* 5. 초기화 버튼에 마우스 올렸을 때 */
+.ledger-btn-danger:hover {
+  background: #b3261e !important;     
+  border-color: #b3261e !important;
+  color: #ffffff !important;
+}
+  #pnl-ledger .kpi {
+  display: grid; 
+  grid-template-columns: repeat(4, minmax(160px, 1fr)); 
+  gap: 12px; 
+  margin-top: 20px;
+}
+
+#pnl-ledger .kpi .card {
+  padding: 14px; 
+  background: linear-gradient(135deg, #785a43, #5c4633); 
+  border: 1px solid #eaddcd; 
+  border-radius: 14px; 
+  overflow: hidden;
+  /* 카드 내부의 모든 텍스트 기본 색상을 흰색으로 지정 */
+  color: #ffffff !important; 
+}
+
+/* 상단 라벨(힌트) 텍스트를 확실하게 흰색으로 지정 */
+#pnl-ledger .kpi .card .hint {
+  color: #ffffff !important;
+  opacity: 0.9; /* 약간 투명도를 주면 더 세련되어 보입니다 */
+}
+
+/* 데이터 값(마지막 div) 부분도 확실하게 흰색으로 지정 */
+#pnl-ledger .kpi .card div:last-child { 
+  font-weight: 800; 
+  line-height: 1.5; 
+  word-break: break-word; 
+  color: #ffffff !important; 
+  margin-top: 4px; 
+}
+
+  #pnl-ledger .guide-box{
+    margin-top:20px; padding:16px; background:#f1eae1; border:1px solid #eaddcd; border-radius:14px;
+  }
+  #pnl-ledger .guide-box h4{ margin:0 0 8px; color:#785a43; }
+  #pnl-ledger .guide-list{ margin:0 0 0 18px; }
+
+  @media (max-width: 1024px){
+    #pnl-ledger .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  }
+  @media (max-width: 640px){
+    #pnl-ledger .grid{ grid-template-columns:1fr; }
+    #pnl-ledger .kpi{ grid-template-columns:1fr 1fr; }
+    #pnl-ledger .toolbar .ledger-btn{ width:100%; }
+    #pnl-ledger .cp-live-row select,
+    #pnl-ledger .cp-live-row .cp-btn-live{ width:100%; }
+  }
+</style>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const txBody = $("txBody");
+
+  function addRow(pref = {date:"", side:"BUY", price:"20000", qty:"1", fee:"0.1", note:""}) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><input type="date" value="${pref.date || ""}"></td>
+      <td>
+        <select>
+          <option value="BUY" ${pref.side === "BUY" ? "selected" : ""}>매수</option>
+          <option value="SELL" ${pref.side === "SELL" ? "selected" : ""}>매도</option>
+        </select>
+      </td>
+      <td><input type="number" step="any" value="${pref.price || ""}"></td>
+      <td><input type="number" step="any" value="${pref.qty || ""}"></td>
+      <td><input type="number" step="any" value="${pref.fee || ""}"></td>
+      <td><input type="text" value="${pref.note || ""}"></td>
+      <td class="row-delete"><button type="button" class="ledger-btn">삭제</button></td>
+    `;
+    tr.querySelector(".row-delete button").onclick = () => { tr.remove(); cpSaveState(); };
+    txBody.appendChild(tr);
+  }
+
+  $("addRow").onclick = () => { addRow(); cpSaveState(); };
+
+  const STORAGE_KEY = "stockPnlLedgerData_v1";
+
+  function serializeRows(){
+    const rows = [...txBody.querySelectorAll("tr")];
+    return rows.map(r => {
+      const [dEl, sEl, pEl, qEl, fEl, nEl] = r.querySelectorAll("input,select");
+      return { date: dEl.value, side: sEl.value, price: pEl.value, qty: qEl.value, fee: fEl.value, note: nEl.value };
+    });
+  }
+
+  function cpShowSaveStatus(){
+    const el = $("autosaveStatus");
+    if(!el) return;
+    const now = new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+    el.textContent = `자동 저장됨 (${now}) · 이 브라우저에만 저장되며 다른 기기에는 표시되지 않습니다.`;
+  }
+
+  function cpSaveState(){
+    try{
+      const state = {
+        rows: serializeRows(),
+        currentPrice: $("currentPrice").value,
+        feeMode: $("feeMode").value,
+        invMethod: $("invMethod").value
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      cpShowSaveStatus();
+    } catch(err){
+      console.error("저장 실패:", err);
+    }
+  }
+
+  function cpLoadState(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return false;
+      const state = JSON.parse(raw);
+      if(!state || !Array.isArray(state.rows) || !state.rows.length) return false;
+
+      txBody.innerHTML = "";
+      state.rows.forEach(r => addRow(r));
+      if(state.currentPrice) $("currentPrice").value = state.currentPrice;
+      if(state.feeMode) $("feeMode").value = state.feeMode;
+      if(state.invMethod) $("invMethod").value = state.invMethod;
+      cpShowSaveStatus();
+      return true;
+    } catch(err){
+      console.error("불러오기 실패:", err);
+      return false;
+    }
+  }
+
+  function cpSeedSampleRows(){
+    txBody.innerHTML = "";
+    addRow({date:"2025-01-01", side:"BUY",  price:"20000", qty:"1",   fee:"0.1"});
+    addRow({date:"2025-01-10", side:"BUY",  price:"25000", qty:"1",   fee:"0.1"});
+    addRow({date:"2025-02-01", side:"SELL", price:"26000", qty:"0.5", fee:"0.1"});
+  }
+
+  /* 저장된 거래내역이 있으면 불러오고, 없으면 예시 3행으로 시작 */
+  if(!cpLoadState()){
+    cpSeedSampleRows();
+  }
+
+  /* 입력값이 바뀔 때마다 자동 저장 */
+  txBody.addEventListener("input", cpSaveState);
+  txBody.addEventListener("change", cpSaveState);
+  ["currentPrice", "feeMode", "invMethod"].forEach(id => {
+    $(id).addEventListener("input", cpSaveState);
+    $(id).addEventListener("change", cpSaveState);
+  });
+
+  $("resetLedger").onclick = () => {
+    if(!confirm("저장된 거래내역을 모두 삭제하고 초기화하시겠습니까? 이 동작은 되돌릴 수 없습니다.")) return;
+    localStorage.removeItem(STORAGE_KEY);
+    cpSeedSampleRows();
+    cpSaveState();
+  };
+
+  function cpDownloadTemplate(){
+    const header = "날짜,유형,체결가,수량,수수료,비고\n";
+    const sample = "2025-01-01,BUY,20000,1,0.1,\n2025-02-01,SELL,26000,0.5,0.1,\n";
+    const blob = new Blob(["\uFEFF" + header + sample], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "pnl_ledger_template.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  $("csvTemplateBtn").onclick = cpDownloadTemplate;
+
+  function cpSplitCsvLine(line){
+    const result = [];
+    let cur = "";
+    let inQuotes = false;
+    for(let i = 0; i < line.length; i++){
+      const ch = line[i];
+      if(ch === '"'){
+        if(inQuotes && line[i + 1] === '"'){ cur += '"'; i++; }
+        else inQuotes = !inQuotes;
+      } else if(ch === "," && !inQuotes){
+        result.push(cur); cur = "";
+      } else {
+        cur += ch;
+      }
+    }
+    result.push(cur);
+    return result.map(s => s.trim());
+  }
+
+  function cpParseCSV(text){
+    const lines = text.split(/\r\n|\n|\r/).map(l => l.trim()).filter(l => l.length > 0);
+    if(lines.length < 2) return [];
+
+    const headerCells = cpSplitCsvLine(lines[0]).map(h => h.replace(/^\uFEFF/, "").toLowerCase());
+
+    const findCol = (...names) => {
+      for(const name of names){
+        const idx = headerCells.findIndex(h => h === name);
+        if(idx !== -1) return idx;
+      }
+      for(const name of names){
+        const idx = headerCells.findIndex(h => h.includes(name));
+        if(idx !== -1) return idx;
+      }
+      return -1;
+    };
+
+    const dateIdx = findCol("날짜", "date");
+    const sideIdx = findCol("유형", "side", "구분", "타입", "type");
+    const priceIdx = findCol("체결가", "price", "가격", "단가");
+    const qtyIdx = findCol("수량", "qty", "quantity", "amount");
+    const feeIdx = findCol("수수료", "fee");
+    const noteIdx = findCol("비고", "note", "memo");
+
+    if(priceIdx === -1 || qtyIdx === -1) return [];
+
+    const normalizeSide = (v) => {
+      const s = (v || "").toString().trim().toLowerCase();
+      if(["sell", "매도", "ask", "s"].includes(s)) return "SELL";
+      return "BUY";
+    };
+
+    const rows = [];
+    for(let i = 1; i < lines.length; i++){
+      const cells = cpSplitCsvLine(lines[i]);
+      const price = parseFloat((cells[priceIdx] || "").replace(/,/g, ""));
+      const qty = parseFloat((cells[qtyIdx] || "").replace(/,/g, ""));
+      if(!price || !qty) continue;
+      rows.push({
+        date: dateIdx !== -1 ? (cells[dateIdx] || "").slice(0, 10) : "",
+        side: normalizeSide(sideIdx !== -1 ? cells[sideIdx] : "BUY"),
+        price: String(price),
+        qty: String(qty),
+        fee: feeIdx !== -1 ? (cells[feeIdx] || "0") : "0",
+        note: noteIdx !== -1 ? (cells[noteIdx] || "") : ""
+      });
+    }
+    return rows;
+  }
+
+  $("csvUploadBtn").onclick = () => $("csvFile").click();
+
+  $("csvFile").addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try{
+        const rows = cpParseCSV(ev.target.result);
+        if(!rows.length){
+          alert("CSV에서 유효한 거래 내역을 찾지 못했습니다. '템플릿 다운로드' 양식과 컬럼명을 확인해 주세요.");
+          return;
+        }
+        const replaceExisting = confirm(
+          `${rows.length}건의 거래를 찾았습니다.\n\n확인: 기존 거래내역을 지우고 새로 불러옵니다.\n취소: 기존 거래내역 뒤에 추가합니다.`
+        );
+        if(replaceExisting) txBody.innerHTML = "";
+        rows.forEach(r => addRow(r));
+        cpSaveState();
+      } catch(err){
+        console.error(err);
+        alert("CSV를 읽는 중 오류가 발생했습니다. 형식을 확인해 주세요.");
+      }
+    };
+    reader.readAsText(file, "utf-8");
+    e.target.value = "";
+  });
+
+  function parseRows(){
+    const rows = [...txBody.querySelectorAll("tr")];
+    return rows.map(r => {
+      const [dEl, sEl, pEl, qEl, fEl, nEl] = r.querySelectorAll("input,select");
+      return {
+        date: dEl.value,
+        side: sEl.value,
+        price: parseFloat(pEl.value || "0"),
+        qty: parseFloat(qEl.value || "0"),
+        fee: parseFloat(fEl.value || "0"),
+        note: nEl.value
+      };
+    }).filter(x => x.qty > 0 && x.price > 0);
+  }
+
+  function calcFee(mode, price, qty, feeInput){
+    if(mode === "rate"){
+      return price * qty * (feeInput / 100);
+    }
+    return feeInput;
+  }
+
+  function realizePnL(transactions, method, feeMode){
+    const lots = [];
+    let realized = 0;
+
+    const pushLot = (price, qty, fee) => { lots.push({ price, qty, fee }); };
+
+    for(const t of transactions){
+      const fee = calcFee(feeMode, t.price, t.qty, t.fee);
+
+      if(t.side === "BUY"){
+        pushLot(t.price, t.qty, fee);
+      } else {
+        let qtyToSell = t.qty;
+        let matchedCost = 0;
+        let matchedFees = 0;
+
+        while(qtyToSell > 1e-12 && lots.length){
+          const idx = (method === "FIFO") ? 0 : lots.length - 1;
+          const lot = lots[idx];
+          const use = Math.min(lot.qty, qtyToSell);
+          const unitFee = lot.qty > 0 ? lot.fee / lot.qty : 0;
+
+          matchedCost += use * lot.price;
+          matchedFees += use * unitFee;
+
+          lot.qty -= use;
+          lot.fee -= use * unitFee;
+          qtyToSell -= use;
+
+          if(lot.qty <= 1e-12) lots.splice(idx, 1);
+        }
+
+        const actualSoldQty = t.qty - qtyToSell;
+        const proceeds = t.price * actualSoldQty;
+        const sellFee = calcFee(feeMode, t.price, actualSoldQty, t.fee);
+
+        realized += proceeds - sellFee - matchedCost - matchedFees;
+      }
+    }
+
+    let remQty = 0, remCost = 0, remFees = 0;
+    for(const l of lots){
+      remQty += l.qty;
+      remCost += l.qty * l.price;
+      remFees += l.fee;
+    }
+
+    const avgCost = remQty > 0 ? (remCost + remFees) / remQty : 0;
+    return { realized, remQty, remCost, remFees, avgCost };
+  }
+
+  function fmt(x){
+    if(isNaN(x)) return "-";
+    return Math.round(x).toLocaleString("ko-KR");
+  }
+
+  $("calc").onclick = () => {
+    const txs = parseRows();
+    if(!txs.length){
+      alert("거래내역을 입력하세요.");
+      return;
+    }
+
+    const method = $("invMethod").value;
+    const feeMode = $("feeMode").value;
+    const px = parseFloat($("currentPrice").value || "0");
+    const res = realizePnL(txs, method, feeMode);
+
+    const marketValue = res.remQty * px;
+    const bookValue = res.remCost + res.remFees;
+    const unreal = marketValue - bookValue;
+
+    let be = 0;
+    if(res.remQty > 0){
+      if(feeMode === "rate"){
+        const firstBuyFeeRate = ((txs.find(t => t.side === "BUY")?.fee) || 0) / 100;
+        be = (bookValue / res.remQty) * (1 + firstBuyFeeRate);
+      } else {
+        be = (bookValue / res.remQty);
+      }
+    }
+
+    $("unrealized").textContent =
+      isFinite(unreal) ? `${unreal >= 0 ? "▲" : "▼"} ${fmt(Math.abs(unreal))}원` : "-";
+    $("realized").textContent =
+      isFinite(res.realized) ? `${res.realized >= 0 ? "▲" : "▼"} ${fmt(Math.abs(res.realized))}원` : "-";
+    $("position").textContent =
+      res.remQty > 0 ? `${res.remQty.toLocaleString("ko-KR", {maximumFractionDigits: 4})}주 @ ${Math.round(res.avgCost).toLocaleString("ko-KR")}원` : "0주";
+    $("breakeven").textContent =
+      be ? Math.round(be).toLocaleString("ko-KR") : "-";
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.ad-box').forEach(ad => ad.style.minHeight = '120px');
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  });
 </script>
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {
-      "@type":"ListItem",
-      "position":1,
-      "name":"투자 계산기 모음",
-      "item":"https://calculator.khaistory.com/invest/"
-    },
-    {
-      "@type":"ListItem",
-      "position":2,
-      "name":"주식 수익/손실 계산기",
-      "item":"https://calculator.khaistory.com/invest/stocks/pnl/"
-    }
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "홈", "item": "https://calculator.khaistory.com/"},
+    {"@type": "ListItem", "position": 2, "name": "투자 계산기 모음", "item": "https://calculator.khaistory.com/invest/"},
+    {"@type": "ListItem", "position": 3, "name": "주식 PnL 계산기", "item": "https://calculator.khaistory.com/invest/stocks/pnl/"}
   ]
 }
 </script>
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@type":"Question",
-      "name":"거래세율은 어떻게 설정하나요?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"거래세(매도, %) 입력칸에 원하는 세율을 직접 입력하면 계산에 반영됩니다. 실제 세율은 시장과 상품 유형에 따라 다를 수 있습니다."
-      }
+      "@type": "Question",
+      "name": "여러 번 나눠서 매수·매도했다면 어떻게 계산하나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "표에 행을 추가해 실제 거래한 만큼 매수·매도 내역을 그대로 입력하면 됩니다. FIFO 또는 LIFO 방식을 선택하면 실현손익과 남은 평단가가 자동으로 계산됩니다."}
     },
     {
-      "@type":"Question",
-      "name":"수수료는 어디까지 반영되나요?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"매수 수수료는 총 매수원가에, 매도 수수료는 매도 후 예상 금액에서 차감되어 반영됩니다."
-      }
+      "@type": "Question",
+      "name": "FIFO와 LIFO 중 무엇을 선택해야 하나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "실제 세무·회계 처리 기준에 맞추는 것이 원칙이며, 정확한 신고·계산 기준은 상황에 따라 다를 수 있으므로 필요 시 세무 전문가와 상담하시길 권장합니다."}
     },
     {
-      "@type":"Question",
-      "name":"이 계산기는 국내주식과 해외주식 모두 사용할 수 있나요?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"기본적인 손익 계산 구조는 비슷하므로 참고용으로 사용할 수 있습니다. 다만 실제 세금, 환전 비용, 기타 수수료는 별도로 확인해야 합니다."
-      }
+      "@type": "Question",
+      "name": "수수료와 거래세는 어떻게 입력하나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "매도 행의 수수료 칸에 매매수수료율과 증권거래세율을 합산한 값을 입력하면 됩니다. 값을 비워두면 0으로 계산됩니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "미실현손익은 어떻게 계산되나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "평가 기준 현재가를 입력하면 남아있는 보유 수량에 대해 현재가 기준 평가금액과 매수원가(수수료 포함)의 차액으로 계산됩니다. 현재가는 증권사 MTS에서 확인해 직접 입력해야 합니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "계산 결과는 배당소득세 등 다른 세금도 반영되나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "아니요, 매매수수료·거래세만 반영된 매매차익 기준입니다. 배당소득세는 별도로 확인이 필요합니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "입력한 거래내역이 저장되나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "네, 입력 즉시 브라우저에 자동 저장되어 새로고침하거나 다시 방문해도 유지됩니다. 저장 위치가 브라우저이므로 다른 기기에서는 보이지 않습니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "증권사에서 받은 거래내역 파일을 그대로 업로드할 수 있나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "템플릿 다운로드로 받은 양식에 맞춰 정리한 CSV만 정확히 인식되며, 증권사 원본 파일은 컬럼 구성이 달라 그대로 인식되지 않을 수 있습니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "모바일에서도 사용할 수 있나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "네, 반응형으로 제작되어 스마트폰에서도 동일하게 이용 가능합니다."}
     }
   ]
 }
