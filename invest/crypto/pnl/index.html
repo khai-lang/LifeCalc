@@ -1,7 +1,7 @@
 ---
 layout: "default"
-title: "코인 PnL 계산기 - 다건 매수/매도·FIFO/LIFO·실현+미실현손익 자동 계산 | LifeCalc"
-description: "여러 번 나눠 매수/매도한 코인 거래내역을 그대로 입력하면 FIFO/LIFO 방식으로 실현손익, 미실현손익, 평단가, 손익분기점, 거래소 수수료까지 한 번에 계산합니다."
+title: "코인 PnL 계산기 - 실시간 시세·FIFO/LIFO·실현+미실현손익 자동 계산 | LifeCalc"
+description: "실시간 코인 시세를 자동으로 불러와 여러 번 나눠 매수/매도한 거래내역을 FIFO/LIFO 방식으로 계산합니다. 실현손익, 미실현손익, 평단가, 손익분기점, 거래소 수수료까지 한 번에 확인하세요."
 permalink: "/invest/crypto/pnl/"
 ---
 
@@ -21,7 +21,10 @@ permalink: "/invest/crypto/pnl/"
     <strong>거래내역을 원하는 만큼 그대로 입력</strong>하면 <strong>FIFO(선입선출)</strong> 또는
     <strong>LIFO(후입선출)</strong> 방식으로 매도 시점의 <strong>실현손익</strong>을 계산하고,
     아직 팔지 않은 잔여 수량에 대한 <strong>미실현손익</strong>과 <strong>평단가</strong>,
-    <strong>수수료 포함 손익분기점</strong>까지 한 번에 보여줍니다.
+    <strong>수수료 포함 손익분기점</strong>까지 한 번에 보여줍니다. 코인을 선택하면
+    <strong>실시간 시세</strong>를 자동으로 불러와 현재가나 거래 행에 바로 채워 넣을 수 있고,
+    입력한 거래내역은 브라우저에 <strong>자동 저장</strong>되어 다시 방문해도 남아있으며,
+    <strong>CSV 업로드</strong>로 여러 건의 거래를 한 번에 불러올 수도 있습니다.
   </p>
 </section>
 
@@ -30,6 +33,24 @@ permalink: "/invest/crypto/pnl/"
   <p class="cp-sub-desc">아래 표에 매수/매도 거래를 한 줄씩 추가하세요. 날짜는 표시용이며, 계산은 체결가·수량·수수료를 기준으로 진행됩니다.</p>
 
   <div id="pnl-ledger">
+    <div class="cp-live-field">
+      <label for="cp-coin-select">코인 선택 (실시간 시세 자동 입력)</label>
+      <div class="cp-live-row">
+        <select id="cp-coin-select">
+          <option value="bitcoin">비트코인 (BTC)</option>
+          <option value="ethereum">이더리움 (ETH)</option>
+          <option value="ripple">리플 (XRP)</option>
+          <option value="solana">솔라나 (SOL)</option>
+          <option value="cardano">에이다 (ADA)</option>
+          <option value="dogecoin">도지코인 (DOGE)</option>
+        </select>
+        <button type="button" id="cp-fetch-current" class="cp-btn-live">현재가에 채우기</button>
+        <button type="button" id="cp-fetch-buyrow" class="cp-btn-live">매수행 추가+채우기</button>
+        <button type="button" id="cp-fetch-sellrow" class="cp-btn-live">매도행 추가+채우기</button>
+      </div>
+      <p class="cp-hint" id="cp-live-status">CoinGecko 실시간 원화 시세를 불러옵니다. 실제 거래소 시세와 약간의 차이·시차가 있을 수 있으니 참고용으로 활용하세요.</p>
+    </div>
+
     <div class="grid">
       <div>
         <label for="currentPrice">평가 기준 현재가</label>
@@ -74,7 +95,12 @@ permalink: "/invest/crypto/pnl/"
     <div class="toolbar">
       <button id="addRow" class="btn ledger-btn" type="button">+ 행 추가</button>
       <button id="calc" class="btn ledger-btn ledger-btn-main" type="button">계산하기</button>
+      <button id="csvUploadBtn" class="btn ledger-btn" type="button">CSV 업로드</button>
+      <button id="csvTemplateBtn" class="btn ledger-btn" type="button">템플릿 다운로드</button>
+      <button id="resetLedger" class="btn ledger-btn ledger-btn-danger" type="button">초기화</button>
+      <input type="file" id="csvFile" accept=".csv" style="display:none">
     </div>
+    <p class="hint" id="autosaveStatus" style="margin-top:8px"></p>
 
     <div class="kpi">
       <div class="card"><div class="hint">미실현 손익(평가손익)</div><div id="unrealized">-</div></div>
@@ -90,6 +116,9 @@ permalink: "/invest/crypto/pnl/"
         <li><b>정액</b>이면 거래당 실제 수수료 금액을 입력합니다.</li>
         <li>FIFO/LIFO는 <b>실현손익</b> 계산에 영향을 주며, 미실현손익은 남은 재고 기준으로 계산됩니다.</li>
         <li>손익분기점은 보유 재고 기준으로 왕복 수수료를 고려해 표시합니다.</li>
+        <li>실시간 시세는 CoinGecko 기준이며, 실제 거래소 체결가와 약간의 차이·시차가 있을 수 있어 참고용입니다.</li>
+        <li>입력한 거래내역은 이 브라우저에 자동 저장되어, 페이지를 새로고침하거나 다시 방문해도 유지됩니다.</li>
+        <li><b>CSV 업로드</b>는 "템플릿 다운로드"로 받은 양식(날짜,유형,체결가,수량,수수료,비고)에 맞춰 작성한 파일을 사용하세요. 거래소에서 내려받은 원본 CSV는 컬럼명이 다를 수 있어 그대로 인식되지 않을 수 있습니다.</li>
       </ul>
     </div>
   </div>
@@ -133,7 +162,7 @@ permalink: "/invest/crypto/pnl/"
   <h3>함께 보면 좋은 자료</h3>
   <p class="cp-recommend-desc">여러 번 나눠 매매한 기록을 체계적으로 남기고 싶다면 매매일지·투자 플래너를 함께 활용해 보세요.</p>
   <div class="cp-recommend-slot" data-partner="coupang" data-category="투자플래너/매매일지">
-    <a href="https://link.coupang.com/a/fgcSYI9E8j" target="_blank" rel="noopener noreferrer">추천 매매일지/투자 플래너 확인하기</a>
+    <!-- 쿠팡파트너스 링크 삽입 위치 -->
   </div>
 </section>
 
@@ -173,6 +202,23 @@ permalink: "/invest/crypto/pnl/"
   <div class="cp-faq-item">
     <h4>계산 결과는 세금이 반영된 금액인가요?</h4>
     <p>아니요, 거래소 수수료만 반영된 세전 손익입니다. 코인 관련 세금은 별도로 확인이 필요합니다.</p>
+  </div>
+  <div class="cp-faq-item">
+    <h4>실시간 시세는 어디서 가져오나요?</h4>
+    <p>CoinGecko의 원화(KRW) 시세를 불러옵니다. 실제 이용 중인 거래소의 체결가와 시차·차이가 있을 수
+    있으므로 정확한 거래 기록에는 실제 체결가를 입력하시는 것을 권장합니다.</p>
+  </div>
+  <div class="cp-faq-item">
+    <h4>입력한 거래내역이 저장되나요?</h4>
+    <p>네, 입력하는 즉시 사용 중인 브라우저에 자동 저장됩니다. 새로고침하거나 나중에 다시 방문해도
+    그대로 남아있으며, "초기화" 버튼을 누르면 저장된 내용을 지우고 예시 데이터로 되돌릴 수 있습니다.
+    다만 저장 위치가 브라우저이므로 다른 기기나 다른 브라우저에서는 보이지 않습니다.</p>
+  </div>
+  <div class="cp-faq-item">
+    <h4>거래소에서 받은 거래내역 파일을 그대로 업로드할 수 있나요?</h4>
+    <p>"템플릿 다운로드"로 받은 양식(날짜, 유형, 체결가, 수량, 수수료, 비고)에 맞춰 정리한 CSV만
+    정확히 인식됩니다. 거래소 원본 파일은 컬럼 구성이 다를 수 있어, 템플릿에 값을 옮겨 담은 뒤
+    업로드하시는 것을 권장합니다.</p>
   </div>
   <div class="cp-faq-item">
     <h4>모바일에서도 사용할 수 있나요?</h4>
@@ -246,6 +292,23 @@ permalink: "/invest/crypto/pnl/"
     grid-template-columns:repeat(4,minmax(0,1fr));
     gap:12px;
   }
+  #pnl-ledger .cp-live-field{
+    background:#faf7f2; border:1px dashed #dcc9b3; border-radius:12px; padding:14px; margin-bottom:16px;
+  }
+  #pnl-ledger .cp-live-field label{ display:block; font-weight:700; color:#5c4a38; margin-bottom:8px; }
+  #pnl-ledger .cp-live-row{ display:flex; gap:8px; flex-wrap:wrap; }
+  #pnl-ledger .cp-live-row select{
+    flex:1; min-width:140px; padding:10px 12px; border:1px solid #e3d4c5;
+    border-radius:10px; font-size:0.95rem; background:#fff;
+  }
+  #pnl-ledger .cp-btn-live{
+    background:#785a43; color:#fff; border:none; border-radius:10px;
+    padding:10px 14px; font-size:0.85rem; font-weight:600; cursor:pointer; white-space:nowrap;
+  }
+  #pnl-ledger .cp-btn-live:hover{ opacity:0.9; }
+  #pnl-ledger .cp-btn-live:disabled{ opacity:0.6; cursor:wait; }
+  #pnl-ledger .cp-hint{ font-size:0.85rem; color:#8c7355; margin:8px 0 0; }
+
   #pnl-ledger .grid label{ display:block; font-weight:700; line-height:1.45; color:#5c4a38; }
   #pnl-ledger .grid input,
   #pnl-ledger .grid select{
@@ -283,6 +346,8 @@ permalink: "/invest/crypto/pnl/"
   }
   .ledger-btn-main{ background:#c2410c; color:#fff; border-color:#c2410c; }
   .ledger-btn-main:hover{ opacity:0.92; }
+  .ledger-btn-danger{ color:#b3261e; border-color:#e8b9b3; }
+  .ledger-btn-danger:hover{ background:#fbeceb; }
 
   #pnl-ledger .kpi{
     display:grid; grid-template-columns:repeat(4,minmax(160px,1fr)); gap:12px; margin-top:20px;
@@ -305,6 +370,8 @@ permalink: "/invest/crypto/pnl/"
     #pnl-ledger .grid{ grid-template-columns:1fr; }
     #pnl-ledger .kpi{ grid-template-columns:1fr 1fr; }
     #pnl-ledger .toolbar .ledger-btn{ width:100%; }
+    #pnl-ledger .cp-live-row select,
+    #pnl-ledger .cp-live-row .cp-btn-live{ width:100%; }
   }
 </style>
 
@@ -328,16 +395,259 @@ permalink: "/invest/crypto/pnl/"
       <td><input type="text" value="${pref.note || ""}"></td>
       <td class="row-delete"><button type="button" class="ledger-btn">삭제</button></td>
     `;
-    tr.querySelector(".row-delete button").onclick = () => tr.remove();
+    tr.querySelector(".row-delete button").onclick = () => { tr.remove(); cpSaveState(); };
     txBody.appendChild(tr);
   }
 
-  $("addRow").onclick = () => addRow();
+  $("addRow").onclick = () => { addRow(); cpSaveState(); };
 
-  /* 샘플 3행 */
-  addRow({date:"2025-01-01", side:"BUY",  price:"20000", qty:"1",   fee:"0.1"});
-  addRow({date:"2025-01-10", side:"BUY",  price:"25000", qty:"1",   fee:"0.1"});
-  addRow({date:"2025-02-01", side:"SELL", price:"26000", qty:"0.5", fee:"0.1"});
+  const STORAGE_KEY = "pnlLedgerData_v1";
+
+  function serializeRows(){
+    const rows = [...txBody.querySelectorAll("tr")];
+    return rows.map(r => {
+      const [dEl, sEl, pEl, qEl, fEl, nEl] = r.querySelectorAll("input,select");
+      return { date: dEl.value, side: sEl.value, price: pEl.value, qty: qEl.value, fee: fEl.value, note: nEl.value };
+    });
+  }
+
+  function cpShowSaveStatus(){
+    const el = $("autosaveStatus");
+    if(!el) return;
+    const now = new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+    el.textContent = `자동 저장됨 (${now}) · 이 브라우저에만 저장되며 다른 기기에는 표시되지 않습니다.`;
+  }
+
+  function cpSaveState(){
+    try{
+      const state = {
+        rows: serializeRows(),
+        currentPrice: $("currentPrice").value,
+        feeMode: $("feeMode").value,
+        fx: $("fx").value,
+        invMethod: $("invMethod").value
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      cpShowSaveStatus();
+    } catch(err){
+      console.error("저장 실패:", err);
+    }
+  }
+
+  function cpLoadState(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return false;
+      const state = JSON.parse(raw);
+      if(!state || !Array.isArray(state.rows) || !state.rows.length) return false;
+
+      txBody.innerHTML = "";
+      state.rows.forEach(r => addRow(r));
+      if(state.currentPrice) $("currentPrice").value = state.currentPrice;
+      if(state.feeMode) $("feeMode").value = state.feeMode;
+      if(state.fx) $("fx").value = state.fx;
+      if(state.invMethod) $("invMethod").value = state.invMethod;
+      cpShowSaveStatus();
+      return true;
+    } catch(err){
+      console.error("불러오기 실패:", err);
+      return false;
+    }
+  }
+
+  function cpSeedSampleRows(){
+    txBody.innerHTML = "";
+    addRow({date:"2025-01-01", side:"BUY",  price:"20000", qty:"1",   fee:"0.1"});
+    addRow({date:"2025-01-10", side:"BUY",  price:"25000", qty:"1",   fee:"0.1"});
+    addRow({date:"2025-02-01", side:"SELL", price:"26000", qty:"0.5", fee:"0.1"});
+  }
+
+  /* 저장된 거래내역이 있으면 불러오고, 없으면 예시 3행으로 시작 */
+  if(!cpLoadState()){
+    cpSeedSampleRows();
+  }
+
+  /* 입력값이 바뀔 때마다 자동 저장 */
+  txBody.addEventListener("input", cpSaveState);
+  txBody.addEventListener("change", cpSaveState);
+  ["currentPrice", "feeMode", "fx", "invMethod"].forEach(id => {
+    $(id).addEventListener("input", cpSaveState);
+    $(id).addEventListener("change", cpSaveState);
+  });
+
+  $("resetLedger").onclick = () => {
+    if(!confirm("저장된 거래내역을 모두 삭제하고 초기화하시겠습니까? 이 동작은 되돌릴 수 없습니다.")) return;
+    localStorage.removeItem(STORAGE_KEY);
+    cpSeedSampleRows();
+    cpSaveState();
+  };
+
+  function cpDownloadTemplate(){
+    const header = "날짜,유형,체결가,수량,수수료,비고\n";
+    const sample = "2025-01-01,BUY,20000,1,0.1,\n2025-02-01,SELL,26000,0.5,0.1,\n";
+    const blob = new Blob(["\uFEFF" + header + sample], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "pnl_ledger_template.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  $("csvTemplateBtn").onclick = cpDownloadTemplate;
+
+  function cpSplitCsvLine(line){
+    const result = [];
+    let cur = "";
+    let inQuotes = false;
+    for(let i = 0; i < line.length; i++){
+      const ch = line[i];
+      if(ch === '"'){
+        if(inQuotes && line[i + 1] === '"'){ cur += '"'; i++; }
+        else inQuotes = !inQuotes;
+      } else if(ch === "," && !inQuotes){
+        result.push(cur); cur = "";
+      } else {
+        cur += ch;
+      }
+    }
+    result.push(cur);
+    return result.map(s => s.trim());
+  }
+
+  function cpParseCSV(text){
+    const lines = text.split(/\r\n|\n|\r/).map(l => l.trim()).filter(l => l.length > 0);
+    if(lines.length < 2) return [];
+
+    const headerCells = cpSplitCsvLine(lines[0]).map(h => h.replace(/^\uFEFF/, "").toLowerCase());
+
+    const findCol = (...names) => {
+      for(const name of names){
+        const idx = headerCells.findIndex(h => h === name);
+        if(idx !== -1) return idx;
+      }
+      for(const name of names){
+        const idx = headerCells.findIndex(h => h.includes(name));
+        if(idx !== -1) return idx;
+      }
+      return -1;
+    };
+
+    const dateIdx = findCol("날짜", "date");
+    const sideIdx = findCol("유형", "side", "구분", "타입", "type");
+    const priceIdx = findCol("체결가", "price", "가격", "단가");
+    const qtyIdx = findCol("수량", "qty", "quantity", "amount");
+    const feeIdx = findCol("수수료", "fee");
+    const noteIdx = findCol("비고", "note", "memo");
+
+    if(priceIdx === -1 || qtyIdx === -1) return [];
+
+    const normalizeSide = (v) => {
+      const s = (v || "").toString().trim().toLowerCase();
+      if(["sell", "매도", "ask", "s"].includes(s)) return "SELL";
+      return "BUY";
+    };
+
+    const rows = [];
+    for(let i = 1; i < lines.length; i++){
+      const cells = cpSplitCsvLine(lines[i]);
+      const price = parseFloat((cells[priceIdx] || "").replace(/,/g, ""));
+      const qty = parseFloat((cells[qtyIdx] || "").replace(/,/g, ""));
+      if(!price || !qty) continue;
+      rows.push({
+        date: dateIdx !== -1 ? (cells[dateIdx] || "").slice(0, 10) : "",
+        side: normalizeSide(sideIdx !== -1 ? cells[sideIdx] : "BUY"),
+        price: String(price),
+        qty: String(qty),
+        fee: feeIdx !== -1 ? (cells[feeIdx] || "0") : "0",
+        note: noteIdx !== -1 ? (cells[noteIdx] || "") : ""
+      });
+    }
+    return rows;
+  }
+
+  $("csvUploadBtn").onclick = () => $("csvFile").click();
+
+  $("csvFile").addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try{
+        const rows = cpParseCSV(ev.target.result);
+        if(!rows.length){
+          alert("CSV에서 유효한 거래 내역을 찾지 못했습니다. '템플릿 다운로드' 양식과 컬럼명을 확인해 주세요.");
+          return;
+        }
+        const replaceExisting = confirm(
+          `${rows.length}건의 거래를 찾았습니다.\n\n확인: 기존 거래내역을 지우고 새로 불러옵니다.\n취소: 기존 거래내역 뒤에 추가합니다.`
+        );
+        if(replaceExisting) txBody.innerHTML = "";
+        rows.forEach(r => addRow(r));
+        cpSaveState();
+      } catch(err){
+        console.error(err);
+        alert("CSV를 읽는 중 오류가 발생했습니다. 형식을 확인해 주세요.");
+      }
+    };
+    reader.readAsText(file, "utf-8");
+    e.target.value = "";
+  });
+
+  async function cpFetchLivePrice(){
+    const coinId = $("cp-coin-select").value;
+    const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${coinId}&vs_currencies=krw`);
+    if(!res.ok) throw new Error("네트워크 오류");
+    const data = await res.json();
+    const price = data && data[coinId] && data[coinId].krw;
+    if(!price) throw new Error("시세를 찾을 수 없습니다");
+    return price;
+  }
+
+  function cpSetStatus(msg){
+    $("cp-live-status").textContent = msg;
+  }
+
+  async function cpWithLoading(btn, fn){
+    const original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "불러오는 중...";
+    try{
+      await fn();
+    } catch(err){
+      cpSetStatus("시세를 불러오지 못했습니다. 잠시 후 다시 시도하거나 직접 입력해 주세요.");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = original;
+    }
+  }
+
+  $("cp-fetch-current").onclick = () => cpWithLoading($("cp-fetch-current"), async () => {
+    const price = await cpFetchLivePrice();
+    $("currentPrice").value = price;
+    cpSaveState();
+    const now = new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
+    cpSetStatus(`CoinGecko 기준 ${now} 현재가 ₩${price.toLocaleString("ko-KR")}가 "평가 기준 현재가"에 반영되었습니다.`);
+  });
+
+  $("cp-fetch-buyrow").onclick = () => cpWithLoading($("cp-fetch-buyrow"), async () => {
+    const price = await cpFetchLivePrice();
+    const today = new Date().toISOString().slice(0, 10);
+    addRow({ date: today, side: "BUY", price: String(price), qty: "1", fee: "0.1" });
+    cpSaveState();
+    const now = new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
+    cpSetStatus(`CoinGecko 기준 ${now} 시세 ₩${price.toLocaleString("ko-KR")}로 매수 행이 추가되었습니다. 수량·수수료를 확인해 주세요.`);
+  });
+
+  $("cp-fetch-sellrow").onclick = () => cpWithLoading($("cp-fetch-sellrow"), async () => {
+    const price = await cpFetchLivePrice();
+    const today = new Date().toISOString().slice(0, 10);
+    addRow({ date: today, side: "SELL", price: String(price), qty: "1", fee: "0.1" });
+    cpSaveState();
+    const now = new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
+    cpSetStatus(`CoinGecko 기준 ${now} 시세 ₩${price.toLocaleString("ko-KR")}로 매도 행이 추가되었습니다. 수량·수수료를 확인해 주세요.`);
+  });
 
   function parseRows(){
     const rows = [...txBody.querySelectorAll("tr")];
@@ -503,6 +813,21 @@ permalink: "/invest/crypto/pnl/"
       "@type": "Question",
       "name": "계산 결과는 세금이 반영된 금액인가요?",
       "acceptedAnswer": {"@type": "Answer", "text": "아니요, 거래소 수수료만 반영된 세전 손익이며 세금은 별도 확인이 필요합니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "실시간 시세는 어디서 가져오나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "CoinGecko의 원화(KRW) 시세를 불러오며, 실제 거래소 체결가와 시차·차이가 있을 수 있어 참고용으로 활용하는 것을 권장합니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "입력한 거래내역이 저장되나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "네, 입력 즉시 브라우저에 자동 저장되어 새로고침하거나 다시 방문해도 유지됩니다. 저장 위치가 브라우저이므로 다른 기기에서는 보이지 않습니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "거래소에서 받은 거래내역 파일을 그대로 업로드할 수 있나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "템플릿 다운로드로 받은 양식에 맞춰 정리한 CSV만 정확히 인식되며, 거래소 원본 파일은 컬럼 구성이 달라 그대로 인식되지 않을 수 있습니다."}
     },
     {
       "@type": "Question",
