@@ -1,3 +1,4 @@
+---
 layout: default
 title: "종합부동산세 계산기 2026 | 종부세 과세표준·세율·세액공제 계산"
 description: "2026년 종합부동산세(종부세) 계산기. 공시가격 합산, 기본공제(9억·12억), 공정시장가액비율 60%, 고령자·장기보유 세액공제, 농어촌특별세까지 자동 반영."
@@ -565,9 +566,4 @@ window.fmtPt=fmtPt;
 
 })();
 </script>
-HTMLEOF
 
-echo "✅ 완료 ($(wc -l < /home/claude/property-tax-2026.html)줄)"
-출력
-
-✅ 완료 (568줄)
