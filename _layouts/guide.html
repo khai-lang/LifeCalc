@@ -1,149 +1,46 @@
 ---
+
 layout: default
+
 ---
+
+
 
 <div class="guide-container">
 
-  <!-- 오늘의 팁 카드 (계산기 사이드바의 팁/FAQ 톤 반영) -->
+
+
   <div class="guide-card">
-    <div class="guide-card-eyebrow">오늘의 팁 💡</div>
-    
+
     {% if page.summary %}
+
       <p class="guide-summary">{{ page.summary }}</p>
+
     {% endif %}
+
+
 
     {% if page.button_text and page.button_link %}
+
       <a href="{{ page.button_link }}" class="guide-btn">
+
         {{ page.button_text }}
+
       </a>
+
     {% endif %}
+
   </div>
 
-  <!-- 가이드 본문 글 영역 -->
+
+
   <div class="guide-body">
-    <h1 class="guide-main-title">{{ page.title }}</h1>
-    <div class="guide-content-prose">
-      {{ content }}
-    </div>
+
+    {{ content }}
+
   </div>
 
-</div>
 
-<style>
-/* 1. 전체 레이아웃 */
-.guide-container {
-  max-width: 800px !important;
-  margin: 0 auto !important;
-  padding: 24px 16px 60px !important;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-}
 
-/* 2. 오늘의 팁 카드 스타일 (계산기 부드러운 브라운/베이지 배너 톤) */
-.guide-card {
-  background: #faf7f2 !important; /* 계산기 .rtj-light 배경색 */
-  border: 1px solid #eaddcd !important; /* 계산기 .rtj-light 테두리색 */
-  border-radius: 14px !important;
-  padding: 20px 24px !important;
-  margin-bottom: 28px !important;
-  box-shadow: 0 2px 8px rgba(58, 44, 29, 0.02) !important;
-}
+</div> 
 
-.guide-card-eyebrow {
-  color: #8c7355 !important; /* 계산기 포인트 브라운 */
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  margin-bottom: 8px !important;
-}
-
-.guide-summary {
-  color: #4a3d30 !important;
-  font-size: 14.5px !important;
-  line-height: 1.6 !important;
-  margin: 0 0 12px 0 !important;
-}
-
-/* 오늘의 팁 이동 버튼 (계산기 딥블루 포인트 버튼 반영) */
-.guide-btn {
-  display: inline-block !important;
-  background: #1f5c7a !important; /* 계산기 딥블루 버튼색 */
-  color: #ffffff !important;
-  text-decoration: none !important;
-  padding: 8px 16px !important;
-  border-radius: 8px !important;
-  font-size: 13.5px !important;
-  font-weight: 600 !important;
-  transition: all 0.2s ease !important;
-}
-
-.guide-btn:hover {
-  background: #ff7a00 !important; /* 마우스 올리면 오렌지색으로 변경 */
-  transform: translateY(-1px) !important;
-}
-
-/* 3. 본문 사각형 박스 (계산기 메인 카드 스타일) */
-.guide-body {
-  background: #ffffff !important;
-  border: 1px solid #f1eae1 !important; /* 계산기 카드 테두리 */
-  border-radius: 18px !important;
-  padding: 36px 32px !important;
-  color: #4a3d30 !important;
-}
-
-.guide-main-title {
-  font-size: 26px !important;
-  font-weight: 800 !important;
-  color: #3a2c1d !important;
-  line-height: 1.4 !important;
-  margin: 0 0 24px 0 !important;
-  border: none !important;
-}
-
-.guide-content-prose {
-  font-size: 16px !important;
-  line-height: 1.8 !important;
-}
-
-.guide-content-prose p {
-  margin: 0 0 16px 0 !important;
-}
-
-/* 본문 내 소제목 왼쪽 갈색 세로줄 바 데코레이션 */
-.guide-content-prose h1, 
-.guide-content-prose h2, 
-.guide-content-prose h3 {
-  border-left: 4px solid #8c7355 !important; /* 계산기 소제목 세로줄 */
-  padding-left: 10px !important;
-  color: #3a2c1d !important;
-  font-weight: 700 !important;
-  margin: 36px 0 16px 0 !important;
-  background: transparent !important;
-}
-
-.guide-content-prose h1 { font-size: 23px !important; }
-.guide-content-prose h2 { font-size: 19px !important; }
-.guide-content-prose h3 { font-size: 17px !important; }
-
-/* 본문 내 강조 문구 오렌지 텍스트 */
-.guide-content-prose strong {
-  color: #ff7a00 !important;
-  font-weight: 700 !important;
-}
-
-/* 본문 내 링크 */
-.guide-content-prose a {
-  color: #1f5c7a !important;
-  text-decoration: underline !important;
-  font-weight: 600 !important;
-}
-
-.guide-content-prose a:hover {
-  color: #ff7a00 !important;
-}
-
-/* 모바일 화면 최적화 */
-@media (max-width: 600px) {
-  .guide-card { padding: 16px 20px !important; }
-  .guide-body { padding: 28px 20px !important; }
-  .guide-main-title { font-size: 21px !important; }
-}
-</style>
