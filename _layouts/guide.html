@@ -4,15 +4,22 @@ layout: default
 
 <div class="guide-container">
 
-  <div class="guide-card">
+  <div class="guide-card-top">
+    <p class="guide-eyebrow">라이프+ · 추천 가이드</p>
+    <h1 class="guide-title">{{ page.title }}</h1>
+    
     {% if page.summary %}
       <p class="guide-summary">{{ page.summary }}</p>
+    {% elsif page.description %}
+      <p class="guide-summary">{{ page.description }}</p>
     {% endif %}
 
     {% if page.button_text and page.button_link %}
-      <a href="{{ page.button_link }}" class="guide-btn">
-        {{ page.button_text }}
-      </a>
+      <div class="guide-btn-wrap">
+        <a href="{{ page.button_link }}" class="guide-btn">
+          {{ page.button_text }}
+        </a>
+      </div>
     {% endif %}
   </div>
 
@@ -21,3 +28,131 @@ layout: default
   </div>
 
 </div>
+
+<style>
+/* 1. 전체 컨테이너 및 폰트 세팅 */
+.guide-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 2. 상단 요약 카드 (계산기 .rtj-hero 및 카드 톤 반영) */
+.guide-card-top {
+  background: linear-gradient(135deg, #f8efe5, #f3e7d9);
+  border: 1px solid #e3d4c5;
+  border-radius: 20px;
+  padding: 32px 28px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(58, 44, 29, 0.04);
+}
+
+.guide-eyebrow {
+  color: #8c7355;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  margin: 0 0 8px;
+}
+
+.guide-title {
+  color: #3a2c1d;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+.guide-summary {
+  color: #1f5c7a;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 3. 버튼 스타일 (.rtj-btn-main 오렌지 톤앤매너 + 호버 애니메이션 추가) */
+.guide-btn-wrap {
+  margin-top: 20px;
+}
+
+.guide-btn {
+  display: inline-block;
+  background: #ff7a00;
+  color: #fff !important;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 3px 6px rgba(255, 122, 0, 0.2);
+}
+
+/* 질문하셨던 마우스 호버 시 부드럽게 반응하는 디자인 */
+.guide-btn:hover {
+  background: #a8380a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(168, 56, 10, 0.3);
+}
+
+/* 4. 본문 영역 디자인 정돈 (.rtj-card 스타일링 계승) */
+.guide-body {
+  background: #fff;
+  border: 1px solid #f1eae1;
+  border-radius: 18px;
+  padding: 32px 28px;
+  color: #4a3d30;
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+/* 본문 내 소제목을 계산기 카드 제목 스타일로 통일 */
+.guide-body h2, .guide-body h3 {
+  border-left: 4px solid #8c7355;
+  padding-left: 10px;
+  color: #3a2c1d;
+  margin: 32px 0 16px;
+  font-weight: 700;
+}
+
+.guide-body h2 { font-size: 20px; }
+.guide-body h3 { font-size: 18px; }
+
+/* 본문 내의 첫 번째 제목 마진 정렬 */
+.guide-body h2:first-child, .guide-body h3:first-child {
+  margin-top: 0;
+}
+
+.guide-body p {
+  margin: 0 0 16px;
+}
+
+.guide-body strong {
+  color: #ff7a00; /* 본문 강조 텍스트도 포인트 컬러와 매칭 */
+}
+
+.guide-body a {
+  color: #1f5c7a;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.guide-body a:hover {
+  color: #ff7a00;
+}
+
+/* 반응형 모바일 처리 */
+@media (max-width: 600px) {
+  .guide-card-top {
+    padding: 24px 20px;
+  }
+  .guide-title {
+    font-size: 21px;
+  }
+  .guide-body {
+    padding: 24px 20px;
+    font-size: 15px;
+  }
+}
+</style>
