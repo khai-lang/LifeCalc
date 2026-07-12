@@ -273,25 +273,41 @@ select {
    🟧 3-COLUMN LAYOUT (좌 광고 – 본문 – 우 광고)
 ============================================ */
 
+/* ============================================
+    🟧 3-COLUMN LAYOUT (좌 광고 – 본문 – 우 광고)
+============================================ */
+
 .wrap--with-rail {
   display: grid;
-  grid-template-columns: 320px minmax(0,880px) 320px;
+  /* 1. 좌측 광고 영역이 너무 좁다면 200px에서 300px~320px 정도로 넓혀줍니다. */
+  grid-template-columns: 320px minmax(0, 880px) 320px;
   gap: 24px;
   align-items: start;
+  
+  /* 2. 전체 레이아웃이 화면 중앙에 오도록 마진을 설정합니다. (필요시 추가) */
+  margin: 0 auto;
+  max-width: 1584px; /* 320 + 24 + 880 + 24 + 320 */
 }
 
 .left-rail,
 .right-rail {
   position: sticky;
   top: 96px;
+  
+  /* 3. 광고 내부 요소가 부모 영역(Grid Cell)을 벗어나지 못하도록 제어합니다. */
+  overflow: hidden; 
+  width: 100%;
 }
 
 /* 모바일에서 광고 제거 */
-@media (max-width: 860px) {
-  .wrap--with-rail { grid-template-columns: 1fr; }
-  .left-rail, .right-rail { display: none; }
+@media (max-width: 1200px) { /* 4. 좌우 광고 폭이 넓어졌으므로 반응형 시점(Breakpoint)을 높여줍니다. */
+  .wrap--with-rail { 
+    grid-template-columns: 1fr; 
+  }
+  .left-rail, .right-rail { 
+    display: none; 
+  }
 }
-
 /* ============================================
    🟧 FOOTER — 항상 아래 중앙 정렬
 ============================================ */
