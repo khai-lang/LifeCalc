@@ -140,11 +140,15 @@ main {
 .drop.open .menu { display: block; }
 
 
-/* ============================================
+/* ==========================================
    🟧 GUIDE PAGE LAYOUT
-============================================ */
+============================================= */
 
-.guide-wrap { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.guide-wrap { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 24px 16px 60px; 
+}
 
 .guide-wrap .grid {
   display: grid;
@@ -156,43 +160,73 @@ main {
   .guide-wrap .grid { grid-template-columns: 1fr; }
 }
 
-.guide-content { max-width: 760px; }
-.page-title { font-size: 28px; font-weight: 700; margin: 8px 0 20px; }
+/* 가이드 상단 타이틀 영역 (계산기 hero 느낌 반영) */
+.page-title { 
+  font-size: 28px; 
+  font-weight: 800; 
+  color: #3a2c1d; /* 계산기 타이틀 색상 */
+  margin: 8px 0 20px; 
+  line-height: 1.4;
+}
 
-/* ============================================
-   🟧 MAIN CONTENT TYPOGRAPHY
-============================================ */
+/* ==========================================
+   🟧 MAIN CONTENT TYPOGRAPHY (본문 스타일)
+============================================= */
 
 .post-body {
-  font-size: 18px;
+  background: #fff;
+  border: 1px solid #f1eae1; /* 계산기 카드 테두리 */
+  border-radius: 18px; /* 계산기 카드 라운딩 */
+  padding: 32px 28px;
+  font-size: 16px;
   line-height: 1.75;
-  color: var(--text-main);
+  color: #4a3d30; /* 계산기 텍스트 기본 브라운 */
 }
 
-.post-body h1 {
-  font-size: 34px;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.post-body h2 {
-  font-size: 26px;
-  margin: 28px 0 12px;
-  font-weight: 800;
-}
-
-.post-body h3 {
-  font-size: 22px;
+/* 본문 내 소제목 스타일 통일 (왼쪽 갈색 세로줄 바 적용) */
+.post-body h1, .post-body h2, .post-body h3 {
+  border-left: 4px solid #8c7355; /* 계산기 h3 세로줄 */
+  padding-left: 10px;
+  color: #3a2c1d;
   font-weight: 700;
-  margin: 24px 0 8px;
+  margin: 32px 0 16px;
 }
 
-.post-body blockquote {
-  background: #f8fafc;
-  border-left: 4px solid var(--line-soft);
-  padding: 12px 16px;
-  border-radius: 10px;
-  color: #334155;
+.post-body h1 { font-size: 24px; }
+.post-body h2 { font-size: 20px; }
+.post-body h3 { font-size: 18px; }
+
+/* 첫 번째 소제목 상단 여백 제거 */
+.post-body h1:first-child, .post-body h2:first-child, .post-body h3:first-child {
+  margin-top: 0;
+}
+
+.post-body p {
+  margin: 0 0 16px;
+}
+
+/* 본문 내 강조 텍스트를 오렌지 포인트 컬러로 */
+.post-body strong {
+  color: #ff7a00;
+  font-weight: 700;
+}
+
+/* 본문 내 링크 스타일 (계산기 딥블루 반영) */
+.post-body a {
+  color: #1f5c7a;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.post-body a:hover {
+  color: #ff7a00; /* 호버 시 오렌지 */
+}
+
+/* 모바일 화면 대응 정돈 */
+@media (max-width: 600px) {
+  .page-title { font-size: 22px; }
+  .post-body { padding: 24px 20px; font-size: 15px; }
 }
 
 /* ============================================
