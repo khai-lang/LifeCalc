@@ -275,7 +275,7 @@ select {
 
 .wrap--with-rail {
   display: grid;
-  grid-template-columns: 200px minmax(0,880px) 320px;
+  grid-template-columns: 320px minmax(0,880px) 320px;
   gap: 24px;
   align-items: start;
 }
