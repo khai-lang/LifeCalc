@@ -1,11 +1,11 @@
 ---
 layout: guide
-title: "전세 vs 월세, 2026년엔 뭐가 진짜 유리할까? — 전환율·금리·손익 완전 정리"
-description: "2026년 기준금리 2.5% 환경에서 전세와 월세 중 어느 쪽이 유리한지 전월세 전환율, 대출 이자, 기회비용을 기준으로 비교합니다. 상황별 유불리 판단 가이드 포함."
-permalink: guide/jeonse-vs-wolse-2026/
-canonical: https://calculator.khaistory.com/guide/jeonse-vs-wolse-2026/
-og_title: "전세 vs 월세 2026 — 금리·전환율로 유불리 완전 정리"
-og_description: "2026년 기준금리 기준, 전세와 월세 중 어느 쪽이 더 유리한지 비용 비교와 상황별 판단 가이드를 제공합니다."
+title: "2026년 양도소득세 계산 꿀팁 — 세율표·필요경비·비과세 완벽 정리"
+description: "2026년 최신 기준 부동산 양도소득세 기본세율표와 장기보유특별공제, 필요경비 증빙 항목을 알아보고 양도세를 수천만 원 아낄 수 있는 실전 절세 가이드를 제공합니다."
+permalink: guide/capital-gains-tax-2026/
+canonical: https://calculator.khaistory.com/guide/capital-gains-tax-2026/
+og_title: "2026년 양도소득세 계산 꿀팁 — 세율·절세 가이드 완전 정리"
+og_description: "최신 과세표준 구간별 양도세율과 1세대 1주택 비과세 요건, 필요경비 인정 항목까지 한눈에 확인하세요."
 categories: [guide]
 ---
 
