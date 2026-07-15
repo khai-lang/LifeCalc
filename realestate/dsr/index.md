@@ -681,7 +681,7 @@ function calcReverse(){
   const totalInterest=actualMonthly*n-maxLoan;
   const actualDsr=(existing+actualMonthly*12)/income*100;
 
-  document.getElementById('rv-result').style.display='';
+  document.getElementById('rv-result').style.display='block';
   document.getElementById('rv-max-loan').textContent=fw(Math.round(maxLoan));
   document.getElementById('rv-sub').textContent=
     `DSR ${(limit*100).toFixed(0)}% 기준 · 금리 ${rate}% · ${term}년 만기`+
