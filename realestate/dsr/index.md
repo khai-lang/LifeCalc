@@ -1,6 +1,3 @@
-bash
-
-cat > /home/claude/dsr-2026-v2.html << 'HTMLEOF'
 ---
 layout: default
 title: "DSR 계산기 2026 — 스트레스 DSR·대출 한도 역산 포함"
@@ -713,8 +710,4 @@ window.calcDsr=calcDsr;
 window.calcReverse=calcReverse;
 })();
 </script>
-HTMLEOF
-echo "✅ DSR 계산기 완료 ($(wc -l < /home/claude/dsr-2026-v2.html)줄)"
-출력
 
-✅ DSR 계산기 완료 (712줄)
