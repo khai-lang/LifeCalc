@@ -553,7 +553,7 @@ function calcLoan(){
 
   const methodLabels={'equal-payment':'원리금균등','equal-principal':'원금균등','bullet':'만기일시'};
 
-  document.getElementById('ln-result').style.display='';
+  document.getElementById('ln-result').style.display='block';
   document.getElementById('r-method-label').textContent=`${methodLabels[method]} — 월 납입액`;
   document.getElementById('r-monthly').textContent=fw(firstRepay.payment);
 
@@ -686,7 +686,7 @@ function calcPrepay(){
   const fee=Math.round(prepayAmt*feeRate);
   const netSave=savedInterest-fee;
 
-  document.getElementById('pre-result').style.display='';
+  document.getElementById('pre-result').style.display='block';
   document.getElementById('pre-saved-interest').textContent=fw(savedInterest);
   document.getElementById('pre-saved-months').textContent=savedMonths>0?savedMonths+'개월 단축':'유지';
   document.getElementById('pre-fee').textContent=fw(fee);
