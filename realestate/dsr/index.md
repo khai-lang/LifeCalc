@@ -624,7 +624,7 @@ function calcDsr(){
   const judgeN=getDsrJudge(normalDsr);
   const judgeS=getDsrJudge(stressDsr);
 
-  document.getElementById('dsr-result').style.display='';
+  document.getElementById('dsr-result').style.display='block';
   document.getElementById('r-dsr-normal').textContent=normalDsr.toFixed(1)+'%';
   document.getElementById('r-dsr-stress').textContent=stressAdd>0?stressDsr.toFixed(1)+'%':'미적용';
   document.getElementById('r-stress-label').textContent=stressAdd>0?`(+${stressAdd}%p 가산)`:'';
