@@ -10,7 +10,14 @@ plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-paginate-v2
 
+# 들여쓰기 없이 벽에 딱 붙여서(맨 앞으로 당겨서) 작성해 주세요.
+pagination:
+  enabled: true
+  per_page: 9
+  permalink: '/page:num/'
+   
 markdown: kramdown
 permalink: /:path/
 
