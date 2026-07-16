@@ -1,0 +1,127 @@
+---
+layout: post
+title: "DCA(적립식 투자) vs 일시투자 | XIRR로 진짜 수익률 확인하는 법"
+description: "분할매수(DCA)와 일시투자 중 무엇이 유리한지, 매수 시점이 제각각인 적립식 투자의 실제 수익률을 XIRR로 정확히 계산하는 방법을 정리했습니다."
+permalink: "/guide/dca-xirr-2026/"
+date: 2026-07-16
+og_title: "DCA vs 일시투자, XIRR로 진짜 수익률 확인하기"
+og_description: "적립식 투자의 진짜 수익률을 계산하는 방법을 정리했습니다."
+---
+
+<style>
+.gdca-wrap{max-width:780px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Malgun Gothic",sans-serif;color:#3f2d20;line-height:1.75}
+.gdca-hero{background:linear-gradient(135deg,#f8efe5,#f3e7d9);border-radius:22px;padding:36px 28px;margin:24px 0}
+.gdca-badge{display:inline-block;background:#fff;color:#c2410c;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:12px}
+.gdca-hero h1{font-size:1.5rem;margin:0 0 10px;color:#3f2d20}
+.gdca-hero p{margin:0;color:#8c7355;font-size:.98rem}
+.gdca-card{background:#fff;border:1px solid #f1eae1;border-radius:18px;padding:24px;margin:18px 0}
+.gdca-card h2{font-size:1.22rem;margin-top:0}
+.gdca-card h3{border-left:4px solid #8c7355;padding-left:10px;font-size:1.03rem;margin:22px 0 10px}
+.gdca-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
+.gdca-table th,.gdca-table td{border:1px solid #eaddcd;padding:9px 10px;text-align:left}
+.gdca-table th{background:#faf7f2}
+.gdca-tip{background:#faf7f2;border:1px solid #eaddcd;border-radius:14px;padding:16px 18px;margin:14px 0;font-size:.9rem}
+.gdca-tip strong{color:#c2410c}
+.gdca-faq-item{border-bottom:1px solid #f1eae1;padding:14px 0}
+.gdca-faq-item:last-child{border-bottom:none}
+.gdca-faq-q{font-weight:700;margin-bottom:6px}
+.gdca-faq-q::before{content:"Q. ";color:#c2410c}
+.gdca-faq-a{color:#5a4a3a;font-size:.9rem}
+.gdca-cta{display:block;text-align:center;background:#c2410c;color:#fff!important;text-decoration:none;font-weight:700;padding:14px;border-radius:10px;margin:20px 0}
+.gdca-related{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.gdca-related a{border:1px solid #eaddcd;border-radius:20px;background:#faf7f2;color:#785a43!important;text-decoration:none;padding:8px 16px;font-size:.86rem;font-weight:600}
+.gdca-ad{text-align:center;color:#b9a894;font-size:.75rem;margin:20px 0;padding:10px;border:1px dashed #eaddcd;border-radius:10px}
+</style>
+
+<div class="gdca-wrap">
+
+<nav aria-label="breadcrumb" style="font-size:.82rem;color:#8c7355;margin-top:16px">
+  <a href="/" style="color:#8c7355">홈</a> &gt; <a href="/investment/" style="color:#8c7355">투자</a> &gt; DCA·XIRR 가이드
+</nav>
+
+<div class="gdca-hero">
+  <span class="gdca-badge">투자 관리 가이드</span>
+  <h1>"수익률 15%"라는 말, 사실은 잘못 계산된 숫자일 수 있습니다</h1>
+  <p>매달 다른 금액을 다른 시점에 넣었다면 단순 수익률로는 진짜 성과를 알 수 없습니다. XIRR이 필요한 이유입니다.</p>
+</div>
+
+<div class="gdca-card">
+<h2>DCA(분할매수)란?</h2>
+<p>DCA(Dollar-Cost Averaging)는 정해진 금액을 정해진 주기(매주·매월 등)마다 나눠서 매수하는 전략입니다. 가격이 낮을 때는 더 많은 수량을, 높을 때는 더 적은 수량을 사게 되어 평균 매입단가가 자연스럽게 평활화되는 효과가 있습니다.</p>
+<h3>DCA vs 일시투자, 언제 뭐가 유리한가</h3>
+<table class="gdca-table">
+<tr><th>상황</th><th>유리한 전략</th><th>이유</th></tr>
+<tr><td>장기 우상향이 기대되는 자산</td><td>일시투자</td><td>일찍 넣을수록 복리 효과를 더 오래 누림 (역사적으로 시장은 대체로 상승)</td></tr>
+<tr><td>단기 변동성이 크거나 고점 우려가 있을 때</td><td>DCA</td><td>매입단가를 분산시켜 고점 매수 리스크를 줄임</td></tr>
+<tr><td>목돈이 아닌 매월 소득으로 투자</td><td>DCA (사실상 유일한 선택)</td><td>애초에 한 번에 넣을 목돈이 없는 구조</td></tr>
+<tr><td>심리적 안정이 더 중요할 때</td><td>DCA</td><td>급락 시 '한 번에 물렸다'는 후회를 줄여 장기 보유를 돕는 심리적 효과</td></tr>
+</table>
+<div class="gdca-tip"><strong>Tip.</strong> 통계적으로는 장기 우상향 자산에서 일시투자의 기대수익률이 DCA보다 높은 경우가 많지만, DCA는 '최악의 타이밍에 몰빵할 위험'을 줄여준다는 점에서 리스크 관리 측면의 가치가 있습니다. 둘 중 하나를 고르기보다 상황에 맞게 섞어 쓰는 경우도 많습니다.</div>
+</div>
+
+<div class="gdca-ad"><!-- AdSense 삽입 위치 (slot 7492664289) --></div>
+
+<div class="gdca-card">
+<h2>왜 단순 수익률로는 부족할까</h2>
+<p>매달 100만원씩 12번 투자해 총 1,200만원을 넣고 지금 평가액이 1,300만원이라면, 단순히 (1,300−1,200)/1,200 = 8.3%라고 계산하기 쉽습니다. 하지만 이 숫자는 <strong>각 회차가 투자된 기간이 서로 다르다는 사실</strong>을 무시합니다. 첫 회차는 12개월간 투자됐지만 마지막 회차는 1개월밖에 안 됐는데, 둘을 동일 가중치로 취급하는 셈입니다.</p>
+<h3>XIRR이 해결하는 문제</h3>
+<p>XIRR(eXtended Internal Rate of Return)은 각 현금흐름(매수 시점·금액)의 <strong>날짜</strong>를 반영해, 마치 하나의 통합된 연 환산 수익률로 계산해주는 지표입니다. 같은 투자 결과라도 넣은 시점이 최근에 몰려 있으면 실제 연환산 수익률은 단순 수익률보다 훨씬 높게(또는 낮게) 나올 수 있습니다.</p>
+<div class="gdca-tip"><strong>이해를 돕는 비유.</strong> 단순 수익률이 '전체 성적표의 평균 점수'라면, XIRR은 '각 시험을 언제 봤는지까지 고려한 나의 진짜 성장 속도'에 가깝습니다.</div>
+</div>
+
+<div class="gdca-card">
+<h2>계산에 필요한 입력값</h2>
+<table class="gdca-table">
+<tr><th>입력값</th><th>설명</th></tr>
+<tr><td>각 매수 날짜</td><td>거래소 체결 내역 기준</td></tr>
+<tr><td>각 매수 금액</td><td>수수료 포함 실제 지출액</td></tr>
+<tr><td>현재 평가일과 평가액</td><td>마지막 '가상의 현금흐름'으로 취급</td></tr>
+</table>
+<p>매수 내역이 많을수록 손으로 계산하기 번거로우므로, CSV 업로드 후 자동으로 XIRR을 계산해주는 도구를 활용하는 것이 정확하고 빠릅니다.</p>
+</div>
+
+<div class="gdca-ad"><!-- AdSense 삽입 위치 (slot 7492664289) --></div>
+
+<div class="gdca-card">
+<h2>자주 묻는 질문</h2>
+<div class="gdca-faq-item"><div class="gdca-faq-q">XIRR과 CAGR은 어떻게 다른가요?</div><div class="gdca-faq-a">CAGR은 시작과 끝, 단 두 시점의 자금 흐름만 가정한 연평균 성장률입니다. 중간에 여러 번 나눠 투자했다면 CAGR로는 정확한 수익률을 구할 수 없고, 이런 경우 XIRR을 써야 합니다.</div></div>
+<div class="gdca-faq-item"><div class="gdca-faq-q">DCA 기간은 얼마나 길게 잡는 게 좋나요?</div><div class="gdca-faq-a">정해진 정답은 없지만, 목돈을 6개월~2년에 걸쳐 나눠 넣는 방식이 흔히 쓰입니다. 기간이 너무 길어지면 일시투자 대비 기대수익률 손실이 누적될 수 있습니다.</div></div>
+<div class="gdca-faq-item"><div class="gdca-faq-q">XIRR 값이 마이너스로 나오면 무조건 손실인가요?</div><div class="gdca-faq-a">네, XIRR이 음수라는 것은 투입한 현금흐름 전체를 연환산했을 때 손실 상태라는 의미입니다. 다만 평가일 기준의 미실현 손익이므로 이후 가격 변동에 따라 달라질 수 있습니다.</div></div>
+<div class="gdca-faq-item"><div class="gdca-faq-q">적립식 매수 금액이 매번 달라도 XIRR을 계산할 수 있나요?</div><div class="gdca-faq-a">네, XIRR은 각 현금흐름의 날짜와 금액이 불규칙해도 계산 가능하도록 설계된 지표라 정액 적립이 아니어도 문제없습니다.</div></div>
+</div>
+
+<a class="gdca-cta" href="/investment/dca-xirr/">내 매수 내역으로 XIRR 계산하기 →</a>
+
+<div class="gdca-card">
+<h3 style="margin-top:0">함께 보면 좋은 계산기</h3>
+<div class="gdca-related">
+<a href="/investment/dca-xirr/">DCA·XIRR 계산기</a>
+<a href="/investment/coin-pnl/">코인 손익 계산기</a>
+<a href="/investment/stock-pnl/">주식 손익 계산기</a>
+</div>
+</div>
+
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "XIRR과 CAGR은 어떻게 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "CAGR은 시작과 끝 두 시점만 가정한 연평균 성장률이고, 여러 번 나눠 투자한 경우 정확한 수익률 계산에는 XIRR을 써야 합니다."}},
+    {"@type": "Question", "name": "DCA 기간은 얼마나 길게 잡는 게 좋나요?", "acceptedAnswer": {"@type": "Answer", "text": "정해진 정답은 없지만 목돈을 6개월에서 2년에 걸쳐 나눠 넣는 방식이 흔히 쓰이며, 기간이 너무 길어지면 일시투자 대비 기대수익률 손실이 누적될 수 있습니다."}},
+    {"@type": "Question", "name": "XIRR 값이 마이너스로 나오면 무조건 손실인가요?", "acceptedAnswer": {"@type": "Answer", "text": "XIRR이 음수라는 것은 투입한 현금흐름 전체를 연환산했을 때 손실 상태라는 의미이며, 평가일 기준의 미실현 손익이므로 이후 가격 변동에 따라 달라질 수 있습니다."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "홈", "item": "https://calculator.khaistory.com/"},
+    {"@type": "ListItem", "position": 2, "name": "투자", "item": "https://calculator.khaistory.com/investment/"},
+    {"@type": "ListItem", "position": 3, "name": "DCA·XIRR 가이드", "item": "https://calculator.khaistory.com/guide/dca-xirr-2026/"}
+  ]
+}
+</script>
