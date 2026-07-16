@@ -7,14 +7,14 @@ pagination:
   per_page: 9
 ---
 
-<div class="guide-list">
-  {% for post in paginator.posts %}
-    {% include guide-card.html %}
-  {% endfor %}
-</div>
+{% for post in paginator.posts %}
+  <div class="post-card">
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+  </div>
+{% endfor %}
 
 {% if paginator.total_pages > 1 %}
-  <div class="pagination" style="text-align: center; margin-top: 20px;">
+  <div class="pagination">
     {% if paginator.previous_page %}
       <a href="{{ paginator.previous_page_path | relative_url }}">« 이전</a>
     {% endif %}
