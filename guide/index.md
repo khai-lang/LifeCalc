@@ -1,5 +1,31 @@
 ---
+layout: default
+title: 가이드 글 보기
+pagination:
+  enabled: true
+  category: guide
+  per_page: 9
 ---
+
+<div class="guide-list">
+  {% for post in paginator.posts %}
+    {% include guide-card.html %}
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+  <div class="pagination" style="text-align: center; margin-top: 20px;">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}">« 이전</a>
+    {% endif %}
+
+    <span>{{ paginator.page }} / {{ paginator.total_pages }}</span>
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}">다음 »</a>
+    {% endif %}
+  </div>
+{% endif %}
 
 {% include head.html %}
 
