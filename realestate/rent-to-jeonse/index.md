@@ -14,7 +14,7 @@ meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율
 
 <div class="rtj-hero">
   <p class="rtj-eyebrow">부동산 · 전월세</p>
-  <h1 class="rtj-title">전세 월세 전환 계산기</h1>
+  <h2 class="rtj-title">전세 월세 전환 계산기</h2>
   <p class="rtj-subtitle">전세 ↔ 월세 환산은 물론, 어느 쪽이 더 유리한지 손익분기점까지 확인하세요.<br>2026년 법정 전월세 전환율 <strong>연 5.0%</strong>가 기본값으로 적용되어 있습니다.</p>
 </div>
 
