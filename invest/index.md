@@ -8,7 +8,7 @@ permalink: "/invest/"
 <a class="skip-link" href="#calc-list">계산기 목록으로 바로가기</a>
 
 <section class="iv-hero">
-  <h1>투자 계산기 모음</h1>
+  <h2>투자 계산기 모음</h2
   <p class="iv-hero-desc">
     코인·주식 투자에서 자주 쓰는 <strong>실현/미실현손익(PnL)</strong>, <strong>가상자산 양도소득세</strong>,
     <strong>평단가·물타기</strong>, <strong>DCA(적립식)</strong>, <strong>목표가·손절가</strong>,
