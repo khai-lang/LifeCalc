@@ -14,7 +14,7 @@ permalink: "/invest/stocks/pnl/"
 </nav>
 
 <section class="cp-hero">
-  <h1>주식 PnL 계산기 <span style="font-size:.6em;opacity:.75;font-weight:600;">FIFO/LIFO · 수수료+거래세 포함</span></h1>
+  <h2>주식 PnL 계산기 <span style="font-size:.6em;opacity:.75;font-weight:600;">FIFO/LIFO · 수수료+거래세 포함</span></h2>
   <p class="cp-hero-desc">
     주식 투자에서 "결국 얼마 벌었지?"는 단순히 매수가·매도가만 비교해서는 정확히 알 수 없습니다.
     여러 번 나눠 매수하고 일부만 매도한 경우라면 더더욱 그렇습니다. 이 계산기는
