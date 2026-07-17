@@ -42,7 +42,7 @@ categories: [guide]
 
 <div class="gat-hero">
   <span class="gat-badge">2026년 기준</span>
-  <h1>취득세, 집값의 몇 %를 더 내야 할까?</h1>
+  
   <p>주택수·조정대상지역 여부에 따라 세율이 1%에서 최대 12%까지 벌어집니다. 생애최초 감면까지 한 번에 정리했습니다.</p>
 </div>
 
