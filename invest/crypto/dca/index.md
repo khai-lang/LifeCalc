@@ -14,7 +14,7 @@ permalink: "/invest/crypto/dca/"
 </nav>
 
 <section class="dca-hero">
-  <h1>코인 DCA + XIRR 계산기</h1>
+  <h2>코인 DCA + XIRR 계산기</h2>
   <p class="dca-hero-desc">
     "총 300만원 넣어서 지금 360만원이니 20% 벌었다"는 계산은 <strong>언제 얼마씩 넣었는지</strong>를
     무시합니다. 초반에 많이 넣고 최근에 조금 넣은 경우와 그 반대는 실질적인 연환산 성과가 전혀 다릅니다.
