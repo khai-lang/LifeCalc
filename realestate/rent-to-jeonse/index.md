@@ -8,7 +8,9 @@ meta-og:site_name: "LifeCalc"
 meta-og:title: "전월세 전환율 완전정리 2026 | 계산법·법정 상한·월세 환산" 
 meta-og:type: "article" 
 meta-og:url: "https://calculator.khaistory.com/guide/jeonse-wolse-conversion-2026/" 
-meta-twitter:card: "summary" meta-twitter:title: "전월세 전환율 완전정리 2026 | 계산법·법정 상한·월세 환산" 
+meta-twitter:
+card: "summary" 
+meta-twitter:title: "전월세 전환율 완전정리 2026 | 계산법·법정 상한·월세 환산" 
 meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율 계산 방법과 2026년 법정 상한 | 월세 환산까지 정리 | LifeCalc" 
 ---
 
