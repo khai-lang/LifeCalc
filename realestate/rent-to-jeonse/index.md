@@ -1,16 +1,17 @@
 ---
 canonical: "https://calculator.khaistory.com/realestate/rent-to-jeonse/"
-meta-description: "2026년 전월세 전환율 완전정리. 법정 전환율 계산 공식(기준금리+2%p), 전세→월세·월세→전세 환산 방법, 갱신계약과 신규계약의 차이, 법정 상한 초과 시 대응법까지 확인하세요." 
-meta-generator: "Jekyll v3.10.0" 
-meta-og:description: "전월세 전환율 계산법과 2026년 기준 법정 상한, 전세·월세 환산 공식을 정리했습니다." 
-meta-og:locale: "ko_KR" 
-meta-og:site_name: "LifeCalc" 
-meta-og:title: "전월세 전환율 완전정리 2026 | 계산법·법정 상한·월세 환산" 
-meta-og:type: "article" 
-meta-og:url: "https://calculator.khaistory.com/guide/jeonse-wolse-conversion-2026/" 
+meta-description: "2026년 전월세 전환율 완전정리. 법정 전환율 계산 공식(기준금리+2%p), 전세→월세·월세→전세 환산 방법, 갱신계약과 신규계약의 차이, 법정 상한 초과 시 대응법까지 확인하세요."
+meta-generator: "Jekyll v3.10.0"
+meta-og:description: "전월세 전환율 계산법과 2026년 기준 법정 상한, 전세·월세 환산 공식을 정리했습니다."
+meta-og:locale: "ko_KR"
+meta-og:site_name: "LifeCalc"
+meta-og:title: "전월세 전환율 완전정리 2026 | 계산법·법정 상한·월세 환산"
+meta-og:type: "article"
+meta-og:url: "https://calculator.khaistory.com/guide/jeonse-wolse-conversion-2026/"
 meta-twitter-card: "summary"
 meta-twitter-title: "전월세 전환율 완전정리 2026 | 계산법·법정 상한·월세 환산"
-meta-viewport: "width=device-width, initial-scale=1" title: "전월세 전환율 계산 방법과 2026년 법정 상한 | 월세 환산까지 정리 | LifeCalc" 
+meta-viewport: "width=device-width, initial-scale=1"
+title: "전월세 전환율 계산 방법과 2026년 법정 상한 | 월세 환산까지 정리 | LifeCalc"
 ---
 
 <div class="rtj-hero">
