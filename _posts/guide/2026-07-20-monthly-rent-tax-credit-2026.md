@@ -3,6 +3,8 @@ layout: guide
 title: "2026년 월세 세액공제 완전정리 | 자격 4요건·공제율 17%·최대 170만원 환급"
 description: "총급여 8,000만원 이하 무주택자가 받을 수 있는 월세 세액공제 자격·공제율·신청 방법과 놓쳤을 때 5년 경정청구까지 2026년 기준으로 정리했습니다."
 permalink: "https://calculator.khaistory.com/guide/monthly-rent-tax-credit-2026/"
+permalink: "/guide/monthly-rent-tax-credit-2026/"
+canonical: "https://calculator.khaistory.com/guide/monthly-rent-tax-credit-2026/"
 date: 2026-07-20
 og_title: "2026년 월세 세액공제 완전정리 | 최대 170만원 환급"
 og_description: "자격 4요건·공제율·신청 방법을 한 번에 정리했습니다."
