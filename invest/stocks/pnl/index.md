@@ -136,12 +136,11 @@ permalink: "/invest/stocks/pnl/"
   </p>
 </section>
 
-<!-- COUPANG PLACEHOLDER: 투자 관련 도서/플래너 등 자연스러운 연결 지점 (실제 링크는 추후 삽입) -->
 <section class="cp-card cp-card-light cp-recommend">
   <h3>함께 보면 좋은 자료</h3>
-  <p class="cp-recommend-desc">여러 번 나눠 매매한 기록을 체계적으로 남기고 싶다면 매매일지·투자 플래너를 함께 활용해 보세요.</p>
-  <div class="cp-recommend-slot" data-partner="coupang" data-category="투자플래너/매매일지">
-    <!-- 쿠팡파트너스 링크 삽입 위치 -->
+  <p class="cp-recommend-desc">여러 번 나눠 매매한 기록을 체계적으로 남기고 싶다면 <span style="background-color: #fff9c4; font-weight: bold;">매매일지·투자 플래너</span>를 함께 활용해 보세요.</p>
+  <div class="cp-recommend-slot" data-partner="coupang" data-category="투자플래너/매매일지" style="text-align: center; margin-top: 15px;">
+    <a href="https://link.coupang.com/a/fILavkgpwG" style="display: inline-block; background-color: #ff5722; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: bold; text-decoration: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">투자 플래너 / 매매일지 둘러보기 →</a>
   </div>
 </section>
 
