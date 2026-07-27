@@ -27,6 +27,16 @@ permalink: "/invest/"
   <a href="#ivh-guide">가이드 글</a>
 </nav>
 
+<div class="ivh-search">
+  <label for="ivh-filter" class="sr-only">계산기 검색</label>
+  <input id="ivh-filter" type="search" placeholder="예: PnL, 양도세, 평단가, DCA, 배당, 손절가…" autocomplete="off">
+</div>
+
+<div class="ivh-recent-box" aria-live="polite" hidden>
+  <p class="ivh-recent-title">최근 본 계산기</p>
+  <ul class="ivh-recent-list"></ul>
+</div>
+
 ### 코인 계산기
 
 <ul id="ivh-crypto" class="ivh-card-grid">
@@ -262,6 +272,26 @@ permalink: "/invest/"
   .ivh-faq-item[open] summary::after { content: "×"; }
   .ivh-faq-item summary:hover { color: #c2410c; }
   .ivh-faq-item p { margin: 0 0 16px; line-height: 1.7; color: #5c4a38; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  .ivh-search { margin-bottom: 20px; }
+  .ivh-search input {
+    width: 100%; padding: 12px 16px; border: 1px solid #e3d4c5; border-radius: 12px;
+    font-size: 0.95rem; box-sizing: border-box; background: #fff;
+  }
+  .ivh-search input:focus { outline: 2px solid #c2410c; outline-offset: 1px; }
+
+  .ivh-recent-box {
+    background: #faf7f2; border: 1px solid #eaddcd; border-radius: 12px;
+    padding: 12px 16px; margin-bottom: 20px;
+  }
+  .ivh-recent-title { font-weight: 700; color: #785a43; margin: 0 0 6px; font-size: 0.85rem; }
+  .ivh-recent-box ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 10px; flex-wrap: wrap; }
+  .ivh-recent-box a { color: #c2410c; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .ivh-recent-box a:hover { text-decoration: underline; }
 </style>
 
 <script>
@@ -270,6 +300,34 @@ permalink: "/invest/"
     if (ad) { ad.style.minHeight = '120px'; }
     (window.adsbygoogle = window.adsbygoogle || []).push({});
   });
+
+  const ivhInput = document.getElementById('ivh-filter');
+  const ivhCards = document.querySelectorAll('.ivh-card');
+  ivhInput?.addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase();
+    ivhCards.forEach(card => {
+      card.style.display = card.innerText.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+
+  const ivhRecentKey = 'recentInvestCalculators';
+  const ivhRecentBox = document.querySelector('.ivh-recent-box');
+  const ivhRecentList = document.querySelector('.ivh-recent-list');
+  document.querySelectorAll('.ivh-card-link').forEach(a => {
+    a.addEventListener('click', () => {
+      const titleEl = a.querySelector('.ivh-card-title');
+      const item = { href: a.getAttribute('href'), title: titleEl ? titleEl.textContent : a.textContent };
+      const arr = JSON.parse(sessionStorage.getItem(ivhRecentKey) || '[]')
+        .filter(x => x.href !== item.href);
+      arr.unshift(item);
+      sessionStorage.setItem(ivhRecentKey, JSON.stringify(arr.slice(0, 3)));
+    });
+  });
+  const ivhSaved = JSON.parse(sessionStorage.getItem(ivhRecentKey) || '[]');
+  if (ivhSaved.length && ivhRecentBox && ivhRecentList) {
+    ivhRecentBox.hidden = false;
+    ivhRecentList.innerHTML = ivhSaved.map(x => `<li><a href="${x.href}">${x.title}</a></li>`).join('');
+  }
 </script>
 
 <script type="application/ld+json">
