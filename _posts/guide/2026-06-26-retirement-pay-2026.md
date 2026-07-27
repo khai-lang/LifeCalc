@@ -52,6 +52,19 @@ categories: [guide]
     <p style="font-size:.82rem;color:#8c7355;margin-top:8px">※ 근사치입니다. 정확한 계산은 아래 계산기를 이용하세요.</p>
   </div>
 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
   <div class="ret-content-card">
     <h3>3. IRP로 퇴직소득세 30~40% 아끼는 법</h3>
     <ul>
@@ -86,6 +99,19 @@ categories: [guide]
   </div>
 
 </section>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <style>
 .ret-guide-container{font-family:'Noto Sans KR',sans-serif;color:#1f2937;line-height:1.8;max-width:860px;margin:0 auto;padding:10px}
