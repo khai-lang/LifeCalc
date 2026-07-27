@@ -3,6 +3,7 @@ layout: guide
 title: "가상자산(코인) 과세 2027년 시행 | 세율 22%·의제취득가액·기본공제 완전정리"
 description: "세 차례 유예 끝에 2027년 1월 1일 시행이 확정된 가상자산 과세. 기타소득 분류, 기본공제 250만원, 세율 22%, 의제취득가액 제도까지 핵심만 정리했습니다."
 permalink: "/guide/virtual-asset-tax-2026/"
+canonical: "https://calculator.khaistory.com/guide/virtual-asset-tax-2026/"
 date: 2026-07-16
 og_title: "가상자산 과세 2027년 시행 완전정리"
 og_description: "세율·기본공제·의제취득가액까지 한 번에 정리했습니다."
