@@ -130,7 +130,7 @@ permalink: "/invest/crypto/dca/"
     <h3>함께 보면 좋은 자료</h3>
     <p class="dca-recommend-desc">매달 적립 현황을 기록해두면 <span style="background-color: #fff9c4; font-weight: bold;">XIRR 계산</span>에 필요한 날짜·금액을 훨씬 빠르게 정리할 수 있습니다.</p>
   </div>
-  <a class="dca-cta-btn" href="https://link.coupang.com/a/fILq7gLk3U" data-partner="coupang" data-category="투자기록 노트/가계부" style="display: inline-block; background-color: #ff5722; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: bold; text-decoration: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">투자기록 노트 / 가계부 둘러보기 →</a>
+  <a class="dca-cta-btn" href=https://link.coupang.com/a/fILq7gLk3U"" data-partner="coupang" data-category="투자기록 노트/가계부" style="display: inline-block; background-color: #ff5722; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: bold; text-decoration: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">투자기록 노트 / 가계부 둘러보기 →</a>
 </section>
 
 <section class="dca-card">
