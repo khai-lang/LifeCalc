@@ -50,6 +50,19 @@ categories: [guide]
 
 <div class="gva-warn"><strong>먼저 알아두세요.</strong> 가상자산 세제는 그동안 여러 차례 유예된 이력이 있어 정치권 논의에 따라 시행 시점이 다시 조정될 가능성을 완전히 배제할 수 없습니다. 실제 신고 전에는 국세청(nts.go.kr) 공지로 최종 확인하시기 바랍니다.</div>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <div class="gva-card">
 <h2>핵심 과세 구조 한눈에 보기</h2>
 <table class="gva-table">
@@ -83,6 +96,19 @@ categories: [guide]
 <div class="gva-tip"><strong>Tip.</strong> 손익통산은 같은 해에 발생한 이익과 손실끼리만 상계됩니다. 올해 크게 손실을 봤더라도 내년 수익에서 그 손실을 빼주지 않으니, 손절과 익절 타이밍을 같은 연도 안에서 맞추는 것이 절세에 유리할 수 있습니다.</p>
 </div>
 </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <div class="gva-card">
 <h2>자주 묻는 질문</h2>
