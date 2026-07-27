@@ -68,8 +68,8 @@ permalink: "/invest/stocks/avg-cost/"
 <section class="sac-card sac-card-light sac-recommend">
   <h3>함께 보면 좋은 자료</h3>
   <p class="sac-recommend-desc">분할매수 전략을 세울 때 <span style="background-color: #fff9c4; font-weight: bold;">매수 계획표</span>를 미리 기록해두면 도움이 됩니다.</p>
-  <div class="sac-recommend-slot" data-partner="coupang" data-category="투자 플래너/매매일지">
-    <a href="https://link.coupang.com/a/fIKvWxDGSq">투자 플래너 / 매매일지 둘러보기 →</a>
+  <div class="sac-recommend-slot" data-partner="coupang" data-category="투자 플래너/매매일지" style="text-align: center; margin-top: 15px;">
+    <a href="https://link.coupang.com/a/fIKvWxDGSq" style="display: inline-block; background-color: #ff5722; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: bold; text-decoration: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">투자 플래너 / 매매일지 둘러보기 →</a>
   </div>
 </section>
 
