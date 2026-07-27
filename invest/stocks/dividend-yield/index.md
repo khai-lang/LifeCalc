@@ -92,7 +92,7 @@ permalink: "/invest/stocks/dividend-yield/"
     <h3>함께 보면 좋은 자료</h3>
     <p class="dy-recommend-desc">장기 배당 투자를 계획하고 있다면 배당금 관리 다이어리로 종목별 배당 일정을 정리해보세요.</p>
   </div>
-  <a class="dy-cta-btn" href="#" data-partner="coupang" data-category="배당투자 다이어리/가계부">둘러보기 →</a>
+  <a class="dy-cta-btn" href="https://link.coupang.com/a/fIJlWR2jRY" data-partner="coupang" data-category="배당투자 다이어리/가계부">둘러보기 →</a>
 </section>
 
 <section class="dy-card">
