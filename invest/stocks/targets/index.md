@@ -98,7 +98,7 @@ permalink: "/invest/stocks/targets/"
     <h3>함께 보면 좋은 자료</h3>
     <p class="tg-recommend-desc">매매 원칙을 세우고 지키는 데 도움이 되는 투자 원칙 노트를 함께 활용해보세요.</p>
   </div>
-  <a class="tg-cta-btn" href="#" data-partner="coupang" data-category="투자원칙 노트/멘탈관리 도서">둘러보기 →</a>
+  <a class="tg-cta-btn" href="https://link.coupang.com/a/fIJlWR2jRY)" data-partner="coupang" data-category="투자원칙 노트/멘탈관리 도서">둘러보기 →</a>
 </section>
 
 <section class="tg-card">
