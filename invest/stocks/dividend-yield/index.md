@@ -14,7 +14,7 @@ permalink: "/invest/stocks/dividend-yield/"
 </nav>
 
 <section class="dy-hero">
-  <h1>배당수익률(Yield)·투자원가수익률(YoC) 계산기</h1>
+  <h2>배당수익률(Yield)·투자원가수익률(YoC) 계산기</h2>
   <p class="dy-hero-desc">
     배당수익률은 기준을 무엇으로 삼느냐에 따라 완전히 다른 숫자가 나옵니다. <strong>현재 주가 기준
     배당수익률(Yield)</strong>은 "지금 사면 얼마나 받나"를, <strong>매수가 기준 투자원가수익률
