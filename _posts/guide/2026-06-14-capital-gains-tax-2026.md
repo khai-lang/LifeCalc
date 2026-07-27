@@ -16,6 +16,17 @@ categories: [guide]
     <p class="hero-sub">실전! 이것만 알면 양도세 수천만 원 아낀다</p>
   </div>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="9799475726"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
   <div class="cgt-content-card">
     <h3>1. 양도소득세, 이것부터 확인하세요</h3>
     <ul>
@@ -69,6 +80,17 @@ categories: [guide]
     </div>
   </div>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="9799475726"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
   <div class="cgt-content-card">
     <h3>5. 꼭 알아야 할 주의사항</h3>
     <ul>
@@ -88,6 +110,17 @@ categories: [guide]
   </div>
 
 </section>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="9799475726"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <style>
   .cgt-guide-container {
