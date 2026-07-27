@@ -7,7 +7,6 @@ permalink: "/invest/"
 
 <a class="ivh-skip-link" href="#ivh-crypto">계산기 목록으로 바로가기</a>
 
-# 투자 계산기 허브 2026
 
 ## 코인·주식 계산기 2026
 
