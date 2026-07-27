@@ -52,19 +52,6 @@ categories: [guide]
     </ul>
   </div>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
-     crossorigin="anonymous"></script>
-<!-- 계산기 광고 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3758454239921831"
-     data-ad-slot="7492664289"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
   <!-- 섹션 3 -->
   <div class="cgt-content-card">
     <h3>3. [전세] 신혼부부 전용 버팀목 대출</h3>
