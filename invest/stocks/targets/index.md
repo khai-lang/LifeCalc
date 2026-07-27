@@ -14,7 +14,7 @@ permalink: "/invest/stocks/targets/"
 </nav>
 
 <section class="tg-hero">
-  <h1>목표가·손절가 계산기</h1>
+  <h2>목표가·손절가 계산기</h2>
   <p class="tg-hero-desc">
     진입가와 목표 수익률, 손절 폭을 기준으로 <strong>목표가</strong>, <strong>손절가</strong>,
     <strong>손익비(R:R)</strong>, 그리고 수량을 입력하면 <strong>예상 이익·예상 손실</strong>까지
