@@ -1,111 +1,148 @@
 ---
 layout: "default"
-title: "투자 계산기 모음 (코인·주식 PnL, 세금, 평단가, DCA, 목표가·손절, 배당)"
-description: "코인·주식 실현손익(PnL), 가상자산 양도소득세, 평단가/추가매수, DCA(적립식) 수익률, 목표가·손절가, 배당수익률(YoC) 계산기를 한 곳에서 제공합니다."
+title: "투자 계산기 허브 2026 | LifeCalc"
+description: "코인·주식 PnL(FIFO/LIFO 원장형), 가상자산 양도소득세, 평단가, DCA+XIRR, 목표가·손절가, 배당수익률까지 투자 계산기를 한 곳에서."
 permalink: "/invest/"
 ---
 
-<a class="skip-link" href="#calc-list">계산기 목록으로 바로가기</a>
+<a class="ivh-skip-link" href="#ivh-crypto">계산기 목록으로 바로가기</a>
 
-<section class="iv-hero">
-  <h2>투자 계산기 모음</h2>
-  <p class="iv-hero-desc">
-    코인·주식 투자에서 자주 쓰는 <strong>실현/미실현손익(PnL)</strong>, <strong>가상자산 양도소득세</strong>,
-    <strong>평단가·물타기</strong>, <strong>DCA(적립식)</strong>, <strong>목표가·손절가</strong>,
-    <strong>배당수익률(YoC)</strong> 계산기를 한 페이지에 모았습니다. 거래소·증권사 수수료와 세율 입력도
-    가능하며, 모든 계산기는 무료로 이용할 수 있습니다.
-  </p>
-</section>
+# 투자 계산기 허브 2026
 
-<div class="calc-search">
-  <label for="calc-filter" class="sr-only">계산기 검색</label>
-  <input id="calc-filter" type="search" placeholder="예: PnL, 양도세, 평단가, DCA, 배당, 손절가…" autocomplete="off">
+## 코인·주식 계산기 2026
+
+2027년 1월 시행 예정인 가상자산 양도소득세(22%, 250만원 공제) 기준으로 업데이트됐습니다.
+코인 PnL은 FIFO/LIFO 거래내역 원장 방식으로 여러 번 나눠 매수·매도한 경우도 정확히 계산합니다.
+
+<div class="ivh-stats">
+  <div class="ivh-stat"><span class="ivh-stat-label">가상자산 과세 시행</span><span class="ivh-stat-value">2027.1</span></div>
+  <div class="ivh-stat"><span class="ivh-stat-label">기본공제</span><span class="ivh-stat-value">250만원</span></div>
+  <div class="ivh-stat"><span class="ivh-stat-label">세율</span><span class="ivh-stat-value">22%</span></div>
 </div>
 
-## 🔥 지금 가장 많이 찾는 계산기
+<nav class="ivh-tabnav" aria-label="빠른 이동">
+  <a href="#ivh-crypto">코인</a>
+  <a href="#ivh-stocks">주식</a>
+  <a href="#ivh-scenario">상황별 추천</a>
+  <a href="#ivh-guide">가이드 글</a>
+</nav>
 
-<section aria-labelledby="featured-title">
-  <h3 id="featured-title" class="sr-only">추천 계산기</h3>
-  <ul id="calc-list" class="card-grid">
-    <li class="card card-featured" data-keywords="코인 pnl 수익 손실 손익 fifo lifo 실시간 원장">
-      <a class="card-link" href="/invest/crypto/pnl/">
-        <span class="card-badge">NEW · 원장형</span>
-        <span class="card-title">코인 PnL 계산기</span>
-        <span class="card-desc">실시간 시세 자동입력 · FIFO/LIFO 거래내역 원장 · CSV 업로드 · 자동저장</span>
-      </a>
-    </li>
-    <li class="card card-featured" data-keywords="가상자산 코인 양도소득세 2027 세금 의제취득가액">
-      <a class="card-link" href="/invest/crypto/capital-gains-tax/">
-        <span class="card-badge">NEW · 2027 시행 대비</span>
-        <span class="card-title">가상자산 양도소득세 계산기</span>
-        <span class="card-desc">의제취득가액 특례·손익통산까지 반영한 예상 세액 계산</span>
-      </a>
-    </li>
-  </ul>
-</section>
+### 코인 계산기
 
-## 코인(Crypto)
-<section aria-labelledby="crypto-title">
-  <h3 id="crypto-title" class="sr-only">코인 계산기</h3>
-  <ul class="card-grid">
-    <li class="card" data-keywords="코인 평단가 추가매수 물타기 희석">
-      <a class="card-link" href="/invest/crypto/avg-cost/">
-        <span class="card-title">코인 평단가·추가매수 계산기</span>
-        <span class="card-desc">추가 매수 시 새로운 평단가를 빠르게 확인 (간편 버전)</span>
-      </a>
-    </li>
-    <li class="card" data-keywords="코인 dca 적립식 평균매수 수익률">
-      <a class="card-link" href="/invest/crypto/dca/">
-        <span class="card-title">코인 DCA(적립식) 수익률 계산기</span>
-        <span class="card-desc">기간·주기·금액·수익률 시나리오로 누적 수익률 시뮬레이션</span>
-      </a>
-    </li>
-  </ul>
-</section>
+<ul id="ivh-crypto" class="ivh-card-grid">
+  <li class="ivh-card ivh-card-featured">
+    <a class="ivh-card-link" href="/invest/crypto/pnl/">
+      <span class="ivh-card-badge">NEW</span>
+      <span class="ivh-card-title">💹 코인 PnL 계산기</span>
+      <span class="ivh-card-desc">여러 번 나눠 매수·매도해도 FIFO/LIFO 원장 방식으로 실현·미실현손익 자동 계산</span>
+      <span class="ivh-tag-row">
+        <span class="ivh-tag">FIFO/LIFO</span><span class="ivh-tag">CSV 업로드</span><span class="ivh-tag">자동저장</span>
+      </span>
+    </a>
+  </li>
+  <li class="ivh-card ivh-card-featured">
+    <a class="ivh-card-link" href="/invest/crypto/capital-gains-tax/">
+      <span class="ivh-card-badge">NEW</span>
+      <span class="ivh-card-title">🧾 가상자산 양도소득세 계산기</span>
+      <span class="ivh-card-desc">2027년 시행 대비 예상 세액을 의제취득가액 특례까지 반영해 계산</span>
+      <span class="ivh-tag-row">
+        <span class="ivh-tag">의제취득가액</span><span class="ivh-tag">손익통산</span><span class="ivh-tag">2027 시행 대비</span>
+      </span>
+    </a>
+  </li>
+  <li class="ivh-card">
+    <a class="ivh-card-link" href="/invest/crypto/avg-cost/">
+      <span class="ivh-card-title">➗ 코인 평단가·추가매수</span>
+      <span class="ivh-card-desc">물타기 후 새로운 평균 단가를 빠르게 확인하는 간편 계산기</span>
+      <span class="ivh-tag-row"><span class="ivh-tag">간편 버전</span></span>
+    </a>
+  </li>
+  <li class="ivh-card">
+    <a class="ivh-card-link" href="/invest/crypto/dca/">
+      <span class="ivh-card-badge">NEW</span>
+      <span class="ivh-card-title">📅 코인 DCA + XIRR 계산기</span>
+      <span class="ivh-card-desc">적립식 투자 시뮬레이션과 실제 투자 내역 기반 실질 연환산 수익률(XIRR) 계산</span>
+      <span class="ivh-tag-row"><span class="ivh-tag">XIRR</span><span class="ivh-tag">시나리오 비교</span></span>
+    </a>
+  </li>
+</ul>
 
-## 주식(Stocks)
-<section aria-labelledby="stocks-title">
-  <h3 id="stocks-title" class="sr-only">주식 계산기</h3>
-  <ul class="card-grid">
-    <li class="card" data-keywords="주식 pnl 수익 손실 손익">
-      <a class="card-link" href="/invest/stocks/pnl/">
-        <span class="card-title">주식 수익/손실 계산기</span>
-        <span class="card-desc">매수/매도 가격·수량·수수료·세금 포함 손익·수익률</span>
-      </a>
-    </li>
-    <li class="card" data-keywords="주식 평단가 물타기 추가매수 목표 역산">
-      <a class="card-link" href="/invest/stocks/avg-cost/">
-        <span class="card-title">주식 평단가·물타기 계산기</span>
-        <span class="card-desc">원하는 목표 평단가에 필요한 추가 매수량 역산</span>
-      </a>
-    </li>
-    <li class="card" data-keywords="목표가 손절가 리스크 관리 손실 제한 손익비">
-      <a class="card-link" href="/invest/stocks/targets/">
-        <span class="card-title">목표가·손절가 계산기</span>
-        <span class="card-desc">목표 수익률/허용 손실률로 목표가·손절가·손익비 산출</span>
-      </a>
-    </li>
-    <li class="card" data-keywords="배당 수익률 yoc 배당수익률 세후배당금">
-      <a class="card-link" href="/invest/stocks/dividend-yield/">
-        <span class="card-title">배당수익률(YoC) 계산기</span>
-        <span class="card-desc">매수단가 기준 배당수익률과 세후 예상 배당금 계산</span>
-      </a>
-    </li>
-  </ul>
-</section>
+### 주식 계산기
 
-## 관련 가이드
-<section aria-labelledby="guide-title" class="iv-guide-links">
-  <h3 id="guide-title" class="sr-only">관련 가이드</h3>
-  <ul class="iv-guide-list">
-    <li><a href="/guide/crypto-tax-2027/">2027 가상자산 과세 완벽 정리 — 세율, 기본공제, 의제취득가액까지</a></li>
-  </ul>
-</section>
+<ul id="ivh-stocks" class="ivh-card-grid">
+  <li class="ivh-card ivh-card-featured">
+    <a class="ivh-card-link" href="/invest/stocks/pnl/">
+      <span class="ivh-card-badge">NEW</span>
+      <span class="ivh-card-title">💹 주식 PnL 계산기</span>
+      <span class="ivh-card-desc">FIFO/LIFO 원장 방식 + 매매수수료·거래세 반영, CSV 업로드·자동저장 지원</span>
+      <span class="ivh-tag-row">
+        <span class="ivh-tag">FIFO/LIFO</span><span class="ivh-tag">수수료+거래세</span><span class="ivh-tag">자동저장</span>
+      </span>
+    </a>
+  </li>
+  <li class="ivh-card">
+    <a class="ivh-card-link" href="/invest/stocks/avg-cost/">
+      <span class="ivh-card-title">🎯 주식 평단가·물타기</span>
+      <span class="ivh-card-desc">원하는 목표 평단가에 필요한 추가 매수 수량을 역산</span>
+      <span class="ivh-tag-row"><span class="ivh-tag">목표 역산</span></span>
+    </a>
+  </li>
+  <li class="ivh-card">
+    <a class="ivh-card-link" href="/invest/stocks/targets/">
+      <span class="ivh-card-title">🚦 목표가·손절가 계산기</span>
+      <span class="ivh-card-desc">목표 수익률·허용 손실률로 목표가·손절가·손익비까지 산출</span>
+      <span class="ivh-tag-row"><span class="ivh-tag">손익비</span></span>
+    </a>
+  </li>
+  <li class="ivh-card">
+    <a class="ivh-card-link" href="/invest/stocks/dividend-yield/">
+      <span class="ivh-card-title">🪙 배당수익률(YoC) 계산기</span>
+      <span class="ivh-card-desc">매수단가 기준 배당수익률과 세후(15.4%) 예상 배당금 계산</span>
+      <span class="ivh-tag-row"><span class="ivh-tag">세후 배당금</span></span>
+    </a>
+  </li>
+</ul>
 
-<div class="recent-box" aria-live="polite" hidden>
-  <h2>최근 본 계산기</h2>
-  <ul class="recent-list"></ul>
+### 상황별 추천 계산기
+
+<div id="ivh-scenario" class="ivh-scenario-grid">
+  <div class="ivh-scenario">
+    <span class="ivh-scenario-icon">🪙</span>
+    <p class="ivh-scenario-title">코인 처음 시작</p>
+    <a href="/invest/crypto/avg-cost/">평단가부터 감 잡기</a>
+    <a href="/invest/crypto/pnl/">PnL로 정확히 계산</a>
+  </div>
+  <div class="ivh-scenario">
+    <span class="ivh-scenario-icon">🔁</span>
+    <p class="ivh-scenario-title">여러 번 나눠 매수함</p>
+    <a href="/invest/crypto/pnl/">코인 PnL 원장 계산</a>
+    <a href="/invest/stocks/pnl/">주식 PnL 원장 계산</a>
+  </div>
+  <div class="ivh-scenario">
+    <span class="ivh-scenario-icon">🧾</span>
+    <p class="ivh-scenario-title">2027 세금 신고 대비</p>
+    <a href="/invest/crypto/capital-gains-tax/">예상 세액 미리 계산</a>
+    <a href="/guide/crypto-tax-2027/">과세 제도 가이드 읽기</a>
+  </div>
+  <div class="ivh-scenario">
+    <span class="ivh-scenario-icon">📈</span>
+    <p class="ivh-scenario-title">장기 배당 투자</p>
+    <a href="/invest/stocks/dividend-yield/">세후 배당금 계산</a>
+    <a href="/invest/stocks/targets/">목표가·손절가 설정</a>
+  </div>
 </div>
+
+### 투자 가이드 글
+
+<ul id="ivh-guide" class="ivh-guide-grid">
+  <li class="ivh-guide-card">
+    <a href="/guide/crypto-tax-2027/">
+      <span class="ivh-guide-eyebrow">2027 가상자산 과세</span>
+      <span class="ivh-guide-title">2027 가상자산 과세 완벽 정리</span>
+      <span class="ivh-guide-desc">세율, 기본공제, 의제취득가액 특례, 손익통산, 신고 시기까지 한번에 정리했습니다.</span>
+    </a>
+  </li>
+</ul>
 
 <div class="ad-box">
   <ins class="adsbygoogle"
@@ -116,42 +153,115 @@ permalink: "/invest/"
        data-full-width-responsive="true"></ins>
 </div>
 
-## 자주 묻는 질문(FAQ)
-- **수수료와 세금은 반영되나요?** 각 계산기에서 수수료/세율 입력칸을 제공합니다. 비우면 0% 또는 기본값으로 처리됩니다.
-- **가상자산 양도소득세는 언제부터 적용되나요?** 2027년 1월 1일 이후 양도·대여분부터 적용됩니다. 자세한 내용은 [가상자산 양도소득세 계산기](/invest/crypto/capital-gains-tax/)와 [관련 가이드](/guide/crypto-tax-2027/)를 참고하세요.
-- **코인 PnL 계산기는 여러 번 나눠 매수·매도해도 계산되나요?** 네, 거래내역을 원하는 만큼 입력하면 FIFO/LIFO 방식으로 실현손익과 미실현손익을 자동 계산합니다.
-- **결과는 투자 조언인가요?** 아닙니다. 본 계산기는 정보 제공용 도구이며, 최종 투자는 본인 책임입니다.
-- **모바일에서도 사용 가능한가요?** 네, 반응형 UI로 제작되어 스마트폰에서도 편리하게 이용할 수 있습니다.
+### 자주 묻는 질문
+
+<div class="ivh-faq">
+
+<details class="ivh-faq-item"><summary>가상자산 양도소득세는 언제부터 적용되나요?</summary>
+<p>2027년 1월 1일 이후 양도·대여분부터 적용됩니다. 22% 세율(소득세 20%+지방소득세 2%)과 연간 250만원 기본공제가 적용되며, 2027년 이전 보유분은 의제취득가액 특례를 받을 수 있습니다. 자세한 내용은 <a href="/invest/crypto/capital-gains-tax/">가상자산 양도소득세 계산기</a>와 <a href="/guide/crypto-tax-2027/">관련 가이드</a>를 참고하세요.</p>
+</details>
+
+<details class="ivh-faq-item"><summary>코인·주식 PnL 계산기는 여러 번 나눠 매수·매도해도 계산되나요?</summary>
+<p>네, 거래내역을 원하는 만큼 입력하면 FIFO(선입선출) 또는 LIFO(후입선출) 방식으로 실현손익과 미실현손익을 자동 계산합니다. 입력한 내역은 브라우저에 자동 저장됩니다.</p>
+</details>
+
+<details class="ivh-faq-item"><summary>수수료와 세금은 반영되나요?</summary>
+<p>각 계산기에서 수수료·세율 입력칸을 제공합니다. 값을 비워두면 0% 또는 기본값으로 처리됩니다. 거래세·수수료율은 증권사·거래소·정책에 따라 달라질 수 있으므로 실제 이용 중인 곳의 최신 수치로 확인해 입력하는 것을 권장합니다.</p>
+</details>
+
+<details class="ivh-faq-item"><summary>결과는 투자 조언인가요?</summary>
+<p>아닙니다. 본 계산기는 정보 제공용 도구이며, 최종 투자 판단과 책임은 본인에게 있습니다.</p>
+</details>
+
+<details class="ivh-faq-item"><summary>모바일에서도 사용 가능한가요?</summary>
+<p>네, 반응형 UI로 제작되어 스마트폰에서도 편리하게 이용할 수 있습니다.</p>
+</details>
+
+</div>
 
 <small>마지막 업데이트: {{ site.time | date: "%Y-%m-%d" }}</small>
 
 <style>
-  .iv-hero {
+  .ivh-stats {
+    display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0 20px;
+  }
+  .ivh-stat {
     background: linear-gradient(135deg, #f8efe5, #f3e7d9);
-    border: 1px solid #e3d4c5;
-    border-radius: 18px;
-    padding: 28px;
-    margin-bottom: 20px;
+    border: 1px solid #e3d4c5; border-radius: 14px;
+    padding: 12px 18px; display: flex; flex-direction: column; gap: 2px; min-width: 140px;
   }
-  .iv-hero h1 { margin-top: 0; color: #785a43; }
-  .iv-hero-desc { line-height: 1.7; color: #5c4a38; }
+  .ivh-stat-label { font-size: 0.78rem; color: #8c7355; font-weight: 600; }
+  .ivh-stat-value { font-size: 1.3rem; color: #c2410c; font-weight: 800; }
 
-  .card-featured {
-    border: 1px solid #e8b98f !important;
-    background: linear-gradient(135deg, #fff, #fdf3ea) !important;
+  .ivh-tabnav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+  .ivh-tabnav a {
+    background: #f8efe5; border: 1px solid #eaddcd; color: #785a43; font-weight: 700;
+    text-decoration: none; padding: 8px 18px; border-radius: 999px; font-size: 0.9rem;
+    transition: all 0.15s ease;
   }
-  .card-badge {
-    display: inline-block; background: #c2410c; color: #fff; font-size: 0.72rem;
-    font-weight: 700; padding: 3px 8px; border-radius: 999px; margin-bottom: 6px;
+  .ivh-tabnav a:hover { background: #c2410c; color: #fff; border-color: #c2410c; }
+
+  .ivh-card-grid { list-style: none; padding: 0; margin: 0 0 28px; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+  @media (max-width: 720px) { .ivh-card-grid { grid-template-columns: 1fr; } }
+
+  .ivh-card {
+    background: #fff; border: 1px solid #f1eae1; border-radius: 16px; overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .ivh-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(120,90,67,0.12); border-color: #e3d4c5; }
+  .ivh-card-featured { border-color: #e8b98f; background: linear-gradient(135deg, #fff, #fdf3ea); }
+  .ivh-card-link { display: flex; flex-direction: column; gap: 6px; padding: 20px; text-decoration: none; height: 100%; box-sizing: border-box; }
+  .ivh-card-badge {
+    align-self: flex-start; background: #c2410c; color: #fff; font-size: 0.7rem; font-weight: 800;
+    padding: 3px 9px; border-radius: 999px; letter-spacing: 0.02em;
+  }
+  .ivh-card-title { font-size: 1.08rem; font-weight: 800; color: #5c4a38; }
+  .ivh-card-desc { font-size: 0.88rem; color: #8c7355; line-height: 1.5; }
+  .ivh-tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .ivh-tag {
+    background: #faf7f2; border: 1px solid #eaddcd; color: #785a43; font-size: 0.72rem;
+    font-weight: 700; padding: 3px 9px; border-radius: 999px;
   }
 
-  .iv-guide-list { list-style: none; padding: 0; margin: 0 0 20px; }
-  .iv-guide-list li {
-    background: #faf7f2; border: 1px solid #eaddcd; border-radius: 12px;
-    padding: 14px 18px; margin-bottom: 10px;
+  .ivh-scenario-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; margin-bottom: 28px; }
+  @media (max-width: 900px) { .ivh-scenario-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  .ivh-scenario {
+    background: #faf7f2; border: 1px solid #eaddcd; border-radius: 16px; padding: 18px;
+    display: flex; flex-direction: column; gap: 8px;
   }
-  .iv-guide-list a { color: #c2410c; text-decoration: none; font-weight: 600; }
-  .iv-guide-list a:hover { text-decoration: underline; }
+  .ivh-scenario-icon { font-size: 1.6rem; }
+  .ivh-scenario-title { font-weight: 800; color: #785a43; margin: 0; }
+  .ivh-scenario a {
+    color: #c2410c; text-decoration: none; font-size: 0.88rem; font-weight: 600;
+  }
+  .ivh-scenario a:hover { text-decoration: underline; }
+
+  .ivh-guide-grid { list-style: none; padding: 0; margin: 0 0 24px; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+  @media (max-width: 720px) { .ivh-guide-grid { grid-template-columns: 1fr; } }
+  .ivh-guide-card { background: #faf7f2; border: 1px solid #eaddcd; border-radius: 16px; }
+  .ivh-guide-card a { display: flex; flex-direction: column; gap: 6px; padding: 20px; text-decoration: none; }
+  .ivh-guide-eyebrow { font-size: 0.75rem; font-weight: 800; color: #c2410c; text-transform: uppercase; letter-spacing: 0.03em; }
+  .ivh-guide-title { font-size: 1.05rem; font-weight: 800; color: #5c4a38; }
+  .ivh-guide-desc { font-size: 0.88rem; color: #8c7355; line-height: 1.5; }
+
+  .ivh-faq { margin-bottom: 20px; }
+  .ivh-faq-item {
+    border: 1px solid #f1eae1; border-radius: 12px; padding: 4px 18px;
+    margin-bottom: 10px; background: #fff; transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .ivh-faq-item[open] { background: #fffaf5; border-color: #f0c8a0; }
+  .ivh-faq-item summary {
+    cursor: pointer; list-style: none; font-weight: 700; color: #785a43;
+    padding: 14px 28px 14px 0; position: relative; line-height: 1.5;
+  }
+  .ivh-faq-item summary::-webkit-details-marker { display: none; }
+  .ivh-faq-item summary::after {
+    content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    font-size: 1.3rem; font-weight: 400; color: #c2410c; transition: transform 0.2s ease;
+  }
+  .ivh-faq-item[open] summary::after { content: "×"; }
+  .ivh-faq-item summary:hover { color: #c2410c; }
+  .ivh-faq-item p { margin: 0 0 16px; line-height: 1.7; color: #5c4a38; }
 </style>
 
 <script>
@@ -160,34 +270,6 @@ permalink: "/invest/"
     if (ad) { ad.style.minHeight = '120px'; }
     (window.adsbygoogle = window.adsbygoogle || []).push({});
   });
-
-  const input = document.getElementById('calc-filter');
-  const cards = document.querySelectorAll('.card');
-  input?.addEventListener('input', (e) => {
-    const q = e.target.value.toLowerCase();
-    cards.forEach(li => {
-      const text = li.innerText.toLowerCase() + ' ' + (li.dataset.keywords || '');
-      li.style.display = text.includes(q) ? '' : 'none';
-    });
-  });
-
-  const recentKey = 'recentCalculators';
-  const recentBox = document.querySelector('.recent-box');
-  const recentList = document.querySelector('.recent-list');
-  document.querySelectorAll('.card-link').forEach(a => {
-    a.addEventListener('click', () => {
-      const item = { href: a.getAttribute('href'), title: a.querySelector('.card-title').textContent };
-      const arr = JSON.parse(sessionStorage.getItem(recentKey) || '[]')
-        .filter(x => x.href !== item.href);
-      arr.unshift(item);
-      sessionStorage.setItem(recentKey, JSON.stringify(arr.slice(0,3)));
-    });
-  });
-  const saved = JSON.parse(sessionStorage.getItem(recentKey) || '[]');
-  if (saved.length && recentBox && recentList) {
-    recentBox.hidden = false;
-    recentList.innerHTML = saved.map(x => `<li><a href="${x.href}">${x.title}</a></li>`).join('');
-  }
 </script>
 
 <script type="application/ld+json">
@@ -196,7 +278,7 @@ permalink: "/invest/"
   "@type":"BreadcrumbList",
   "itemListElement":[
     {"@type":"ListItem","position":1,"name":"홈","item":"https://calculator.khaistory.com/"},
-    {"@type":"ListItem","position":2,"name":"투자 계산기 모음","item":"https://calculator.khaistory.com/invest/"}
+    {"@type":"ListItem","position":2,"name":"투자 계산기 허브","item":"https://calculator.khaistory.com/invest/"}
   ]
 }
 </script>
@@ -205,13 +287,13 @@ permalink: "/invest/"
 {
   "@context":"https://schema.org",
   "@type":"ItemList",
-  "name":"투자 계산기 모음",
+  "name":"투자 계산기 허브 2026",
   "itemListElement":[
     {"@type":"ListItem","position":1,"url":"https://calculator.khaistory.com/invest/crypto/pnl/","name":"코인 PnL 계산기"},
     {"@type":"ListItem","position":2,"url":"https://calculator.khaistory.com/invest/crypto/capital-gains-tax/","name":"가상자산 양도소득세 계산기"},
     {"@type":"ListItem","position":3,"url":"https://calculator.khaistory.com/invest/crypto/avg-cost/","name":"코인 평단가·추가매수 계산기"},
-    {"@type":"ListItem","position":4,"url":"https://calculator.khaistory.com/invest/crypto/dca/","name":"코인 DCA(적립식) 수익률 계산기"},
-    {"@type":"ListItem","position":5,"url":"https://calculator.khaistory.com/invest/stocks/pnl/","name":"주식 수익/손실 계산기"},
+    {"@type":"ListItem","position":4,"url":"https://calculator.khaistory.com/invest/crypto/dca/","name":"코인 DCA + XIRR 계산기"},
+    {"@type":"ListItem","position":5,"url":"https://calculator.khaistory.com/invest/stocks/pnl/","name":"주식 PnL 계산기"},
     {"@type":"ListItem","position":6,"url":"https://calculator.khaistory.com/invest/stocks/avg-cost/","name":"주식 평단가·물타기 계산기"},
     {"@type":"ListItem","position":7,"url":"https://calculator.khaistory.com/invest/stocks/targets/","name":"목표가·손절가 계산기"},
     {"@type":"ListItem","position":8,"url":"https://calculator.khaistory.com/invest/stocks/dividend-yield/","name":"배당수익률(YoC) 계산기"}
@@ -222,12 +304,13 @@ permalink: "/invest/"
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"CollectionPage",
-  "name":"투자 계산기 모음",
-  "isPartOf":{"@type":"WebSite","name":"생활 계산기 포털","url":"https://calculator.khaistory.com/"},
-  "about":[
-    {"@type":"WebApplication","name":"코인 PnL 계산기","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://calculator.khaistory.com/invest/crypto/pnl/","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}},
-    {"@type":"WebApplication","name":"가상자산 양도소득세 계산기","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://calculator.khaistory.com/invest/crypto/capital-gains-tax/","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"}}
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"가상자산 양도소득세는 언제부터 적용되나요?","acceptedAnswer":{"@type":"Answer","text":"2027년 1월 1일 이후 양도·대여분부터 적용됩니다. 22% 세율과 연간 250만원 기본공제가 적용되며, 2027년 이전 보유분은 의제취득가액 특례를 받을 수 있습니다."}},
+    {"@type":"Question","name":"코인·주식 PnL 계산기는 여러 번 나눠 매수·매도해도 계산되나요?","acceptedAnswer":{"@type":"Answer","text":"네, 거래내역을 원하는 만큼 입력하면 FIFO 또는 LIFO 방식으로 실현손익과 미실현손익을 자동 계산하며, 입력 내역은 브라우저에 자동 저장됩니다."}},
+    {"@type":"Question","name":"수수료와 세금은 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"각 계산기에서 수수료·세율 입력칸을 제공하며, 값을 비워두면 기본값으로 처리됩니다. 실제 최신 수치로 확인해 입력하는 것을 권장합니다."}},
+    {"@type":"Question","name":"결과는 투자 조언인가요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. 정보 제공용 도구이며 최종 투자 판단과 책임은 본인에게 있습니다."}},
+    {"@type":"Question","name":"모바일에서도 사용 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"네, 반응형 UI로 제작되어 스마트폰에서도 편리하게 이용할 수 있습니다."}}
   ]
 }
 </script>
