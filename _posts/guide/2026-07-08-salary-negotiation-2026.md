@@ -16,6 +16,17 @@ categories: [guide]
     <p class="hero-sub">"연봉 얼마요?"보다 "실수령 얼마요?"가 정확합니다</p>
   </div>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="9799475726"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
   <div class="neg-content-card">
     <h3>1. 연봉 협상 전 반드시 계산해야 할 3가지</h3>
     <ul class="accent-list">
@@ -62,6 +73,16 @@ categories: [guide]
       <li><strong>복지 포인트·스톡옵션:</strong> 현금성 복지(포인트, 중식비 현물 등)는 연봉 외 실질 소득이므로 포함해 비교해야 합니다.</li>
     </ul>
   </div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="9799475726"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
   <div class="neg-content-card bg-light-variant">
     <h3>4. 연봉 협상 타이밍 — 언제가 유리한가</h3>
@@ -113,6 +134,17 @@ categories: [guide]
   </div>
 
 </section>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="9799475726"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 
 <style>
 .neg-guide-container{font-family:'Noto Sans KR',sans-serif;color:#1f2937;line-height:1.8;max-width:860px;margin:0 auto;padding:10px}
