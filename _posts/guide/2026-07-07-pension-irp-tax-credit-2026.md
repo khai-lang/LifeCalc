@@ -16,6 +16,17 @@ categories: [guide]
     <p class="hero-sub">연말정산 최대 148만 5천원 환급 — 납입 전략부터 한도 활용까지</p>
   </div>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="9799475726"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
   <div class="pen-content-card">
     <h3>1. 세액공제율 한 줄 요약</h3>
     <ul class="accent-list">
@@ -43,6 +54,17 @@ categories: [guide]
       <li><strong>전략 C (소액 시작):</strong> 여유 자금이 적다면 연금저축 월 5만원부터 시작 후 증액</li>
     </ul>
   </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="9799475726"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
   <div class="pen-content-card">
     <h3>3. 연봉별 환급 예상액 표</h3>
@@ -99,6 +121,17 @@ categories: [guide]
       <li><strong>퇴직금 이전 시:</strong> 퇴직금을 IRP로 받으면 퇴직소득세 이연 + 연금 수령 시 30~40% 세금 감면. 이 경우 IRP의 세액공제 한도와는 별도로 관리됨</li>
     </ul>
   </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="9799475726"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
   <div class="pen-content-card text-center">
     <h3>7. 내 환급액 바로 계산하기</h3>
