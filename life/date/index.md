@@ -143,23 +143,23 @@ permalink: "/life/date/"
   <h3>함께 보면 좋은 자료</h3>
   <p class="dt-recommend-desc">다가오는 기념일을 챙기고 기록하는 데 도움이 되는 상품입니다.</p>
   <div class="dt-coupang-grid">
-    <a class="dt-coupang-card" href="COUPANG_PARTNERS_LINK_1" target="_blank" rel="noopener sponsored">
+    <a class="dt-coupang-card" href="https://link.coupang.com/a/fNIPYQ59H2" rel="noopener sponsored">
       <div class="dt-coupang-thumb">📅</div>
       <div class="dt-coupang-title">위클리·데일리 다이어리</div>
       <div class="dt-coupang-desc">기념일과 일정을 손으로 기록하는 플래너</div>
     </a>
-    <a class="dt-coupang-card" href="COUPANG_PARTNERS_LINK_2" target="_blank" rel="noopener sponsored">
+    <a class="dt-coupang-card" href="https://link.coupang.com/a/fNIVypDH0C" rel="noopener sponsored">
       <div class="dt-coupang-thumb">🎁</div>
       <div class="dt-coupang-title">기념일 선물·이벤트 용품</div>
       <div class="dt-coupang-desc">100일·주년에 어울리는 선물 아이디어</div>
     </a>
-    <a class="dt-coupang-card" href="COUPANG_PARTNERS_LINK_3" target="_blank" rel="noopener sponsored">
+    <a class="dt-coupang-card" href="https://link.coupang.com/a/fNI3kKFhHE" target="_blank" rel="noopener sponsored">
       <div class="dt-coupang-thumb">🖼️</div>
       <div class="dt-coupang-title">포토 캘린더·액자</div>
       <div class="dt-coupang-desc">지나온 기념일을 사진으로 남기는 캘린더</div>
     </a>
   </div>
-  <p class="dt-coupang-disclosure">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.</p>
+  <p class="dt-coupang-disclosure">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
 </section>
 
 <section class="dt-card">
