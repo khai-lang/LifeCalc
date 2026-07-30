@@ -111,17 +111,17 @@ permalink: "/family/vaccine/"
   <h3>함께 보면 좋은 자료</h3>
   <p class="vc-recommend-desc">접종 스케줄과 아이 건강 기록을 관리하는 데 도움이 되는 상품입니다.</p>
   <div class="vc-coupang-grid">
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_1" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/fNJOHDuHyC" target="_blank" rel="noopener sponsored">
       <div class="vc-coupang-thumb">📔</div>
       <div class="vc-coupang-title">아기 성장·접종 기록 수첩</div>
       <div class="vc-coupang-desc">접종 이력과 성장 곡선을 함께 기록하는 육아수첩</div>
     </a>
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_2" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/fNJRijuBfU" target="_blank" rel="noopener sponsored">
       <div class="vc-coupang-thumb">🌡️</div>
       <div class="vc-coupang-title">비접촉식 체온계</div>
       <div class="vc-coupang-desc">접종 전후 발열 체크에 유용한 육아 필수템</div>
     </a>
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_3" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/fNJV8GqOzs" target="_blank" rel="noopener sponsored">
       <div class="vc-coupang-thumb">🎒</div>
       <div class="vc-coupang-title">병원 외출용 아기 가방</div>
       <div class="vc-coupang-desc">접종·진료 외출에 필요한 물품을 한 번에</div>
