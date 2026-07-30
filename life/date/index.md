@@ -14,7 +14,7 @@ permalink: "/life/date/"
 </nav>
 
 <section class="cp-hero">
-  <h2>날짜 계산기 2026</h2>
+  <h2>날짜 계산기 </h2>
   <p class="cp-hero-desc">
     <strong>두 날짜 사이 일수·D-Day</strong>는 물론, "오늘부터 100일 후는 며칠일까?" 같은
     <strong>날짜 더하기·빼기</strong>, 사귄 날이나 시작일을 넣으면 <strong>100일·200일·300일·1000일·
