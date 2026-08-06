@@ -1,6 +1,5 @@
 ---
 layout: defaut
-canonical: "https://calculator.khaistory.com/health/calorie/"
 meta-description: "성별, 나이, 키, 몸무게, 활동량을 입력하면 Mifflin-St Jeor 공식으로 기초대사량과 하루 필요 칼로리(TDEE)를 계산하고, 감량·유지·증량 목표별 권장 칼로리를 확인할 수 있습니다."
 meta-generator: "Jekyll v3.10.0"
 meta-og:description: "활동량을 반영한 하루 필요 칼로리(TDEE) 계산기. 감량·유지·증량 목표별 권장 칼로리를 확인하세요."
@@ -9,11 +8,8 @@ meta-og:site_name: "LifeCalc"
 meta-og:title: "칼로리 계산기 | 하루 필요 칼로리(TDEE) 계산"
 meta-og:type: "website"
 meta-og:url: "https://calculator.khaistory.com/health/calorie/"
-meta-twitter:card: "summary"
-meta-twitter:title: "칼로리 계산기 | 하루 필요 칼로리(TDEE) 계산"
-meta-viewport: "width=device-width, initial-scale=1"
 title: "칼로리 계산기 | 하루 필요 칼로리(TDEE) 및 목표별 권장 칼로리 | LifeCalc"
-permalink: /health/water-intake/
+permalink: /health/calorie/
 ---
 
 <style>
