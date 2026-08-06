@@ -1,14 +1,7 @@
 ---
-layout: defaut
-meta-description: "성별, 나이, 키, 몸무게, 활동량을 입력하면 Mifflin-St Jeor 공식으로 기초대사량과 하루 필요 칼로리(TDEE)를 계산하고, 감량·유지·증량 목표별 권장 칼로리를 확인할 수 있습니다."
-meta-generator: "Jekyll v3.10.0"
-meta-og:description: "활동량을 반영한 하루 필요 칼로리(TDEE) 계산기. 감량·유지·증량 목표별 권장 칼로리를 확인하세요."
-meta-og:locale: "ko_KR"
-meta-og:site_name: "LifeCalc"
-meta-og:title: "칼로리 계산기 | 하루 필요 칼로리(TDEE) 계산"
-meta-og:type: "website"
-meta-og:url: "https://calculator.khaistory.com/health/calorie/"
-title: "칼로리 계산기 | 하루 필요 칼로리(TDEE) 및 목표별 권장 칼로리 | LifeCalc"
+layout: default
+title: "칼로리 계산기 | 하루 필요 칼로리(TDEE) 및 목표별 권장 칼로리 계산"
+description: "성별, 나이, 키, 몸무게, 활동량을 입력하면 Mifflin-St Jeor 공식으로 기초대사량과 하루 필요 칼로리(TDEE)를 계산하고, 감량·유지·증량 목표별 권장 칼로리를 확인할 수 있습니다."
 permalink: /health/calorie/
 ---
 
@@ -62,7 +55,7 @@ permalink: /health/calorie/
 
 <div class="cal-hero">
   <span class="cal-badge">건강 계산기</span>
-  <h2>칼로리 계산기</h2>
+  <h1>칼로리 계산기</h1>
   <p>성별, 나이, 키, 몸무게와 평소 활동량을 입력하면 <strong>기초대사량(BMR)</strong>과
   <strong>하루 총 필요 칼로리(TDEE)</strong>를 계산하고, 감량·유지·증량 목표별 권장 칼로리를 확인할 수 있습니다.</p>
 </div>
