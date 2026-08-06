@@ -183,13 +183,6 @@ title: "전월세 전환율 계산 방법과 2026년 법정 상한 | 월세 환�
   </div>
 </section>
 
-<section class="rtj-card rtj-light">
-  <h3>전월세 전환, 이렇게 계산합니다</h3>
-  <p>전세를 월세로 바꿀 때는 <strong>낮추는 보증금 × 전환율 ÷ 12</strong>로 월세를 구합니다. 반대로 월세를 전세로 바꿀 때는 <strong>월세 × 12 ÷ 전환율</strong>로 환산한 금액에 기존 보증금을 더합니다.</p>
-  <p>2026년 기준 법정 전월세 전환율(주거용)은 연 5.0%이며, 이는 임대인이 요구할 수 있는 상한선입니다. 실제 계약 시에는 이보다 낮은 전환율이 적용될 수도 있습니다.</p>
-  <a class="rtj-btn-sub" href="https://calculator.khaistory.com/guide/monthly-rent-tax-credit-2026/"> 2026년 월세 세액공제 완전정리 전체 보기 →</a>
-</section>
-
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
      crossorigin="anonymous"></script>
 <!-- 계산기 광고 -->
@@ -202,6 +195,13 @@ title: "전월세 전환율 계산 방법과 2026년 법정 상한 | 월세 환�
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
+<section class="rtj-card rtj-light">
+  <h3>전월세 전환, 이렇게 계산합니다</h3>
+  <p>전세를 월세로 바꿀 때는 <strong>낮추는 보증금 × 전환율 ÷ 12</strong>로 월세를 구합니다. 반대로 월세를 전세로 바꿀 때는 <strong>월세 × 12 ÷ 전환율</strong>로 환산한 금액에 기존 보증금을 더합니다.</p>
+  <p>2026년 기준 법정 전월세 전환율(주거용)은 연 5.0%이며, 이는 임대인이 요구할 수 있는 상한선입니다. 실제 계약 시에는 이보다 낮은 전환율이 적용될 수도 있습니다.</p>
+  <a class="rtj-btn-sub" href="https://calculator.khaistory.com/guide/monthly-rent-tax-credit-2026/"> 2026년 월세 세액공제 완전정리 전체 보기 →</a>
+</section>
 
 <section class="rtj-card">
   <h3>자주 묻는 질문</h3>
