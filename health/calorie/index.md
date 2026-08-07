@@ -160,7 +160,7 @@ permalink: /health/calorie/
   반드시 의사·영양사와 상담하세요.</p>
 
   <div class="cal-linkbar">
-    <a class="cal-btn-sub" href="https://calculator.khaistory.com/guide/bmi-obesity-2026/">BMI·비만도 완전정리 가이드 보기</a>
+    <a class="cal-btn-sub" href="https://calculator.khaistory.com/guide/2026-08-06-bmi-obesity-2026/">BMI·비만도 완전정리 가이드 보기</a>
   </div>
 
   <p class="cal-source">근거: Mifflin MD, St Jeor ST 등 (1990), &laquo;A new predictive equation for resting energy expenditure in healthy individuals&raquo;,
