@@ -64,16 +64,18 @@ permalink: "/family/baby-days/"
   </div>
 </section>
 
-<!-- AD SLOT 1: 계산기 직후 -->
-<!-- ⚠️ 실제 배포 전 data-ad-slot 값을 이 페이지 전용 슬롯 ID로 교체하세요 -->
-<div class="ad-box">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3758454239921831"
-       data-ad-slot="REPLACE_WITH_AD_SLOT_ID"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <section class="vc-card vc-card-light">
   <h2>개월수 계산기마다 결과가 다른 이유</h2>
@@ -125,17 +127,17 @@ permalink: "/family/baby-days/"
   <h2>함께 보면 좋은 자료</h2>
   <p class="vc-recommend-desc">개월수에 맞는 육아용품과 성장 기록에 도움이 되는 상품입니다.</p>
   <div class="vc-coupang-grid">
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_1" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/f5OfDjjSVg" rel="noopener sponsored">
       <div class="vc-coupang-thumb">📔</div>
       <div class="vc-coupang-title">아기 성장·기념일 기록 수첩</div>
       <div class="vc-coupang-desc">백일·돌까지 개월별 변화를 기록하는 육아수첩</div>
     </a>
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_2" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/f5Orr1g0uy" rel="noopener sponsored">
       <div class="vc-coupang-thumb">🍼</div>
       <div class="vc-coupang-title">월령별 이유식 세트</div>
       <div class="vc-coupang-desc">개월수에 맞춰 시작하는 단계별 이유식</div>
     </a>
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_3" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/f5OvmnF7AW" rel="noopener sponsored">
       <div class="vc-coupang-thumb">📸</div>
       <div class="vc-coupang-title">백일·돌 사진 촬영 소품</div>
       <div class="vc-coupang-desc">이정표마다 기록을 남기기 좋은 촬영 소품</div>
@@ -197,16 +199,18 @@ permalink: "/family/baby-days/"
   </div>
 </section>
 
-<!-- AD SLOT 2: FAQ 하단 -->
-<!-- ⚠️ 실제 배포 전 data-ad-slot 값을 이 페이지 전용 슬롯 ID로 교체하세요 -->
-<div class="ad-box">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3758454239921831"
-       data-ad-slot="REPLACE_WITH_AD_SLOT_ID"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <small>마지막 페이지 업데이트: {{ site.time | date: "%Y-%m-%d" }}</small>
 
