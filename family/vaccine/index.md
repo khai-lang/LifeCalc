@@ -14,7 +14,7 @@ permalink: "/family/vaccine/"
 </nav>
 
 <section class="cp-hero">
-  <h2>예방접종 일정 계산기</h2>
+  <h1>예방접종 일정 계산기</h1>
   <p class="cp-hero-desc">
     아이의 생년월일만 입력하면 <strong>B형간염·BCG·DTaP·폴리오(IPV)·Hib·폐렴구균·로타바이러스·MMR·수두·
     A형간염·일본뇌염·HPV</strong>까지 국가필수예방접종 19종의 표준 접종 시기를 <strong>실제 날짜로
@@ -75,13 +75,13 @@ permalink: "/family/vaccine/"
 </div>
 
 <section class="vc-card vc-card-light">
-  <h3>국가필수예방접종, 이렇게 진행됩니다</h3>
+  <h2>국가필수예방접종, 이렇게 진행됩니다</h2>
   <p>
     국가필수예방접종은 생후 4주 이내 <strong>BCG</strong>부터 시작해 <strong>생후 2·4·6개월</strong>에
     DTaP·폴리오·Hib·폐렴구균·로타바이러스를 기초접종하고, <strong>생후 12~15개월</strong>에 MMR·수두·
-    A형간염·일본뇌염을 이어갑니다. 이후 <strong>만 4~6세</strong>와 <strong>만 11~12세</strong>에
-    추가접종과 HPV 접종이 있습니다. 백신 대부분은 <strong>2~4회 나눠서</strong> 맞아야 충분한 면역이
-    생기므로, 한 번에 끝나는 접종은 거의 없습니다.
+    A형간염·일본뇌염을 이어갑니다. 이후 <strong>만 4~6세</strong>에 추가접종이, <strong>만 11~12세</strong>에
+    Tdap/Td 추가접종과 HPV 접종(여아 만 12~17세, 남아 2026년부터 만 12세)이 이어집니다. 백신 대부분은
+    <strong>2~4회 나눠서</strong> 맞아야 충분한 면역이 생기므로, 한 번에 끝나는 접종은 거의 없습니다.
   </p>
   <table class="vc-table">
     <thead><tr><th>시기</th><th>주요 접종</th></tr></thead>
@@ -91,7 +91,8 @@ permalink: "/family/vaccine/"
       <tr><td>생후 12~15개월</td><td>MMR, 수두, A형간염, 일본뇌염, Hib·폐렴구균 추가</td></tr>
       <tr><td>생후 15~18개월</td><td>DTaP 추가접종</td></tr>
       <tr><td>만 4~6세</td><td>DTaP·폴리오·MMR 추가접종</td></tr>
-      <tr><td>만 11~12세</td><td>Tdap/Td 추가접종, HPV</td></tr>
+      <tr><td>만 11~12세</td><td>Tdap/Td 추가접종</td></tr>
+      <tr><td>만 12세</td><td>HPV 1차 (여아는 만 12~17세, 남아는 2026년부터 만 12세 대상)</td></tr>
     </tbody>
   </table>
   <p class="vc-note">
@@ -108,7 +109,7 @@ permalink: "/family/vaccine/"
 
 <!-- COUPANG PARTNERS: 실제 제휴 링크는 각 카드의 href="COUPANG_PARTNERS_LINK_*" 자리에 쿠팡파트너스 딥링크로 교체하세요. -->
 <section class="vc-card vc-card-light vc-recommend">
-  <h3>함께 보면 좋은 자료</h3>
+  <h2>함께 보면 좋은 자료</h2>
   <p class="vc-recommend-desc">접종 스케줄과 아이 건강 기록을 관리하는 데 도움이 되는 상품입니다.</p>
   <div class="vc-coupang-grid">
     <a class="vc-coupang-card" href="https://link.coupang.com/a/fNJOHDuHyC" target="_blank" rel="noopener sponsored">
@@ -131,7 +132,7 @@ permalink: "/family/vaccine/"
 </section>
 
 <section class="vc-card">
-  <h3>관련 계산기</h3>
+  <h2>관련 계산기</h2>
   <div class="vc-related-grid">
     <a class="vc-related-card" href="/family/due-date/">
       <span class="vc-related-title">출산 예정일 계산기</span>
@@ -153,33 +154,40 @@ permalink: "/family/vaccine/"
 </section>
 
 <section class="vc-card" id="vc-faq">
-  <h3>자주 묻는 질문</h3>
+  <h2>자주 묻는 질문</h2>
 
   <div class="vc-faq-item">
-    <h4>표준 접종일보다 늦었어요. 처음부터 다시 맞아야 하나요?</h4>
+    <h3>표준 접종일보다 늦었어요. 처음부터 다시 맞아야 하나요?</h3>
     <p>아닙니다. 국내 대부분의 필수예방접종은 처음부터 다시 시작할 필요가 없습니다. 지연된 시점부터
     의료진과 상의해 남은 차수를 이어서 접종하면 됩니다.</p>
   </div>
   <div class="vc-faq-item">
-    <h4>로타바이러스는 왜 접종 시한이 정해져 있나요?</h4>
+    <h3>로타바이러스는 왜 접종 시한이 정해져 있나요?</h3>
     <p>로타바이러스 백신은 장중첩증 위험을 낮추기 위해 첫 접종을 생후 15주 이전에 시작하고, 생후
     8개월 전에 모든 차수를 완료하도록 권고됩니다. 시한을 넘기면 접종을 시작할 수 없는 경우도 있어
     다른 백신보다 일정 관리가 특히 중요합니다.</p>
   </div>
   <div class="vc-faq-item">
-    <h4>일본뇌염 사백신과 생백신 중 뭘 선택해야 하나요?</h4>
+    <h3>일본뇌염 사백신과 생백신 중 뭘 선택해야 하나요?</h3>
     <p>사백신은 총 5회, 생백신은 총 2회 접종합니다. 두 백신 모두 국가예방접종으로 무료 지원되며,
     효과와 안전성에 큰 차이가 없다고 알려져 있습니다. 이 계산기는 사백신 일정을 기본으로 보여주며,
     생백신을 선택했다면 소아청소년과에서 별도 일정을 안내받으시기 바랍니다.</p>
   </div>
   <div class="vc-faq-item">
-    <h4>이 계산기 결과를 실제 접종 예약에 그대로 써도 되나요?</h4>
+    <h3>이 계산기 결과를 실제 접종 예약에 그대로 써도 되나요?</h3>
     <p>아닙니다. 이 계산기는 표준 일정을 참고용으로 계산해 보여줄 뿐, 아이의 건강 상태나 백신 수급
     상황에 따라 실제 접종 가능 시기는 다를 수 있습니다. 예방접종도우미 홈페이지에서 실제 접종
     이력과 예정일을 확인하시고, 접종은 반드시 의료진과 상의해 진행하세요.</p>
   </div>
   <div class="vc-faq-item">
-    <h4>모바일에서도 사용할 수 있나요?</h4>
+    <h3>남자아이도 HPV 접종을 무료로 받을 수 있나요?</h3>
+    <p>네, 2026년 5월 6일부터 만 12세(2014년생) 남아도 HPV 국가예방접종 대상에 포함되었습니다.
+    여아는 만 12~17세까지 지원되지만, 남아는 현재 만 12세(2014년생)만 무료 지원 대상이라는 점을
+    참고하세요. 접종은 6개월 간격으로 2회이며, 만 15세 이후 처음 접종을 시작하는 경우에는 3회로
+    늘어날 수 있습니다.</p>
+  </div>
+  <div class="vc-faq-item">
+    <h3>모바일에서도 사용할 수 있나요?</h3>
     <p>네, 반응형으로 제작되어 스마트폰에서도 동일하게 이용 가능합니다.</p>
   </div>
 </section>
@@ -194,7 +202,14 @@ permalink: "/family/vaccine/"
        data-full-width-responsive="true"></ins>
 </div>
 
-<small>마지막 업데이트: {{ site.time | date: "%Y-%m-%d" }}</small>
+<p class="vc-data-date">
+📌 이 계산기의 접종 일정은 <strong>질병관리청 2026년 국가예방접종 지침(2026.6.17 개정)</strong> 및
+<strong>HPV 국가예방접종 12세 남아 확대 시행 안내(2026.5.6 시행)</strong> 기준으로 작성되었습니다.
+백신 수급 상황이나 지침 개정에 따라 실제 접종 가능 시기는 달라질 수 있으니, 최신 정보는
+<a href="https://nip.kdca.go.kr" target="_blank" rel="noopener">예방접종도우미</a>에서 다시 확인하세요.
+</p>
+
+<small>마지막 페이지 업데이트: {{ site.time | date: "%Y-%m-%d" }}</small>
 
 <style>
   .cp-breadcrumb { font-size: 0.85rem; color: #5b6470; margin-bottom: 1rem; }
@@ -217,7 +232,7 @@ permalink: "/family/vaccine/"
     padding:24px 20px; box-shadow:0 12px 28px rgba(0,0,0,.04); margin-bottom:26px;
   }
   .vc-card-light { background: #fff; border-color: #e3d4c5; }
-  .vc-card h3 { border-left: 4px solid #8c7355; padding-left: 10px; color:#13293d; }
+  .vc-card h2 { border-left: 4px solid #8c7355; padding-left: 10px; color:#13293d; }
   .vc-note { font-size: 0.85rem; color: #785a43; }
 
   .vc-field { margin-bottom: 14px; }
@@ -296,8 +311,14 @@ permalink: "/family/vaccine/"
   .vc-related-card:hover .vc-related-title { text-decoration:underline; }
 
   .vc-faq-item { margin-bottom: 16px; }
-  .vc-faq-item h4 { margin-bottom: 6px; color: #13293d; }
+  .vc-faq-item h3 { margin-bottom: 6px; font-size: 1rem; color: #13293d; }
   .vc-faq-item p { margin: 0; line-height: 1.6; color: #785a43; }
+
+  .vc-data-date {
+    background:#faf3ea; border:1px solid #e3d4c5; border-radius:12px;
+    padding:12px 16px; font-size:0.85rem; color:#785a43; line-height:1.6; margin:20px 0 8px;
+  }
+  .vc-data-date a { color:#1f5c7a; }
 
   @media (max-width: 640px){
     .vc-coupang-grid { grid-template-columns:1fr; }
@@ -372,8 +393,8 @@ permalink: "/family/vaccine/"
     { v:'MMR', dose:'2차', val:48, unit:'month', std:'만 4~6세' },
     { v:'일본뇌염(사백신)', dose:'4차', val:72, unit:'month', std:'만 6세' },
     { v:'Tdap/Td(파상풍·디프테리아·백일해)', dose:'6차(추가)', val:132, unit:'month', std:'만 11~12세' },
-    { v:'HPV(사람유두종바이러스)', dose:'1차', val:132, unit:'month', std:'만 11~12세', note:'2026년부터 남아도 국가예방접종 대상' },
-    { v:'HPV', dose:'2차', val:138, unit:'month', std:'1차 접종 6~12개월 후' },
+    { v:'HPV(사람유두종바이러스)', dose:'1차', val:144, unit:'month', std:'만 12세', note:'여아는 만 12~17세, 남아는 2026년부터 만 12세(2014년생)만 국가예방접종 대상' },
+    { v:'HPV', dose:'2차', val:150, unit:'month', std:'1차 접종 6개월 후', note:'만 14세 이전 시작 시 2회, 만 15세 이후 시작 시 3회(2·4개월 간격)' },
     { v:'일본뇌염(사백신)', dose:'5차', val:144, unit:'month', std:'만 12세' }
   ];
 
@@ -464,6 +485,11 @@ permalink: "/family/vaccine/"
       "@type": "Question",
       "name": "이 계산기 결과를 실제 접종 예약에 그대로 써도 되나요?",
       "acceptedAnswer": {"@type": "Answer", "text": "아닙니다. 참고용 표준 일정이며, 실제 접종 가능 시기는 아이의 건강 상태나 백신 수급에 따라 달라질 수 있어 의료진과 상의가 필요합니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "남자아이도 HPV 접종을 무료로 받을 수 있나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "네, 2026년 5월 6일부터 만 12세(2014년생) 남아도 HPV 국가예방접종 대상에 포함되었습니다. 여아는 만 12~17세까지 지원되지만 남아는 현재 만 12세만 대상입니다."}
     },
     {
       "@type": "Question",
