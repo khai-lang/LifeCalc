@@ -120,17 +120,17 @@ permalink: "/family/baegil/"
   <h2>함께 보면 좋은 자료</h2>
   <p class="vc-recommend-desc">백일·돌잔치 준비에 도움이 되는 상품입니다.</p>
   <div class="vc-coupang-grid">
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_1" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/f5OvmnF7AW" rel="noopener sponsored">
       <div class="vc-coupang-thumb">🎂</div>
       <div class="vc-coupang-title">백일·돌 상차림 소품 세트</div>
       <div class="vc-coupang-desc">돌잡이 물건까지 포함된 상차림 대여·구매 세트</div>
     </a>
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_2" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/f7h0oUDpu0" rel="noopener sponsored">
       <div class="vc-coupang-thumb">👗</div>
       <div class="vc-coupang-title">백일·돌 아기 한복</div>
       <div class="vc-coupang-desc">기념 촬영과 잔치에 어울리는 아기 한복</div>
     </a>
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_3" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/f7ibTDBUFU" rel="noopener sponsored">
       <div class="vc-coupang-thumb">📷</div>
       <div class="vc-coupang-title">셀프 촬영 소품·배경지</div>
       <div class="vc-coupang-desc">집에서도 근사하게 남기는 기념 촬영 소품</div>
