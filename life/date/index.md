@@ -1,7 +1,7 @@
 ---
 layout: "default"
-title: "날짜 계산기 2026 - D-Day·날짜 더하기빼기·커플 기념일(100일·1000일·주년) 자동 계산 | LifeCalc"
-description: "두 날짜 사이 일수와 D-Day는 물론, 특정 날짜로부터 N일 후/전 날짜, 사귄 날부터 100일·200일·300일·1000일·N주년 기념일까지 한 번에 계산합니다. 당일 포함/제외 옵션 지원."
+title: "기념일·날짜 계산기 - D-Day, 날짜 더하기·빼기, 음력↔양력 변환 | LifeCalc"
+description: "두 날짜 사이 D-Day 계산, 날짜 더하기·빼기, 음력 생일을 양력으로 변환하는 기능까지 한 곳에서 이용하세요. 대부분의 날짜 계산기가 지원하지 않는 음력↔양력 변환을 지원합니다."
 permalink: "/life/date/"
 ---
 
@@ -14,221 +14,248 @@ permalink: "/life/date/"
 </nav>
 
 <section class="cp-hero">
-  <h2>날짜 계산기 </h2>
+  <h1>기념일·날짜 계산기</h1>
   <p class="cp-hero-desc">
-    <strong>두 날짜 사이 일수·D-Day</strong>는 물론, "오늘부터 100일 후는 며칠일까?" 같은
-    <strong>날짜 더하기·빼기</strong>, 사귄 날이나 시작일을 넣으면 <strong>100일·200일·300일·1000일·
-    N주년</strong> 기념일을 한 번에 나열해주는 <strong>기념일 자동 계산</strong>까지, 날짜와 관련된
-    계산을 이 페이지 하나로 끝낼 수 있습니다. 시험·마감처럼 당일을 빼고 세는 방식과 기념일·아기
-    백일처럼 당일을 포함해 세는 방식을 선택할 수 있어 결과가 하루씩 어긋나는 문제도 없습니다.
+    두 날짜 사이 <strong>D-Day</strong>를 계산하고, 기준일에서 <strong>날짜를 더하거나 빼고</strong>,
+    <strong>음력 생일을 양력으로</strong>(또는 그 반대로) 변환할 수 있습니다. 대부분의 날짜 계산기가
+    지원하지 않는 <strong>음력↔양력 변환</strong>까지 한 곳에서 확인하세요.
   </p>
 </section>
 
-<section id="dt-calculator" class="dt-card">
-  <div class="dt-tabs">
-    <button type="button" class="dt-tab active" data-tab="diff" onclick="setDtTab(this)">두 날짜 사이 · D-Day</button>
-    <button type="button" class="dt-tab" data-tab="add" onclick="setDtTab(this)">날짜 더하기·빼기</button>
-    <button type="button" class="dt-tab" data-tab="anniv" onclick="setDtTab(this)">기념일 자동 계산</button>
+<section id="dt-calculator" class="vc-card">
+  <h2>날짜 계산</h2>
+
+  <div class="vc-tabs">
+    <button type="button" class="vc-tab active" data-tab="dday">D-Day 계산</button>
+    <button type="button" class="vc-tab" data-tab="add">날짜 더하기·빼기</button>
+    <button type="button" class="vc-tab" data-tab="lunar2solar">음력→양력</button>
+    <button type="button" class="vc-tab" data-tab="solar2lunar">양력→음력</button>
   </div>
 
-  <!-- 탭 1: 두 날짜 사이 / D-Day -->
-  <div class="dt-panel active" id="dt-panel-diff">
-    <p class="dt-sub-desc">시작 날짜와 종료 날짜를 입력하세요. 종료 날짜를 비워두면 오늘 날짜 기준 D-Day를 계산합니다.</p>
-    <div class="dt-grid-2">
-      <div class="dt-field">
-        <label for="dt-diff-start">시작 날짜</label>
-        <input type="date" id="dt-diff-start">
-      </div>
-      <div class="dt-field">
-        <label for="dt-diff-end">종료 날짜 (비워두면 오늘)</label>
-        <input type="date" id="dt-diff-end">
-      </div>
+  <!-- D-Day -->
+  <div class="vc-panel active" id="dt-panel-dday">
+    <div class="vc-field">
+      <label for="dt-start">시작일</label>
+      <input type="date" id="dt-start">
     </div>
-    <label class="dt-checkbox">
-      <input type="checkbox" id="dt-diff-inclusive">
-      시작일 포함해서 세기 (기념일·아기 백일 방식 — 시험/마감이면 체크 해제)
-    </label>
-    <div class="dt-toolbar">
-      <button type="button" class="dt-btn dt-btn-main" onclick="calcDtDiff()">계산하기</button>
+    <div class="vc-field">
+      <label for="dt-end">종료일 (기념일·목표일)</label>
+      <input type="date" id="dt-end">
     </div>
-    <ul class="dt-result" id="dt-diff-result"></ul>
-  </div>
-
-  <!-- 탭 2: 날짜 더하기/빼기 -->
-  <div class="dt-panel" id="dt-panel-add" style="display:none">
-    <p class="dt-sub-desc">기준 날짜에 원하는 만큼 더하거나 빼서 결과 날짜와 요일을 확인하세요.</p>
-    <div class="dt-grid-2">
-      <div class="dt-field">
-        <label for="dt-add-base">기준 날짜</label>
-        <input type="date" id="dt-add-base">
-      </div>
-      <div class="dt-field">
-        <label for="dt-add-amount">더하거나 뺄 값 (빼려면 음수, 예: -30)</label>
-        <input type="text" inputmode="numeric" id="dt-add-amount" placeholder="예: 100">
-      </div>
+    <div class="vc-checkline">
+      <input type="checkbox" id="dt-include" checked>
+      <label for="dt-include">시작일을 1일째로 포함해서 계산 (예: 사귄 날부터 며칠째)</label>
     </div>
-    <div class="dt-tabs dt-tabs-sm">
-      <button type="button" class="dt-tab active" data-unit="day" onclick="setDtUnit(this)">일</button>
-      <button type="button" class="dt-tab" data-unit="week" onclick="setDtUnit(this)">주</button>
-      <button type="button" class="dt-tab" data-unit="month" onclick="setDtUnit(this)">개월</button>
-      <button type="button" class="dt-tab" data-unit="year" onclick="setDtUnit(this)">년</button>
-    </div>
-    <div class="dt-toolbar">
-      <button type="button" class="dt-btn dt-btn-main" onclick="calcDtAdd()">계산하기</button>
-    </div>
-    <ul class="dt-result" id="dt-add-result"></ul>
-  </div>
-
-  <!-- 탭 3: 기념일 자동 계산 -->
-  <div class="dt-panel" id="dt-panel-anniv" style="display:none">
-    <p class="dt-sub-desc">사귀기 시작한 날, 결혼한 날, 또는 어떤 시작일이든 입력하면 주요 기념일을 자동으로 나열합니다. (시작일을 1일째로 계산합니다)</p>
-    <div class="dt-field">
-      <label for="dt-anniv-start">시작 날짜</label>
-      <input type="date" id="dt-anniv-start">
-    </div>
-    <div class="dt-toolbar">
-      <button type="button" class="dt-btn dt-btn-main" onclick="calcDtAnniv()">기념일 계산하기</button>
-    </div>
-    <div class="dt-anniv-legend">
-      <span class="dt-badge dt-badge-past">지난 기념일</span>
-      <span class="dt-badge dt-badge-next">가장 가까운 기념일</span>
-      <span class="dt-badge dt-badge-upcoming">다가오는 기념일</span>
+    <div class="vc-toolbar">
+      <button type="button" class="vc-btn vc-btn-main" onclick="calcDday()">D-Day 계산하기</button>
     </div>
     <div class="table-wrap">
-      <table class="dt-table" id="dt-anniv-table" style="display:none">
-        <thead><tr><th>기념일</th><th>날짜</th><th>요일</th><th>D-Day</th></tr></thead>
-        <tbody id="dt-anniv-body"></tbody>
+      <table class="vc-table" id="dt-dday-table" style="display:none">
+        <thead><tr><th>구분</th><th>결과</th></tr></thead>
+        <tbody id="dt-dday-body"></tbody>
       </table>
     </div>
   </div>
+
+  <!-- 날짜 더하기/빼기 -->
+  <div class="vc-panel" id="dt-panel-add">
+    <div class="vc-field">
+      <label for="dt-base">기준일</label>
+      <input type="date" id="dt-base">
+    </div>
+    <div class="vc-field">
+      <label for="dt-days">일수</label>
+      <input type="number" id="dt-days" placeholder="예: 100" min="0">
+    </div>
+    <div class="vc-field">
+      <label for="dt-direction">계산</label>
+      <select id="dt-direction">
+        <option value="add">더하기 (+)</option>
+        <option value="sub">빼기 (−)</option>
+      </select>
+    </div>
+    <div class="vc-toolbar">
+      <button type="button" class="vc-btn vc-btn-main" onclick="calcAddDays()">계산하기</button>
+    </div>
+    <div class="table-wrap">
+      <table class="vc-table" id="dt-add-table" style="display:none">
+        <thead><tr><th>구분</th><th>결과</th></tr></thead>
+        <tbody id="dt-add-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 음력 -> 양력 -->
+  <div class="vc-panel" id="dt-panel-lunar2solar">
+    <p class="vc-note">음력 생일이나 기념일을 입력하면 올해부터 4년 뒤까지 양력 날짜를 계산해 보여줍니다.</p>
+    <div class="vc-row3">
+      <div class="vc-field">
+        <label for="dt-lunar-year">음력 연도</label>
+        <input type="number" id="dt-lunar-year" placeholder="예: 1990">
+      </div>
+      <div class="vc-field">
+        <label for="dt-lunar-month">음력 월</label>
+        <input type="number" id="dt-lunar-month" placeholder="1~12" min="1" max="12">
+      </div>
+      <div class="vc-field">
+        <label for="dt-lunar-day">음력 일</label>
+        <input type="number" id="dt-lunar-day" placeholder="1~30" min="1" max="30">
+      </div>
+    </div>
+    <div class="vc-checkline">
+      <input type="checkbox" id="dt-lunar-leap">
+      <label for="dt-lunar-leap">윤달(閏月)입니다</label>
+    </div>
+    <div class="vc-toolbar">
+      <button type="button" class="vc-btn vc-btn-main" onclick="calcLunarToSolar()">양력으로 변환하기</button>
+    </div>
+    <div class="table-wrap">
+      <table class="vc-table" id="dt-l2s-table" style="display:none">
+        <thead><tr><th>음력 기준 연도</th><th>양력 날짜</th><th>D-Day</th></tr></thead>
+        <tbody id="dt-l2s-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 양력 -> 음력 -->
+  <div class="vc-panel" id="dt-panel-solar2lunar">
+    <div class="vc-field">
+      <label for="dt-solar-date">양력 날짜</label>
+      <input type="date" id="dt-solar-date">
+    </div>
+    <div class="vc-toolbar">
+      <button type="button" class="vc-btn vc-btn-main" onclick="calcSolarToLunar()">음력으로 변환하기</button>
+    </div>
+    <div class="table-wrap">
+      <table class="vc-table" id="dt-s2l-table" style="display:none">
+        <thead><tr><th>구분</th><th>결과</th></tr></thead>
+        <tbody id="dt-s2l-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="cp-callout">
+    ✅ 음력 변환은 <strong>korean-lunar-calendar</strong> 라이브러리(한국천문연구원 KARI 기준 데이터)를
+    사용하며, <strong>서기 1000년~2050년</strong> 범위를 지원합니다. 이 범위를 벗어난 날짜는 계산되지
+    않습니다.
+  </div>
 </section>
 
-<!-- AD SLOT 1: 계산기 직후, 활용 가이드 진입 전 -->
+<!-- AD SLOT 1: 계산기 직후 -->
+<!-- ⚠️ 실제 배포 전 data-ad-slot 값을 이 페이지 전용 슬롯 ID로 교체하세요 -->
 <div class="ad-box">
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-client="ca-pub-3758454239921831"
-       data-ad-slot="7492664289"
+       data-ad-slot="REPLACE_WITH_AD_SLOT_ID"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
 </div>
 
-<section class="dt-card dt-card-light">
-  <h3>날짜 계산 결과가 계산기마다 하루씩 다른 이유</h3>
+<section class="vc-card vc-card-light">
+  <h2>왜 음력 기념일 계산이 필요한가요?</h2>
   <p>
-    같은 두 날짜를 넣었는데 계산기마다 결과가 하루씩 다르다면, <strong>시작일을 포함하는지 여부</strong>가
-    다르기 때문입니다. 시험이나 마감일처럼 "앞으로 며칠 남았는지"를 셀 때는 보통 오늘(당일)을 포함하지
-    않고 순수하게 날짜 차이만 계산합니다. 반면 커플 기념일이나 아기 백일처럼 "시작일을 1일째"로 세는
-    관습이 있는 경우에는 하루를 더해야 실제로 사람들이 말하는 "100일"과 맞아떨어집니다.
+    한국에서는 여전히 많은 어르신들이 생신을 음력으로 챙기고, 설·추석 같은 명절이나 제사도 음력을
+    기준으로 합니다. 문제는 음력 날짜가 매년 양력으로 다른 날짜에 대응된다는 점입니다. 예를 들어
+    같은 음력 1월 1일(설날)이라도 어느 해는 양력 1월, 어느 해는 양력 2월이 될 수 있습니다. 그래서
+    "부모님 생신이 음력 O월 O일"이라는 정보만으로는 올해 양력으로 며칠인지 바로 알기 어렵습니다.
   </p>
-  <table class="dt-table">
-    <thead><tr><th>상황</th><th>세는 방식</th><th>예시</th></tr></thead>
-    <tbody>
-      <tr><td>시험·마감·디데이</td><td>당일 제외 (순수 일수 차이)</td><td>오늘부터 시험까지 30일 남음</td></tr>
-      <tr><td>커플 기념일·아기 백일</td><td>당일 포함 (시작일 = 1일째)</td><td>사귄 날 + 99일 = 100일째</td></tr>
-    </tbody>
-  </table>
   <p>
-    <strong>주년(周年)</strong>은 날짜 수를 세는 대신, 시작일과 같은 월·일이 돌아오는 날로 계산합니다.
-    2월 29일처럼 4년에 한 번뿐인 날짜에 시작한 경우, 평년에는 2월 28일을 기준으로 표시합니다.
-  </p>
-  <p class="dt-note">
-    ※ 이 계산기는 양력(그레고리력) 기준입니다. 음력 생일·제사일 변환은 지원하지 않습니다. 만 나이가
-    궁금하다면 <a href="/life/age/">만나이 계산기</a>를 함께 활용해 보세요.
+    이 계산기는 <strong>한국천문연구원(KARI)의 음양력 변환 표준</strong>을 따르는 라이브러리를 사용해,
+    음력 날짜를 정확한 양력 날짜로 변환해 드립니다. 중국 음력과 한국 음력은 윤달이 들어가는 위치가
+    다른 경우가 있어, 반드시 한국 기준 데이터를 사용하는 것이 중요합니다.
   </p>
 </section>
 
-<!-- COUPANG PARTNERS: 실제 제휴 링크는 각 카드의 href="COUPANG_PARTNERS_LINK_*" 자리에 쿠팡파트너스 딥링크로 교체하세요. -->
-<section class="dt-card dt-card-light dt-recommend">
-  <h3>함께 보면 좋은 자료</h3>
-  <p class="dt-recommend-desc">다가오는 기념일을 챙기고 기록하는 데 도움이 되는 상품입니다.</p>
-  
-  <div class="dt-coupang-grid">
-    <a class="dt-coupang-card" href="https://link.coupang.com/a/fNIPYQ59H2" target="_blank" rel="noopener sponsored">
-      <div class="dt-coupang-thumb" aria-hidden="true">📅</div>
-      <div class="dt-coupang-title">위클리·데일리 다이어리</div>
-      <div class="dt-coupang-desc">기념일과 일정을 손으로 기록하는 플래너</div>
+<!-- COUPANG PARTNERS: 아래 href="COUPANG_PARTNERS_LINK_*"를 실제 쿠팡파트너스 딥링크로 교체하세요 -->
+<section class="vc-card vc-card-light vc-recommend">
+  <h2>함께 보면 좋은 자료</h2>
+  <p class="vc-recommend-desc">기념일과 명절을 챙길 때 도움이 되는 상품입니다.</p>
+  <div class="vc-coupang-grid">
+    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_1" target="_blank" rel="noopener sponsored">
+      <div class="vc-coupang-thumb">🎁</div>
+      <div class="vc-coupang-title">기념일 선물 세트</div>
+      <div class="vc-coupang-desc">생신·기념일에 어울리는 인기 선물</div>
     </a>
-    
-    <a class="dt-coupang-card" href="https://link.coupang.com/a/fNIVypDH0C" target="_blank" rel="noopener sponsored">
-      <div class="dt-coupang-thumb" aria-hidden="true">🎁</div>
-      <div class="dt-coupang-title">기념일 선물·이벤트 용품</div>
-      <div class="dt-coupang-desc">100일·주년에 어울리는 선물 아이디어</div>
+    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_2" target="_blank" rel="noopener sponsored">
+      <div class="vc-coupang-thumb">📅</div>
+      <div class="vc-coupang-title">가족 일정 관리 다이어리</div>
+      <div class="vc-coupang-desc">음력·양력 기념일을 함께 기록하는 다이어리</div>
     </a>
-    
-    <a class="dt-coupang-card" href="https://link.coupang.com/a/fNI3kKFhHE" target="_blank" rel="noopener sponsored">
-      <div class="dt-coupang-thumb" aria-hidden="true">🖼️</div>
-      <div class="dt-coupang-title">포토 캘린더·액자</div>
-      <div class="dt-coupang-desc">지나온 기념일을 사진으로 남기는 캘린더</div>
+    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_3" target="_blank" rel="noopener sponsored">
+      <div class="vc-coupang-thumb">🍰</div>
+      <div class="vc-coupang-title">기념일 케이크·꽃 배달</div>
+      <div class="vc-coupang-desc">D-day에 맞춰 미리 준비하는 축하 선물</div>
     </a>
   </div>
-  
-  <p class="dt-coupang-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+  <p class="vc-coupang-disclosure">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.</p>
 </section>
 
-<section class="dt-card">
-  <h3>관련 계산기</h3>
-  <div class="dt-related-grid">
-    <a class="dt-related-card" href="/life/age/">
-      <span class="dt-related-title">만나이 계산기</span>
-      <span class="dt-related-desc">생년월일로 만 나이를 정확하게 계산</span>
+<section class="vc-card">
+  <h2>관련 계산기</h2>
+  <div class="vc-related-grid">
+    <a class="vc-related-card" href="/life/age/">
+      <span class="vc-related-title">만나이 계산기</span>
+      <span class="vc-related-desc">만/세는/연나이 비교, 띠, D-day</span>
     </a>
-    <a class="dt-related-card" href="/family/due-date/">
-      <span class="dt-related-title">출산 예정일 계산기</span>
-      <span class="dt-related-desc">마지막 생리일·임신 주수로 예정일 계산</span>
+    <a class="vc-related-card" href="/family/baegil/">
+      <span class="vc-related-title">백일·돌 계산기</span>
+      <span class="vc-related-desc">삼칠일부터 백일·1000일·첫돌까지</span>
     </a>
-    <a class="dt-related-card" href="/family/baby-days/">
-      <span class="dt-related-title">아이 생후 N일/개월</span>
-      <span class="dt-related-desc">태어난 날부터 오늘까지 며칠·몇 개월인지 확인</span>
+    <a class="vc-related-card" href="/family/baby-days/">
+      <span class="vc-related-title">아기 개월수 계산기</span>
+      <span class="vc-related-desc">생후 며칠·몇 개월 자동 계산</span>
     </a>
-    <a class="dt-related-card" href="/family/vaccine/">
-      <span class="dt-related-title">예방접종 일정 계산기</span>
-      <span class="dt-related-desc">생년월일 기준 접종 시기를 자동 안내</span>
+    <a class="vc-related-card" href="/family/due-date/">
+      <span class="vc-related-title">출산 예정일 계산기</span>
+      <span class="vc-related-desc">LMP·배란일·IVF 이식일 기준 예정일</span>
     </a>
   </div>
 </section>
 
-<section class="dt-card" id="dt-faq">
-  <h3>자주 묻는 질문</h3>
+<section class="vc-card" id="dt-faq">
+  <h2>자주 묻는 질문</h2>
 
-  <div class="dt-faq-item">
-    <h4>100일은 왜 시작일에서 99일 뒤인가요?</h4>
-    <p>사귄 날을 1일째로 세는 방식이 한국 커플 문화의 관습이기 때문입니다. 시작일을 1일로 포함해서
-    세면, 100일째 되는 날은 시작일에 99일을 더한 날짜가 됩니다. 이 계산기의 "기념일 자동 계산" 탭은
-    이 방식을 기본으로 사용합니다.</p>
+  <div class="vc-faq-item">
+    <h3>이 계산기는 어떤 음력 데이터를 사용하나요?</h3>
+    <p>한국천문연구원(KARI)의 음양력 변환 표준 데이터를 사용합니다. 중국 음력과 한국 음력은 윤달이
+    들어가는 위치가 다른 경우가 있어, 한국 기준 데이터를 사용하는 것이 정확합니다.</p>
   </div>
-  <div class="dt-faq-item">
-    <h4>D-Day는 당일을 어떻게 표시하나요?</h4>
-    <p>목표일 당일은 <b>D-DAY</b>, 목표일이 아직 오지 않았다면 남은 일수만큼 <b>D-n</b>, 이미
-    지났다면 지난 일수만큼 <b>D+n</b>으로 표시합니다.</p>
+  <div class="vc-faq-item">
+    <h3>D-Day 계산에서 "시작일 포함"은 언제 체크해야 하나요?</h3>
+    <p>사귄 날, 결혼한 날처럼 그날부터 며칠째인지 세는 경우(예: "만난 지 100일째") 포함 옵션을
+    체크하세요. 두 날짜 사이의 순수한 간격(예: "몇 년 몇 개월 지났는지")을 알고 싶다면 체크를
+    해제하세요.</p>
   </div>
-  <div class="dt-faq-item">
-    <h4>2월 29일에 시작한 기념일은 주년을 어떻게 계산하나요?</h4>
-    <p>평년(윤년이 아닌 해)에는 2월 29일이 없으므로, 이 계산기는 2월 28일을 그해의 주년 날짜로
-    표시합니다.</p>
+  <div class="vc-faq-item">
+    <h3>윤달에 태어난 경우 음력 생일은 어떻게 계산하나요?</h3>
+    <p>윤달 체크박스를 선택하면 해당 연도에 실제로 윤달이 있었는지 확인해 계산합니다. 매년 같은 달에
+    윤달이 있는 것은 아니므로, 윤달 생일인 경우 그 해에 윤달이 없으면 평달 같은 월로 계산하는 것이
+    일반적인 관례입니다.</p>
   </div>
-  <div class="dt-faq-item">
-    <h4>음력 생일이나 제사일도 계산할 수 있나요?</h4>
-    <p>아니요, 이 계산기는 양력(그레고리력) 기준으로만 계산합니다. 음력 날짜 변환은 지원하지
-    않습니다.</p>
+  <div class="vc-faq-item">
+    <h3>1000년 이전이나 2050년 이후 날짜도 변환할 수 있나요?</h3>
+    <p>아니요. 이 계산기가 사용하는 라이브러리는 음력 1000년~2050년, 양력 1000년~2050년 범위만
+    지원합니다. 이 범위를 벗어나면 변환할 수 없습니다.</p>
   </div>
-  <div class="dt-faq-item">
-    <h4>모바일에서도 사용할 수 있나요?</h4>
+  <div class="vc-faq-item">
+    <h3>모바일에서도 사용할 수 있나요?</h3>
     <p>네, 반응형으로 제작되어 스마트폰에서도 동일하게 이용 가능합니다.</p>
   </div>
 </section>
 
-<!-- AD SLOT 2: FAQ 하단, 페이지 최하단 -->
+<!-- AD SLOT 2: FAQ 하단 -->
+<!-- ⚠️ 실제 배포 전 data-ad-slot 값을 이 페이지 전용 슬롯 ID로 교체하세요 -->
 <div class="ad-box">
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-client="ca-pub-3758454239921831"
-       data-ad-slot="7492664289"
+       data-ad-slot="REPLACE_WITH_AD_SLOT_ID"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
 </div>
 
-<small>마지막 업데이트: {{ site.time | date: "%Y-%m-%d" }}</small>
+<small>마지막 페이지 업데이트: {{ site.time | date: "%Y-%m-%d" }}</small>
 
 <style>
   .cp-breadcrumb { font-size: 0.85rem; color: #5b6470; margin-bottom: 1rem; }
@@ -246,289 +273,229 @@ permalink: "/life/date/"
   .cp-hero h1 { margin-top: 0; color: #13293d; }
   .cp-hero-desc { line-height: 1.7; color: #5b6470; }
 
-  .dt-card{
+  .vc-card{
     background:#f5ebdf; border:1px solid #e2d2c0; border-radius:22px;
     padding:24px 20px; box-shadow:0 12px 28px rgba(0,0,0,.04); margin-bottom:26px;
   }
-  .dt-card-light { background: #fff; border-color: #e3d4c5; }
-  .dt-card h3 { border-left: 4px solid #8c7355; padding-left: 10px; color:#13293d; }
-  .dt-sub-desc { color: #785a43; font-size: 0.92rem; margin-top: -4px; margin-bottom:16px; }
-  .dt-note { font-size: 0.85rem; color: #785a43; }
+  .vc-card-light { background: #fff; border-color: #e3d4c5; }
+  .vc-card h2 { border-left: 4px solid #8c7355; padding-left: 10px; color:#13293d; }
+  .vc-note { font-size: 0.85rem; color: #785a43; margin-bottom:12px; }
 
-  .dt-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
-  .dt-tabs-sm { margin: 10px 0 4px; }
-  .dt-tab {
-    padding: 10px 16px; border-radius: 10px; border: 1px solid #e2d2c0;
-    background: #fff; color: #785a43; font-weight: 600; cursor: pointer; font-size: 0.9rem;
+  .vc-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+  .vc-tab {
+    border:1px solid #e2d2c0; background:#fff; color:#785a43; border-radius:10px;
+    padding:9px 16px; cursor:pointer; font-weight:600; font-size:0.9rem;
   }
-  .dt-tab.active { background: #e96f00; color: #fff; border-color: #e96f00; }
-  .dt-tab:hover:not(.active) { border-color: #e96f00; color:#e96f00; }
+  .vc-tab.active { background:#e96f00; border-color:#e96f00; color:#fff; }
+  .vc-panel { display:none; }
+  .vc-panel.active { display:block; }
 
-  .dt-panel.active, .dt-panel { }
-
-  .dt-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 16px; }
-  .dt-field { margin-bottom: 14px; }
-  .dt-field label { display: block; font-weight: 600; margin-bottom: 6px; color: #13293d; }
-  .dt-field input {
+  .vc-field { margin-bottom: 14px; }
+  .vc-field label { display: block; font-weight: 600; margin-bottom: 6px; color: #13293d; }
+  .vc-field input, .vc-field select {
     width: 100%; padding: 10px 12px; border: 1px solid #e2d2c0;
     border-radius: 10px; font-size: 1rem; box-sizing: border-box; background:#fff;
   }
+  .vc-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+  @media (max-width:560px){ .vc-row3{ grid-template-columns:1fr; } }
 
-  .dt-checkbox {
-    display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: #785a43;
-    margin: 4px 0 16px; cursor: pointer;
-  }
-  .dt-checkbox input { width: auto; }
+  .vc-checkline { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+  .vc-checkline input { width:18px; height:18px; accent-color:#e96f00; }
+  .vc-checkline label { font-weight:500; color:#13293d; margin:0; }
 
-  .dt-toolbar { margin: 8px 0 16px; }
-  .dt-btn {
+  .vc-toolbar { margin: 8px 0 16px; }
+  .vc-btn {
     padding: 10px 18px; border-radius: 10px; border: 1px solid #e2d2c0;
     background: #fff; color: #785a43; font-weight: 600; cursor: pointer;
   }
-  .dt-btn-main { background: #e96f00; color: #fff; border-color: #e96f00; }
-  .dt-btn-main:hover { background: #ff7a00; border-color: #ff7a00; }
+  .vc-btn-main { background: #e96f00; color: #fff; border-color: #e96f00; }
+  .vc-btn-main:hover { background: #ff7a00; border-color: #ff7a00; }
 
-  .dt-result { list-style:none; margin:16px 0 0; padding:0; border-top:1px solid #e2d2c0; }
-  .dt-result li { display:flex; justify-content:space-between; gap:12px; padding:10px 2px; color:#3a2c1d; font-size:0.95rem; }
-  .dt-result li b { color:#13293d; }
-  .dt-result li.hl { background:#fdeadb; color:#e96f00; border-radius:10px; padding:12px 14px; margin-top:6px; font-weight:800; font-size:1.05rem; }
-  .dt-result li.hl b { color:#e96f00; }
-
-  .dt-anniv-legend { display:flex; gap:14px; flex-wrap:wrap; margin:14px 0 8px; font-size:0.82rem; color:#785a43; }
-  .dt-badge { display:inline-flex; align-items:center; gap:6px; }
-  .dt-badge::before { content:''; width:10px; height:10px; border-radius:3px; display:inline-block; }
-  .dt-badge-past::before { background:#e3d4c5; }
-  .dt-badge-next::before { background:#e96f00; }
-  .dt-badge-upcoming::before { background:#cfdfe8; }
+  .cp-callout {
+    background:#cfdfe8; border:1px solid #1f5c7a; color:#174d68; border-radius:12px;
+    padding:14px 16px; font-size:0.92rem; line-height:1.6; margin-top:8px;
+  }
 
   .table-wrap { width:100%; overflow-x:auto; border-radius:12px; border:1px solid #e2d2c0; margin-top:12px; }
-  .dt-table { width:100%; min-width:520px; border-collapse:collapse; }
-  .dt-table th, .dt-table td { padding:9px 10px; text-align:center; font-size:0.9rem; }
-  .dt-table th { background:#f5ebdf; color:#13293d; font-weight:800; white-space:nowrap; }
-  .dt-table td { color:#3a2c1d; border-top:1px solid #f1e7da; }
-  .dt-table tr.dt-row-past td { color:#a99b89; background:#faf5ee; }
-  .dt-table tr.dt-row-next td { background:#fdeadb; color:#e96f00; font-weight:800; }
-  .dt-table tr.dt-row-upcoming td { background:#f3f9fb; color:#174d68; }
+  .vc-table { width:100%; min-width:420px; border-collapse:collapse; }
+  .vc-table th, .vc-table td { padding:9px 10px; text-align:center; font-size:0.9rem; }
+  .vc-table th { background:#f5ebdf; color:#13293d; font-weight:800; white-space:nowrap; }
+  .vc-table td { color:#3a2c1d; border-top:1px solid #f1e7da; }
+  .vc-table td.dt-main { font-weight:800; color:#e96f00; }
+  .vc-table tr.dt-row-next td { background:#fdeadb; color:#e96f00; font-weight:800; }
 
-  .dt-recommend-desc { font-size: 0.9rem; color: #785a43; }
+  .vc-recommend-desc { font-size: 0.9rem; color: #785a43; }
 
-  .dt-coupang-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin-top:14px; }
-  .dt-coupang-card {
+  .vc-coupang-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin-top:14px; }
+  .vc-coupang-card {
     display:flex; flex-direction:column; gap:6px; background:#f5ebdf; border:1px solid #e2d2c0;
     border-radius:14px; padding:16px; text-decoration:none; color:inherit; transition:box-shadow .15s;
   }
-  .dt-coupang-card:hover { box-shadow:0 4px 14px rgba(19,41,61,0.12); }
-  .dt-coupang-thumb { font-size:2rem; line-height:1; }
-  .dt-coupang-title { font-weight:700; color:#13293d; }
-  .dt-coupang-desc { font-size:0.85rem; color:#785a43; line-height:1.5; }
-  .dt-coupang-disclosure { font-size:0.78rem; color:#a99b89; margin-top:12px; }
+  .vc-coupang-card:hover { box-shadow:0 4px 14px rgba(19,41,61,0.12); }
+  .vc-coupang-thumb { font-size:2rem; line-height:1; }
+  .vc-coupang-title { font-weight:700; color:#13293d; }
+  .vc-coupang-desc { font-size:0.85rem; color:#785a43; line-height:1.5; }
+  .vc-coupang-disclosure { font-size:0.78rem; color:#a99b89; margin-top:12px; }
 
-  .dt-related-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
-  .dt-related-card {
+  .vc-related-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
+  .vc-related-card {
     display:flex; flex-direction:column; gap:4px; background:#f5ebdf; border:1px solid #e2d2c0;
     border-radius:12px; padding:14px 16px; text-decoration:none;
   }
-  .dt-related-title { color:#e96f00; font-weight:700; }
-  .dt-related-desc { font-size:0.85rem; color:#785a43; }
-  .dt-related-card:hover .dt-related-title { text-decoration:underline; }
+  .vc-related-title { color:#e96f00; font-weight:700; }
+  .vc-related-desc { font-size:0.85rem; color:#785a43; }
+  .vc-related-card:hover .vc-related-title { text-decoration:underline; }
 
-  .dt-faq-item { margin-bottom: 16px; }
-  .dt-faq-item h4 { margin-bottom: 6px; color: #13293d; }
-  .dt-faq-item p { margin: 0; line-height: 1.6; color: #785a43; }
+  .vc-faq-item { margin-bottom: 16px; }
+  .vc-faq-item h3 { margin-bottom: 6px; font-size: 1rem; color: #13293d; margin-top:0; }
+  .vc-faq-item p { margin: 0; line-height: 1.6; color: #785a43; }
 
-  @media (max-width: 900px){
-    .dt-grid-2 { grid-template-columns: 1fr; }
-  }
   @media (max-width: 640px){
-    .dt-coupang-grid { grid-template-columns:1fr; }
-    .dt-related-grid { grid-template-columns:1fr; }
+    .vc-coupang-grid { grid-template-columns:1fr; }
+    .vc-related-grid { grid-template-columns:1fr; }
   }
 </style>
+
+<!-- 한국천문연구원(KARI) 기준 음양력 변환 라이브러리, 오프라인 동작, 1000~2050년 지원 -->
+<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar/dist/korean-lunar-calendar.min.js"></script>
 
 <script>
 (function(){
   const WD = ['일','월','화','수','목','금','토'];
 
-  function parseDateInput(id){
-    const v = document.getElementById(id).value;
-    if(!v) return null;
-    const [y,m,d] = v.split('-').map(Number);
-    return new Date(y, m - 1, d);
-  }
-
+  function addDays(d, n){ const r = new Date(d); r.setDate(r.getDate() + n); return r; }
   function todayOnly(){
     const t = new Date();
     return new Date(t.getFullYear(), t.getMonth(), t.getDate());
   }
-
-  function fmtDate(d){
-    return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일 (${WD[d.getDay()]})`;
-  }
-
-  function diffDays(a, b){
-    return Math.round((b - a) / 86400000);
-  }
-
-  function ddayLabel(target){
-    const t = todayOnly();
-    const n = diffDays(t, target);
+  function diffDays(a, b){ return Math.round((b - a) / 86400000); }
+  function ddayLabel(ref, target){
+    const n = diffDays(ref, target);
     if(n === 0) return 'D-DAY';
     return n > 0 ? `D-${n}` : `D+${Math.abs(n)}`;
   }
-
-  function addDays(d, n){
-    const r = new Date(d);
-    r.setDate(r.getDate() + n);
-    return r;
+  function fmtShort(d){
+    return `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}(${WD[d.getDay()]})`;
   }
-  function addMonths(d, n){
-    const r = new Date(d);
-    const day = r.getDate();
-    r.setDate(1);
-    r.setMonth(r.getMonth() + n);
-    const daysInMonth = new Date(r.getFullYear(), r.getMonth() + 1, 0).getDate();
-    r.setDate(Math.min(day, daysInMonth));
-    return r;
-  }
-  function addYears(d, n){
-    const r = new Date(d);
-    const targetYear = r.getFullYear() + n;
-    const isFeb29 = r.getMonth() === 1 && r.getDate() === 29;
-    if(isFeb29){
-      const leap = (targetYear % 4 === 0 && targetYear % 100 !== 0) || targetYear % 400 === 0;
-      r.setFullYear(targetYear, 1, leap ? 29 : 28);
-    } else {
-      r.setFullYear(targetYear);
-    }
-    return r;
+  function parseDateInput(id){
+    const v = document.getElementById(id).value;
+    if(!v) return null;
+    const [y, m, d] = v.split('-').map(Number);
+    return new Date(y, m - 1, d);
   }
 
-  function calendarDiff(start, end){
-    let y = end.getFullYear() - start.getFullYear();
-    let m = end.getMonth() - start.getMonth();
-    let d = end.getDate() - start.getDate();
-    if(d < 0){
-      m -= 1;
-      const prevMonth = new Date(end.getFullYear(), end.getMonth(), 0).getDate();
-      d += prevMonth;
+  // 탭 전환
+  document.querySelectorAll('.vc-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.vc-tab').forEach(function(t){ t.classList.remove('active'); });
+      document.querySelectorAll('.vc-panel').forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById('dt-panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // D-Day 계산
+  window.calcDday = function(){
+    const start = parseDateInput('dt-start');
+    const end = parseDateInput('dt-end');
+    if (!start || !end){ alert('시작일과 종료일을 모두 입력해 주세요.'); return; }
+    const includeStart = document.getElementById('dt-include').checked;
+
+    const rawDays = diffDays(start, end);
+    const days = includeStart ? (rawDays >= 0 ? rawDays + 1 : rawDays - 1) : rawDays;
+    const weeks = Math.trunc(days / 7);
+    const absDays = Math.abs(rawDays);
+    const years = Math.floor(absDays / 365);
+    const remMonths = Math.floor((absDays % 365) / 30);
+
+    document.getElementById('dt-dday-body').innerHTML = `
+      <tr><td>일수</td><td class="dt-main">${days.toLocaleString()}일${includeStart ? ' (시작일 포함)' : ''}</td></tr>
+      <tr><td>주 단위</td><td>약 ${weeks.toLocaleString()}주</td></tr>
+      <tr><td>기간 (대략)</td><td>약 ${years}년 ${remMonths}개월</td></tr>
+    `;
+    document.getElementById('dt-dday-table').style.display = '';
+  };
+
+  // 날짜 더하기/빼기
+  window.calcAddDays = function(){
+    const base = parseDateInput('dt-base');
+    const n = Number(document.getElementById('dt-days').value);
+    const dir = document.getElementById('dt-direction').value;
+    if (!base || !document.getElementById('dt-days').value){ alert('기준일과 일수를 입력해 주세요.'); return; }
+
+    const result = addDays(base, dir === 'add' ? n : -n);
+    document.getElementById('dt-add-body').innerHTML = `
+      <tr><td>계산 결과</td><td class="dt-main">${fmtShort(result)}</td></tr>
+      <tr><td>오늘까지 D-Day</td><td>${ddayLabel(todayOnly(), result)}</td></tr>
+    `;
+    document.getElementById('dt-add-table').style.display = '';
+  };
+
+  function ensureLunarLib(){
+    if (typeof KoreanLunarCalendar === 'undefined'){
+      alert('음력 변환 라이브러리를 불러오지 못했습니다. 인터넷 연결을 확인하고 새로고침해 주세요.');
+      return false;
     }
-    if(m < 0){ y -= 1; m += 12; }
-    return { years: y, months: m, days: d };
+    return true;
   }
 
-  /* 탭 전환 */
-  window.setDtTab = function(btn){
-    const group = btn.closest('.dt-tabs');
-    group.querySelectorAll('.dt-tab').forEach(el => el.classList.remove('active'));
-    btn.classList.add('active');
-
-    if(btn.dataset.tab){
-      document.querySelectorAll('.dt-panel').forEach(p => p.style.display = 'none');
-      document.getElementById('dt-panel-' + btn.dataset.tab).style.display = '';
-    }
-  };
-  window.setDtUnit = function(btn){
-    btn.closest('.dt-tabs').querySelectorAll('.dt-tab').forEach(el => el.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('dt-add-amount').dataset.unit = btn.dataset.unit;
-  };
-
-  /* 탭 1: 두 날짜 사이 / D-Day */
-  window.calcDtDiff = function(){
-    const start = parseDateInput('dt-diff-start');
-    const endInput = parseDateInput('dt-diff-end');
-    const end = endInput || todayOnly();
-
-    if(!start){ alert('시작 날짜를 입력해 주세요.'); return; }
-
-    const inclusive = document.getElementById('dt-diff-inclusive').checked;
-    const [early, late] = start <= end ? [start, end] : [end, start];
-    let days = diffDays(early, late);
-    if(inclusive) days += 1;
-
-    const weeks = Math.floor(days / 7);
-    const remDays = days % 7;
-    const cal = calendarDiff(early, late);
-
-    const rows = [
-      { l: '시작 날짜', v: fmtDate(start) },
-      { l: '종료 날짜' + (endInput ? '' : ' (오늘)'), v: fmtDate(end) },
-      { l: '날짜 차이', v: `${days.toLocaleString('ko-KR')}일` },
-      { l: '주 단위 환산', v: `${weeks}주 ${remDays}일` },
-      { l: '연·월·일 환산', v: `${cal.years}년 ${cal.months}개월 ${cal.days}일` },
-      { l: '종료 날짜 기준 D-Day', v: ddayLabel(end), cls: 'hl' }
-    ];
-    document.getElementById('dt-diff-result').innerHTML =
-      rows.map(r => `<li class="${r.cls || ''}"><span>${r.l}</span><b>${r.v}</b></li>`).join('');
-  };
-
-  /* 탭 2: 날짜 더하기/빼기 */
-  window.calcDtAdd = function(){
-    const base = parseDateInput('dt-add-base');
-    const amountEl = document.getElementById('dt-add-amount');
-    const amount = parseInt((amountEl.value || '').replace(/[^0-9\-]/g, ''), 10);
-    const unit = amountEl.dataset.unit || 'day';
-
-    if(!base){ alert('기준 날짜를 입력해 주세요.'); return; }
-    if(isNaN(amount)){ alert('더하거나 뺄 값을 입력해 주세요.'); return; }
-
-    let result;
-    if(unit === 'day') result = addDays(base, amount);
-    else if(unit === 'week') result = addDays(base, amount * 7);
-    else if(unit === 'month') result = addMonths(base, amount);
-    else result = addYears(base, amount);
-
-    const unitLabel = { day: '일', week: '주', month: '개월', year: '년' }[unit];
-    const direction = amount >= 0 ? '후' : '전';
-
-    const rows = [
-      { l: '기준 날짜', v: fmtDate(base) },
-      { l: `${Math.abs(amount)}${unitLabel} ${direction}`, v: fmtDate(result), cls: 'hl' },
-      { l: '오늘 기준 D-Day', v: ddayLabel(result) }
-    ];
-    document.getElementById('dt-add-result').innerHTML =
-      rows.map(r => `<li class="${r.cls || ''}"><span>${r.l}</span><b>${r.v}</b></li>`).join('');
-  };
-
-  /* 탭 3: 기념일 자동 계산 */
-  window.calcDtAnniv = function(){
-    const start = parseDateInput('dt-anniv-start');
-    if(!start){ alert('시작 날짜를 입력해 주세요.'); return; }
-
-    const dayNums = [50, 100, 200, 300, 365, 500, 777, 1000, 2000, 3000, 5000, 10000];
-    const items = dayNums.map(n => ({
-      label: `${n.toLocaleString('ko-KR')}일`,
-      date: addDays(start, n - 1) // 시작일을 1일째로 포함
-    }));
-    for(let y = 1; y <= 10; y++){
-      items.push({ label: `${y}주년`, date: addYears(start, y) });
-    }
-    items.sort((a, b) => a.date - b.date);
+  // 음력 -> 양력 (올해부터 4년 뒤까지)
+  window.calcLunarToSolar = function(){
+    if (!ensureLunarLib()) return;
+    const ly = Number(document.getElementById('dt-lunar-year').value);
+    const lm = Number(document.getElementById('dt-lunar-month').value);
+    const ld = Number(document.getElementById('dt-lunar-day').value);
+    const isLeap = document.getElementById('dt-lunar-leap').checked;
+    if (!ly || !lm || !ld){ alert('음력 연·월·일을 모두 입력해 주세요.'); return; }
 
     const today = todayOnly();
-    let nextMarked = false;
-    const body = items.map(item => {
-      const isPast = item.date < today;
-      let rowClass = '';
-      if(isPast){
-        rowClass = 'dt-row-past';
-      } else if(!nextMarked){
-        rowClass = 'dt-row-next';
-        nextMarked = true;
-      } else {
-        rowClass = 'dt-row-upcoming';
-      }
-      return `<tr class="${rowClass}"><td>${item.label}</td><td>${item.date.getFullYear()}.${item.date.getMonth() + 1}.${item.date.getDate()}</td><td>${WD[item.date.getDay()]}요일</td><td>${ddayLabel(item.date)}</td></tr>`;
-    }).join('');
+    const thisYear = today.getFullYear();
+    let rows = '';
+    let nextFound = false;
 
-    document.getElementById('dt-anniv-body').innerHTML = body;
-    document.getElementById('dt-anniv-table').style.display = '';
+    for (let y = thisYear; y <= thisYear + 4; y++){
+      const cal = new KoreanLunarCalendar();
+      const ok = cal.setLunarDate(y, lm, ld, isLeap);
+      if (!ok){
+        rows += `<tr><td>${y}년 (음력 ${lm}월 ${ld}일${isLeap ? ' 윤달' : ''})</td><td colspan="2">해당 연도에는 이 음력 날짜가 없습니다</td></tr>`;
+        continue;
+      }
+      const s = cal.getSolarCalendar();
+      const solarDate = new Date(s.year, s.month - 1, s.day);
+      const rowClass = (!nextFound && solarDate >= today) ? 'dt-row-next' : '';
+      if (rowClass) nextFound = true;
+      rows += `<tr class="${rowClass}"><td>${y}년 (음력 ${lm}월 ${ld}일)</td><td>${fmtShort(solarDate)}</td><td>${ddayLabel(today, solarDate)}</td></tr>`;
+    }
+
+    document.getElementById('dt-l2s-body').innerHTML = rows;
+    document.getElementById('dt-l2s-table').style.display = '';
+  };
+
+  // 양력 -> 음력
+  window.calcSolarToLunar = function(){
+    if (!ensureLunarLib()) return;
+    const solar = parseDateInput('dt-solar-date');
+    if (!solar){ alert('양력 날짜를 입력해 주세요.'); return; }
+
+    const cal = new KoreanLunarCalendar();
+    const ok = cal.setSolarDate(solar.getFullYear(), solar.getMonth() + 1, solar.getDate());
+    if (!ok){
+      document.getElementById('dt-s2l-body').innerHTML = `<tr><td colspan="2">지원 범위(서기 1000년~2050년)를 벗어난 날짜입니다.</td></tr>`;
+      document.getElementById('dt-s2l-table').style.display = '';
+      return;
+    }
+    const l = cal.getLunarCalendar();
+    const gapja = cal.getKoreanGapja();
+
+    document.getElementById('dt-s2l-body').innerHTML = `
+      <tr><td>음력 날짜</td><td class="dt-main">${l.year}년 ${l.month}월 ${l.day}일${l.intercalation ? ' (윤달)' : ''}</td></tr>
+      <tr><td>간지(년/월/일)</td><td>${gapja.year} ${gapja.month} ${gapja.day}</td></tr>
+    `;
+    document.getElementById('dt-s2l-table').style.display = '';
   };
 
   document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.ad-box').forEach(ad => ad.style.minHeight = '120px');
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
   });
 })();
 </script>
@@ -552,23 +519,23 @@ permalink: "/life/date/"
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "100일은 왜 시작일에서 99일 뒤인가요?",
-      "acceptedAnswer": {"@type": "Answer", "text": "사귄 날을 1일째로 세는 방식이 한국 커플 문화의 관습이기 때문입니다. 시작일을 1일로 포함해서 세면 100일째 되는 날은 시작일에 99일을 더한 날짜가 됩니다."}
+      "name": "이 계산기는 어떤 음력 데이터를 사용하나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "한국천문연구원(KARI)의 음양력 변환 표준 데이터를 사용하며, 한국과 중국 음력의 윤달 차이를 구분해 정확하게 계산합니다."}
     },
     {
       "@type": "Question",
-      "name": "D-Day는 당일을 어떻게 표시하나요?",
-      "acceptedAnswer": {"@type": "Answer", "text": "목표일 당일은 D-DAY, 아직 오지 않았다면 남은 일수만큼 D-n, 이미 지났다면 지난 일수만큼 D+n으로 표시합니다."}
+      "name": "D-Day 계산에서 시작일 포함은 언제 체크해야 하나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "그날부터 며칠째인지 세는 경우(예: 만난 지 100일째) 포함 옵션을 체크하고, 순수 간격만 알고 싶다면 해제하세요."}
     },
     {
       "@type": "Question",
-      "name": "2월 29일에 시작한 기념일은 주년을 어떻게 계산하나요?",
-      "acceptedAnswer": {"@type": "Answer", "text": "평년에는 2월 29일이 없으므로 2월 28일을 그해의 주년 날짜로 표시합니다."}
+      "name": "윤달에 태어난 경우 음력 생일은 어떻게 계산하나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "매년 같은 달에 윤달이 있는 것은 아니므로, 해당 연도에 윤달이 없으면 평달 같은 월로 계산하는 것이 일반적인 관례입니다."}
     },
     {
       "@type": "Question",
-      "name": "음력 생일이나 제사일도 계산할 수 있나요?",
-      "acceptedAnswer": {"@type": "Answer", "text": "아니요, 이 계산기는 양력(그레고리력) 기준으로만 계산하며 음력 변환은 지원하지 않습니다."}
+      "name": "1000년 이전이나 2050년 이후 날짜도 변환할 수 있나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "아니요. 음력 1000년~2050년, 양력 1000년~2050년 범위만 지원합니다."}
     },
     {
       "@type": "Question",
