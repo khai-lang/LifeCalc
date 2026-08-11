@@ -157,7 +157,7 @@ function calcAge() {
 }
 </script>
 
-## 만 나이 계산 공식
+<h2> 만 나이 계산 공식 </h2>
 `만 나이 = 기준연도 − 출생연도 (단, 기준일이 생일 전이면 1 빼기)`
 
 <br><br>
@@ -177,7 +177,7 @@ function calcAge() {
 
 <div class="card" id="definition" style="margin-top:20px">
 
-### 만 나이란 무엇인가요?
+<h3> 만 나이란 무엇인가요? </h3>
 
 만 나이는 태어난 날을 0세로 시작해, <strong>생일이 지날 때마다 한 살씩 늘어나는</strong> 국제 표준 나이 계산법입니다. 대한민국은 2023년 6월 28일 시행된 '만 나이 통일법'(행정기본법 제7조의2 신설, 민법 제158조 개정)을 통해 법령·계약서·공문서에 표시되는 나이를 원칙적으로 만 나이로 해석하도록 명확히 했습니다.
 
@@ -185,7 +185,7 @@ function calcAge() {
 
 <div class="card" id="korean-age-diff" style="margin-top:16px">
 
-### 세는나이·연나이와 어떻게 다른가요?
+<h3> 세는나이·연나이와 어떻게 다른가요? </h3>
 
 <table class="age-table">
 <tr><th>구분</th><th>계산 방식</th><th>특징</th></tr>
@@ -200,7 +200,7 @@ function calcAge() {
 
 <div class="card" id="example" style="margin-top:16px">
 
-### 계산 예시
+<h3> 계산 예시 </h3>
 
 2002년 12월 31일에 태어난 사람을 2026년 8월 10일 기준으로 계산하면 다음과 같습니다.
 
@@ -217,7 +217,7 @@ function calcAge() {
 
 <div class="card" id="law" style="margin-top:16px">
 
-### 만 나이 통일법과 예외 규정
+<h3> 만 나이 통일법과 예외 규정 </h3>
 
 만 나이 통일법 시행 이후에도 아래 항목은 예외적으로 <strong>연나이</strong> 등 기존 방식을 그대로 유지합니다.
 
@@ -234,7 +234,7 @@ function calcAge() {
 
 <div class="card age-faq" style="margin-top:16px">
 
-### 자주 묻는 질문 (FAQ)
+<h3> 자주 묻는 질문 (FAQ)</h3>
 
 <details>
 <summary>Q. 만 나이 통일법 시행 이후 실제로 달라진 점이 있나요?</summary>
