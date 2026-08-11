@@ -141,16 +141,18 @@ permalink: "/life/date/"
   </div>
 </section>
 
-<!-- AD SLOT 1: 계산기 직후 -->
-<!-- ⚠️ 실제 배포 전 data-ad-slot 값을 이 페이지 전용 슬롯 ID로 교체하세요 -->
-<div class="ad-box">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3758454239921831"
-       data-ad-slot="REPLACE_WITH_AD_SLOT_ID"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <section class="vc-card vc-card-light">
   <h2>왜 음력 기념일 계산이 필요한가요?</h2>
@@ -172,17 +174,17 @@ permalink: "/life/date/"
   <h2>함께 보면 좋은 자료</h2>
   <p class="vc-recommend-desc">기념일과 명절을 챙길 때 도움이 되는 상품입니다.</p>
   <div class="vc-coupang-grid">
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_1" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/f7iJ1i5LFs" rel="noopener sponsored">
       <div class="vc-coupang-thumb">🎁</div>
       <div class="vc-coupang-title">기념일 선물 세트</div>
       <div class="vc-coupang-desc">생신·기념일에 어울리는 인기 선물</div>
     </a>
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_2" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/f7iNMMrQRw" rel="noopener sponsored">
       <div class="vc-coupang-thumb">📅</div>
       <div class="vc-coupang-title">가족 일정 관리 다이어리</div>
       <div class="vc-coupang-desc">음력·양력 기념일을 함께 기록하는 다이어리</div>
     </a>
-    <a class="vc-coupang-card" href="COUPANG_PARTNERS_LINK_3" target="_blank" rel="noopener sponsored">
+    <a class="vc-coupang-card" href="https://link.coupang.com/a/f7iRXD8TSu" rel="noopener sponsored">
       <div class="vc-coupang-thumb">🍰</div>
       <div class="vc-coupang-title">기념일 케이크·꽃 배달</div>
       <div class="vc-coupang-desc">D-day에 맞춰 미리 준비하는 축하 선물</div>
@@ -244,16 +246,18 @@ permalink: "/life/date/"
   </div>
 </section>
 
-<!-- AD SLOT 2: FAQ 하단 -->
-<!-- ⚠️ 실제 배포 전 data-ad-slot 값을 이 페이지 전용 슬롯 ID로 교체하세요 -->
-<div class="ad-box">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3758454239921831"
-       data-ad-slot="REPLACE_WITH_AD_SLOT_ID"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <small>마지막 페이지 업데이트: {{ site.time | date: "%Y-%m-%d" }}</small>
 
