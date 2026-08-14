@@ -9,5 +9,6 @@ permalink: /health/
 <ul>
   <li><a href="/health/bmi/">BMI 계산기</a></li>
   <li><a href="/health/bmr/">BMR 계산기</a></li>
+  <li><a href="/health/calorie/">칼로리 계산기</a></li>
   <li><a href="/health/water-intake/">물 섭취량 계산</a></li>
 </ul>
