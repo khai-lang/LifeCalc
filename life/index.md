@@ -11,7 +11,7 @@ permalink: "/life/"
 </nav>
 
 <section class="cp-hero">
-  <h1>생활 계산기 모음</h1>
+  <h2>생활 계산기 모음</h2>
   <p class="cp-hero-desc">
     일상에서 자주 헷갈리는 <strong>나이·날짜·단위</strong> 계산부터, 임신·출산 이후 필요한
     <strong>출산예정일·개월수·백일돌·예방접종</strong> 계산까지 한 곳에서 이용하세요.
@@ -62,8 +62,6 @@ permalink: "/life/"
   </div>
 </section>
 
-<!-- AD SLOT -->
-<!-- ⚠️ 실제 배포 전 data-ad-slot 값을 이 페이지 전용 슬롯 ID로 교체하세요 -->
 <div class="ad-box">
   <ins class="adsbygoogle"
        style="display:block"
