@@ -44,7 +44,7 @@ permalink: "/life/"
       <div class="hub-card-title">출산 예정일 계산기</div>
       <div class="hub-card-desc">마지막 생리일·배란일·시험관(IVF) 이식일 중 아는 정보로 예정일을 계산합니다.</div>
     </a>
-    <a class="hub-card" href="/family/baby-days/">
+    <a class="hub-card" href="https://calculator.khaistory.com/family/baegil/">
       <div class="hub-card-step">STEP 2 · 출생 후</div>
       <div class="hub-card-title">아기 개월수·D+N 계산</div>
       <div class="hub-card-desc">생후 며칠·몇 개월인지, 만 개월과 일수 환산 두 방식을 비교해 보여줍니다.</div>
