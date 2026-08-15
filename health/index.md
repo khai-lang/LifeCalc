@@ -41,8 +41,6 @@ permalink: "/health/"
   </div>
 </section>
 
-<!-- AD SLOT -->
-<!-- ⚠️ 실제 배포 전 data-ad-slot 값을 이 페이지 전용 슬롯 ID로 교체하세요 -->
 <div class="ad-box">
   <ins class="adsbygoogle"
        style="display:block"
@@ -63,7 +61,7 @@ permalink: "/health/"
   </table>
   <p class="vc-note">건강 계산기는 모두 참고용입니다. 정확한 진단과 처방은 의료진과 상담하세요.</p>
   <div class="cp-external-links">
-    <a href="https://calculator.khaistory.com/guide/2026-08-06-bmi-obesity-2026">BMI·비만도 완전정리 가이드 보기</a>
+    <a href=https://calculator.khaistory.com/guide/2026-08-06-bmi-obesity-2026/"">BMI·비만도 완전정리 가이드 보기</a>
   </div>
 </section>
 
