@@ -1,5 +1,5 @@
 ---
-layout: "guide"
+layout: guide
 title: "헷갈리는 일상 계산 총정리 - 나이·기념일·단위 변환 가이드 | LifeCalc"
 description: "만 나이와 세는나이가 헷갈릴 때, 부모님 음력 생신을 챙길 때, 아파트 평수를 볼 때 — 일상에서 자주 막히는 계산 상황과 해결법을 정리했습니다."
 canonical	https://calculator.khaistory.com/guide/everyday-calculations-2026/
