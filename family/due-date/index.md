@@ -156,7 +156,7 @@ permalink: "/family/due-date/"
   <h2>함께 보면 좋은 자료</h2>
   <p class="vc-recommend-desc">임신 초기부터 준비하면 좋은 상품입니다.</p>
   <div class="vc-coupang-grid">
-    <a class="vc-coupang-card" href=https://link.coupang.com/a/ge0CS8NXMa"" rel="noopener sponsored">
+    <a class="vc-coupang-card" href=https://link.coupang.com/a/ge0CS8NXMa" rel="noopener sponsored">
       <div class="vc-coupang-thumb">🤰</div>
       <div class="vc-coupang-title">임신 초기 영양제 (엽산 등)</div>
       <div class="vc-coupang-desc">임신 준비·초기에 챙기면 좋은 필수 영양제</div>
