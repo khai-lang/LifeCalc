@@ -191,11 +191,10 @@ og_description: "2026년 4대보험 요율 반영. 연봉 실수령, 퇴직금, 
         <div class="hub-guide-desc">계산 공식, 퇴직소득세 구조, IRP로 30~40% 세금 감면</div>
       </a>
 
-      <a href="/guide/jeonse-vs-wolse-2026/" class="hub-guide-card hub-guide-card-muted">
+      <a href="/guide/freelance-3.3-tax-2026/" class="hub-guide-card hub-guide-card-muted">
         <div class="hub-guide-category">프리랜서 세금</div>
         <div class="hub-guide-title">프리랜서 3.3% 세금 가이드 2026</div>
         <div class="hub-guide-desc">원천징수 구조, 종합소득세 신고, 환급받는 방법</div>
-        <div class="hub-guide-soon">준비 중</div>
       </a>
 
     </div>
