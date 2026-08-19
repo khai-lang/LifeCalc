@@ -37,8 +37,9 @@
 }
 </style>
 
-<div class="dd-wrap">
 
+<div class="dd-wrap" markdown="1">
+  
 **오늘의 데이터**
 <div class="dd-updated">마지막 업데이트: {{ site.data.rates.date }}</div>
 
