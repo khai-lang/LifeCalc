@@ -2,52 +2,52 @@ comment: 환전 전 확인해보세요.
 date: '2026-08-20'
 fx:
   AUD:
-    change: null
-    change_pct: null
+    change: 0.0
+    change_pct: 0.0
     direction: flat
     value: 988.14
   CAD:
-    change: null
-    change_pct: null
+    change: 0.0
+    change_pct: 0.0
     direction: flat
     value: 1005.03
   CNY:
-    change: null
-    change_pct: null
+    change: 0.0
+    change_pct: 0.0
     direction: flat
     value: 208.81
   EUR:
-    change: null
-    change_pct: null
+    change: 0.0
+    change_pct: 0.0
     direction: flat
     value: 1620.75
   GBP:
-    change: null
-    change_pct: null
+    change: 0.0
+    change_pct: 0.0
     direction: flat
     value: 1890.36
   HKD:
-    change: null
-    change_pct: null
+    change: 0.0
+    change_pct: 0.0
     direction: flat
     value: 177.46
   JPY:
-    change: null
-    change_pct: null
+    change: 0.0
+    change_pct: 0.0
     direction: flat
     value: 876.72
   SGD:
-    change: null
-    change_pct: null
+    change: 0.0
+    change_pct: 0.0
     direction: flat
     value: 1091.7
   USD:
-    change: null
-    change_pct: null
+    change: 0.0
+    change_pct: 0.0
     direction: flat
     value: 1390.82
 weather:
-  today_max: 26.4
-  today_min: 22.7
-  tomorrow_max: 25.4
-  tomorrow_min: 22.3
+  today_max: 23.8
+  today_min: 22.6
+  tomorrow_max: 26.0
+  tomorrow_min: 22.7
