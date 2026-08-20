@@ -9,9 +9,18 @@ nav_order: 40
 ---
 
 
-{% assign latest = site.data.insight | sort:'date' | reverse | first %}
-{% include insight-cards.html latest=latest %}
+# 오늘의 인사이트
 
-<p class="muted" style="margin-top:16px">
-  ※ 데이터는 <code>_data/insight.yml</code>을 수정하면 자동 반영됩니다.
-</p>
+📰 오늘의 경제 뉴스 요약
+{% for item in site.data.insight.news %}
+- [{{ item.title }}]({{ item.url }}){% if item.source %} · {{ item.source }}{% endif %}
+{% endfor %}
+
+💡 생활에 도움이 되는 한 줄 팁
+
+{{ site.data.insight.tip }}
+
+✨ 오늘의 명언
+> {{ site.data.insight.quote }}
+
+*마지막 업데이트: {{ site.data.insight.date }}*
