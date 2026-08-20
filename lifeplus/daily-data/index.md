@@ -5,21 +5,24 @@
   background:#fff7e6; border-left:4px solid #f5a623; padding:12px 16px;
   border-radius:6px; margin-bottom:20px; font-size:14px;
 }
-.dd-fx-grid {
-  display:grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap:10px; margin-bottom:24px;
-}
 .dd-fx-card {
-  border:1px solid #eee; border-radius:10px; padding:12px 14px;
-  background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.04);
+  border:1px solid #e6ebf2; border-radius:12px; padding:14px 16px;
+  background:linear-gradient(180deg,#ffffff 0%, #f8fafc 100%);
+  box-shadow:0 2px 6px rgba(15,45,80,0.06);
+  transition:transform .15s ease;
 }
-.dd-fx-card .flag { font-size:20px; }
-.dd-fx-card .code { font-weight:600; font-size:14px; margin-left:4px; }
-.dd-fx-card .value { font-size:18px; font-weight:700; margin-top:6px; }
-.dd-fx-card .change { font-size:12px; margin-top:2px; }
-.dd-fx-card .change.up { color:#d0342c; }
-.dd-fx-card .change.down { color:#1a6dd6; }
-.dd-fx-card .change.flat { color:#999; }
+.dd-fx-card:hover { transform:translateY(-2px); }
+.dd-fx-card .code { color:#0e3a5f; }
+.dd-fx-card .value { color:#0e3a5f; }
+.dd-comment {
+  background:#fdf6ec; border-left:4px solid #f5a623;
+}
+.dd-cross-link {
+  border:1px solid #dbe6f3; background:#f5f9ff;
+}
+.dd-share-btn {
+  background:#0e3a5f;
+}
 .dd-weather-box {
   display:flex; gap:16px; background:#f5f9ff; border-radius:10px;
   padding:16px; margin-bottom:16px;
