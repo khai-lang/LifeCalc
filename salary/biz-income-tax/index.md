@@ -11,6 +11,8 @@ section: salary
   매출(총수입)과 필요경비, 인적공제(기본공제 가정) 등을 입력하면 <b>과세표준 → 산출세액 → 세액공제 → 지방소득세</b> 순으로 추정합니다.
 </p>
 
+<div id="tax-season-banner" class="season-banner"></div>
+
 <nav class="subnav" style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;">
   <a class="chip" href="/salary/">연봉·급여·세금 허브</a>
   <a class="chip" href="/salary/income-tax/">종합소득세(간편)</a>
@@ -113,6 +115,12 @@ section: salary
 <style>
   .card{border:1px solid #eef1f4;border-radius:14px;background:F5EDE4}
   .card.p{padding:16px}
+  .season-banner{border-radius:12px;padding:14px 18px;margin:14px 0;font-size:.92em;line-height:1.6;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .season-banner.active{background:#fff1e6;border:1px solid #f5c9a0;color:#9a3412}
+  .season-banner.upcoming{background:#f0f7ff;border:1px solid #bfdbfe;color:#1e40af}
+  .season-banner b{font-weight:800}
+  .season-banner .badge{background:#e85d00;color:#fff;font-size:.78em;padding:3px 10px;border-radius:999px;font-weight:700;white-space:nowrap}
+  .season-banner.upcoming .badge{background:#2563eb}
   .btn{display:inline-block;background:#e85d00;color:#fff;border:none;border-radius:10px;padding:10px 16px;font-weight:700}
   .btn:hover{filter:brightness(0.95)}
   .btn.ghost{background:#f3f4f6;color:#111827}
@@ -295,6 +303,44 @@ document.getElementById('btn').addEventListener('click', calcBiz);
     {"@type":"ListItem","position":2,"name":"사업자 종합소득세 계산기","item":"https://calculator.khaistory.com/salary/biz-income-tax/"}
   ]
 }
+
+/* ===== 신고 시즌 알림 배너 ===== */
+(function(){
+  function fmtDate(d){ return `${d.getMonth()+1}월 ${d.getDate()}일`; }
+  function getSeasonInfo(){
+    const now = new Date();
+    const y = now.getFullYear();
+    const may1 = new Date(y,4,1), may31 = new Date(y,4,31,23,59,59);
+    const nov1 = new Date(y,10,1), nov30 = new Date(y,10,30,23,59,59);
+
+    if(now>=may1 && now<=may31){
+      const daysLeft = Math.ceil((may31-now)/86400000);
+      return { status:'active', badge:'신고중',
+        title:'종합소득세 확정신고·납부 기간',
+        desc:`5월 31일까지 신고·납부해야 합니다 (성실신고확인대상자는 6월 30일까지). 마감까지 ${daysLeft}일 남았습니다.` };
+    }
+    if(now>=nov1 && now<=nov30){
+      const daysLeft = Math.ceil((nov30-now)/86400000);
+      return { status:'active', badge:'신고중',
+        title:'종합소득세 중간예납 기간',
+        desc:`11월 30일까지 중간예납세액을 납부해야 합니다. 마감까지 ${daysLeft}일 남았습니다.` };
+    }
+    let nextDate, nextTitle;
+    if(now<may1){ nextDate=may1; nextTitle='종합소득세 확정신고·납부'; }
+    else if(now<nov1){ nextDate=nov1; nextTitle='종합소득세 중간예납'; }
+    else { nextDate=new Date(y+1,4,1); nextTitle='종합소득세 확정신고·납부'; }
+    const daysLeft = Math.ceil((nextDate-now)/86400000);
+    return { status:'upcoming', badge:'D-'+daysLeft,
+      title:`다음 ${nextTitle}까지 ${daysLeft}일`,
+      desc:`${fmtDate(nextDate)}부터 ${nextTitle} 기간이 시작됩니다. 미리 필요경비·공제 항목을 정리해두면 신고가 수월합니다.` };
+  }
+  const info = getSeasonInfo();
+  const el = document.getElementById('tax-season-banner');
+  if(el){
+    el.className = 'season-banner ' + info.status;
+    el.innerHTML = `<span class="badge">${info.badge}</span><span><b>${info.title}</b> — ${info.desc}</span>`;
+  }
+})();  
 </script>
 
 <script type="application/ld+json">
