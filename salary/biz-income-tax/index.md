@@ -50,6 +50,22 @@ section: salary
       <small class="muted">0~100 범위 권장 (근사)</small>
     </label>
 
+    <details class="rate-guide" style="grid-column:1/-1; margin-top:4px;">
+  <summary>💡 내 업종의 경비율, 몇 %를 써야 하나요?</summary>
+  <div class="rate-guide-body">
+    <p>장부를 쓰지 않고 추계신고하는 경우, 필요경비율은 <b>단순경비율</b>과 <b>기준경비율</b> 중 하나가 적용됩니다.</p>
+    <ul>
+      <li><b>단순경비율 대상</b>: 신규 개업자이거나, 직전연도 수입금액이 업종별 기준금액 이하인 소규모 사업자. 경비로 인정되는 비율이 상대적으로 넓게 적용됩니다.</li>
+      <li><b>기준경비율 대상</b>: 직전연도 수입금액이 업종별 기준금액을 초과하는 사업자. 매입비용·인건비·임차료 같은 주요경비는 증빙서류가 있어야 인정되고, 나머지 항목만 낮은 비율로 인정됩니다.</li>
+    </ul>
+    <p>업종코드에 따른 정확한 경비율과 기준금액은 아래에서 확인하세요.</p>
+    <a class="btn ghost" href="https://hometax.go.kr" target="_blank" rel="noopener">홈택스에서 내 업종 경비율 조회 →</a>
+    <p class="muted" style="margin-top:8px;font-size:.85em">
+      * 조회한 경비율(%)을 위 "필요경비율" 입력란에 직접 입력하시면 됩니다. 기준경비율 대상자는 주요경비 실제 지출액을 파악해서 "필요경비 금액" 방식으로 입력하시면 더 정밀합니다.
+    </p>
+  </div>
+</details>
+
     <label id="expAmtWrap" style="display:none">
       필요경비 금액(원)
       <input id="expAmt" type="text" inputmode="numeric" data-format="currency" placeholder="예: 72,000,000">
@@ -129,6 +145,17 @@ section: salary
   ul.result-list{margin:0;padding-left:18px}
   .chip{display:inline-block;padding:8px 12px;border-radius:999px;background:#f3f4f6;color:#111827;text-decoration:none;font-weight:600}
   .chip:hover{filter:brightness(0.97)}
+  
+.rate-guide{border:1px solid #eef1f4;border-radius:10px;padding:10px 14px;background:#fafafa}
+.rate-guide summary{font-weight:700;cursor:pointer;color:#111827;list-style:none}
+.rate-guide summary::-webkit-details-marker{display:none}
+.rate-guide summary::before{content:'▸ ';color:#e85d00}
+.rate-guide[open] summary::before{content:'▾ '}
+.rate-guide-body{margin-top:10px;font-size:.88em;line-height:1.7;color:#374151}
+.rate-guide-body ul{padding-left:18px;margin:8px 0}
+.rate-guide-body li{margin-bottom:6px}
+  
+  
   /* 결과 강조(UX) */
   #resultCard.is-filled{box-shadow:0 12px 28px rgba(17,24,39,.08); border-color:#dbeafe}
 </style>
@@ -351,6 +378,9 @@ document.getElementById('btn').addEventListener('click', calcBiz);
     {"@type":"Question","name":"필요경비는 어떻게 입력하나요?","acceptedAnswer":{"@type":"Answer","text":"필요경비율(%) 또는 필요경비 금액(원) 중 편한 방식을 선택하세요. 실제 적용 방식(단순경비율/기장 등)에 따라 달라질 수 있습니다."}},
     {"@type":"Question","name":"인적공제 1,500,000원 가정은 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"기본공제(인적공제)를 단순화해 1인당 150만원으로 가정한 근사 방식입니다. 실제 공제 가능 여부는 요건에 따라 달라집니다."}},
     {"@type":"Question","name":"세액공제율 7%·한도 70만원은 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"표준세액공제 등 일반적인 범위를 참고해 근사한 값입니다. 상황에 맞게 조정해 입력하세요."}}
+  ,
+{"@type":"Question","name":"단순경비율과 기준경비율은 어떻게 다른가요?","acceptedAnswer":{"@type":"Answer","text":"직전연도 수입금액이 업종별 기준금액 이하면 단순경비율, 초과하면 기준경비율이 적용됩니다. 기준경비율은 주요경비(매입·인건비·임차료)에 증빙이 필요하고 나머지는 낮은 비율만 인정되어, 대체로 단순경비율보다 세금 부담이 커집니다."}},
+{"@type":"Question","name":"종합소득세는 언제 신고하나요?","acceptedAnswer":{"@type":"Answer","text":"매년 5월 1일부터 5월 31일까지가 확정신고·납부 기간입니다(성실신고확인대상자는 6월 30일까지). 11월에는 중간예납 기간이 별도로 있습니다."}}
   ]
 }
 </script>
