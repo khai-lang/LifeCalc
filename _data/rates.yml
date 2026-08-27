@@ -1,53 +1,53 @@
-comment: 어제보다 원화가 강세예요. 환전하기엔 오늘이 좀 더 유리할 수 있어요.
-date: '2026-08-25'
+comment: 어제보다 원화가 약세예요. 해외직구·여행 환전은 서두르는 게 유리할 수 있어요.
+date: '2026-08-27'
 fx:
   AUD:
-    change: -3.93
-    change_pct: -0.4
-    direction: down
-    value: 989.12
+    change: 4.92
+    change_pct: 0.5
+    direction: up
+    value: 994.04
   CAD:
-    change: -7.04
-    change_pct: -0.7
+    change: -1.0
+    change_pct: -0.1
     direction: down
-    value: 999.0
+    value: 998.0
   CNY:
-    change: -0.72
-    change_pct: -0.35
-    direction: down
-    value: 205.47
+    change: 0.08
+    change_pct: 0.04
+    direction: up
+    value: 205.55
   EUR:
-    change: -5.22
-    change_pct: -0.32
-    direction: down
-    value: 1612.9
+    change: 2.61
+    change_pct: 0.16
+    direction: up
+    value: 1615.51
   GBP:
-    change: -3.57
+    change: -3.55
     change_pct: -0.19
     direction: down
-    value: 1886.79
+    value: 1883.24
   HKD:
-    change: -0.22
-    change_pct: -0.12
-    direction: down
-    value: 176.46
+    change: 0.09
+    change_pct: 0.05
+    direction: up
+    value: 176.55
   JPY:
-    change: -2.88
-    change_pct: -0.33
-    direction: down
-    value: 869.28
+    change: 0.51
+    change_pct: 0.06
+    direction: up
+    value: 869.79
   SGD:
-    change: -3.56
-    change_pct: -0.33
-    direction: down
-    value: 1088.14
+    change: 1.18
+    change_pct: 0.11
+    direction: up
+    value: 1089.32
   USD:
-    change: -1.91
-    change_pct: -0.14
-    direction: down
-    value: 1383.13
+    change: 1.91
+    change_pct: 0.14
+    direction: up
+    value: 1385.04
 weather:
-  today_max: 30.3
-  today_min: 23.2
-  tomorrow_max: 30.4
-  tomorrow_min: 23.6
+  today_max: 30.4
+  today_min: 22.2
+  tomorrow_max: 28.8
+  tomorrow_min: 24.0
