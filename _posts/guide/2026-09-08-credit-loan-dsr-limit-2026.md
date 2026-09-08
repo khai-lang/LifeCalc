@@ -1,8 +1,11 @@
 ---
+layout: guide
 title: "신용대출 DSR 한도, 2026년 기준 얼마까지 나올까"
 description: "2026년 스트레스 DSR 3단계 기준 신용대출 한도 계산법. 은행권 40%, 비은행권 50% 규제와 실제 계산 예시로 확인합니다."
 permalink: "/guide/credit-loan-dsr-limit-2026/"
 date: "2026-09-08"
+categories:
+  - guide
 ---
 
 ## 신용대출 한도, 왜 예전 같지 않을까
