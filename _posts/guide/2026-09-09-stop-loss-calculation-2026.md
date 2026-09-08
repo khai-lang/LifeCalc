@@ -7,9 +7,6 @@ date: "2026-09-08"
 categories: guide
 ---
 
-<hr data-ke-style="style1" />
-<p data-ke-size="size16">title: "주식 손절 라인 계산법 | 퍼센트&middot;지지선&middot;평단가 재계산 총정리"<br />description: "손절가를 감이 아니라 숫자로 정하는 법. 퍼센트 기준, 지지선 기준, 물타기 후 평단가 재계산 기준까지 손절매 라인 계산법 3가지를 정리했습니다."<br />permalink: "/guide/stop-loss-calculation-2026/"<br />date: "2026-09-08"</p>
-<hr data-ke-style="style1" />
 <h1>주식 손절 라인 계산법 | 퍼센트&middot;지지선&middot;평단가 재계산 총정리</h1>
 <p data-ke-size="size16"><a href="https://calculator.khaistory.com/">홈</a> &gt; <a href="https://calculator.khaistory.com/invest/">투자</a> &gt; 손절 라인 가이드</p>
 <p data-ke-size="size16">투자 관리 가이드</p>
