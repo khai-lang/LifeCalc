@@ -1,6 +1,6 @@
 ---
 layout: "default"
-title: "주식 PnL 계산기 - FIFO/LIFO·수수료+거래세 반영 실현+미실현손익 | LifeCalc"
+title: "주식 PnL 계산기 (매매 수수료·거래세 반영 손익 시뮬레이션) | LifeCalc"
 description: "여러 번 나눠 매수/매도한 주식 거래내역을 FIFO/LIFO 방식으로 계산합니다. 실현손익, 미실현손익, 평단가, 손익분기점, 매매수수료·거래세까지 한 번에 확인하세요."
 permalink: "/invest/stocks/pnl/"
 ---
