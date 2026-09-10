@@ -1,6 +1,6 @@
 ---
 layout: "default"
-title: "주식 평단가·물타기 계산기 - 목표 평단가 도달 매수량 역산 | LifeCalc"
+title: "주식 평단가 계산기 (주식 물타기 및 목표 평단가 매수량 역산) | LifeCalc"
 description: "원하는 목표 평균 단가에 도달하기 위해 추가로 몇 주를 매수해야 하는지 역산합니다. 기존 평단가·수량과 목표 평단가를 입력하세요."
 permalink: "/invest/stocks/avg-cost/"
 ---
