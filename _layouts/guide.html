@@ -3,21 +3,21 @@ layout: default
 ---
 
 <div class="guide-container">
-  <div class="guide-card">
-    {% if page.summary %}
-      <p class="guide-summary">{{ page.summary }}</p>
-    {% endif %}
+  {% if page.summary or page.button_text %}
+    <div class="guide-card">
+      {% if page.summary %}
+        <p class="guide-summary">{{ page.summary }}</p>
+      {% endif %}
 
-    {% if page.button_text and page.button_link %}
-      <a href="{{ page.button_link }}" class="guide-btn">
-        {{ page.button_text }}
-      </a>
-    {% endif %}
-  </div>
+      {% if page.button_text and page.button_link %}
+        <a href="{{ page.button_link }}" class="guide-btn">
+          {{ page.button_text }}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
 
   <div class="guide-body">
     {{ content }}
   </div>
-
-</div> 
-
+</div>
