@@ -1,6 +1,6 @@
 ---
 layout: "default"
-title: "코인 DCA + XIRR 계산기 - 적립식 투자 실질 연환산 수익률 계산 | LifeCalc"
+title: "코인 적립식 투자 수익률 계산기 (DCA·XIRR 연환산 계산) | LifeCalc"
 description: "매달 일정 금액을 투자하는 DCA 시뮬레이션과, 실제 투자 내역을 입력해 XIRR(현금흐름 시점을 반영한 실질 연환산 수익률)을 계산합니다."
 permalink: "/invest/crypto/dca/"
 ---
