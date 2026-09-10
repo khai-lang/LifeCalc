@@ -1,6 +1,6 @@
 ---
 layout: "default"
-title: "배당수익률(Yield)·투자원가수익률(YoC) 계산기 - 세후 배당금까지 | LifeCalc"
+title: "주식 배당금 계산기 (세후 배당수익률 및 YoC 계산) | LifeCalc"
 description: "현재 주가 기준 배당수익률과 매수가 기준 투자원가수익률(YoC)을 함께 계산하고, 보유수량을 입력하면 세후 예상 배당금까지 확인할 수 있습니다."
 permalink: "/invest/stocks/dividend-yield/"
 ---
