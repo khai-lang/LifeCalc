@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 코인 평단가·추가매수 계산기
+title: 코인 평단가 계산기 | 코인 물타기 추가매수 시뮬레이터
 description: 기존 보유 수량/평단가와 추가 매수 계획으로 새로운 평단가와 손익분기점을 계산합니다.
 permalink: /invest/crypto/avg-cost/
 ---
