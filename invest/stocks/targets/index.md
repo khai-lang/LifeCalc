@@ -1,6 +1,6 @@
 ---
 layout: "default"
-title: "목표가·손절가 계산기 - 손익비·예상 이익/손실까지 | LifeCalc"
+title: "주식·코인 목표가 손절가 계산기 (손익비 R:R 및 예상 손익) | LifeCalc"
 description: "진입가와 목표 수익률, 손절 폭으로 목표가·손절가·손익비(R:R)를 계산하고, 수량을 입력하면 예상 이익·예상 손실까지 원화로 확인할 수 있습니다."
 permalink: "/invest/stocks/targets/"
 ---
