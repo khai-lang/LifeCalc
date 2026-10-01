@@ -49,6 +49,19 @@ categories: [guide]
   <p>"자진퇴사는 실업급여 안 된다"는 말만 믿고 아예 알아보지도 않으셨다면, 조건을 한 번만 확인해보세요. 정당한 사유가 인정되면 자진퇴사자도 받을 수 있습니다.</p>
 </div>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <div class="gue-card">
 <h2>기본 수급 조건부터</h2>
 <ul>
@@ -99,6 +112,19 @@ categories: [guide]
 </div>
 
 <div class="gue-ad"><!-- AdSense 삽입 위치 (slot 7492664289) --></div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <div class="gue-card">
 <h2>자주 묻는 질문</h2>
