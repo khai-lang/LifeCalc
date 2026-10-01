@@ -4,7 +4,7 @@ title: "자진퇴사 실업급여, 정말 못 받는 걸까"
 description: "자진퇴사는 원칙적으로 실업급여 대상이 아니지만 예외 사유가 인정되면 받을 수 있습니다. 2026년 상한 68,100원·하한 66,048원 기준으로 정리했습니다."
 permalink: "/guide/voluntary-resignation-unemployment-2026/"
 date: "2026-10-01"
-
+categories: [guide]
 ---
 
 ## 자진퇴사인데 실업급여, 신청도 안 해보고 포기하셨나요
