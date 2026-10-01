@@ -1,11 +1,12 @@
 ---
-layout: "post"
+layout: "guide"
 title: "자진퇴사 실업급여, 정말 못 받는 걸까 | 2026년 예외 사유·상한 68,100원 완전정리"
 description: "자진퇴사는 원칙적으로 실업급여 대상이 아니지만 예외 사유가 인정되면 받을 수 있습니다. 2026년 상한 68,100원·하한 66,048원 기준, 예외 인정 사유와 신청 절차를 정리했습니다."
 permalink: "/guide/voluntary-resignation-unemployment-2026/"
-date: "2026-09-08"
+date: "2026-10-01"
 og_title: "자진퇴사 실업급여, 정말 못 받는 걸까"
 og_description: "2026년 예외 인정 사유와 상한·하한액 기준을 정리했습니다."
+categories: [guide]
 ---
 
 <style>
