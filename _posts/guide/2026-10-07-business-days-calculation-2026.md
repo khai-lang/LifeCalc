@@ -130,7 +130,18 @@ categories: [guide]
 <div class="bdc-tip"><strong>주의.</strong> 이 계산기는 토·일·공휴일을 포함하는 <strong>달력일 기준</strong>입니다. "영업일 기준 N일"은 아래 3번 방법과 4번 빠른 계산표, 5번 공휴일 표를 이용해 계산하세요.</div>
 </div>
 
-<div class="bdc-ad"><!-- AdSense 삽입 위치 (slot 7492664289) --></div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <div class="bdc-card">
 <h2>3. 영업일 계산법: 주말·공휴일 제외 3단계</h2>
@@ -200,7 +211,18 @@ categories: [guide]
 <div class="bdc-tip"><strong>Tip.</strong> 같은 "30일"이어도 달력일은 11월 5일, 영업일은 11월 18일로 <strong>약 2주 차이</strong>가 납니다.</div>
 </div>
 
-<div class="bdc-ad"><!-- AdSense 삽입 위치 (slot 7492664289) --></div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <div class="bdc-card">
 <h2>5. 2026년 공휴일·대체공휴일 표</h2>
