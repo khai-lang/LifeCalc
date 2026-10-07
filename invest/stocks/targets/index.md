@@ -1,8 +1,10 @@
 ---
 layout: "default"
-title: "주식·코인 목표가 손절가 계산기 (손익비 R:R 및 예상 손익) | LifeCalc"
-description: "진입가와 목표 수익률, 손절 폭으로 목표가·손절가·손익비(R:R)를 계산하고, 수량을 입력하면 예상 이익·예상 손실까지 원화로 확인할 수 있습니다."
+title: "손절 계산기 - 손절가·목표가·손익비(R:R) 자동 계산"
+description: "손절 계산기: 진입가와 손절 폭(%)만 넣으면 손절가·목표가·손익비(R:R)와 수량별 예상 손실이 바로 계산됩니다. 주식·코인 모두 사용 가능합니다."
 permalink: "/invest/stocks/targets/"
+og_title: "손절 계산기 - 손절가·목표가·손익비(R:R) 자동 계산"
+og_description: "진입가와 손절 폭(%)만 넣으면 손절가·목표가·손익비와 수량별 예상 손실을 바로 계산합니다."
 ---
 
 <a class="tg-skip-link" href="#tg-calculator">계산기로 바로가기</a>
@@ -10,15 +12,16 @@ permalink: "/invest/stocks/targets/"
 <nav class="tg-breadcrumb" aria-label="브레드크럼">
   <a href="/">홈</a> <span aria-hidden="true">›</span>
   <a href="/invest/">투자 계산기</a> <span aria-hidden="true">›</span>
-  <span aria-current="page">목표가·손절가 계산기</span>
+  <span aria-current="page">손절 계산기 (목표가·손절가)</span>
 </nav>
 
 <section class="tg-hero">
   <h2>목표가·손절가 계산기</h2>
   <p class="tg-hero-desc">
-    진입가와 목표 수익률, 손절 폭을 기준으로 <strong>목표가</strong>, <strong>손절가</strong>,
-    <strong>손익비(R:R)</strong>, 그리고 수량을 입력하면 <strong>예상 이익·예상 손실</strong>까지
-    한 번에 계산합니다. 단기 매매, 스윙, 분할매수 후 기준가 점검에 활용하기 좋습니다.
+    <strong>손절 계산기</strong>입니다. 진입가와 목표 수익률, 손절 폭(%)만 넣으면
+    <strong>손절가·목표가·손익비(R:R)</strong>가 바로 계산되고, 수량을 입력하면
+    <strong>예상 이익·예상 손실</strong>이 원화로 표시됩니다. 주식은 물론 코인(원화 기준)에도 쓸 수 있어요.
+    손절 기준을 먼저 숫자로 정해두고 싶을 때 활용하세요.
   </p>
   <div class="tg-formula-box">
     <p class="tg-formula-title">한눈에 보는 계산 기준</p>
@@ -49,7 +52,7 @@ permalink: "/invest/stocks/targets/"
     </div>
   </div>
   <div class="tg-field">
-    <label for="tg-qty">수량 (주, 선택)</label>
+    <label for="tg-qty">수량 (주·개, 선택)</label>
     <input type="text" inputmode="decimal" id="tg-qty" placeholder="예: 30">
   </div>
 
@@ -92,6 +95,55 @@ permalink: "/invest/stocks/targets/"
   </p>
 </section>
 
+<section class="tg-card">
+  <h3>손절가 계산 예시 (진입가 72,000원 · 30주)</h3>
+  <p>손절 폭에 따라 손절가와 예상 손실이 어떻게 달라지는지 정리했습니다. 공식은 <strong>손절가 = 진입가 × (1 − 손절 폭)</strong>입니다.</p>
+  <div class="tg-table-wrap">
+    <table class="tg-table">
+      <thead><tr><th>손절 폭</th><th>손절가</th><th>1주당 손실</th><th>30주 예상 손실</th></tr></thead>
+      <tbody>
+        <tr><td>3%</td><td>69,840원</td><td>2,160원</td><td>64,800원</td></tr>
+        <tr><td>5%</td><td>68,400원</td><td>3,600원</td><td>108,000원</td></tr>
+        <tr><td>7%</td><td>66,960원</td><td>5,040원</td><td>151,200원</td></tr>
+        <tr><td>10%</td><td>64,800원</td><td>7,200원</td><td>216,000원</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tg-caution">수수료·세금·슬리피지는 반영하지 않은 값입니다.</p>
+</section>
+
+<section class="tg-card">
+  <h3>손익비(R:R)별 필요 승률</h3>
+  <p>손익비가 높을수록 손실 매매가 더 많아도 본전이 가능합니다. 필요 승률 = 1 ÷ (1 + 손익비)로 계산합니다.</p>
+  <div class="tg-table-wrap">
+    <table class="tg-table">
+      <thead><tr><th>손익비</th><th>예시 (목표 / 손절)</th><th>본전에 필요한 승률</th></tr></thead>
+      <tbody>
+        <tr><td>1 : 1</td><td>5% / 5%</td><td>50%</td></tr>
+        <tr><td>1.5 : 1</td><td>7.5% / 5%</td><td>40%</td></tr>
+        <tr><td>2 : 1</td><td>10% / 5%</td><td>약 33.3%</td></tr>
+        <tr><td>3 : 1</td><td>15% / 5%</td><td>25%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tg-caution">수수료·세금을 제외한 단순 계산이며, 실제 매매에서는 필요 승률이 이보다 높아집니다.</p>
+</section>
+
+<section class="tg-card tg-card-light">
+  <h3>감당 가능한 손실액으로 수량 정하기</h3>
+  <p>한 번의 매매에서 잃어도 되는 금액을 먼저 정하면 수량이 나옵니다.</p>
+  <p><strong>수량 = 허용 손실액 ÷ (진입가 − 손절가)</strong></p>
+  <p>예를 들어 허용 손실액이 100,000원, 진입가 72,000원, 손절 폭 5%(손절가 68,400원)라면 주당 손실이 3,600원이므로 100,000 ÷ 3,600 ≈ 27.8, 내림해서 <strong>27주</strong>입니다. 위 계산기에 이 수량을 넣어 예상 손실이 허용 범위 안인지 확인해 보세요.</p>
+</section>
+
+<section class="tg-guide-box">
+  <div class="tg-guide-body">
+    <h3>손절 폭은 어떻게 정할까요?</h3>
+    <p>퍼센트 기준, 지지선 기준, 물타기 후 평단가 재계산 기준까지 손절 라인 계산법 3가지를 정리했습니다.</p>
+  </div>
+  <a class="tg-guide-btn" href="/guide/stop-loss-calculation-2026/">손절 라인 계산법 가이드 보기 →</a>
+</section>
+
 <section class="tg-cta-box">
   <div class="tg-cta-icon">🎁</div>
   <div class="tg-cta-body">
@@ -100,10 +152,12 @@ permalink: "/invest/stocks/targets/"
   </div>
   <a class="tg-cta-btn" href="https://link.coupang.com/a/fIJlWR2jRY" data-partner="coupang" data-category="투자원칙 노트/멘탈관리 도서">둘러보기 →</a>
 </section>
+<p class="tg-caution">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.</p>
 
 <section class="tg-card">
   <h3>관련 계산기</h3>
   <ul class="tg-related-list">
+    <li><a href="/guide/stop-loss-calculation-2026/">손절 라인 계산법 가이드</a></li>
     <li><a href="/invest/stocks/pnl/">주식 PnL 계산기</a></li>
     <li><a href="/invest/stocks/dividend-yield/">배당수익률(YoC) 계산기</a></li>
     <li><a href="/invest/stocks/avg-cost/">주식 평단가·물타기 계산기</a></li>
@@ -115,28 +169,24 @@ permalink: "/invest/stocks/targets/"
   <h3>자주 묻는 질문</h3>
 
   <details class="tg-faq-item">
+    <summary>손절가는 어떻게 계산하나요?</summary>
+    <p>손절가 = 진입가 × (1 − 손절 폭)입니다. 예를 들어 진입가 72,000원에 손절 폭 5%라면 손절가는 68,400원입니다. 이 계산기에 진입가와 손절 폭을 입력하면 자동으로 계산됩니다.</p>
+  </details>
+  <details class="tg-faq-item">
+    <summary>손절 폭은 몇 %가 적당한가요?</summary>
+    <p>정답은 없지만 투자 기간이 짧을수록 좁게, 길수록 넓게 잡는 경우가 많습니다. 단기 매매는 3~5%, 스윙은 7~10%, 장기 투자는 15~20% 선이 흔히 쓰이며 종목 변동성에 따라 달라집니다. 자세한 기준은 <a href="/guide/stop-loss-calculation-2026/">손절 라인 계산법 가이드</a>에서 확인하세요.</p>
+  </details>
+  <details class="tg-faq-item">
     <summary>손익비는 얼마가 적당한가요?</summary>
-    <p>정답은 없지만, 일반적으로 손익비 1.5~2배 이상을 권장하는 경우가 많습니다. 다만 이는 참고 기준일
-    뿐 본인의 투자 성향과 종목 특성에 따라 조정이 필요합니다.</p>
+    <p>정답은 없지만, 일반적으로 손익비 1.5~2배 이상을 권장하는 경우가 많습니다. 다만 이는 참고 기준일 뿐 본인의 투자 성향과 종목 특성에 따라 조정이 필요합니다.</p>
   </details>
   <details class="tg-faq-item">
     <summary>수수료·세금도 반영되나요?</summary>
-    <p>이 계산기는 목표가·손절가·손익비 산출에 집중한 것으로, 수수료·세금은 반영하지 않습니다. 실제
-    체결 시에는 수수료·세금·슬리피지를 감안해 판단하세요.</p>
-  </details>
-  <details class="tg-faq-item">
-    <summary>목표가에 도달하면 무조건 매도해야 하나요?</summary>
-    <p>이 계산기는 매매 기준을 세우는 참고 도구입니다. 실제 매도 여부는 종목의 펀더멘털, 시장 상황 등을
-    종합적으로 고려해 본인이 판단해야 합니다.</p>
+    <p>이 계산기는 목표가·손절가·손익비 산출에 집중한 것으로, 수수료·세금은 반영하지 않습니다. 실제 체결 시에는 수수료·세금·슬리피지를 감안해 판단하세요.</p>
   </details>
   <details class="tg-faq-item">
     <summary>수량을 입력하지 않아도 계산되나요?</summary>
-    <p>네, 수량은 선택 입력입니다. 비워두면 목표가·손절가·손익비만 계산되고, 수량을 입력하면 예상
-    이익·예상 손실 금액까지 함께 표시됩니다.</p>
-  </details>
-  <details class="tg-faq-item">
-    <summary>모바일에서도 사용할 수 있나요?</summary>
-    <p>네, 반응형으로 제작되어 스마트폰에서도 동일하게 이용 가능합니다.</p>
+    <p>네, 수량은 선택 입력입니다. 비워두면 목표가·손절가·손익비만 계산되고, 수량을 입력하면 예상 이익·예상 손실 금액까지 함께 표시됩니다.</p>
   </details>
 </section>
 
@@ -150,7 +200,7 @@ permalink: "/invest/stocks/targets/"
        data-full-width-responsive="true"></ins>
 </div>
 
-<small>마지막 업데이트: {{ site.time | date: "%Y-%m-%d" }}</small>
+<small>마지막 업데이트: 2026-10-07</small>
 
 <style>
   .tg-breadcrumb { font-size: 0.85rem; color: #8c7355; margin-bottom: 1rem; }
@@ -200,6 +250,25 @@ permalink: "/invest/stocks/targets/"
   .tg-result-main { background: #fce8db; color: #c2410c; border-radius: 8px; padding: 10px 12px; margin-top: 6px; font-weight: 700; }
   .tg-caution { font-size: 0.85rem; color: #8c7355; margin-top: 16px; }
 
+  .tg-table-wrap { overflow-x: auto; }
+  .tg-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  .tg-table th { background: #f8efe5; color: #785a43; text-align: left; padding: 10px 12px; border-bottom: 2px solid #e3d4c5; white-space: nowrap; }
+  .tg-table td { padding: 10px 12px; border-bottom: 1px solid #f1eae1; color: #3a2c1d; }
+  .tg-table tbody tr:last-child td { border-bottom: none; }
+
+  .tg-guide-box {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    background: #cfdfe8; border: 1px solid #1f5c7a; border-radius: 18px; padding: 20px 24px; margin-bottom: 20px;
+  }
+  .tg-guide-body { flex: 1; min-width: 200px; }
+  .tg-guide-body h3 { border-left: none; padding-left: 0; margin: 0 0 4px; color: #13293d; }
+  .tg-guide-body p { margin: 0; color: #13293d; line-height: 1.6; }
+  .tg-guide-btn {
+    display: inline-block; background: #1f5c7a; color: #fff; text-decoration: none;
+    font-weight: 700; padding: 12px 22px; border-radius: 999px; white-space: nowrap;
+  }
+  .tg-guide-btn:hover { background: #174d68; }
+
   .tg-cta-box {
     display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
     background: linear-gradient(135deg, #fff3ea, #fce8db);
@@ -243,10 +312,11 @@ permalink: "/invest/stocks/targets/"
   .tg-faq-item[open] summary::after { content: "×"; }
   .tg-faq-item summary:hover { color: #c2410c; }
   .tg-faq-item p { margin: 0 0 16px; line-height: 1.7; color: #5c4a38; }
+  .tg-faq-item a { color: #1f5c7a; font-weight: 600; }
 
   @media (max-width: 640px) {
-    .tg-cta-box { flex-direction: column; align-items: flex-start; }
-    .tg-cta-btn { width: 100%; text-align: center; }
+    .tg-cta-box, .tg-guide-box { flex-direction: column; align-items: flex-start; }
+    .tg-cta-btn, .tg-guide-btn { width: 100%; text-align: center; white-space: normal; }
   }
 </style>
 
@@ -319,7 +389,7 @@ permalink: "/invest/stocks/targets/"
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "홈", "item": "https://calculator.khaistory.com/"},
     {"@type": "ListItem", "position": 2, "name": "투자 계산기 모음", "item": "https://calculator.khaistory.com/invest/"},
-    {"@type": "ListItem", "position": 3, "name": "목표가·손절가 계산기", "item": "https://calculator.khaistory.com/invest/stocks/targets/"}
+    {"@type": "ListItem", "position": 3, "name": "손절 계산기 (목표가·손절가)", "item": "https://calculator.khaistory.com/invest/stocks/targets/"}
   ]
 }
 </script>
@@ -329,11 +399,11 @@ permalink: "/invest/stocks/targets/"
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {"@type": "Question", "name": "손절가는 어떻게 계산하나요?", "acceptedAnswer": {"@type": "Answer", "text": "손절가 = 진입가 × (1 − 손절 폭)입니다. 예를 들어 진입가 72,000원에 손절 폭 5%라면 손절가는 68,400원입니다. 이 계산기에 진입가와 손절 폭을 입력하면 자동으로 계산됩니다."}},
+    {"@type": "Question", "name": "손절 폭은 몇 %가 적당한가요?", "acceptedAnswer": {"@type": "Answer", "text": "정답은 없지만 투자 기간이 짧을수록 좁게, 길수록 넓게 잡는 경우가 많습니다. 단기 매매는 3~5%, 스윙은 7~10%, 장기 투자는 15~20% 선이 흔히 쓰이며 종목 변동성에 따라 달라집니다."}},
     {"@type": "Question", "name": "손익비는 얼마가 적당한가요?", "acceptedAnswer": {"@type": "Answer", "text": "일반적으로 손익비 1.5~2배 이상을 권장하는 경우가 많지만, 참고 기준일 뿐 본인의 투자 성향과 종목 특성에 따라 조정이 필요합니다."}},
     {"@type": "Question", "name": "수수료·세금도 반영되나요?", "acceptedAnswer": {"@type": "Answer", "text": "이 계산기는 목표가·손절가·손익비 산출에 집중한 것으로 수수료·세금은 반영하지 않습니다."}},
-    {"@type": "Question", "name": "목표가에 도달하면 무조건 매도해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "이 계산기는 매매 기준을 세우는 참고 도구이며, 실제 매도 여부는 종합적으로 고려해 본인이 판단해야 합니다."}},
-    {"@type": "Question", "name": "수량을 입력하지 않아도 계산되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 수량은 선택 입력입니다. 비워두면 목표가·손절가·손익비만 계산되고, 입력하면 예상 이익·예상 손실 금액까지 함께 표시됩니다."}},
-    {"@type": "Question", "name": "모바일에서도 사용할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 반응형으로 제작되어 스마트폰에서도 동일하게 이용 가능합니다."}}
+    {"@type": "Question", "name": "수량을 입력하지 않아도 계산되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 수량은 선택 입력입니다. 비워두면 목표가·손절가·손익비만 계산되고, 입력하면 예상 이익·예상 손실 금액까지 함께 표시됩니다."}}
   ]
 }
 </script>
