@@ -120,7 +120,18 @@ categories: [guide]
 <div class="dvr-tip"><strong>Tip.</strong> 배당 관련 수치는 금융감독원 전자공시시스템(DART)의 사업보고서 중 "배당에 관한 사항"과 재무제표에서 확인할 수 있습니다. 증권사 앱의 재무 정보도 참고하되, 최종 수치는 공시 원문과 비교해 보세요.</div>
 </div>
 
-<div class="dvr-ad"><!-- AdSense 삽입 위치 (slot 7492664289) --></div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <div class="dvr-card">
 <h2>3. 숫자로 점검하는 4가지 지표</h2>
@@ -165,7 +176,18 @@ categories: [guide]
 </ul>
 </div>
 
-<div class="dvr-ad"><!-- AdSense 삽입 위치 (slot 7492664289) --></div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <div class="dvr-card">
 <h2>6. 세금까지 반영한 실제 배당률 계산</h2>
