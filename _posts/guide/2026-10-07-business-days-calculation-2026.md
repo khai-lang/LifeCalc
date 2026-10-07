@@ -302,7 +302,7 @@ categories: [guide]
 <div class="bdc-related">
 <a href="/life/date/">기념일·날짜 계산기</a>
 <a href="/life/age/">만나이 계산기</a>
-<a href="/guide/man-age-2026/">만나이 계산법 완전정리</a>
+<a href="/guide/man-age/">만나이 계산법 완전정리</a>
 <a href="/life/unit-converter/">단위 변환 계산기</a>
 </div>
 </div>
