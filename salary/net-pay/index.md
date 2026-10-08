@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: "default"
 title: "연봉 실수령 계산기 2026 — 4대보험·역계산·구간표"
 description: "2026년 4대보험 요율(국민연금 4.75%, 건강보험 3.595%) 기준 연봉 실수령액 계산. 역계산(목표 실수령→필요 연봉) 탭, 연봉별 구간표 포함."
-permalink: /salary/net-pay/
-canonical: https://calculator.khaistory.com/salary/net-pay/
+permalink: "/salary/net-pay/"
+canonical: "https://calculator.khaistory.com/salary/net-pay/"
 og_title: "연봉 실수령 계산기 2026"
 og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산 탭과 구간표까지."
 ---
@@ -16,6 +16,22 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
      ===================================================================== -->
 
 <section class="np-wrap">
+
+  <nav class="np-breadcrumb" aria-label="브레드크럼">
+    <a href="/">홈</a> <span aria-hidden="true">›</span>
+    <a href="/salary/">급여·소득</a> <span aria-hidden="true">›</span>
+    <span aria-current="page">연봉 실수령 계산기</span>
+  </nav>
+
+  <div class="np-intro">
+    <h2>2026 연봉 실수령액 계산기</h2>
+    <p>
+      세전 연봉을 입력하면 <strong>국민연금·건강보험·장기요양·고용보험</strong>과 <strong>소득세·지방소득세</strong>를
+      뺀 월 실수령액을 계산합니다. 반대로 원하는 월 실수령액을 넣으면 필요한 연봉을 구하는
+      <strong>역계산</strong>, 연봉 구간별 실수령액 표, 시급 환산까지 한 곳에서 쓸 수 있어요.
+    </p>
+    <button type="button" class="np-intro-btn" onclick="switchTab('reverse')">역계산 바로가기 →</button>
+  </div>
 
   <!-- 탭 네비 -->
   <nav class="np-tabs" role="tablist">
@@ -97,19 +113,19 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
         </div>
         <div class="np-rcard np-rcard-minus">
           <div class="np-rcard-label">국민연금</div>
-          <div class="np-rcard-val" id="r-nps">—</div>
+          <div class="np-rcard-val" id="res-nps">—</div>
         </div>
         <div class="np-rcard np-rcard-minus">
           <div class="np-rcard-label">건강보험</div>
-          <div class="np-rcard-val" id="r-hi">—</div>
+          <div class="np-rcard-val" id="res-hi">—</div>
         </div>
         <div class="np-rcard np-rcard-minus">
           <div class="np-rcard-label">장기요양</div>
-          <div class="np-rcard-val" id="r-ltc">—</div>
+          <div class="np-rcard-val" id="res-ltc">—</div>
         </div>
         <div class="np-rcard np-rcard-minus">
           <div class="np-rcard-label">고용보험</div>
-          <div class="np-rcard-val" id="r-ei">—</div>
+          <div class="np-rcard-val" id="res-ei">—</div>
         </div>
         <div class="np-rcard np-rcard-minus">
           <div class="np-rcard-label">소득세</div>
@@ -181,6 +197,7 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
       <div class="np-rev-tip">
         <strong>협상 팁:</strong> 회사에서 식대·차량보조금 등 비과세 수당을 연봉에 포함하는지 확인하세요.
         같은 연봉도 비과세 항목 구성에 따라 실수령이 월 10~30만원 달라질 수 있습니다.
+        <a href="/guide/salary-negotiation-2026/">실수령 기준으로 연봉 협상하는 법 →</a>
       </div>
     </div>
   </div>
@@ -314,10 +331,90 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
     </div>
   </div>
 
+  <!-- 계산 방식 설명 -->
+  <section class="np-card">
+    <h2>연봉 실수령액은 어떻게 계산하나요?</h2>
+    <p>
+      월 세전 급여(연봉 ÷ 12)에서 아래 항목을 빼면 월 실수령액이 됩니다. 이 계산기는 2026년 근로자 부담 요율을 기본값으로 씁니다.
+    </p>
+    <ul class="np-list">
+      <li><strong>국민연금</strong> 4.75% (기준소득월액 상한 월 637만원)</li>
+      <li><strong>건강보험</strong> 3.595%</li>
+      <li><strong>장기요양보험</strong> 건강보험료의 13.14%</li>
+      <li><strong>고용보험</strong> 0.9%</li>
+      <li><strong>소득세·지방소득세</strong> 근로소득공제와 인적공제, 누진세율, 근로소득세액공제를 적용한 근사값이며 지방소득세는 소득세의 10%</li>
+    </ul>
+    <p class="np-hint">식대 20만원은 비과세로 기본 반영되며, 소득세는 회사가 쓰는 간이세액표와 차이가 날 수 있습니다.</p>
+  </section>
+
+  <section class="np-card">
+    <h2>역계산은 이럴 때 쓰세요</h2>
+    <p>
+      "월 실수령 350만원을 받으려면 연봉이 얼마여야 할까?"처럼 목표 실수령액에서 필요한 세전 연봉을 구하는 계산입니다.
+      이직 때 희망 연봉을 정하거나 연봉 협상에서 근거를 만들 때 유용해요. 부양가족 수와 추가 비과세 금액을 넣으면
+      같은 실수령액도 필요한 연봉이 달라지는 것을 확인할 수 있습니다.
+    </p>
+    <button type="button" class="np-intro-btn" onclick="switchTab('reverse'); window.scrollTo({top: 0, behavior: 'smooth'});">역계산 해보기 →</button>
+  </section>
+
+  <!-- 연계 가이드 -->
+  <section class="np-guide-box">
+    <div class="np-guide-body">
+      <h3>연봉별 실수령액, 한 번에 비교해 보세요</h3>
+      <p>3000만원부터 1억원까지 구간별 실수령액과, 연봉이 오를수록 실수령 증가폭이 줄어드는 이유를 정리했습니다.</p>
+    </div>
+    <a class="np-guide-btn" href="/guide/salary-net-pay-2026/">연봉별 실수령액 가이드 보기 →</a>
+  </section>
+
+  <section class="np-card">
+    <h2>관련 가이드</h2>
+    <div class="np-grid">
+      <a class="np-gcard" href="/guide/salary-net-pay-2026/">
+        <span class="np-gcard-title">2026년 연봉별 실수령액 완전 정복</span>
+        <span class="np-gcard-desc">3000만원~1억원 구간별 실수령액, 비과세 활용법</span>
+      </a>
+      <a class="np-gcard" href="/guide/salary-negotiation-2026/">
+        <span class="np-gcard-title">연봉 협상 완전 가이드 2026</span>
+        <span class="np-gcard-desc">세전이 아닌 실수령 기준으로 협상하는 법</span>
+      </a>
+      <a class="np-gcard" href="/guide/pension-irp-tax-credit-2026/">
+        <span class="np-gcard-title">연금저축·IRP 세액공제 완전 정리</span>
+        <span class="np-gcard-desc">연말정산 환급을 늘리는 구간별 전략</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="np-card" id="np-faq">
+    <h2>자주 묻는 질문</h2>
+
+    <details class="np-faq-item">
+      <summary>연봉 실수령액은 어떻게 계산하나요?</summary>
+      <p>연봉을 12로 나눈 월 세전 급여에서 국민연금, 건강보험, 장기요양보험, 고용보험과 소득세, 지방소득세를 빼면 월 실수령액입니다. 이 계산기는 2026년 요율을 기본으로 적용합니다.</p>
+    </details>
+    <details class="np-faq-item">
+      <summary>목표 실수령액으로 필요한 연봉을 알 수 있나요?</summary>
+      <p>네, 역계산 탭에 목표 월 실수령액과 부양가족 수, 추가 비과세 금액을 입력하면 필요한 세전 연봉을 계산합니다. 계산한 연봉으로 다시 실수령을 구해 검증 값도 함께 보여 줍니다.</p>
+    </details>
+    <details class="np-faq-item">
+      <summary>식대 비과세 20만원은 어떻게 반영되나요?</summary>
+      <p>월 20만원은 기본으로 비과세 처리됩니다. 차량보조금 같은 다른 비과세 수당이 있다면 "추가 비과세" 칸에 월 금액을 입력하세요.</p>
+    </details>
+    <details class="np-faq-item">
+      <summary>급여명세서와 금액이 다른 이유는 무엇인가요?</summary>
+      <p>소득세를 근로소득공제와 누진세율로 계산한 근사값이라 회사가 쓰는 간이세액표와 차이가 날 수 있습니다. 회사별 수당, 비과세 항목, 공제 조건도 달라서 이 계산기는 참고용으로 활용하세요.</p>
+    </details>
+    <details class="np-faq-item">
+      <summary>상여금은 어떻게 입력하나요?</summary>
+      <p>"연간 상여금" 칸에 1년 합계 금액을 넣으면 연봉에 더해 월 평균 기준으로 계산합니다. 상여금이 월급에 포함된 연봉이라면 비워 두세요.</p>
+    </details>
+  </section>
+
   <!-- 관련 링크 -->
   <nav class="np-related">
     <a href="/salary/">← 허브로</a>
     <a href="/salary/insurances/">4대보험 계산기</a>
+    <a href="/salary/raise/">연봉인상 시뮬레이터</a>
     <a href="/salary/retirement/">퇴직금 계산기</a>
     <a href="/salary/pension-savings/">연금저축 세액공제</a>
   </nav>
@@ -336,6 +433,25 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
   color: #1f2937;
   line-height: 1.7;
 }
+
+/* 브레드크럼 · 소개 */
+.np-breadcrumb { font-size: 0.85rem; color: #8c7355; margin-bottom: 14px; }
+.np-breadcrumb a { color: #8c7355; text-decoration: none; }
+.np-breadcrumb a:hover { text-decoration: underline; }
+.np-intro {
+  background: linear-gradient(135deg, #f8efe5 0%, #f3e7d9 100%);
+  border: 1px solid #e3d4c5;
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-bottom: 22px;
+}
+.np-intro h2 { margin: 0 0 8px; color: #785a43; font-size: 1.25rem; }
+.np-intro p { margin: 0 0 12px; line-height: 1.7; color: #5c4a38; }
+.np-intro-btn {
+  background: #1f5c7a; color: #fff; border: none; border-radius: 999px;
+  padding: 9px 18px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: inherit;
+}
+.np-intro-btn:hover { background: #174d68; }
 
 /* 탭 */
 .np-tabs {
@@ -525,6 +641,8 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
   line-height: 1.6;
 }
 .np-rev-tip strong { color: #3f2d20; }
+.np-rev-tip a { color: #1f5c7a; font-weight: 600; text-decoration: none; }
+.np-rev-tip a:hover { text-decoration: underline; }
 
 /* 구간표 */
 .np-table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 12px; border: 1px solid #f1eae1; }
@@ -552,6 +670,52 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
   font-weight: 600;
 }
 .np-tab-inner.active { background: #c2410c; border-color: #c2410c; color: #fff; }
+
+/* 설명·가이드·FAQ */
+.np-card {
+  background: #fff;
+  border: 1px solid #f1eae1;
+  border-radius: 16px;
+  padding: 22px 22px;
+  margin-top: 24px;
+}
+.np-card h2 { margin: 0 0 10px; font-size: 1.1rem; color: #785a43; border-left: 4px solid #c2410c; padding-left: 10px; }
+.np-card p { margin: 0 0 10px; color: #374151; }
+.np-list { margin: 0 0 10px; padding-left: 20px; color: #374151; line-height: 1.8; }
+
+.np-guide-box {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  background: #cfdfe8; border: 1px solid #1f5c7a; border-radius: 16px;
+  padding: 18px 22px; margin-top: 24px;
+}
+.np-guide-body { flex: 1; min-width: 200px; }
+.np-guide-body h3 { margin: 0 0 4px; color: #13293d; font-size: 1.05rem; }
+.np-guide-body p { margin: 0; color: #13293d; line-height: 1.6; font-size: 0.92rem; }
+.np-guide-btn {
+  display: inline-block; background: #1f5c7a; color: #fff; text-decoration: none;
+  font-weight: 700; padding: 11px 20px; border-radius: 999px; white-space: nowrap;
+}
+.np-guide-btn:hover { background: #174d68; }
+
+.np-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.np-gcard {
+  display: flex; flex-direction: column; gap: 4px; background: #faf7f2;
+  border: 1px solid #eaddcd; border-radius: 12px; padding: 14px 16px; text-decoration: none;
+}
+.np-gcard-title { color: #c2410c; font-weight: 700; font-size: 0.92rem; }
+.np-gcard-desc { font-size: 0.82rem; color: #785a43; line-height: 1.5; }
+.np-gcard:hover .np-gcard-title { text-decoration: underline; }
+
+.np-faq-item {
+  border: 1px solid #f1eae1; border-radius: 12px; padding: 4px 16px;
+  margin-bottom: 10px; background: #fff;
+}
+.np-faq-item[open] { background: #fffaf5; border-color: #f0c8a0; }
+.np-faq-item summary {
+  cursor: pointer; font-weight: 700; color: #785a43; padding: 12px 0; line-height: 1.5;
+}
+.np-faq-item summary:hover { color: #c2410c; }
+.np-faq-item p { margin: 0 0 14px; line-height: 1.7; color: #5c4a38; }
 
 /* 관련 링크 */
 .np-related {
@@ -581,6 +745,9 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
   .np-row3 { grid-template-columns: 1fr 1fr; }
   .np-hero-num { font-size: 1.8rem; }
   .np-table th, .np-table td { padding: 8px 10px; font-size: 0.82rem; }
+  .np-grid { grid-template-columns: 1fr; }
+  .np-guide-box { flex-direction: column; align-items: flex-start; }
+  .np-guide-btn { width: 100%; text-align: center; white-space: normal; }
 }
 </style>
 
@@ -727,10 +894,10 @@ function calcMain() {
   document.getElementById('r-net-month').textContent   = fmt(r.netMonth);
   document.getElementById('r-net-year-label').textContent = '연 실수령: ' + fmt(r.netMonth * 12);
   document.getElementById('r-gross-month').textContent = fmt(r.monthlyGross);
-  document.getElementById('r-nps').textContent         = fmt(r.nps);
-  document.getElementById('r-hi').textContent          = fmt(r.hi);
-  document.getElementById('r-ltc').textContent         = fmt(r.ltc);
-  document.getElementById('r-ei').textContent          = fmt(r.ei);
+  document.getElementById('res-nps').textContent       = fmt(r.nps);
+  document.getElementById('res-hi').textContent        = fmt(r.hi);
+  document.getElementById('res-ltc').textContent       = fmt(r.ltc);
+  document.getElementById('res-ei').textContent        = fmt(r.ei);
   document.getElementById('r-income-tax').textContent  = fmt(r.incomeTax);
   document.getElementById('r-local-tax').textContent   = fmt(r.localTax);
   document.getElementById('r-total-deduct').textContent= fmt(r.totalDed);
@@ -841,5 +1008,33 @@ function calcAnnualToHourly() {
 /* ── 초기 실행 ─────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   buildTable();
+  // 가이드 등에서 /salary/net-pay/#reverse 로 들어오면 역계산 탭을 바로 연다
+  if (location.hash === '#reverse') switchTab('reverse');
 });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "홈", "item": "https://calculator.khaistory.com/"},
+    {"@type": "ListItem", "position": 2, "name": "급여·소득", "item": "https://calculator.khaistory.com/salary/"},
+    {"@type": "ListItem", "position": 3, "name": "연봉 실수령 계산기", "item": "https://calculator.khaistory.com/salary/net-pay/"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "연봉 실수령액은 어떻게 계산하나요?", "acceptedAnswer": {"@type": "Answer", "text": "연봉을 12로 나눈 월 세전 급여에서 국민연금, 건강보험, 장기요양보험, 고용보험과 소득세, 지방소득세를 빼면 월 실수령액입니다. 이 계산기는 2026년 요율을 기본으로 적용합니다."}},
+    {"@type": "Question", "name": "목표 실수령액으로 필요한 연봉을 알 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 역계산 탭에 목표 월 실수령액과 부양가족 수, 추가 비과세 금액을 입력하면 필요한 세전 연봉을 계산하고, 그 연봉으로 다시 구한 실수령 검증 값도 보여 줍니다."}},
+    {"@type": "Question", "name": "식대 비과세 20만원은 어떻게 반영되나요?", "acceptedAnswer": {"@type": "Answer", "text": "월 20만원은 기본으로 비과세 처리됩니다. 차량보조금 같은 다른 비과세 수당이 있다면 추가 비과세 칸에 월 금액을 입력하세요."}},
+    {"@type": "Question", "name": "급여명세서와 금액이 다른 이유는 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "소득세를 근로소득공제와 누진세율로 계산한 근사값이라 회사가 쓰는 간이세액표와 차이가 날 수 있고, 회사별 수당과 비과세 항목, 공제 조건도 달라서 참고용으로 활용해야 합니다."}},
+    {"@type": "Question", "name": "상여금은 어떻게 입력하나요?", "acceptedAnswer": {"@type": "Answer", "text": "연간 상여금 칸에 1년 합계 금액을 넣으면 연봉에 더해 월 평균 기준으로 계산합니다. 상여금이 월급에 포함된 연봉이라면 비워 두세요."}}
+  ]
+}
 </script>
