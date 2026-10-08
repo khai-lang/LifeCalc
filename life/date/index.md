@@ -1,6 +1,6 @@
 ---
 layout: "default"
-title: "기념일·날짜 계산기 - D-Day, 날짜 더하기·빼기, 음력↔양력 변환 | LifeCalc"
+title: "기념일·날짜 계산기 - D-Day, 날짜 더하기·빼기, 음력↔양력 변환"
 description: "두 날짜 사이 D-Day 계산, 날짜 더하기·빼기, 음력 생일을 양력으로 변환하는 기능까지 한 곳에서 이용하세요. 대부분의 날짜 계산기가 지원하지 않는 음력↔양력 변환을 지원합니다."
 permalink: "/life/date/"
 ---
@@ -14,7 +14,7 @@ permalink: "/life/date/"
 </nav>
 
 <section class="cp-hero">
-  <h1>기념일·날짜 계산기</h1>
+  <h2>기념일·날짜 계산기</h2>
   <p class="cp-hero-desc">
     두 날짜 사이 <strong>D-Day</strong>를 계산하고, 기준일에서 <strong>날짜를 더하거나 빼고</strong>,
     <strong>음력 생일을 양력으로</strong>(또는 그 반대로) 변환할 수 있습니다. 대부분의 날짜 계산기가
@@ -169,6 +169,40 @@ permalink: "/life/date/"
   </p>
 </section>
 
+<section class="vc-card" id="dt-lunar-solar">
+  <h2>음력과 양력, 무엇이 다른가요?</h2>
+  <p>
+    양력은 지구가 태양을 한 바퀴 도는 주기를, 음력은 달이 차고 기우는 주기를 기준으로 합니다.
+    그래서 같은 음력 날짜도 양력으로는 해마다 다른 날이 됩니다.
+  </p>
+  <div class="table-wrap">
+    <table class="vc-table">
+      <thead><tr><th>구분</th><th>양력</th><th>음력</th></tr></thead>
+      <tbody>
+        <tr><td>기준</td><td>태양(지구의 공전)</td><td>달의 모양 변화</td></tr>
+        <tr><td>1년 길이</td><td>약 365일</td><td>약 354일</td></tr>
+        <tr><td>한 달 길이</td><td>28~31일</td><td>29일 또는 30일</td></tr>
+        <tr><td>어긋남 보정</td><td>4년마다 윤년(2월 29일)</td><td>윤달(몇 해에 한 번 한 달을 추가)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    음력 1년이 양력보다 약 11일 짧기 때문에, 같은 음력 날짜는 해마다 양력으로 11일가량 앞당겨집니다.
+    이 차이가 쌓이면 윤달을 넣어 다시 맞추고요. 이런 이유로 설날은 양력 1월 하순~2월 중순,
+    추석(음력 8월 15일)은 양력 9월 상순~10월 초 사이에서 매년 달라집니다.
+  </p>
+  <p>
+    윤달이 들어가는 원리와 설날·추석 날짜가 바뀌는 이유를 더 자세히 알고 싶다면 가이드 글을 읽어 보세요.
+  </p>
+  <div class="vc-guide-box">
+    <div class="vc-guide-body">
+      <h3>음력 생일·명절이 매년 다른 이유</h3>
+      <p>음력과 양력의 차이, 윤달의 원리, 음력 생일을 실수 없이 챙기는 방법까지 정리했습니다.</p>
+    </div>
+    <a class="vc-guide-btn" href="/guide/lunar-calendar-2026/">음력·양력 가이드 보기 →</a>
+  </div>
+</section>
+
 <!-- COUPANG PARTNERS: 아래 href="COUPANG_PARTNERS_LINK_*"를 실제 쿠팡파트너스 딥링크로 교체하세요 -->
 <section class="vc-card vc-card-light vc-recommend">
   <h2>함께 보면 좋은 자료</h2>
@@ -215,6 +249,20 @@ permalink: "/life/date/"
   </div>
 </section>
 
+<section class="vc-card">
+  <h2>관련 가이드</h2>
+  <div class="vc-related-grid">
+    <a class="vc-related-card" href="/guide/lunar-calendar-2026/">
+      <span class="vc-related-title">음력 생일·명절이 매년 다른 이유</span>
+      <span class="vc-related-desc">음력과 양력의 차이, 윤달 원리, 음력 생일 챙기는 법</span>
+    </a>
+    <a class="vc-related-card" href="/guide/man-age/">
+      <span class="vc-related-title">만나이 계산법 완전정리</span>
+      <span class="vc-related-desc">세는나이·연나이 차이와 법적 기준 연령표</span>
+    </a>
+  </div>
+</section>
+
 <section class="vc-card" id="dt-faq">
   <h2>자주 묻는 질문</h2>
 
@@ -241,8 +289,8 @@ permalink: "/life/date/"
     지원합니다. 이 범위를 벗어나면 변환할 수 없습니다.</p>
   </div>
   <div class="vc-faq-item">
-    <h3>모바일에서도 사용할 수 있나요?</h3>
-    <p>네, 반응형으로 제작되어 스마트폰에서도 동일하게 이용 가능합니다.</p>
+    <h3>음력 생일은 왜 매년 양력 날짜가 바뀌나요?</h3>
+    <p>음력 1년은 약 354일로 양력(약 365일)보다 11일가량 짧아서, 같은 음력 날짜가 해마다 양력으로 앞당겨집니다. 이 차이는 윤달이 들어가는 해에 다시 맞춰집니다. 자세한 원리는 <a href="/guide/lunar-calendar-2026/">음력 생일·명절이 매년 다른 이유</a> 가이드에서 확인하세요.</p>
   </div>
 </section>
 
@@ -274,7 +322,7 @@ permalink: "/life/date/"
     margin-bottom: 24px;
     box-shadow: 0 12px 28px rgba(0,0,0,.04);
   }
-  .cp-hero h1 { margin-top: 0; color: #13293d; }
+  .cp-hero h1, .cp-hero h2 { margin-top: 0; color: #13293d; }
   .cp-hero-desc { line-height: 1.7; color: #5b6470; }
 
   .vc-card{
@@ -353,10 +401,26 @@ permalink: "/life/date/"
   .vc-faq-item { margin-bottom: 16px; }
   .vc-faq-item h3 { margin-bottom: 6px; font-size: 1rem; color: #13293d; margin-top:0; }
   .vc-faq-item p { margin: 0; line-height: 1.6; color: #785a43; }
+  .vc-faq-item a { color: #1f5c7a; font-weight: 600; }
+
+  .vc-guide-box {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    background: #cfdfe8; border: 1px solid #1f5c7a; border-radius: 16px; padding: 18px 20px; margin-top: 16px;
+  }
+  .vc-guide-body { flex: 1; min-width: 200px; }
+  .vc-guide-body h3 { margin: 0 0 4px; color: #13293d; font-size: 1.05rem; }
+  .vc-guide-body p { margin: 0; color: #13293d; line-height: 1.6; font-size: 0.92rem; }
+  .vc-guide-btn {
+    display: inline-block; background: #1f5c7a; color: #fff; text-decoration: none;
+    font-weight: 700; padding: 11px 20px; border-radius: 999px; white-space: nowrap;
+  }
+  .vc-guide-btn:hover { background: #174d68; }
 
   @media (max-width: 640px){
     .vc-coupang-grid { grid-template-columns:1fr; }
     .vc-related-grid { grid-template-columns:1fr; }
+    .vc-guide-box { flex-direction: column; align-items: flex-start; }
+    .vc-guide-btn { width: 100%; text-align: center; white-space: normal; }
   }
 </style>
 
@@ -543,8 +607,8 @@ permalink: "/life/date/"
     },
     {
       "@type": "Question",
-      "name": "모바일에서도 사용할 수 있나요?",
-      "acceptedAnswer": {"@type": "Answer", "text": "네, 반응형으로 제작되어 스마트폰에서도 동일하게 이용 가능합니다."}
+      "name": "음력 생일은 왜 매년 양력 날짜가 바뀌나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "음력 1년은 약 354일로 양력(약 365일)보다 11일가량 짧아서 같은 음력 날짜가 해마다 양력으로 앞당겨지고, 이 차이는 윤달이 들어가는 해에 다시 맞춰집니다."}
     }
   ]
 }
