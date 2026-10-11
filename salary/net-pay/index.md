@@ -111,19 +111,6 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
 
       <button class="np-btn" onclick="calcMain()">실수령 계산하기</button>
     </div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
-     crossorigin="anonymous"></script>
-<!-- 계산기 광고 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3758454239921831"
-     data-ad-slot="7492664289"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
  
     <!-- 결과 -->
     <div id="result-main" class="np-result" style="display:none">
@@ -203,19 +190,6 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
       </div>
       <button class="np-btn" onclick="calcReverse()">필요 연봉 계산하기</button>
     </div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
-     crossorigin="anonymous"></script>
-<!-- 계산기 광고 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3758454239921831"
-     data-ad-slot="7492664289"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
     <div id="result-reverse" class="np-result" style="display:none">
       <div class="np-result-hero">
@@ -332,19 +306,6 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
           </div>
         </div>
       </div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
-     crossorigin="anonymous"></script>
-<!-- 계산기 광고 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3758454239921831"
-     data-ad-slot="7492664289"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
       <div id="h-a2h" style="display:none">
         <div class="np-field">
