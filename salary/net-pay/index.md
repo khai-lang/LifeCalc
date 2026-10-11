@@ -383,7 +383,18 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
       </a>
     </div>
   </section>
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
   <!-- FAQ -->
   <section class="np-card" id="np-faq">
     <h2>자주 묻는 질문</h2>
