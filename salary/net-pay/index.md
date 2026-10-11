@@ -204,6 +204,19 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
       <button class="np-btn" onclick="calcReverse()">필요 연봉 계산하기</button>
     </div>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
     <div id="result-reverse" class="np-result" style="display:none">
       <div class="np-result-hero">
         <div class="np-hero-label">필요 세전 연봉</div>
@@ -320,6 +333,19 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
         </div>
       </div>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
       <div id="h-a2h" style="display:none">
         <div class="np-field">
           <label for="h-annual-in">연봉 (세전, 원)</label>
@@ -356,6 +382,19 @@ og_description: "2026년 최신 요율 기준 연봉 실수령 계산. 역계산
       </div>
     </div>
   </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
   <!-- 계산 방식 설명 -->
   <section class="np-card">
