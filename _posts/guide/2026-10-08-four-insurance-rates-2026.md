@@ -30,6 +30,19 @@ categories: [guide]
   </div>
 </section>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <section class="fi-card">
   <h2>2026년 4대보험 요율표</h2>
   <div class="fi-table-wrap">
@@ -66,6 +79,19 @@ categories: [guide]
     <strong>한 달에 약 9,400원</strong>을 더 내게 됩니다. (2025년 요율과 2026년 요율을 직접 비교한 계산이에요.)
   </p>
 </section>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <section class="fi-card">
   <h2>보험별로 알아둘 기준</h2>
@@ -127,6 +153,19 @@ categories: [guide]
   </ul>
 </section>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <section class="fi-cta">
   <div class="fi-cta-body">
     <h3>내 월급 실수령액은 얼마일까요?</h3>
@@ -180,7 +219,7 @@ categories: [guide]
 
 <p class="fi-ref">
   참고: 국민연금 기준소득월액 상·하한액은 보건복지부가 국민연금심의위원회에서 의결한 내용
-  (<a href="https://www.bokjiro.go.kr/ssis-tbu/cms/pc/news/news/1309186_1114.html" rel="noopener" target="_blank">복지로 보도자료</a>)을 기준으로 정리했습니다.
+  (<a href="https://www.bokjiro.go.kr/ssis-tbu/cms/pc/news/news/1309186_1114.html" rel="noopener" ">복지로 보도자료</a>)을 기준으로 정리했습니다.
   요율은 매년 바뀔 수 있으니 국민연금공단·국민건강보험공단의 최신 공지도 함께 확인하세요.
 </p>
 
