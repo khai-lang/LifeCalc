@@ -24,7 +24,6 @@ categories: [guide]
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<h2>인치·cm 변환표 2026: TV·모니터·노트북 화면 크기 감 잡기</h2>
 <p class="muted" style="margin:6px 0 14px; line-height:1.7;">
   화면 크기에 쓰는 "인치"는 가로 길이가 아니라 <b>대각선 길이</b>이고, 1인치는 정확히 <b>2.54cm</b>입니다.
   이 페이지에서는 인치를 cm로 바로 바꿔 보고, 자주 쓰는 TV·모니터·노트북 크기를 가로·세로 cm로 정리했습니다.
