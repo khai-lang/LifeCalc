@@ -218,7 +218,7 @@ categories: [guide]
 </section>
 
 <p class="fi-ref">
-  참고: 국민연금 기준소득월액 상·하한액은 보건복지부가 국민연금심의위원회에서 의결한 내용(<a href="https://www.bokjiro.go.kr/ssis-tbu/cms/pc/news/news/1309186_1114.html" target="_blank" rel="noopener">복지로 보도자료</a>)을 기준으로 정리했습니다.
+  참고: 국민연금 기준소득월액 상·하한액은 보건복지부가 국민연금심의위원회에서 의결한 내용(<a href="https://www.bokjiro.go.kr/ssis-tbu/cms/pc/news/news/1309186_1114.html" rel="noopener"><strong style="color: blue;">복지로 보도자료</strong></a>)을 기준으로 정리했습니다.
   요율은 매년 바뀔 수 있으니 국민연금공단·국민건강보험공단의 최신 공지도 함께 확인하세요.
 </p>
 
