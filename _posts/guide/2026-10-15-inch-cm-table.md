@@ -11,6 +11,19 @@ categories: [guide]
   <a class="chip" href="/life/unit-converter/">단위 변환기</a>
 </nav>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <h2>인치·cm 변환표 2026: TV·모니터·노트북 화면 크기 감 잡기</h2>
 <p class="muted" style="margin:6px 0 14px; line-height:1.7;">
   화면 크기에 쓰는 "인치"는 가로 길이가 아니라 <b>대각선 길이</b>이고, 1인치는 정확히 <b>2.54cm</b>입니다.
@@ -64,6 +77,19 @@ function icFromCm() {
 - 암산 팁: 인치에 **2.5**를 곱한 뒤 조금 더하면 대략적인 cm가 나옵니다. (40인치 ≈ 100cm + 1.6cm)
 
 </section>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <section class="card p" markdown="1">
 
@@ -164,6 +190,19 @@ TV 인치는 대각선 길이입니다. 아래 가로·세로는 베젤을 제�
   <a class="btn ghost" href="/life/">생활 계산기 허브로 돌아가기</a>
   <a class="btn" href="/life/unit-converter/">단위 변환기로 더 많은 단위 계산하기</a>
 </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <script type="application/ld+json">
 {
