@@ -1,17 +1,10 @@
----
-layout: default
-title: 가이드 글 보기
-pagination:
-  enabled: true
-  category: guide
-  per_page: 9
----
-
-{% for post in paginator.posts %}
-  <div class="post-card">
-    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-  </div>
-{% endfor %}
+<div class="guide-list-wrap">
+  {% for post in paginator.posts %}
+    <div class="post-card-item">
+      <a href="{{ post.url | relative_url }}" class="guide-btn-blue">{{ post.title }}</a>
+    </div>
+  {% endfor %}
+</div>
 
 {% if paginator.total_pages > 1 %}
   <div class="pagination">
