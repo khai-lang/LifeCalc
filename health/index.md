@@ -53,15 +53,26 @@ permalink: "/health/"
 <section class="vc-card vc-card-light">
   <h2>이 계산기들, 다른 곳과 뭐가 다른가요?</h2>
   <table class="vc-table">
-    <thead><tr><th>계산기</th><th>다른 곳에 없는 기능</th></tr></thead>
+    <thead>
+      <tr>
+        <th>계산기</th>
+        <th>다른 곳에 없는 기능</th>
+      </tr>
+    </thead>
     <tbody>
-      <tr><td>BMI 계산기</td><td>WHO 서구 기준이 아닌 대한비만학회 6단계(저체중~3단계 비만) 기준 + 정상 체중 범위 자동 계산</td></tr>
-      <tr><td>칼로리 계산기</td><td>Mifflin-St Jeor 공식(현대 영양학 표준) + 감량 목표가 최소 권장 칼로리보다 낮으면 경고 표시</td></tr>
+      <tr>
+        <td>BMI 계산기</td>
+        <td>WHO 서구 기준이 아닌 대한비만학회 6단계(저체중~3단계 비만) 기준 + 정상 체중 범위 자동 계산</td>
+      </tr>
+      <tr>
+        <td>칼로리 계산기</td>
+        <td>Mifflin-St Jeor 공식(현대 영양학 표준) + 감량 목표가 최소 권장 칼로리보다 낮으면 경고 표시</td>
+      </tr>
     </tbody>
   </table>
   <p class="vc-note">건강 계산기는 모두 참고용입니다. 정확한 진단과 처방은 의료진과 상담하세요.</p>
   <div class="cp-external-links">
-    <a href=https://calculator.khaistory.com/guide/2026-08-06-bmi-obesity-2026/"">BMI·비만도 완전정리 가이드 보기</a>
+    <a href="https://calculator.khaistory.com/guide/2026-08-06-bmi-obesity-2026/">BMI·비만도 완전정리 가이드 보기</a>
   </div>
 </section>
 
