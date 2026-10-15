@@ -75,7 +75,6 @@ permalink: "/health/"
     <a href="https://calculator.khaistory.com/guide/2026-08-06-bmi-obesity-2026/">BMI·비만도 완전정리 가이드 보기</a>
   </div>
 </section>
-
 <section class="vc-card">
   <h2>다른 카테고리도 확인해보세요</h2>
   <div class="vc-related-grid">
