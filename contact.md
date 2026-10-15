@@ -9,7 +9,7 @@ permalink: /contact/
 
 LifeCalc 이용 중 궁금한 점이나 개선 의견이 있으시면 아래 이메일로 보내 주세요.
 
-**이메일: [이메일 주소]**
+**이메일: [mykimstory@gmail.com]**
 
 ## 문의 유형
 
