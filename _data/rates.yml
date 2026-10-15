@@ -7,47 +7,47 @@ fx:
     direction: flat
     value: 935.45
   CAD:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 942.51
+    change: -1.78
+    change_pct: -0.19
+    direction: down
+    value: 940.73
   CNY:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 199.16
+    change: 0.8
+    change_pct: 0.4
+    direction: up
+    value: 199.96
   EUR:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 1501.5
+    change: -4.49
+    change_pct: -0.3
+    direction: down
+    value: 1497.01
   GBP:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 1776.2
+    change: -3.15
+    change_pct: -0.18
+    direction: down
+    value: 1773.05
   HKD:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 170.88
+    change: -0.26
+    change_pct: -0.15
+    direction: down
+    value: 170.62
   JPY:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 847.2
+    change: -1.48
+    change_pct: -0.17
+    direction: down
+    value: 845.72
   SGD:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 1048.22
+    change: -5.47
+    change_pct: -0.52
+    direction: down
+    value: 1042.75
   USD:
     change: 0.0
     change_pct: 0.0
     direction: flat
     value: 1340.48
 weather:
-  today_max: 19.9
-  today_min: 11.3
-  tomorrow_max: 22.9
-  tomorrow_min: 14.2
+  today_max: 23.2
+  today_min: 13.6
+  tomorrow_max: 24.0
+  tomorrow_min: 13.4
