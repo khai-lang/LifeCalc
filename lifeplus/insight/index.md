@@ -8,19 +8,99 @@ nav_label: 오늘의 인사이트
 nav_order: 40
 ---
 
+{%- assign latest = site.data.insight | sort:'date' | reverse | first -%}
 
-# 오늘의 인사이트
+<div class="insight-container">
+  
+  <!-- 1. 오늘의 경제 뉴스 -->
+  <section class="insight-card news-card">
+    <div class="card-header">
+      <span class="icon">📰</span>
+      <h3>오늘의 경제 뉴스 요약</h3>
+    </div>
+    <ul class="news-list">
+      {%- if latest.headlines and latest.headlines.size > 0 -%}
+        {%- for h in latest.headlines -%}
+          <li class="news-item">
+            <a href="{{ h.url }}" target="_blank" rel="noopener" class="news-title">
+              {{ h.title }}
+            </a>
+            <span class="news-source">{{ h.source }}</span>
+          </li>
+        {%- endfor -%}
+      {%- else -%}
+        <li class="muted">오늘의 헤드라인을 준비 중입니다.</li>
+      {%- endif -%}
+    </ul>
+  </section>
 
-📰 오늘의 경제 뉴스 요약
-{% for item in site.data.insight.news %}
-- [{{ item.title }}]({{ item.url }}){% if item.source %} · {{ item.source }}{% endif %}
-{% endfor %}
+  <!-- 2. 생활에 도움이 되는 한 줄 팁 -->
+  <section class="insight-card tip-card">
+    <div class="card-header">
+      <span class="icon">💡</span>
+      <h3>생활에 도움이 되는 한 줄 팁</h3>
+    </div>
+    <div class="tip-content">
+      <p class="desc">
+        {% if latest.tip %}{{ latest.tip }}{% else %}<span class="muted">곧 업데이트됩니다.</span>{% endif %}
+      </p>
+    </div>
+  </section>
 
-💡 생활에 도움이 되는 한 줄 팁
+  <!-- 3. 추천 계산기 & 가이드 (CTA 영역) -->
+  <section class="insight-card cta-card">
+    <div class="card-header">
+      <span class="icon">🧮</span>
+      <h3>오늘의 추천 계산기 & 가이드</h3>
+    </div>
+    <div class="cta-grid">
+      <a href="/investment/" class="cta-item">
+        <span class="cta-title">투자/손익 계산기</span>
+        <span class="cta-sub">환율·주식 손익 계산하기 &rarr;</span>
+      </a>
+      <a href="/guide/" class="cta-item">
+        <span class="cta-title">금융/생활 가이드</span>
+        <span class="cta-sub">필수 가이드 글 모아보기 &rarr;</span>
+      </a>
+    </div>
+  </section>
 
-{{ site.data.insight.tip }}
+  <!-- 4. 오늘의 명언 -->
+  <section class="insight-card quote-card">
+    <div class="card-header">
+      <span class="icon">✨</span>
+      <h3>오늘의 명언</h3>
+    </div>
+    <blockquote class="quote-body">
+      <p>“{% if latest.quote and latest.quote.text %}{{ latest.quote.text }}{% else %}준비 중입니다.{% endif %}”</p>
+      <cite>— {% if latest.quote and latest.quote.author %}{{ latest.quote.author }}{% else %}알 수 없음{% endif %}</cite>
+    </blockquote>
+  </section>
 
-✨ 오늘의 명언
-> {{ site.data.insight.quote }}
+</div>
 
-*마지막 업데이트: {{ site.data.insight.date }}*
+<!-- 5. 지난 인사이트 아카이브 -->
+{%- assign all = site.data.insight | sort:'date' | reverse -%}
+{%- if all.size > 1 -%}
+  <section class="archive-section">
+    <h3 class="archive-title">📚 지난 인사이트</h3>
+    <ul class="archive-list">
+      {%- for item in all offset:1 -%}
+        <li class="archive-item">
+          <span class="archive-date">{{ item.date }}</span>
+          <span class="archive-headline">
+            {%- if item.headlines and item.headlines.size > 0 -%}
+              {{ item.headlines[0].title }}
+            {%- else -%}
+              (요약 없음)
+            {%- endif -%}
+          </span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+{%- endif -%}
+
+<p class="insight-update-time" style="margin-top: 20px; font-size: 0.85rem; color: #868e96; text-align: right;">
+  마지막 업데이트: {{ latest.date }}
+</p>
