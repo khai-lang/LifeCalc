@@ -11,7 +11,6 @@ permalink: "/health/"
 </nav>
 
 <section class="cp-hero">
-  <h1>건강 계산기 모음</h1>
   <p class="cp-hero-desc">
     체중 관리와 컨디션 관리에 필요한 계산기를 한 곳에 모았습니다. <strong>BMI</strong>로 현재 체중
     상태를 확인하고, <strong>BMR·칼로리</strong>로 하루 필요 열량을 계산한 뒤, <strong>물 섭취량</strong>까지
