@@ -14,13 +14,26 @@ section: lifeplus
   <a class="chip" href="/lifeplus/guide/">가이드 글</a>
 </nav>
 
-<h1>라이프+ 2026 — 테스트·오늘의 데이터·챌린지 모음</h1>
+<h2>라이프+ 2026 — 테스트·오늘의 데이터·챌린지 모음</h2>
 <p class="muted" style="margin:6px 0 14px; line-height:1.7;">
   라이프+는 LifeCalc의 생활 계산기 외에 가볍게 즐기고 매일 확인할 수 있는 콘텐츠를 모아 둔 공간입니다.
   15문항으로 추정 정신연령을 확인하는 테스트, 생년월일만 넣으면 별자리와 띠를 알려주는 도구,
   USD·EUR·JPY 등 9개 통화의 오늘 환율과 서울 날씨, 하루씩 체크하는 30일 습관 챌린지를 모두 무료로 이용할 수 있습니다.
   테스트 결과는 재미를 위한 참고용이며 의학적·심리학적 진단이 아닙니다.
 </p>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <section class="card p">
   <h2>라이프+ 콘텐츠 한눈에 보기</h2>
@@ -43,6 +56,19 @@ section: lifeplus
     <li><b>주 1회</b>: <a href="/lifeplus/insight/">오늘의 인사이트</a>로 경제 이슈를 훑어보기</li>
   </ul>
 </section>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <section class="np-faq">
   <h2>자주 묻는 질문</h2>
