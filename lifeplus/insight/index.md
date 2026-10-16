@@ -8,15 +8,24 @@ nav_label: 오늘의 인사이트
 nav_order: 40
 ---
 
-<nav class="subnav" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
-  <a class="chip" href="/lifeplus/">라이프+ 허브</a>
-  <a class="chip" href="/lifeplus/daily-data/">오늘의 데이터</a>
-  <a class="chip" href="/lifeplus/fun/">테스트/심리</a>
-  <a class="chip" href="/lifeplus/challenge/">30일 챌린지</a>
+<style>
+  .ins-subnav { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 16px; }
+  .ins-subnav a { display:inline-block; padding:6px 14px; border:1px solid #b8c7d9; border-radius:999px;
+                  background:#fff; color:#0b4f7c; font-size:14px; font-weight:600; text-decoration:none; }
+  .ins-subnav a:hover { background:#eaf3fb; }
+  .ins-intro { margin:0 0 18px; line-height:1.75; font-size:15px; color:#3d4650; }
+  .insight-container .news-source { color:#5f6b76; font-size:12px; }
+  .insight-update-time { color:#5f6b76 !important; }
+</style>
+
+<nav class="ins-subnav" aria-label="라이프+ 메뉴">
+  <a href="/lifeplus/">라이프+ 허브</a>
+  <a href="/lifeplus/daily-data/">오늘의 데이터</a>
+  <a href="/lifeplus/fun/">테스트/심리</a>
+  <a href="/lifeplus/challenge/">30일 챌린지</a>
 </nav>
 
-<h1>오늘의 인사이트 — 경제 뉴스 헤드라인·생활 팁·명언</h1>
-<p class="muted" style="margin:6px 0 14px; line-height:1.7;">
+<p class="ins-intro">
   매일 오전 7시(한국시간)에 갱신되는 경제 뉴스 헤드라인, 생활에 도움이 되는 한 줄 팁, 오늘의 명언을 모았습니다.
   뉴스는 제목과 원문 링크만 제공하며 기사 내용은 각 언론사 사이트에서 확인하실 수 있습니다.
   팁은 일반적인 참고 정보이며 투자·법률·세무 자문이 아닙니다.
