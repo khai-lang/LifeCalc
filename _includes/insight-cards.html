@@ -1,4 +1,4 @@
-{%- assign latest = include.latest -%}
+{%- assign latest = include.latest | default: site.data.insight | sort:'date' | reverse | first -%}
 
 <div class="insight-container">
   
@@ -17,14 +17,14 @@
             </a>
             <span class="news-source">{{ h.source }}</span>
           </li>
-        {%- endfor -%}
+        %{%- endfor -%}
       {%- else -%}
         <li class="muted">오늘의 헤드라인을 준비 중입니다.</li>
       {%- endif -%}
     </ul>
   </section>
 
-  <!-- 2. 생활에 도움이 되는 한 줄 팁 & 추천 링크 -->
+  <!-- 2. 생활에 도움이 되는 한 줄 팁 -->
   <section class="insight-card tip-card">
     <div class="card-header">
       <span class="icon">💡</span>
@@ -37,7 +37,7 @@
     </div>
   </section>
 
-  <!-- 3. 추천 계산기 & 가이드 연결 (체류 시간 극대화 CTA) -->
+  <!-- 3. 추천 계산기 & 가이드 (CTA 영역) -->
   <section class="insight-card cta-card">
     <div class="card-header">
       <span class="icon">🧮</span>
@@ -90,3 +90,7 @@
     </ul>
   </section>
 {%- endif -%}
+
+<p class="insight-update-time" style="margin-top: 20px; font-size: 0.85rem; color: #868e96; text-align: right;">
+  마지막 업데이트: {{ latest.date }}
+</p>
