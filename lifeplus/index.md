@@ -2,8 +2,6 @@
 layout: default
 ---
 
-
-
 <div class="guide-container">
 
   {% if page.summary or page.button_text %}
