@@ -35,70 +35,57 @@
 <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 
 <style>
+  /* ★ 모든 링크 밑줄 강제 제거 */
+  a { text-decoration: none !important; }
+
   /* 1. 최상위 헤더 배경을 네이비로 채우고 중앙 축 고정 */
   header, .site-header {
     width: 100% !important;
     background: #0b5a7a !important;
     display: flex !important;
-    justify-content: center !important; /* 무조건 브라우저 정중앙으로 모으기 */
+    justify-content: center !important;
     align-items: center !important;
     border: none !important;
     box-shadow: none !important;
   }
 
-  /* 2. [핵심] 양옆 광고 공간만큼 여백을 확보하고 본문 크기에 맞추는 세팅 */
+  /* 2. 헤더 영역 전체 가운데 정렬 및 간격 고정 (통합본) */
   .header-wrap {
     display: flex !important;
-    justify-content: center !important; /* 로고와 메뉴를 가운데로 옹기종기 모음 */
     align-items: center !important;
-    
-    /* 본문(880px)과 로고/메뉴 사이의 균형을 위해 최대 너비를 제한합니다 */
-    max-width: 1100px !important; 
+    justify-content: center !important;
+    max-width: 1100px !important;
     width: 100% !important;
     margin: 0 auto !important;
     padding: 14px 20px !important;
     background: #0b5a7a !important;
-    
-    /* 로고와 메뉴 사이의 간격 (원하시는 대로 숫자를 늘리거나 줄이셔도 됩니다) */
-    gap: 80px !important; 
+    gap: 60px !important;
     float: none !important;
   }
 
-  /* 3. 데스크톱에서 가로폭이 찌그러지는 현상 방지 */
+  /* 3. 데스크톱에서 가로폭이 찌그러지는 현상 방지 및 메뉴 밀림 방지 */
   .header-wrap .logo,
   .header-wrap .site-nav {
     flex: none !important;
     width: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex-grow: 0 !important;
+  }
+
+  .header-wrap .nav-ul {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex-grow: 0 !important;
   }
 
   /* 4. 모바일 화면(940px 이하) 대응 */
   @media (max-width: 940px) {
     .header-wrap {
-      justify-content: space-between !important; /* 모바일은 원래대로 양끝 정렬 */
+      justify-content: space-between !important;
       gap: 0 !important;
       padding: 12px 16px !important;
     }
-  }
-</style>
-
-<style>
-  /* ★ 모든 링크 밑줄 강제 제거 */
-  a { text-decoration: none !important; }
-
-  /* ★ [핵심] 헤더 영역 전체 가운데 정렬 및 간격 60px 강제 고정 */
-  .header-wrap {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important; /* 전체 가운데 정렬 */
-    gap: 60px !important;               /* 로고와 메뉴 사이 여백 확대 */
-  }
-
-  /* 메뉴바가 우측으로 밀리는 버그 방지 */
-  .header-wrap .site-nav,
-  .header-wrap .nav-ul {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    flex-grow: 0 !important;
   }
 
   /* ★ 전체 페이지 배경 살구톤 보정 */
