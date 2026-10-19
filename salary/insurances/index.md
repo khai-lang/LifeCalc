@@ -1,14 +1,47 @@
 ---
-layout: default
+layout: "default"
 title: "4대보험 계산기 2026 — 근로자·사업주 부담액 + 총인건비 역계산"
 description: "2026년 4대보험 요율(국민연금 4.75%, 건강보험 3.595%) 기준. 근로자·사업주 부담액 동시 계산 + 목표 실수령액으로 세전 월급·사업주 총인건비를 역산합니다."
-permalink: /salary/insurances/
-canonical: https://calculator.khaistory.com/salary/insurances/
+permalink: "/salary/insurances/"
+canonical: "https://calculator.khaistory.com/salary/insurances/"
+date: "2026-10-16"
 og_title: "4대보험 계산기 2026 — 부담액 계산 + 총인건비 역산"
 og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 계산 + 목표 실수령→세전 월급·총인건비 역산."
 ---
 
+<!-- =====================================================================
+     4대보험 계산기 2026 (업그레이드판)
+     - 광고 스크립트 1회 로드, 슬롯(ins) 2곳
+     - CSS 접두사: ins- / rv-
+     ===================================================================== -->
+
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <section class="ins-wrap">
+
+  <nav class="ins-breadcrumb" aria-label="브레드크럼">
+    <a href="/">홈</a> <span aria-hidden="true">›</span>
+    <a href="/salary/">급여·소득</a> <span aria-hidden="true">›</span>
+    <span aria-current="page">4대보험 계산기</span>
+  </nav>
+
+  <div class="ins-intro">
+    <h2>2026 4대보험 계산기 — 내 월급에서 얼마가 빠질까?</h2>
+    <p>
+      월 급여를 넣으면 <strong>국민연금·건강보험·장기요양·고용보험</strong>의 <strong>근로자 부담액과 사업주 부담액</strong>을 한 번에 보여 드립니다.
+      사업주·HR 담당자라면 목표 실수령액에서 <strong>세전 월급과 총인건비</strong>를 거꾸로 구하는 역산 탭을 쓰세요.
+    </p>
+    <button type="button" class="ins-intro-btn" onclick="insTab('reverse')">총인건비 역산 바로가기 →</button>
+  </div>
 
   <div class="ins-notice">
     2026년 4대보험 요율 기준 안내용 계산기입니다.
@@ -23,6 +56,16 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
 
   <!-- ① 4대보험 계산 -->
   <div id="ins-panel-calc" class="ins-panel">
+
+    <div class="ins-chips" aria-label="자주 찾는 월급">
+      <span class="ins-chips-label">자주 찾는 월급</span>
+      <button type="button" class="ins-chip" onclick="setIns(2500000)">250만</button>
+      <button type="button" class="ins-chip" onclick="setIns(3000000)">300만</button>
+      <button type="button" class="ins-chip" onclick="setIns(3500000)">350만</button>
+      <button type="button" class="ins-chip" onclick="setIns(4000000)">400만</button>
+      <button type="button" class="ins-chip" onclick="setIns(5000000)">500만</button>
+    </div>
+
     <div class="ins-form">
       <div class="ins-field">
         <label for="ins-salary">월 급여 (세전, 원)</label>
@@ -45,7 +88,7 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
               <div class="ins-rf"><label>근로자 %</label><input type="number" id="r-nps-ee" value="4.75" step="0.01"></div>
               <div class="ins-rf"><label>사업주 %</label><input type="number" id="r-nps-er" value="4.75" step="0.01"></div>
             </div>
-            <div class="ins-hint">상한: 월 기준소득 637만원</div>
+            <div class="ins-hint">상한: 월 기준소득 659만원</div>
           </div>
           <div class="ins-rate-row">
             <span class="ins-rate-name">건강보험</span>
@@ -114,8 +157,17 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
       </div>
       <div class="ins-tip">
         <strong>알아두면 좋은 점</strong><br>
-        국민연금은 월 기준소득월액 <strong>637만원</strong>이 상한이라 이 이상 급여를 받아도 공제액이 늘지 않습니다.
+        국민연금은 월 기준소득월액 <strong>659만원</strong>이 상한이라 이 이상 급여를 받아도 공제액이 늘지 않습니다.
         장기요양보험은 건강보험료에 13.14%를 곱한 금액으로, 급여가 높아질수록 함께 올라갑니다.
+      </div>
+
+      <button type="button" class="ins-share" id="ins-copy-btn" onclick="copyIns()">결과 복사해서 공유하기</button>
+
+      <div class="ins-next">
+        <div class="ins-next-title">이 결과, 이렇게 이어서 확인해 보세요</div>
+        <a class="ins-next-link" href="/salary/net-pay/"><strong>연봉 실수령 계산기</strong><span>4대보험에 소득세까지 뺀 월 실수령 확인</span></a>
+        <a class="ins-next-link" href="/salary/raise/"><strong>연봉인상 시뮬레이터</strong><span>연봉이 오르면 보험료와 실수령은 얼마나 달라질까</span></a>
+        <a class="ins-next-link" href="/guide/four-insurance-rates-2026/"><strong>2026년 4대보험 요율표</strong><span>항목별 요율과 계산 예시 3종</span></a>
       </div>
     </div>
   </div>
@@ -235,16 +287,155 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
       <div class="ins-tip">
         <strong>총인건비 = 세전 월급 + 사업주 4대보험 부담분</strong><br>
         직원에게 지급하는 세전 월급 외에도 사업주는 4대보험 사업주 부담분을 별도로 납부합니다.
-        실제 고용 비용은 세전 월급보다 약 <strong>10~12%</strong> 더 높습니다.
+        이 계산기 기준(산재보험 제외)으로는 세전 월급의 약 <strong>10%</strong>가 추가로 들고, 산재보험까지 더하면 업종에 따라 더 높아집니다.
         소득세까지 포함한 정확한 실수령 역계산은
-        <a href="/salary/net-pay/" style="color:#c2410c">연봉 실수령 계산기 역계산 탭</a>을 이용하세요.
+        <a href="/salary/net-pay/#reverse" style="color:#c2410c">연봉 실수령 계산기 역계산 탭</a>을 이용하세요.
+      </div>
+
+      <button type="button" class="ins-share" id="rv-copy-btn" onclick="copyRv()">결과 복사해서 공유하기</button>
+
+      <div class="ins-next">
+        <div class="ins-next-title">이 결과, 이렇게 이어서 확인해 보세요</div>
+        <a class="ins-next-link" href="/salary/net-pay/#reverse"><strong>실수령 역계산 (소득세 포함)</strong><span>소득세까지 뺀 목표 실수령으로 필요한 연봉 구하기</span></a>
+        <a class="ins-next-link" href="/salary/retirement/"><strong>퇴직금 계산기</strong><span>직원 퇴직금 예상 비용도 함께 확인</span></a>
+        <a class="ins-next-link" href="/guide/salary-negotiation-2026/"><strong>연봉 협상 가이드</strong><span>세전이 아닌 실수령 기준으로 협상하는 법</span></a>
       </div>
     </div>
   </div>
 
+  <!-- 광고 1 -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3758454239921831"
+       data-ad-slot="7492664289"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <!-- 정적 예시표 1: 월급별 -->
+  <section class="ins-card-sec" id="ins-quick">
+    <h2>월급별 4대보험료 한눈에 보기 (2026)</h2>
+    <p>비과세 급여 없이 월 급여 전체가 보험료 산정 기준이라고 가정하고, 이 계산기와 같은 방식으로 계산한 값입니다. 고용보험 사업주 요율은 1.15%로 계산했습니다.</p>
+    <div class="ins-compare-wrap">
+      <table class="ins-table ins-st-table">
+        <caption class="ins-caption">2026 월급별 4대보험 근로자·사업주 부담액 (비과세 없음, 산재보험 제외)</caption>
+        <thead>
+          <tr><th>월 급여</th><th>근로자 부담</th><th>사업주 부담</th><th>근로자 비율</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>250만원</td><td>242,935원</td><td>249,185원</td><td>9.72%</td></tr>
+          <tr class="ins-hl-row"><td>300만원</td><td>291,521원</td><td>299,021원</td><td>9.72%</td></tr>
+          <tr><td>350만원</td><td>340,108원</td><td>348,858원</td><td>9.72%</td></tr>
+          <tr><td>400만원</td><td>388,695원</td><td>398,695원</td><td>9.72%</td></tr>
+          <tr><td>500만원</td><td>485,869원</td><td>498,369원</td><td>9.72%</td></tr>
+          <tr class="ins-hl-row"><td>659만원 (연금 상한)</td><td>640,376원</td><td>656,851원</td><td>9.72%</td></tr>
+          <tr><td>800만원</td><td>710,416원</td><td>730,416원</td><td>8.88%</td></tr>
+          <tr><td>1,000만원</td><td>809,763원</td><td>834,763원</td><td>8.10%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ins-hint">상한(659만원)을 넘으면 국민연금이 더 늘지 않아 근로자 부담 비율이 낮아집니다. 항목별 요율은 <a class="ins-inline" href="/guide/four-insurance-rates-2026/">2026년 4대보험 요율표</a>에서 볼 수 있어요.</p>
+  </section>
+
+  <!-- 정적 예시표 2: 역산 -->
+  <section class="ins-card-sec">
+    <h2>목표 실수령별 필요 세전 월급·총인건비 (예시)</h2>
+    <p>4대보험만 공제하는 기준(소득세 제외), 비과세 없음으로 역산한 값입니다. 세전 월급은 천원 단위 올림입니다.</p>
+    <div class="ins-compare-wrap">
+      <table class="ins-table ins-st-table">
+        <caption class="ins-caption">목표 월 실수령별 세전 월급과 사업주 총인건비 (4대보험만 공제)</caption>
+        <thead>
+          <tr><th>목표 실수령</th><th>필요 세전 월급</th><th>사업주 부담</th><th>사업주 총인건비</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>250만원</td><td>2,770,000원</td><td>276,097원</td><td>3,046,097원</td></tr>
+          <tr class="ins-hl-row"><td>300만원</td><td>3,323,000원</td><td>331,217원</td><td>3,654,217원</td></tr>
+          <tr><td>350만원</td><td>3,877,000원</td><td>386,436원</td><td>4,263,436원</td></tr>
+          <tr><td>400만원</td><td>4,431,000원</td><td>441,655원</td><td>4,872,655원</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ins-hint">소득세·지방소득세를 뺀 실제 통장 실수령은 이보다 적습니다. 소득세 포함 역계산은 <a class="ins-inline" href="/salary/net-pay/#reverse">연봉 실수령 계산기</a>를 이용하세요.</p>
+  </section>
+
+  <!-- 설명 -->
+  <section class="ins-card-sec">
+    <h2>4대보험은 어떻게 계산하나요?</h2>
+    <ul class="ins-list">
+      <li><strong>국민연금</strong> 근로자·사업주 각 4.75% (기준소득월액 상한 월 659만원)</li>
+      <li><strong>건강보험</strong> 근로자·사업주 각 3.595%</li>
+      <li><strong>장기요양보험</strong> 건강보험료의 13.14%를 근로자·사업주가 각각 부담</li>
+      <li><strong>고용보험</strong> 근로자 0.9%, 사업주는 이 계산기에서 1.15%로 계산</li>
+    </ul>
+    <p class="ins-hint">사업주 고용보험 요율 중 고용안정·직업능력개발 부분은 기업 규모에 따라 달라질 수 있어, 해당되는 요율을 위 "요율 직접 수정"에서 바꿔 쓰세요.</p>
+  </section>
+
+  <!-- 다른 계산기 -->
+  <section class="ins-card-sec">
+    <h2>함께 쓰면 좋은 계산기</h2>
+    <div class="ins-grid">
+      <a class="ins-gcard" href="/salary/net-pay/">
+        <span class="ins-gcard-title">연봉 실수령 계산기</span>
+        <span class="ins-gcard-desc">소득세까지 반영한 월 실수령, 역계산, 구간표</span>
+      </a>
+      <a class="ins-gcard" href="/salary/raise/">
+        <span class="ins-gcard-title">연봉인상 시뮬레이터</span>
+        <span class="ins-gcard-desc">인상 후 실수령 증가액 계산</span>
+      </a>
+      <a class="ins-gcard" href="/salary/retirement/">
+        <span class="ins-gcard-title">퇴직금 계산기</span>
+        <span class="ins-gcard-desc">근속기간·평균임금 기준 예상 퇴직금</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 연계 가이드 -->
+  <section class="ins-guide-box">
+    <div class="ins-guide-body">
+      <h3>2026년 4대보험 요율, 한 장으로 정리했어요</h3>
+      <p>근로자·사업주 부담 요율과 월급별 계산 예시 3종을 요율표로 정리했습니다.</p>
+    </div>
+    <a class="ins-guide-btn" href="/guide/four-insurance-rates-2026/">4대보험 요율표 보기 →</a>
+  </section>
+
+  <!-- 광고 2 -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3758454239921831"
+       data-ad-slot="7492664289"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <!-- FAQ -->
+  <section class="ins-card-sec" id="ins-faq">
+    <h2>자주 묻는 질문</h2>
+    <details class="ins-faq-item">
+      <summary>2026년 4대보험 근로자 부담 요율은 얼마인가요?</summary>
+      <p>국민연금 4.75%, 건강보험 3.595%, 장기요양보험은 건강보험료의 13.14%, 고용보험 0.9%입니다. 월 급여 전체에 적용되는 경우 근로자 부담은 월급의 약 9.7%입니다.</p>
+    </details>
+    <details class="ins-faq-item">
+      <summary>사업주는 4대보험을 얼마나 부담하나요?</summary>
+      <p>국민연금 4.75%, 건강보험 3.595%, 장기요양보험(건보료의 13.14%)에 고용보험을 더해 부담합니다. 이 계산기 기준(고용보험 1.15%, 산재보험 제외)으로는 월급의 약 10%입니다.</p>
+    </details>
+    <details class="ins-faq-item">
+      <summary>국민연금은 월급이 많아도 계속 늘어나나요?</summary>
+      <p>아닙니다. 기준소득월액 상한(2026년 7월~2027년 6월 월 659만원)까지만 적용되어, 이 계산기 기준으로 근로자 국민연금은 월 313,025원이 최대입니다.</p>
+    </details>
+    <details class="ins-faq-item">
+      <summary>목표 실수령액으로 세전 월급과 총인건비를 알 수 있나요?</summary>
+      <p>네, 총인건비 역산 탭에 목표 월 실수령액을 입력하면 4대보험 공제 후 그 금액이 되는 세전 월급과 사업주 총인건비를 계산합니다. 소득세는 포함하지 않으니 소득세까지 보려면 연봉 실수령 계산기를 쓰세요.</p>
+    </details>
+    <details class="ins-faq-item">
+      <summary>산재보험은 계산에 포함되나요?</summary>
+      <p>포함하지 않습니다. 산재보험은 업종별 요율이 다르고 전액 사업주가 부담하기 때문에 이 계산기에서는 제외했습니다.</p>
+    </details>
+  </section>
+
   <nav class="ins-related">
     <a href="/salary/">← 허브로</a>
     <a href="/salary/net-pay/">연봉 실수령 계산기 (역계산 포함)</a>
+    <a href="/salary/raise/">연봉인상 시뮬레이터</a>
     <a href="/salary/retirement/">퇴직금 계산기</a>
   </nav>
 
@@ -254,12 +445,28 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
 .ins-wrap{font-family:'Noto Sans KR',sans-serif;max-width:720px;margin:0 auto;padding:0 0 40px;color:#1f2937;line-height:1.7}
 .ins-notice{background:#faf7f2;border:1px solid #eaddcd;border-radius:10px;padding:10px 14px;font-size:.83rem;color:#8c7355;margin-bottom:20px}
 
+/* 브레드크럼 · 소개 */
+.ins-breadcrumb{font-size:.85rem;color:#8c7355;margin-bottom:14px}
+.ins-breadcrumb a{color:#8c7355;text-decoration:none}
+.ins-breadcrumb a:hover{text-decoration:underline}
+.ins-intro{background:linear-gradient(135deg,#f8efe5 0%,#f3e7d9 100%);border:1px solid #e3d4c5;border-radius:16px;padding:22px 24px;margin-bottom:18px}
+.ins-intro h2{margin:0 0 8px;color:#785a43;font-size:1.25rem}
+.ins-intro p{margin:0 0 12px;line-height:1.7;color:#5c4a38}
+.ins-intro-btn{background:#1f5c7a;color:#fff;border:none;border-radius:999px;padding:9px 18px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit}
+.ins-intro-btn:hover{background:#174d68}
+
 /* 탭 */
 .ins-tabs{display:flex;gap:4px;border-bottom:2px solid #f0e8de;margin-bottom:24px}
 .ins-tab{background:none;border:none;padding:10px 18px;font-size:.92rem;color:#8c7355;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;font-family:inherit;transition:color .15s;display:flex;align-items:center;gap:6px}
 .ins-tab.active{color:#c2410c;border-bottom-color:#c2410c;font-weight:600}
 .ins-tab:hover:not(.active){color:#3f2d20}
 .ins-tab-new{font-size:10px;background:#1f5c7a;color:#fff;border-radius:20px;padding:1px 6px;font-weight:700;letter-spacing:.03em}
+
+/* 빠른 입력 칩 */
+.ins-chips{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:16px}
+.ins-chips-label{font-size:.8rem;color:#5b6470;font-weight:600;margin-right:2px}
+.ins-chip{background:#cfdfe8;color:#13293d;border:1px solid #1f5c7a;border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:700;cursor:pointer;font-family:inherit}
+.ins-chip:hover{background:#1f5c7a;color:#fff}
 
 /* 역계산 안내 박스 */
 .ins-rev-notice{background:#f0f7fb;border:1px solid #c8dff0;border-radius:10px;padding:12px 14px;font-size:.83rem;color:#1f4f6a;margin-bottom:20px;line-height:1.7}
@@ -290,7 +497,7 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
 
 /* 버튼 */
 .ins-btn{background:#c2410c;color:#fff;border:none;border-radius:10px;padding:13px 24px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s,transform .1s;width:100%}
-.ins-btn:hover{background:#ea580c;transform:translateY(-1px)}
+.ins-btn:hover{background:#e96f00;transform:translateY(-1px)}
 
 /* 결과 공통 */
 .ins-result{animation:insFadeIn .3s ease}
@@ -311,6 +518,8 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
 .ins-table .ee-val{color:#c2410c;font-weight:700}
 .ins-table .er-val{color:#785a43;font-weight:700}
 .ins-table .sum-val{color:#3f2d20}
+.ins-table .ins-hl-row td{background:#fdf4ec;color:#c2410c;font-weight:700}
+.ins-caption{caption-side:top;text-align:left;font-size:.8rem;color:#8c7355;padding:8px 14px 0}
 
 .ins-summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
 .ins-scard{border-radius:12px;padding:14px 16px;text-align:center}
@@ -331,12 +540,20 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
 .ins-annual-label{color:#9ca3af;margin-bottom:2px}
 .ins-annual-val{font-weight:700;color:#3f2d20}
 
-.ins-tip{background:#fff;border-left:3px solid #8c7355;border-radius:0 8px 8px 0;padding:10px 14px;font-size:.83rem;color:#6b7280;line-height:1.6;margin-bottom:14px}
+.ins-tip{background:#fff;border-left:3px solid #8c7355;border-radius:0 8px 8px 0;padding:10px 14px;font-size:.83rem;color:#5b6470;line-height:1.6;margin-bottom:14px}
 .ins-tip strong{color:#3f2d20}
 
-/* ── 역계산 전용 스타일 ── */
+/* 공유 · 다음 행동 */
+.ins-share{display:block;width:100%;margin-bottom:14px;background:#fff;color:#1f5c7a;border:2px solid #1f5c7a;border-radius:10px;padding:11px 20px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+.ins-share:hover{background:#1f5c7a;color:#fff}
+.ins-next{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;background:#faf7f2;border:1px solid #eaddcd;border-radius:14px;padding:16px 18px}
+.ins-next-title{font-size:.9rem;font-weight:700;color:#785a43}
+.ins-next-link{display:flex;flex-direction:column;gap:2px;text-decoration:none;background:#fff;border:1px solid #e3d4c5;border-radius:10px;padding:10px 14px}
+.ins-next-link strong{color:#c2410c;font-size:.92rem}
+.ins-next-link span{color:#5b6470;font-size:.8rem}
+.ins-next-link:hover{border-color:#c2410c;background:#fffaf5}
 
-/* 히어로 3단 */
+/* ── 역계산 전용 스타일 ── */
 .rv-hero{background:linear-gradient(135deg,#f8efe5,#f3e7d9);border:1px solid #e3d4c5;border-radius:16px;padding:20px 16px;margin-bottom:14px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;justify-content:space-between}
 .rv-hero-col{text-align:center;flex:1;min-width:90px}
 .rv-hero-col-total{background:rgba(194,65,12,.06);border-radius:10px;padding:8px}
@@ -344,17 +561,13 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
 .rv-hero-num{font-size:1.2rem;font-weight:800;letter-spacing:-.01em}
 .rv-hero-sub{font-size:.7rem;color:#9ca3af;margin-top:2px}
 .rv-hero-arrow{text-align:center;flex-shrink:0}
-.rv-arrow-head{font-size:1.2rem;color:#eaddcd;line-height:1}
+.rv-arrow-head{font-size:1.2rem;color:#e3d4c5;line-height:1}
 .rv-arrow-sub{font-size:.68rem;color:#9ca3af;margin-top:2px}
-.rv-hero-plus,.rv-hero-eq{font-size:1.3rem;color:#eaddcd;font-weight:700;flex-shrink:0}
-
-/* 컬러 */
+.rv-hero-plus,.rv-hero-eq{font-size:1.3rem;color:#e3d4c5;font-weight:700;flex-shrink:0}
 .rv-target-color{color:#8c7355}
 .rv-gross-color{color:#1f5c7a}
 .rv-er-color{color:#785a43}
 .rv-total-color{color:#c2410c}
-
-/* 4단 카드 */
 .rv-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
 .rv-card{background:#fff;border:1px solid #f1eae1;border-radius:10px;padding:10px 12px;text-align:center}
 .rv-card-ee{border-color:#fde8e0}
@@ -363,8 +576,6 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
 .rv-card-label{font-size:.72rem;color:#9ca3af;margin-bottom:4px;line-height:1.3}
 .rv-card-val{font-size:.95rem;font-weight:800;color:#3f2d20}
 .rv-card-sub{font-size:.7rem;color:#9ca3af;margin-top:2px}
-
-/* 연간 비교 박스 */
 .rv-annual-box{background:#faf7f2;border:1px solid #eaddcd;border-radius:12px;padding:14px 16px;margin-bottom:14px}
 .rv-annual-title{font-size:.82rem;font-weight:700;color:#3f2d20;margin-bottom:10px}
 .rv-annual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:.83rem}
@@ -372,8 +583,35 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
 .rv-annual-label{font-size:.72rem;color:#9ca3af;margin-bottom:4px}
 .rv-annual-val{font-size:.95rem;font-weight:700;color:#3f2d20}
 
+/* 설명 · 가이드 · FAQ */
+.ins-card-sec{background:#fff;border:1px solid #f1eae1;border-radius:16px;padding:22px;margin-top:24px}
+.ins-card-sec h2{margin:0 0 10px;font-size:1.1rem;color:#785a43;border-left:4px solid #c2410c;padding-left:10px}
+.ins-card-sec p{margin:0 0 10px;color:#374151}
+.ins-list{margin:0 0 10px;padding-left:20px;color:#374151;line-height:1.8}
+.ins-inline{color:#1f5c7a;font-weight:700;text-decoration:underline}
+.ins-inline:hover{color:#174d68}
+
+.ins-guide-box{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:#cfdfe8;border:1px solid #1f5c7a;border-radius:16px;padding:18px 22px;margin-top:24px}
+.ins-guide-body{flex:1;min-width:200px}
+.ins-guide-body h3{margin:0 0 4px;color:#13293d;font-size:1.05rem}
+.ins-guide-body p{margin:0;color:#13293d;line-height:1.6;font-size:.92rem}
+.ins-guide-btn{display:inline-block;background:#1f5c7a;color:#fff;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:999px;white-space:nowrap}
+.ins-guide-btn:hover{background:#174d68}
+
+.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ins-gcard{display:flex;flex-direction:column;gap:4px;background:#faf7f2;border:1px solid #eaddcd;border-radius:12px;padding:14px 16px;text-decoration:none}
+.ins-gcard-title{color:#c2410c;font-weight:700;font-size:.92rem}
+.ins-gcard-desc{font-size:.82rem;color:#785a43;line-height:1.5}
+.ins-gcard:hover .ins-gcard-title{text-decoration:underline}
+
+.ins-faq-item{border:1px solid #f1eae1;border-radius:12px;padding:4px 16px;margin-bottom:10px;background:#fff}
+.ins-faq-item[open]{background:#fffaf5;border-color:#f0c8a0}
+.ins-faq-item summary{cursor:pointer;font-weight:700;color:#785a43;padding:12px 0;line-height:1.5}
+.ins-faq-item summary:hover{color:#c2410c}
+.ins-faq-item p{margin:0 0 14px;line-height:1.7;color:#5c4a38}
+
 /* 관련 링크 */
-.ins-related{display:flex;flex-wrap:wrap;gap:8px;padding-top:20px;border-top:1px solid #f1eae1;margin-top:8px}
+.ins-related{display:flex;flex-wrap:wrap;gap:8px;padding-top:20px;border-top:1px solid #f1eae1;margin-top:32px}
 .ins-related a{font-size:.83rem;color:#785a43;text-decoration:none;border:1px solid #eaddcd;border-radius:20px;padding:5px 14px;background:#faf7f2}
 .ins-related a:hover{background:#f3e7d9}
 
@@ -385,11 +623,14 @@ og_description: "2026년 최신 요율. 근로자·사업주 4대보험 동시 �
   .rv-hero{gap:6px}
   .rv-hero-num{font-size:1rem}
   .rv-hero-plus,.rv-hero-eq{font-size:1rem}
+  .ins-grid{grid-template-columns:1fr}
+  .ins-guide-box{flex-direction:column;align-items:flex-start}
+  .ins-guide-btn{width:100%;text-align:center;white-space:normal}
 }
 </style>
 
 <script>
-const NPS_CAP = 6370000;
+const NPS_CAP = 6590000; // 국민연금 상한 659만원 (2026.7.1~2027.6.30)
 
 function fmtIns(el){
   const raw=el.value.replace(/[^0-9]/g,'');
@@ -439,6 +680,44 @@ function getRates(){
     ei_ee:  parseFloat(document.getElementById('r-ei-ee').value)/100,
     ei_er:  parseFloat(document.getElementById('r-ei-er').value)/100,
   };
+}
+
+/* ── [신규] 자주 찾는 월급 칩 ── */
+function setIns(v){
+  const el=document.getElementById('ins-salary');
+  el.value=v.toLocaleString('ko-KR');
+  el.dataset.raw=String(v);
+  calcIns();
+}
+
+/* ── [신규] 공유 텍스트 복사 ── */
+function copyText(txt, btnId, label){
+  const btn=document.getElementById(btnId);
+  const done=()=>{btn.textContent='복사했어요! 원하는 곳에 붙여넣기';setTimeout(()=>{btn.textContent=label;},2500);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(done).catch(()=>{});
+  }else{
+    const ta=document.createElement('textarea');
+    ta.value=txt;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){}
+    document.body.removeChild(ta);
+  }
+}
+function copyIns(){
+  const salary=getRaw('ins-salary');
+  if(!salary) return;
+  copyText('월 급여 '+salary.toLocaleString('ko-KR')+'원 → 4대보험 근로자 '
+    +document.getElementById('ins-ee-total').textContent+' / 사업주 '
+    +document.getElementById('ins-er-total').textContent+'\n'
+    +'2026 4대보험 계산기: https://calculator.khaistory.com/salary/insurances/','ins-copy-btn','결과 복사해서 공유하기');
+}
+function copyRv(){
+  const target=getRaw('rv-target');
+  if(!target) return;
+  copyText('목표 월 실수령 '+target.toLocaleString('ko-KR')+'원 → 필요 세전 월급 '
+    +document.getElementById('rv-h-gross').textContent+' / 사업주 총인건비 '
+    +document.getElementById('rv-h-total').textContent+' (4대보험만 공제 기준)\n'
+    +'4대보험 계산기: https://calculator.khaistory.com/salary/insurances/','rv-copy-btn','결과 복사해서 공유하기');
 }
 
 /* ── ① 4대보험 계산 ── */
@@ -559,5 +838,36 @@ function calcReverse(){
   document.getElementById('rv-a-gross').textContent=fmt(gross*12);
   document.getElementById('rv-a-net').textContent=fmt(netCheck*12);
   document.getElementById('rv-a-total').textContent=fmt(totalCost*12);
+}
+
+/* ── [신규] 딥링크: /salary/insurances/#reverse ── */
+document.addEventListener('DOMContentLoaded',()=>{
+  if(location.hash==='#reverse') insTab('reverse');
+});
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "홈", "item": "https://calculator.khaistory.com/"},
+    {"@type": "ListItem", "position": 2, "name": "급여·소득", "item": "https://calculator.khaistory.com/salary/"},
+    {"@type": "ListItem", "position": 3, "name": "4대보험 계산기", "item": "https://calculator.khaistory.com/salary/insurances/"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "2026년 4대보험 근로자 부담 요율은 얼마인가요?", "acceptedAnswer": {"@type": "Answer", "text": "국민연금 4.75%, 건강보험 3.595%, 장기요양보험은 건강보험료의 13.14%, 고용보험 0.9%입니다. 월 급여 전체에 적용되는 경우 근로자 부담은 월급의 약 9.7%입니다."}},
+    {"@type": "Question", "name": "사업주는 4대보험을 얼마나 부담하나요?", "acceptedAnswer": {"@type": "Answer", "text": "국민연금 4.75%, 건강보험 3.595%, 장기요양보험(건보료의 13.14%)에 고용보험을 더해 부담합니다. 이 계산기 기준(고용보험 1.15%, 산재보험 제외)으로는 월급의 약 10%입니다."}},
+    {"@type": "Question", "name": "국민연금은 월급이 많아도 계속 늘어나나요?", "acceptedAnswer": {"@type": "Answer", "text": "아닙니다. 기준소득월액 상한(2026년 7월~2027년 6월 월 659만원)까지만 적용되어, 이 계산기 기준으로 근로자 국민연금은 월 313,025원이 최대입니다."}},
+    {"@type": "Question", "name": "목표 실수령액으로 세전 월급과 총인건비를 알 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 총인건비 역산 탭에 목표 월 실수령액을 입력하면 4대보험 공제 후 그 금액이 되는 세전 월급과 사업주 총인건비를 계산합니다. 소득세는 포함하지 않으니 소득세까지 보려면 연봉 실수령 계산기를 쓰세요."}},
+    {"@type": "Question", "name": "산재보험은 계산에 포함되나요?", "acceptedAnswer": {"@type": "Answer", "text": "포함하지 않습니다. 산재보험은 업종별 요율이 다르고 전액 사업주가 부담하기 때문에 이 계산기에서는 제외했습니다."}}
+  ]
 }
 </script>
