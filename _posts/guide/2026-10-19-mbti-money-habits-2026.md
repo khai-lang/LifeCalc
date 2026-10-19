@@ -2,7 +2,7 @@
 layout: guide
 title: "MBTI 유형별 소비·저축 성향 | 나에게 맞는 돈 관리법 (2026)"
 description: "MBTI 4가지 선호 지표와 16유형별로 자주 생기는 소비·저축 패턴과 보완 방법을 정리했습니다. 자동이체, 24시간 룰, 구독 점검 등 바로 쓰는 돈 관리 습관과 일주일 체크리스트까지."
-permalink: /guide/mbti-money-habits-2026/
+permalink: /_posts/guide/mbti-money-habits-2026/
 categories: guide
 date: 2026-10-19
 ---
