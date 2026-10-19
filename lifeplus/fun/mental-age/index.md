@@ -71,7 +71,21 @@ redirect_from:
 
   <form id="ma-form" novalidate>
     <div id="quiz">
-%%QUIZ%%
+<div class="ma-qbox" id="qb0"><p class="ma-q">1. 새로운 것보다는 익숙한 것을 선호한다.</p><div class="ma-scale" role="radiogroup" aria-label="1번 문항"><label for="q0_1"><input type="radio" name="q0" id="q0_1" value="1"> 전혀 아니다</label><label for="q0_2"><input type="radio" name="q0" id="q0_2" value="2"> 아니다</label><label for="q0_3"><input type="radio" name="q0" id="q0_3" value="3"> 보통</label><label for="q0_4"><input type="radio" name="q0" id="q0_4" value="4"> 그렇다</label><label for="q0_5"><input type="radio" name="q0" id="q0_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb1"><p class="ma-q">2. 감정보다 이성을 우선하여 결정한다.</p><div class="ma-scale" role="radiogroup" aria-label="2번 문항"><label for="q1_1"><input type="radio" name="q1" id="q1_1" value="1"> 전혀 아니다</label><label for="q1_2"><input type="radio" name="q1" id="q1_2" value="2"> 아니다</label><label for="q1_3"><input type="radio" name="q1" id="q1_3" value="3"> 보통</label><label for="q1_4"><input type="radio" name="q1" id="q1_4" value="4"> 그렇다</label><label for="q1_5"><input type="radio" name="q1" id="q1_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb2"><p class="ma-q">3. 계획표를 세우고 그에 맞춰 움직이는 편이다.</p><div class="ma-scale" role="radiogroup" aria-label="3번 문항"><label for="q2_1"><input type="radio" name="q2" id="q2_1" value="1"> 전혀 아니다</label><label for="q2_2"><input type="radio" name="q2" id="q2_2" value="2"> 아니다</label><label for="q2_3"><input type="radio" name="q2" id="q2_3" value="3"> 보통</label><label for="q2_4"><input type="radio" name="q2" id="q2_4" value="4"> 그렇다</label><label for="q2_5"><input type="radio" name="q2" id="q2_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb3"><p class="ma-q">4. 실수했을 때 빠르게 인정하고 수정한다.</p><div class="ma-scale" role="radiogroup" aria-label="4번 문항"><label for="q3_1"><input type="radio" name="q3" id="q3_1" value="1"> 전혀 아니다</label><label for="q3_2"><input type="radio" name="q3" id="q3_2" value="2"> 아니다</label><label for="q3_3"><input type="radio" name="q3" id="q3_3" value="3"> 보통</label><label for="q3_4"><input type="radio" name="q3" id="q3_4" value="4"> 그렇다</label><label for="q3_5"><input type="radio" name="q3" id="q3_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb4"><p class="ma-q">5. 주변의 시선보다 스스로의 기준을 더 중요하게 여긴다.</p><div class="ma-scale" role="radiogroup" aria-label="5번 문항"><label for="q4_1"><input type="radio" name="q4" id="q4_1" value="1"> 전혀 아니다</label><label for="q4_2"><input type="radio" name="q4" id="q4_2" value="2"> 아니다</label><label for="q4_3"><input type="radio" name="q4" id="q4_3" value="3"> 보통</label><label for="q4_4"><input type="radio" name="q4" id="q4_4" value="4"> 그렇다</label><label for="q4_5"><input type="radio" name="q4" id="q4_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb5"><p class="ma-q">6. 중요하지 않은 일은 과감히 미룬다.</p><div class="ma-scale" role="radiogroup" aria-label="6번 문항"><label for="q5_1"><input type="radio" name="q5" id="q5_1" value="1"> 전혀 아니다</label><label for="q5_2"><input type="radio" name="q5" id="q5_2" value="2"> 아니다</label><label for="q5_3"><input type="radio" name="q5" id="q5_3" value="3"> 보통</label><label for="q5_4"><input type="radio" name="q5" id="q5_4" value="4"> 그렇다</label><label for="q5_5"><input type="radio" name="q5" id="q5_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb6"><p class="ma-q">7. 돈 관리(예산/저축/지출)를 꾸준히 한다.</p><div class="ma-scale" role="radiogroup" aria-label="7번 문항"><label for="q6_1"><input type="radio" name="q6" id="q6_1" value="1"> 전혀 아니다</label><label for="q6_2"><input type="radio" name="q6" id="q6_2" value="2"> 아니다</label><label for="q6_3"><input type="radio" name="q6" id="q6_3" value="3"> 보통</label><label for="q6_4"><input type="radio" name="q6" id="q6_4" value="4"> 그렇다</label><label for="q6_5"><input type="radio" name="q6" id="q6_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb7"><p class="ma-q">8. 타인의 입장을 고려해 말을 고른다.</p><div class="ma-scale" role="radiogroup" aria-label="8번 문항"><label for="q7_1"><input type="radio" name="q7" id="q7_1" value="1"> 전혀 아니다</label><label for="q7_2"><input type="radio" name="q7" id="q7_2" value="2"> 아니다</label><label for="q7_3"><input type="radio" name="q7" id="q7_3" value="3"> 보통</label><label for="q7_4"><input type="radio" name="q7" id="q7_4" value="4"> 그렇다</label><label for="q7_5"><input type="radio" name="q7" id="q7_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb8"><p class="ma-q">9. 건강(수면/운동/식습관)을 일정하게 관리한다.</p><div class="ma-scale" role="radiogroup" aria-label="9번 문항"><label for="q8_1"><input type="radio" name="q8" id="q8_1" value="1"> 전혀 아니다</label><label for="q8_2"><input type="radio" name="q8" id="q8_2" value="2"> 아니다</label><label for="q8_3"><input type="radio" name="q8" id="q8_3" value="3"> 보통</label><label for="q8_4"><input type="radio" name="q8" id="q8_4" value="4"> 그렇다</label><label for="q8_5"><input type="radio" name="q8" id="q8_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb9"><p class="ma-q">10. 감정적으로 힘들 때 도움을 요청할 줄 안다.</p><div class="ma-scale" role="radiogroup" aria-label="10번 문항"><label for="q9_1"><input type="radio" name="q9" id="q9_1" value="1"> 전혀 아니다</label><label for="q9_2"><input type="radio" name="q9" id="q9_2" value="2"> 아니다</label><label for="q9_3"><input type="radio" name="q9" id="q9_3" value="3"> 보통</label><label for="q9_4"><input type="radio" name="q9" id="q9_4" value="4"> 그렇다</label><label for="q9_5"><input type="radio" name="q9" id="q9_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb10"><p class="ma-q">11. 장기 목표와 단기 목표를 구분해 실행한다.</p><div class="ma-scale" role="radiogroup" aria-label="11번 문항"><label for="q10_1"><input type="radio" name="q10" id="q10_1" value="1"> 전혀 아니다</label><label for="q10_2"><input type="radio" name="q10" id="q10_2" value="2"> 아니다</label><label for="q10_3"><input type="radio" name="q10" id="q10_3" value="3"> 보통</label><label for="q10_4"><input type="radio" name="q10" id="q10_4" value="4"> 그렇다</label><label for="q10_5"><input type="radio" name="q10" id="q10_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb11"><p class="ma-q">12. 실패를 학습 기회로 받아들이는 편이다.</p><div class="ma-scale" role="radiogroup" aria-label="12번 문항"><label for="q11_1"><input type="radio" name="q11" id="q11_1" value="1"> 전혀 아니다</label><label for="q11_2"><input type="radio" name="q11" id="q11_2" value="2"> 아니다</label><label for="q11_3"><input type="radio" name="q11" id="q11_3" value="3"> 보통</label><label for="q11_4"><input type="radio" name="q11" id="q11_4" value="4"> 그렇다</label><label for="q11_5"><input type="radio" name="q11" id="q11_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb12"><p class="ma-q">13. SNS/알림에 즉각 반응하지 않아도 괜찮다.</p><div class="ma-scale" role="radiogroup" aria-label="13번 문항"><label for="q12_1"><input type="radio" name="q12" id="q12_1" value="1"> 전혀 아니다</label><label for="q12_2"><input type="radio" name="q12" id="q12_2" value="2"> 아니다</label><label for="q12_3"><input type="radio" name="q12" id="q12_3" value="3"> 보통</label><label for="q12_4"><input type="radio" name="q12" id="q12_4" value="4"> 그렇다</label><label for="q12_5"><input type="radio" name="q12" id="q12_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb13"><p class="ma-q">14. 관계에서 경계(바운더리)를 설정할 줄 안다.</p><div class="ma-scale" role="radiogroup" aria-label="14번 문항"><label for="q13_1"><input type="radio" name="q13" id="q13_1" value="1"> 전혀 아니다</label><label for="q13_2"><input type="radio" name="q13" id="q13_2" value="2"> 아니다</label><label for="q13_3"><input type="radio" name="q13" id="q13_3" value="3"> 보통</label><label for="q13_4"><input type="radio" name="q13" id="q13_4" value="4"> 그렇다</label><label for="q13_5"><input type="radio" name="q13" id="q13_5" value="5"> 매우 그렇다</label></div></div>
+<div class="ma-qbox" id="qb14"><p class="ma-q">15. 내가 통제할 수 없는 일은 내려놓는다.</p><div class="ma-scale" role="radiogroup" aria-label="15번 문항"><label for="q14_1"><input type="radio" name="q14" id="q14_1" value="1"> 전혀 아니다</label><label for="q14_2"><input type="radio" name="q14" id="q14_2" value="2"> 아니다</label><label for="q14_3"><input type="radio" name="q14" id="q14_3" value="3"> 보통</label><label for="q14_4"><input type="radio" name="q14" id="q14_4" value="4"> 그렇다</label><label for="q14_5"><input type="radio" name="q14" id="q14_5" value="5"> 매우 그렇다</label></div></div>
     </div>
 
     <div class="ma-msg" id="ma-msg" role="alert"></div>
@@ -84,7 +98,16 @@ redirect_from:
   <div id="ma-out" class="result-box" aria-live="polite" style="margin-top:16px;"></div>
 </div>
 
-%%AD%%
+<div class="as-ad">
+  <span class="as-ad-label">광고</span>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3758454239921831"
+       data-ad-slot="7492664289"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
 <section class="card p">
   <h2>정신연령 테스트란?</h2>
@@ -112,14 +135,29 @@ redirect_from:
   <table class="as-table">
     <thead><tr><th>추정 연령</th><th>연령대</th><th>유형</th><th>특징</th></tr></thead>
     <tbody>
-%%BAND_ROWS%%
+<tr><td>~16세</td><td>10대 초중반</td><td>스파클 ⚡</td><td>호기심이 폭발하는 타입이에요. 새로운 것과 놀이, 도전이 에너지의 원천입니다.</td></tr>
+<tr><td>17~24세</td><td>10대 후반~20대 초</td><td>트렌드 메이커 🔥</td><td>새로움에 강하고 실행이 빠른 타입이에요.</td></tr>
+<tr><td>25~33세</td><td>20대 후반~30대 초</td><td>밸런서 🎯</td><td>일·관계·재미의 균형을 잘 맞추는 타입이에요.</td></tr>
+<tr><td>34~39세</td><td>30대 중후반</td><td>리얼리스트 🧭</td><td>현실 감각이 뛰어나고 계획적인 타입이에요.</td></tr>
+<tr><td>40~49세</td><td>40대</td><td>케어테이커 🏡</td><td>안정과 책임, 내실을 중시하는 마음을 가졌어요.</td></tr>
+<tr><td>50~59세</td><td>50대</td><td>멘탈 장인 🛠️</td><td>경험에서 나오는 침착함과 통찰이 돋보이는 타입이에요.</td></tr>
+<tr><td>60세 이상</td><td>60대+</td><td>세이지 🌳</td><td>여유와 지혜가 돋보이는 어른스러운 마음이에요.</td></tr>
     </tbody>
   </table>
   </div>
   <p class="as-note">* 점수가 높을수록 안정·계획·감정 조절을 중시하는 문항에 "그렇다"고 답했다는 뜻이며, 실제 성숙도나 능력을 평가하지 않습니다.</p>
 </section>
 
-%%AD%%
+<div class="as-ad">
+  <span class="as-ad-label">광고</span>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3758454239921831"
+       data-ad-slot="7492664289"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
 <section class="card p">
   <h2>함께 해보면 좋은 테스트·계산기</h2>
@@ -182,7 +220,7 @@ redirect_from:
 
   var PAGE_URL = 'https://calculator.khaistory.com/lifeplus/fun/mental-age/';
   var N = 15;
-  var BANDS = %%BANDS_JS%%;
+  var BANDS = [{"max": 16, "band": "10대 초중반", "tag": "스파클 ⚡", "desc": "호기심이 폭발하는 타입이에요. 새로운 것과 놀이, 도전이 에너지의 원천입니다.", "tip": "하고 싶은 일을 작게라도 바로 해 보는 게 이 유형의 힘이에요."}, {"max": 24, "band": "10대 후반~20대 초", "tag": "트렌드 메이커 🔥", "desc": "새로움에 강하고 실행이 빠른 타입이에요.", "tip": "속도에 균형을 더하려면 일주일 계획을 가볍게 적어 보세요."}, {"max": 33, "band": "20대 후반~30대 초", "tag": "밸런서 🎯", "desc": "일·관계·재미의 균형을 잘 맞추는 타입이에요.", "tip": "지금의 균형을 지키려면 쉬는 시간도 일정에 넣어 두세요."}, {"max": 39, "band": "30대 중후반", "tag": "리얼리스트 🧭", "desc": "현실 감각이 뛰어나고 계획적인 타입이에요.", "tip": "가끔은 계획 밖의 즉흥적인 하루도 선물해 보세요."}, {"max": 49, "band": "40대", "tag": "케어테이커 🏡", "desc": "안정과 책임, 내실을 중시하는 마음을 가졌어요.", "tip": "다른 사람을 챙기는 만큼 나를 위한 시간도 챙겨 주세요."}, {"max": 59, "band": "50대", "tag": "멘탈 장인 🛠️", "desc": "경험에서 나오는 침착함과 통찰이 돋보이는 타입이에요.", "tip": "쌓아 온 노하우를 주변에 나누면 더 빛나요."}, {"max": 999, "band": "60대+", "tag": "세이지 🌳", "desc": "여유와 지혜가 돋보이는 어른스러운 마음이에요.", "tip": "새로운 취미 하나가 어른스러운 여유에 활력을 더해 줄 거예요."}];
   // 영역별 문항(0부터 시작하는 번호)
   var CATS = [
     { n: '판단·성향', q: [0, 1, 5] },
