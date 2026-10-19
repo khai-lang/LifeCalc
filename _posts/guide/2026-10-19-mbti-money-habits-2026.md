@@ -11,14 +11,28 @@ date: 2026-10-19
   .mm-box { border:1px solid #cfe0ee; background:#eaf3fb; border-radius:12px; padding:14px 16px; margin:18px 0; line-height:1.75; color:#1f2933; }
   .mm-box b.mm-t { display:block; margin-bottom:6px; color:#0b4f7c; }
   .mm-box ul { margin:6px 0 0; padding-left:20px; }
+  /* 표: 마크다운 표에 테두리·줄무늬·모바일 가로 스크롤 적용 */
+  table.mm-table { display:block; width:100%; overflow-x:auto; border-collapse:collapse; margin:14px 0 20px; font-size:14px; line-height:1.6; -webkit-overflow-scrolling:touch; }
+  table.mm-table th, table.mm-table td { border:1px solid #e3e8ee; padding:9px 11px; text-align:left; vertical-align:top; color:#1f2933; min-width:110px; }
+  table.mm-table th { background:#f1f5f9; font-weight:800; white-space:nowrap; text-align:left; }
+  table.mm-table td:first-child { font-weight:800; white-space:nowrap; min-width:64px; background:#fafbfc; }
+  table.mm-table tbody tr:nth-child(even) td { background:#fbfcfd; }
+  table.mm-table tbody tr:nth-child(even) td:first-child { background:#f5f7f9; }
+  /* 링크 카드·버튼 */
+  .mm-card { background:#fff; border:1px solid #ece6df; border-radius:18px; padding:20px 22px; margin:24px 0; box-shadow:0 2px 8px rgba(60,40,20,.04); }
+  .mm-card-t { border-left:4px solid #7b5a44; padding-left:12px; font-weight:800; font-size:18px; line-height:1.4; margin:0 0 10px; color:#2b2118; }
+  .mm-card-d { margin:0 0 14px; color:#5b5148; line-height:1.7; font-size:15px; }
+  .mm-btnrow { display:flex; gap:12px; flex-wrap:wrap; }
+  .mm-btn { display:inline-block; padding:13px 20px; border-radius:12px; color:#fff !important; font-weight:800; font-size:15px; line-height:1.3; text-decoration:none !important; box-shadow:0 6px 14px rgba(60,40,20,.18); transition:transform .15s ease, box-shadow .15s ease; }
+  .mm-btn:hover { transform:translateY(-2px); box-shadow:0 10px 18px rgba(60,40,20,.24); }
+  .mm-btn.brown { background:#7b5a44; }
+  .mm-btn.orange { background:#c4400d; }
+  .mm-cta-full { display:block; box-sizing:border-box; width:100%; text-align:center; padding:18px 20px; margin:26px 0; border-radius:14px; background:linear-gradient(135deg,#ff7a00,#c2410c); color:#fff !important; font-weight:800; font-size:17px; text-decoration:none !important; box-shadow:0 10px 22px rgba(194,65,12,.28); }
+  .mm-cta-full:hover { filter:brightness(1.05); }
+  .mm-chips { display:flex; gap:10px; flex-wrap:wrap; }
+  .mm-chips a { display:inline-block; padding:9px 16px; border:1px solid #e6d5c3; border-radius:999px; background:#faf6f1; color:#6b4a35 !important; font-weight:700; font-size:14px; text-decoration:none !important; }
+  .mm-chips a:hover { background:#f3e8dc; }
   .mm-warn { border:1px solid #f3d9a6; background:#fff8e8; border-radius:12px; padding:14px 16px; margin:18px 0; line-height:1.75; color:#3d3320; }
-  .mm-related { border:1px solid #d5dde5; border-left:4px solid #0b7a9e; background:#f8fafc; border-radius:10px; padding:12px 14px; margin:20px 0; line-height:1.8; }
-  .mm-related a { color:#0b4f7c; font-weight:700; text-decoration:underline; }
-  .mm-scroll { overflow-x:auto; }
-  .mm-links { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 0; }
-  .mm-links a { display:inline-block; padding:8px 14px; border:1px solid #b8c7d9; border-radius:999px; background:#fff; color:#0b4f7c; font-weight:600; text-decoration:none; font-size:14px; }
-  .mm-links a:hover { background:#eaf3fb; }
-  .mm-cta { display:inline-block; margin:8px 0; padding:12px 20px; background:#ff6a00; color:#fff !important; font-weight:800; border-radius:10px; text-decoration:none; }
   .as-ad { margin:28px 0; text-align:center; min-height:100px; }
   .as-ad-label { display:block; font-size:11px; color:#8a949e; margin-bottom:4px; }
   .np-faq details { border:1px solid #e3e8ee; border-radius:10px; padding:10px 14px; margin:8px 0; background:#fff; }
@@ -65,21 +79,24 @@ date: 2026-10-19
 
 MBTI는 에너지 방향(E/I), 정보 인식(S/N), 판단 방식(T/F), 생활 양식(J/P)의 네 가지 선호로 유형을 나눕니다. 각 선호가 돈을 쓸 때 어떤 모습으로 나타나기 쉬운지, 어디서 놓치기 쉬운지 정리했습니다.
 
-| 선호 | 돈 쓸 때 자주 보이는 모습 | 놓치기 쉬운 부분 | 보완 습관 |
-| --- | --- | --- | --- |
-| 외향(E) | 모임·경험·함께하는 소비가 많음 | 약속비·회식·선물이 조용히 누적 | 모임비 월 한도 정하기 |
-| 내향(I) | 혼자 즐기는 취미·구독·온라인 쇼핑 | 소액 정기결제와 구독 누적 | 분기마다 구독 목록 정리 |
-| 감각(S) | 눈앞의 현실 기준, 가격 비교에 꼼꼼 | 먼 미래의 비용 준비 | 목표 금액·날짜가 있는 저축통장 |
-| 직관(N) | 가능성·자기계발·새 아이디어에 투자 | 낙관적 전망으로 예산이 느슨해짐 | 큰 지출은 총비용을 숫자로 확인 |
-| 사고(T) | 가성비·효율 중심으로 결정 | 휴식·관계 같은 감정 비용을 과소 계상 | 예산에 기분 전환비 항목 두기 |
-| 감정(F) | 의미·관계·공감이 기준(선물, 후원, 대신 계산) | 거절하기 어려워 생기는 지출 | 베풀기 예산에 상한 두기 |
-| 판단(J) | 가계부·계획을 선호하고 예산을 지킴 | 계획이 깨지면 스트레스, 시작이 늦어짐 | 예비 완충 구간을 계획에 포함 |
-| 인식(P) | 유연하고 기회에 민감 | 정기 저축 실행을 미룸 | 월급날 자동이체로 결정 없애기 |
+<table class="mm-table">
+<thead><tr><th>선호</th><th>돈 쓸 때 자주 보이는 모습</th><th>놓치기 쉬운 부분</th><th>보완 습관</th></tr></thead>
+<tbody>
+<tr><td>외향(E)</td><td>모임·경험·함께하는 소비가 많음</td><td>약속비·회식·선물이 조용히 누적</td><td>모임비 월 한도 정하기</td></tr>
+<tr><td>내향(I)</td><td>혼자 즐기는 취미·구독·온라인 쇼핑</td><td>소액 정기결제와 구독 누적</td><td>분기마다 구독 목록 정리</td></tr>
+<tr><td>감각(S)</td><td>눈앞의 현실 기준, 가격 비교에 꼼꼼</td><td>먼 미래의 비용 준비</td><td>목표 금액·날짜가 있는 저축통장</td></tr>
+<tr><td>직관(N)</td><td>가능성·자기계발·새 아이디어에 투자</td><td>낙관적 전망으로 예산이 느슨해짐</td><td>큰 지출은 총비용을 숫자로 확인</td></tr>
+<tr><td>사고(T)</td><td>가성비·효율 중심으로 결정</td><td>휴식·관계 같은 감정 비용을 과소 계상</td><td>예산에 기분 전환비 항목 두기</td></tr>
+<tr><td>감정(F)</td><td>의미·관계·공감이 기준(선물, 후원, 대신 계산)</td><td>거절하기 어려워 생기는 지출</td><td>베풀기 예산에 상한 두기</td></tr>
+<tr><td>판단(J)</td><td>가계부·계획을 선호하고 예산을 지킴</td><td>계획이 깨지면 스트레스, 시작이 늦어짐</td><td>예비 완충 구간을 계획에 포함</td></tr>
+<tr><td>인식(P)</td><td>유연하고 기회에 민감</td><td>정기 저축 실행을 미룸</td><td>월급날 자동이체로 결정 없애기</td></tr>
+</tbody>
+</table>
 
-<div class="mm-related">
-  📌 <b>함께 읽기</b> · 월급에서 실제로 내 통장에 들어오는 돈부터 알아야 예산이 현실적으로 짜입니다.
-  <a href="/guide/salary-net-pay-2026/">2026년 연봉별 실수령액 완전 정복</a> ·
-  <a href="/salary/net-pay/">연봉 실수령 계산기</a>
+<div class="mm-card">
+  <div class="mm-card-t">📌 함께 읽어 보세요</div>
+  <p class="mm-card-d">월급에서 실제로 내 통장에 들어오는 돈부터 알아야 예산이 현실적으로 짜입니다.</p>
+  <div class="mm-btnrow"><a class="mm-btn brown" href="/guide/salary-net-pay-2026/">2026년 연봉별 실수령액 가이드</a><a class="mm-btn orange" href="/salary/net-pay/">연봉 실수령 계산기 바로가기</a></div>
 </div>
 
 ## 2. 16유형별 소비·저축 경향 한눈에 보기
@@ -88,27 +105,33 @@ MBTI는 에너지 방향(E/I), 정보 인식(S/N), 판단 방식(T/F), 생활 �
 
 ### 분석·전략 성향 (NT)
 
-| 유형 | 자주 거론되는 경향 | 주의할 점 | 어울리는 습관 |
-| --- | --- | --- | --- |
-| INTJ | 장기 목표를 세우고 계획적으로 움직임 | 큰 그림에 몰입해 일상 소액 지출 점검을 소홀히 함 | 연 1회 재무 목표 점검, 분기마다 구독 정리 |
-| INTP | 관심 분야(장비·도구·강의)에 몰입해 소비 | 관심사 지출이 한도 없이 커짐 | 취미 예산 월 한도, 구매 전 24시간 대기 |
-| ENTJ | 목표 지향적이고 투자·자기계발에 적극적 | 과감한 결정으로 위험이 커질 수 있음 | 투자 비중 상한과 손절 기준을 미리 정해 두기 |
-| ENTP | 새로운 시도와 아이디어에 지출 | 시작은 많고 지속이 적어 중도 해지 비용 발생 | 연간 결제 전에 월 단위로 3개월 먼저 써 보기 |
+<table class="mm-table">
+<thead><tr><th>유형</th><th>자주 거론되는 경향</th><th>주의할 점</th><th>어울리는 습관</th></tr></thead>
+<tbody>
+<tr><td>INTJ</td><td>장기 목표를 세우고 계획적으로 움직임</td><td>큰 그림에 몰입해 일상 소액 지출 점검을 소홀히 함</td><td>연 1회 재무 목표 점검, 분기마다 구독 정리</td></tr>
+<tr><td>INTP</td><td>관심 분야(장비·도구·강의)에 몰입해 소비</td><td>관심사 지출이 한도 없이 커짐</td><td>취미 예산 월 한도, 구매 전 24시간 대기</td></tr>
+<tr><td>ENTJ</td><td>목표 지향적이고 투자·자기계발에 적극적</td><td>과감한 결정으로 위험이 커질 수 있음</td><td>투자 비중 상한과 손절 기준을 미리 정해 두기</td></tr>
+<tr><td>ENTP</td><td>새로운 시도와 아이디어에 지출</td><td>시작은 많고 지속이 적어 중도 해지 비용 발생</td><td>연간 결제 전에 월 단위로 3개월 먼저 써 보기</td></tr>
+</tbody>
+</table>
 
-<div class="mm-related">
-  📌 <b>함께 읽기</b> · 투자에서 기준 없이 판단하는 실수를 줄이려면
-  <a href="/guide/stop-loss-calculation-2026/">주식 손절 라인 계산법</a> ·
-  <a href="/guide/dca-xirr-2026/">DCA(적립식) vs 일시투자, XIRR로 확인하기</a>
+<div class="mm-card">
+  <div class="mm-card-t">📌 함께 읽어 보세요</div>
+  <p class="mm-card-d">투자에서 기준 없이 판단하는 실수를 줄이려면 숫자로 기준부터 정해 두세요.</p>
+  <div class="mm-btnrow"><a class="mm-btn brown" href="/guide/stop-loss-calculation-2026/">주식 손절 라인 계산법</a><a class="mm-btn brown" href="/guide/dca-xirr-2026/">DCA vs 일시투자 · XIRR</a></div>
 </div>
 
 ### 가치·관계 성향 (NF)
 
-| 유형 | 자주 거론되는 경향 | 주의할 점 | 어울리는 습관 |
-| --- | --- | --- | --- |
-| INFJ | 의미 있다고 느끼는 곳에 쓰려는 경향 | 나를 위한 지출을 미루다 지침 | 나를 위한 회복비 항목을 따로 만들기 |
-| INFP | 가치관과 취향이 드러나는 소비 | 기분에 따라 소액 지출이 쌓임 | 월 취향 예산을 정하고 그 안에서 쓰기 |
-| ENFJ | 관계·모임·선물에 후한 편 | 남을 챙기느라 내 저축을 미룸 | 경조사·선물 연간 한도, 저축 먼저 이체 |
-| ENFP | 경험·여행·새로움에 지출 | 충동 지출과 계획 변경 | 여행 자금 통장 분리, 결제 전 24시간 대기 |
+<table class="mm-table">
+<thead><tr><th>유형</th><th>자주 거론되는 경향</th><th>주의할 점</th><th>어울리는 습관</th></tr></thead>
+<tbody>
+<tr><td>INFJ</td><td>의미 있다고 느끼는 곳에 쓰려는 경향</td><td>나를 위한 지출을 미루다 지침</td><td>나를 위한 회복비 항목을 따로 만들기</td></tr>
+<tr><td>INFP</td><td>가치관과 취향이 드러나는 소비</td><td>기분에 따라 소액 지출이 쌓임</td><td>월 취향 예산을 정하고 그 안에서 쓰기</td></tr>
+<tr><td>ENFJ</td><td>관계·모임·선물에 후한 편</td><td>남을 챙기느라 내 저축을 미룸</td><td>경조사·선물 연간 한도, 저축 먼저 이체</td></tr>
+<tr><td>ENFP</td><td>경험·여행·새로움에 지출</td><td>충동 지출과 계획 변경</td><td>여행 자금 통장 분리, 결제 전 24시간 대기</td></tr>
+</tbody>
+</table>
 
 <div class="as-ad">
   <span class="as-ad-label">광고</span>
@@ -123,26 +146,32 @@ MBTI는 에너지 방향(E/I), 정보 인식(S/N), 판단 방식(T/F), 생활 �
 
 ### 관리·책임 성향 (SJ)
 
-| 유형 | 자주 거론되는 경향 | 주의할 점 | 어울리는 습관 |
-| --- | --- | --- | --- |
-| ISTJ | 규칙과 계획을 선호하고 가계부를 꾸준히 씀 | 지나친 절약으로 필요한 지출이나 투자 시작을 미룸 | 정기 점검일을 정하고 비상금 외 장기 자산 일부 배분 |
-| ISFJ | 가족과 주변을 챙기고 절약 성향이 강함 | 베푸는 지출이 조용히 누적 | 가족 지출 별도 한도(또는 별도 계좌) |
-| ESTJ | 체계적으로 관리하고 목표를 달성함 | 타인에게도 엄격한 기준을 적용해 갈등이 생길 수 있음 | 가족·부부 공동 예산 규칙을 함께 합의 |
-| ESFJ | 모임·가족 행사·선물에 지출이 많은 편 | 주변 기대에 맞추다 지출이 커짐 | 행사비 연간 예산, 비교 소비 점검 |
+<table class="mm-table">
+<thead><tr><th>유형</th><th>자주 거론되는 경향</th><th>주의할 점</th><th>어울리는 습관</th></tr></thead>
+<tbody>
+<tr><td>ISTJ</td><td>규칙과 계획을 선호하고 가계부를 꾸준히 씀</td><td>지나친 절약으로 필요한 지출이나 투자 시작을 미룸</td><td>정기 점검일을 정하고 비상금 외 장기 자산 일부 배분</td></tr>
+<tr><td>ISFJ</td><td>가족과 주변을 챙기고 절약 성향이 강함</td><td>베푸는 지출이 조용히 누적</td><td>가족 지출 별도 한도(또는 별도 계좌)</td></tr>
+<tr><td>ESTJ</td><td>체계적으로 관리하고 목표를 달성함</td><td>타인에게도 엄격한 기준을 적용해 갈등이 생길 수 있음</td><td>가족·부부 공동 예산 규칙을 함께 합의</td></tr>
+<tr><td>ESFJ</td><td>모임·가족 행사·선물에 지출이 많은 편</td><td>주변 기대에 맞추다 지출이 커짐</td><td>행사비 연간 예산, 비교 소비 점검</td></tr>
+</tbody>
+</table>
 
 ### 실용·현재 성향 (SP)
 
-| 유형 | 자주 거론되는 경향 | 주의할 점 | 어울리는 습관 |
-| --- | --- | --- | --- |
-| ISTP | 실용적인 소비, 장비·도구에 관심 | 큰 구매 뒤 유지비·소모품 비용을 간과 | 총소유비용(유지비 포함) 먼저 계산 |
-| ISFP | 취향과 미적 감각이 소비 기준 | 즉흥 구매 | 장바구니에 담고 3일 뒤 결정 |
-| ESTP | 현재를 즐기는 소비, 활동·경험 중심 | 저축·보험 같은 장기 준비를 미룸 | 월급날 자동 저축, 연 1회 보험 점검 |
-| ESFP | 사람·유행·경험 중심의 소비 | 카드 사용이 늘어 결제일에 놀람 | 체크카드·카드 한도 설정, 결제일 알림 |
+<table class="mm-table">
+<thead><tr><th>유형</th><th>자주 거론되는 경향</th><th>주의할 점</th><th>어울리는 습관</th></tr></thead>
+<tbody>
+<tr><td>ISTP</td><td>실용적인 소비, 장비·도구에 관심</td><td>큰 구매 뒤 유지비·소모품 비용을 간과</td><td>총소유비용(유지비 포함) 먼저 계산</td></tr>
+<tr><td>ISFP</td><td>취향과 미적 감각이 소비 기준</td><td>즉흥 구매</td><td>장바구니에 담고 3일 뒤 결정</td></tr>
+<tr><td>ESTP</td><td>현재를 즐기는 소비, 활동·경험 중심</td><td>저축·보험 같은 장기 준비를 미룸</td><td>월급날 자동 저축, 연 1회 보험 점검</td></tr>
+<tr><td>ESFP</td><td>사람·유행·경험 중심의 소비</td><td>카드 사용이 늘어 결제일에 놀람</td><td>체크카드·카드 한도 설정, 결제일 알림</td></tr>
+</tbody>
+</table>
 
-<div class="mm-related">
-  📌 <b>함께 읽기</b> · 대출이 있다면 내 상환 능력을 숫자로 확인해 두세요.
-  <a href="/guide/credit-loan-dsr-limit-2026/">신용대출 DSR 한도, 2026년 기준 얼마까지 나올까</a> ·
-  <a href="/finance/loan/">대출 계산기</a>
+<div class="mm-card">
+  <div class="mm-card-t">📌 함께 읽어 보세요</div>
+  <p class="mm-card-d">대출이 있다면 내 상환 능력을 숫자로 확인해 두세요.</p>
+  <div class="mm-btnrow"><a class="mm-btn brown" href="/guide/credit-loan-dsr-limit-2026/">신용대출 DSR 한도 가이드</a><a class="mm-btn orange" href="/finance/loan/">대출 계산기 바로가기</a></div>
 </div>
 
 ## 3. 유형과 상관없이 통하는 돈 관리 기본 4가지
@@ -172,12 +201,15 @@ MBTI는 에너지 방향(E/I), 정보 인식(S/N), 판단 방식(T/F), 생활 �
 
 아래는 이해를 돕기 위한 **가상의 예시**이며 정답이 아닙니다. 월 실수령액이 300만원이라고 가정하고, 각 항목을 어떻게 자동화할 수 있는지 보여줍니다.
 
-| 항목 | 금액 | 비중 | 자동화 방법 |
-| --- | --- | --- | --- |
-| 고정비(월세·공과금·통신·보험) | 135만원 | 45% | 자동이체로 납부일 고정 |
-| 저축·투자 | 60만원 | 20% | 월급날 자동이체(선저축) |
-| 변동 생활비(식비·교통·생활용품) | 75만원 | 25% | 생활비 전용 체크카드·계좌 |
-| 여유비(취미·모임·선물) | 30만원 | 10% | 월 한도를 정해 별도 계좌 |
+<table class="mm-table">
+<thead><tr><th>항목</th><th>금액</th><th>비중</th><th>자동화 방법</th></tr></thead>
+<tbody>
+<tr><td>고정비(월세·공과금·통신·보험)</td><td>135만원</td><td>45%</td><td>자동이체로 납부일 고정</td></tr>
+<tr><td>저축·투자</td><td>60만원</td><td>20%</td><td>월급날 자동이체(선저축)</td></tr>
+<tr><td>변동 생활비(식비·교통·생활용품)</td><td>75만원</td><td>25%</td><td>생활비 전용 체크카드·계좌</td></tr>
+<tr><td>여유비(취미·모임·선물)</td><td>30만원</td><td>10%</td><td>월 한도를 정해 별도 계좌</td></tr>
+</tbody>
+</table>
 
 자신의 상황에 맞게 비율은 얼마든지 바꿔도 됩니다. 핵심은 **고정비는 자동으로 빠지고, 저축은 먼저 이체되며, 쓰는 돈에는 한도가 있는 구조**입니다. 내 유형의 약점 항목(예: 모임이 많은 E형은 여유비, 소액 구독이 많은 I형은 고정비)에 한도를 더 단단히 걸어 보세요.
 
@@ -199,11 +231,10 @@ MBTI는 에너지 방향(E/I), 정보 인식(S/N), 판단 방식(T/F), 생활 �
 
 계획형(J)은 연초부터 공제 항목을 정리하고, 즉흥형(P)은 달력에 알림을 걸어 두면 연말에 허둥대지 않습니다. 연금저축·IRP는 세액공제율이 총급여 구간별로 다르고(16.5%·13.2%) 연 한도가 900만원이라는 점을 가이드에서 정리했으니 본인 기준을 확인해 보세요. 월세를 내는 무주택자라면 월세 세액공제도 놓치기 쉬운 항목입니다.
 
-<div class="mm-related">
-  📌 <b>함께 읽기</b>
-  <a href="/guide/pension-irp-tax-credit-2026/">연금저축·IRP 세액공제 완전 정리</a> ·
-  <a href="/guide/monthly-rent-tax-credit-2026/">2026년 월세 세액공제 완전정리</a> ·
-  <a href="/guide/freelance-3.3-tax-2026/">프리랜서 세금 완전 정리 (3.3% 원천징수)</a>
+<div class="mm-card">
+  <div class="mm-card-t">📌 함께 읽어 보세요</div>
+  <p class="mm-card-d">세금·공제는 놓치면 되돌리기 어려운 항목부터 확인하세요.</p>
+  <div class="mm-btnrow"><a class="mm-btn brown" href="/guide/pension-irp-tax-credit-2026/">연금저축·IRP 세액공제 가이드</a><a class="mm-btn brown" href="/guide/monthly-rent-tax-credit-2026/">월세 세액공제 가이드</a><a class="mm-btn brown" href="/guide/freelance-3.3-tax-2026/">프리랜서 세금(3.3%) 가이드</a><a class="mm-btn orange" href="/salary/pension-savings/">연금저축 세액공제 계산기</a></div>
 </div>
 
 ## 7. 마지막 점검 리스트
@@ -247,18 +278,19 @@ MBTI는 에너지 방향(E/I), 정보 인식(S/N), 판단 방식(T/F), 생활 �
   </details>
 </section>
 
-<p style="text-align:center;"><a class="mm-cta" href="/salary/net-pay/">내 월급 실수령액 확인하기 →</a></p>
+<a class="mm-cta-full" href="/salary/net-pay/">내 월급 실수령액으로 예산 짜보기 →</a>
 
-### 함께 보면 좋은 계산기·가이드
-
-<div class="mm-links">
-  <a href="/salary/net-pay/">연봉 실수령 계산기</a>
-  <a href="/salary/pension-savings/">연금저축 세액공제 계산기</a>
-  <a href="/finance/loan/">대출 계산기</a>
-  <a href="/lifeplus/fun/mental-age/">정신연령 테스트</a>
-  <a href="/lifeplus/challenge/">30일 챌린지</a>
-  <a href="/guide/salary-negotiation-2026/">연봉 협상 완전 가이드</a>
-  <a href="/lifeplus/guide/">가이드 글 전체 보기</a>
+<div class="mm-card">
+  <div class="mm-card-t">함께 보면 좋은 계산기·가이드</div>
+  <div class="mm-chips">
+    <a href="/salary/net-pay/">연봉 실수령 계산기</a>
+    <a href="/salary/pension-savings/">연금저축 세액공제 계산기</a>
+    <a href="/finance/loan/">대출 계산기</a>
+    <a href="/lifeplus/fun/mental-age/">정신연령 테스트</a>
+    <a href="/lifeplus/challenge/">30일 챌린지</a>
+    <a href="/guide/salary-negotiation-2026/">연봉 협상 완전 가이드</a>
+    <a href="/lifeplus/guide/">가이드 글 전체 보기</a>
+  </div>
 </div>
 
 <script type="application/ld+json">
