@@ -104,7 +104,18 @@ categories: [guide]
 </div><div class="vfc-tip"><strong>Tip.</strong> BMI는 <strong>근육량이 많은 사람은 높게, 근육이 적은 사람은 낮게</strong> 나올 수 있습니다. 같은 BMI 22라도 배에 지방이 몰려 있으면 건강 위험이 다를 수 있습니다. 내 BMI는 <a href="/health/bmi/" style="color:#c2410c;font-weight:700">BMI 계산기</a>로 먼저 확인해 보세요.</div>
 </div>
 
-<div class="vfc-ad"><!-- AdSense 삽입 위치 (slot 7492664289) --></div>
+<div class="vfc-ad"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
 
 <div class="vfc-card">
 <h2>2. 복부비만 기준: 허리둘레</h2>
@@ -128,7 +139,18 @@ categories: [guide]
 </ol><div class="vfc-tip"><strong>Tip.</strong> 옷 위로 재거나 숨을 들이마신 채 재면 값이 달라집니다. 아침 공복에 같은 방식으로 재야 <strong>변화 추이</strong>를 비교하기 좋습니다.</div>
 </div>
 
-<div class="vfc-ad"><!-- AdSense 삽입 위치 (slot 7492664289) --></div>
+<div class="vfc-ad"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
+     crossorigin="anonymous"></script>
+<!-- 계산기 광고 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3758454239921831"
+     data-ad-slot="7492664289"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
 
 <div class="vfc-card">
 <h2>4. 내장지방을 확인하는 방법</h2>
