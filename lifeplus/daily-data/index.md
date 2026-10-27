@@ -1,10 +1,18 @@
 <style>
 .dd-wrap { max-width: 720px; margin: 0 auto; }
 .dd-updated { color:#888; font-size:13px; margin-bottom:16px; }
+
+/* 💡 상단 코멘트 박스 (첫 번째 이미지 톤 적용) */
 .dd-comment {
-  background:#fff7e6; border-left:4px solid #f5a623; padding:12px 16px;
-  border-radius:6px; margin-bottom:20px; font-size:14px;
+  background: #fdf6ed; 
+  border-left: 4px solid #f97316; 
+  padding: 12px 16px;
+  border-radius: 6px; 
+  margin-bottom: 20px; 
+  font-size: 14px;
+  color: #7c2d12;
 }
+
 .dd-fx-grid {
   display:grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap:10px; margin-bottom:24px;
@@ -20,6 +28,7 @@
 .dd-fx-card .change.up { color:#d0342c; }
 .dd-fx-card .change.down { color:#1a6dd6; }
 .dd-fx-card .change.flat { color:#999; }
+
 .dd-weather-box {
   display:flex; gap:16px; background:#f5f9ff; border-radius:10px;
   padding:16px; margin-bottom:16px;
@@ -28,26 +37,26 @@
 .dd-weather-item .label { font-size:13px; color:#666; }
 .dd-weather-item .temp { font-size:18px; font-weight:700; margin-top:4px; }
 
-/* 🧮 투자 계산기 링크 카드 스타일 (1번 안 적용) */
+/* 🧮 투자 계산기 링크 카드 (주황빛 포인트 톤 적용) */
 .dd-cross-link {
   display: flex;
   align-items: center;
   gap: 12px;
   margin: 20px 0;
   padding: 14px 18px;
-  background-color: #f8f9fa;
-  border: 1px solid #e2e8f0;
+  background-color: #fffaf5;
+  border: 1px solid #fed7aa;
   border-radius: 10px;
   text-decoration: none;
-  color: #1e293b;
+  color: #9a3412;
   transition: all 0.2s ease-in-out;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 .dd-cross-link:hover {
-  background-color: #f1f5f9;
-  border-color: #cbd5e1;
+  background-color: #ffedd5;
+  border-color: #fdba74;
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.1);
   text-decoration: none;
 }
 .dd-cross-icon {
@@ -61,11 +70,11 @@
   font-size: 14px;
 }
 .dd-cross-text strong {
-  color: #0f172a;
+  color: #7c2d12;
   font-weight: 600;
 }
 .dd-cross-sub {
-  color: #475569;
+  color: #c2410c;
 }
 
 .dd-share-btn {
