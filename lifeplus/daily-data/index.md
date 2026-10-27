@@ -80,9 +80,13 @@
   </div>
 </div>
 
-<div class="dd-cross-link">
-  🧮 이 환율로 직접 계산해보고 싶다면 → <a href="https://calculator.khaistory.com/invest/">투자 계산기</a>에서 코인·주식 손익을 바로 환산해보세요.
-</div>
+<a href="https://calculator.khaistory.com/invest/" class="dd-cross-link" target="_blank" rel="noopener noreferrer">
+  <span class="dd-cross-icon">🧮</span>
+  <span class="dd-cross-text">
+    <strong>이 환율로 직접 계산해보고 싶다면</strong>
+    <span class="dd-cross-sub">투자 계산기에서 코인·주식 손익을 바로 환산해보세요 →</span>
+  </span>
+</a>
 
 <a class="dd-share-btn" href="#" onclick="navigator.clipboard.writeText(window.location.href); alert('링크가 복사되었습니다!'); return false;">🔗 오늘의 환율 공유하기</a>
 
