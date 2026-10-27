@@ -27,10 +27,47 @@
 .dd-weather-item { flex:1; text-align:center; }
 .dd-weather-item .label { font-size:13px; color:#666; }
 .dd-weather-item .temp { font-size:18px; font-weight:700; margin-top:4px; }
+
+/* 🧮 투자 계산기 링크 카드 스타일 (1번 안 적용) */
 .dd-cross-link {
-  margin-top:20px; padding:14px; border:1px dashed #ccc; border-radius:8px;
-  font-size:14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 14px 18px;
+  background-color: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1e293b;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
+.dd-cross-link:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+.dd-cross-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.dd-cross-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14px;
+}
+.dd-cross-text strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+.dd-cross-sub {
+  color: #475569;
+}
+
 .dd-share-btn {
   margin-top:12px; display:inline-block; padding:8px 14px;
   border-radius:6px; background:#333; color:#fff; text-decoration:none; font-size:13px;
