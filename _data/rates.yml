@@ -1,5 +1,5 @@
-comment: 환전 전 확인해보세요.
-date: '2026-11-08'
+comment: 어제보다 원화가 약세예요. 해외직구·여행 환전은 서두르는 게 유리할 수 있어요.
+date: '2026-11-09'
 fx:
   AUD:
     change: 0.0
@@ -27,27 +27,27 @@ fx:
     direction: flat
     value: 1818.18
   HKD:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 172.65
+    change: 0.78
+    change_pct: 0.45
+    direction: up
+    value: 173.43
   JPY:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 858.46
+    change: 1.0
+    change_pct: 0.12
+    direction: up
+    value: 859.46
   SGD:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 1058.2
+    change: 3.37
+    change_pct: 0.32
+    direction: up
+    value: 1061.57
   USD:
-    change: 0.0
-    change_pct: 0.0
-    direction: flat
-    value: 1356.85
+    change: 3.69
+    change_pct: 0.27
+    direction: up
+    value: 1360.54
 weather:
-  today_max: 6.6
-  today_min: 2.6
-  tomorrow_max: 11.4
-  tomorrow_min: 3.9
+  today_max: 11.5
+  today_min: 4.5
+  tomorrow_max: 10.5
+  tomorrow_min: 1.6
