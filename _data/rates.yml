@@ -1,53 +1,53 @@
 comment: 어제보다 원화가 강세예요. 환전하기엔 오늘이 좀 더 유리할 수 있어요.
-date: '2026-11-12'
+date: '2026-11-13'
 fx:
   AUD:
-    change: -6.77
-    change_pct: -0.73
+    change: -7.5
+    change_pct: -0.82
     direction: down
-    value: 916.59
+    value: 909.09
   CAD:
-    change: -7.12
-    change_pct: -0.75
+    change: -4.4
+    change_pct: -0.47
     direction: down
-    value: 939.85
+    value: 935.45
   CNY:
-    change: -0.69
-    change_pct: -0.34
+    change: -0.48
+    change_pct: -0.24
     direction: down
-    value: 200.4
+    value: 199.92
   EUR:
-    change: -13.4
-    change_pct: -0.89
+    change: -11.0
+    change_pct: -0.74
     direction: down
-    value: 1488.1
+    value: 1477.1
   GBP:
-    change: -15.97
-    change_pct: -0.89
+    change: -12.58
+    change_pct: -0.71
     direction: down
-    value: 1779.36
+    value: 1766.78
   HKD:
-    change: -0.73
-    change_pct: -0.43
+    change: -0.32
+    change_pct: -0.19
     direction: down
-    value: 170.24
+    value: 169.92
   JPY:
-    change: -7.6
-    change_pct: -0.9
+    change: -4.26
+    change_pct: -0.51
     direction: down
-    value: 839.25
+    value: 834.99
   SGD:
-    change: -6.55
-    change_pct: -0.62
+    change: -4.33
+    change_pct: -0.42
     direction: down
-    value: 1041.67
+    value: 1037.34
   USD:
-    change: -7.17
-    change_pct: -0.53
+    change: -1.78
+    change_pct: -0.13
     direction: down
-    value: 1335.11
+    value: 1333.33
 weather:
-  today_max: 15.1
-  today_min: 5.7
-  tomorrow_max: 16.9
-  tomorrow_min: 7.9
+  today_max: 15.2
+  today_min: 7.6
+  tomorrow_max: 12.3
+  tomorrow_min: 9.2
