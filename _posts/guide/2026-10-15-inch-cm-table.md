@@ -2,7 +2,9 @@
 layout: guide
 title: "인치 cm 변환표 2026 — TV·모니터·노트북 화면 크기 한눈에"
 description: "1인치=2.54cm 기준 인치·cm 변환표. 55인치 TV는 화면 가로 약 121.8cm, 27인치 모니터는 약 59.8cm. TV·모니터·노트북 크기를 바로 비교하세요."
-permalink: /_posts/guide/inch-cm-table/
+permalink: /life/inch-cm-table/
+redirect_from:
+  - /_posts/guide/inch-cm-table/
 categories: [guide]
 ---
 
