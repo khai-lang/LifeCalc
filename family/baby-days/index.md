@@ -64,6 +64,21 @@ permalink: "/family/baby-days/"
   </div>
 </section>
 
+<h2>100일·200일은 생후 몇 개월인가요?</h2>
+<p>100일째는 생후 약 3개월 1~2주, 200일째는 약 6개월 2~3주입니다. 출생일에 따라 며칠씩 달라지며, 아래는 2026년 10월 1일생 예시입니다.</p>
+<div class="table-wrap">
+<table class="vc-table">
+  <thead><tr><th>이정표</th><th>날짜(예시)</th><th>생후 개월수</th></tr></thead>
+  <tbody>
+    <tr><td>백일 (100일째)</td><td>2027.1.8</td><td>3개월 7일</td></tr>
+    <tr><td>200일째</td><td>2027.4.18</td><td>6개월 17일</td></tr>
+    <tr><td>300일째</td><td>2027.7.27</td><td>9개월 26일</td></tr>
+    <tr><td>첫돌</td><td>2027.10.1</td><td>12개월</td></tr>
+    <tr><td>500일째</td><td>2028.2.12</td><td>16개월 11일</td></tr>
+  </tbody>
+</table>
+</div>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3758454239921831"
      crossorigin="anonymous"></script>
 <!-- 계산기 광고 -->
