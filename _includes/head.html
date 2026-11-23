@@ -3,14 +3,18 @@
 
 <title>
   {% if page.title %}
-    {{ page.title }} | LifeCalc
+  {% if page.title contains 'LifeCalc' %}
+    {% assign full_title = page.title %}
   {% else %}
-    {{ site.title | default: "LifeCalc" }}
+    {% assign full_title = page.title | append: ' | LifeCalc' %}
   {% endif %}
-</title>
+{% else %}
+  {% assign full_title = site.title | default: 'LifeCalc' %}
+{% endif %}
 
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="LifeCalc">
+<title>{{ full_title }}</title>
+
+<meta property="og:title" content="{{ full_title }}">
 
 <meta property="og:title"
       content="{% if page.title %}{{ page.title }} | LifeCalc{% else %}LifeCalc | 생활·세금·건강 계산기{% endif %}">
