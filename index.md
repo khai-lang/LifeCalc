@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 만나이·연봉 실수령액·전세월세 계산기
+title: LifeCalc - 만나이·연봉 실수령액·전세월세 계산기
 description: 만나이 계산기, 연봉 실수령액, 전세↔월세 전환, 대출 이자·DSR, 양도세, BMI까지 생활 계산을 빠르고 정확하게. 계산 결과는 공식 기준으로 즉시 확인하세요.
 section: home
 ---
